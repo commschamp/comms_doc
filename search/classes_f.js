@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['scalingratio',['ScalingRatio',['../structcomms_1_1option_1_1def_1_1ScalingRatio.html',1,'comms::option::def']]],
+  ['scopeguard',['ScopeGuard',['../classcomms_1_1util_1_1ScopeGuard.html',1,'comms::util']]],
+  ['sequenceelemfixedserlengthfieldprefix',['SequenceElemFixedSerLengthFieldPrefix',['../structcomms_1_1option_1_1def_1_1SequenceElemFixedSerLengthFieldPrefix.html',1,'comms::option::def']]],
+  ['sequenceelemlengthforcingenabled',['SequenceElemLengthForcingEnabled',['../structcomms_1_1option_1_1def_1_1SequenceElemLengthForcingEnabled.html',1,'comms::option::def']]],
+  ['sequenceelemserlengthfieldprefix',['SequenceElemSerLengthFieldPrefix',['../structcomms_1_1option_1_1def_1_1SequenceElemSerLengthFieldPrefix.html',1,'comms::option::def']]],
+  ['sequencefixedsize',['SequenceFixedSize',['../structcomms_1_1option_1_1def_1_1SequenceFixedSize.html',1,'comms::option::def']]],
+  ['sequencefixedsizeusefixedsizestorage',['SequenceFixedSizeUseFixedSizeStorage',['../structcomms_1_1option_1_1app_1_1SequenceFixedSizeUseFixedSizeStorage.html',1,'comms::option::app']]],
+  ['sequencelengthforcingenabled',['SequenceLengthForcingEnabled',['../structcomms_1_1option_1_1def_1_1SequenceLengthForcingEnabled.html',1,'comms::option::def']]],
+  ['sequenceserlengthfieldprefix',['SequenceSerLengthFieldPrefix',['../structcomms_1_1option_1_1def_1_1SequenceSerLengthFieldPrefix.html',1,'comms::option::def']]],
+  ['sequencesizefieldprefix',['SequenceSizeFieldPrefix',['../structcomms_1_1option_1_1def_1_1SequenceSizeFieldPrefix.html',1,'comms::option::def']]],
+  ['sequencesizeforcingenabled',['SequenceSizeForcingEnabled',['../structcomms_1_1option_1_1def_1_1SequenceSizeForcingEnabled.html',1,'comms::option::def']]],
+  ['sequenceterminationfieldsuffix',['SequenceTerminationFieldSuffix',['../structcomms_1_1option_1_1def_1_1SequenceTerminationFieldSuffix.html',1,'comms::option::def']]],
+  ['sequencetrailingfieldsuffix',['SequenceTrailingFieldSuffix',['../structcomms_1_1option_1_1def_1_1SequenceTrailingFieldSuffix.html',1,'comms::option::def']]],
+  ['speed',['Speed',['../structcomms_1_1traits_1_1units_1_1Speed.html',1,'comms::traits::units']]],
+  ['staticbinsearch',['StaticBinSearch',['../structcomms_1_1traits_1_1dispatch_1_1StaticBinSearch.html',1,'comms::traits::dispatch']]],
+  ['staticnumidimpl',['StaticNumIdImpl',['../structcomms_1_1option_1_1def_1_1StaticNumIdImpl.html',1,'comms::option::def']]],
+  ['staticstring',['StaticString',['../classcomms_1_1util_1_1StaticString.html',1,'comms::util']]],
+  ['staticvector',['StaticVector',['../classcomms_1_1util_1_1StaticVector.html',1,'comms::util']]],
+  ['string',['String',['../classcomms_1_1field_1_1String.html',1,'comms::field']]],
+  ['stringview',['StringView',['../classcomms_1_1util_1_1StringView.html',1,'comms::util']]],
+  ['supportgenericmessage',['SupportGenericMessage',['../structcomms_1_1option_1_1app_1_1SupportGenericMessage.html',1,'comms::option::app']]],
+  ['syncprefixlayer',['SyncPrefixLayer',['../classcomms_1_1protocol_1_1SyncPrefixLayer.html',1,'comms::protocol']]]
+];

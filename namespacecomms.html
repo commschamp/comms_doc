@@ -234,6 +234,14 @@ Functions</h2></td></tr>
 <tr class="memitem:a86fe9edcfc8a3ce5d43801e59d71655a"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms.html#a86fe9edcfc8a3ce5d43801e59d71655a">dispatchMsgTypeLinearSwitch</a> (TId &amp;&amp;id, std::size_t index, THandler &amp;handler)</td></tr>
 <tr class="memdesc:a86fe9edcfc8a3ce5d43801e59d71655a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dispatch message id into appropriate <b>handle()</b> function in the provided handler using linear switch behavior.  <a href="#a86fe9edcfc8a3ce5d43801e59d71655a">More...</a><br /></td></tr>
 <tr class="separator:a86fe9edcfc8a3ce5d43801e59d71655a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c2c64f47246460f460f2b7c7d3031df"><td class="memTemplParams" colspan="2">template&lt;typename TMsg , typename THandler &gt; </td></tr>
+<tr class="memitem:a0c2c64f47246460f460f2b7c7d3031df"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms.html#a0c2c64f47246460f460f2b7c7d3031df">dispatchMsgIsDirect</a> ()</td></tr>
+<tr class="memdesc:a0c2c64f47246460f460f2b7c7d3031df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time check whether the message object can use its own polymorphic <b>dispatch()</b> (see <a class="el" href="page_use_prot.html#page_use_prot_interface_handle">Polymorphic Dispatch Message for Handling</a>) when <a class="el" href="namespacecomms.html#a2452362a2fe3788e868e4f40e54cf102">dispatchMsg()</a> is invoked.  <a href="#a0c2c64f47246460f460f2b7c7d3031df">More...</a><br /></td></tr>
+<tr class="separator:a0c2c64f47246460f460f2b7c7d3031df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e8c9c182e141da40135598e5f54ccfb"><td class="memTemplParams" colspan="2">template&lt;typename TMsg , typename THandler &gt; </td></tr>
+<tr class="memitem:a5e8c9c182e141da40135598e5f54ccfb"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms.html#a5e8c9c182e141da40135598e5f54ccfb">dispatchMsgIsDirect</a> (TMsg &amp;&amp;msg, THandler &amp;&amp;handler)</td></tr>
+<tr class="memdesc:a5e8c9c182e141da40135598e5f54ccfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Similar to other <a class="el" href="namespacecomms.html#a0c2c64f47246460f460f2b7c7d3031df">dispatchMsgIsDirect()</a>, but can help in deducing template arguments.  <a href="#a5e8c9c182e141da40135598e5f54ccfb">More...</a><br /></td></tr>
+<tr class="separator:a5e8c9c182e141da40135598e5f54ccfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2452362a2fe3788e868e4f40e54cf102"><td class="memTemplParams" colspan="2">template&lt;typename TAllMessages , typename TId , typename TMsg , typename THandler &gt; </td></tr>
 <tr class="memitem:a2452362a2fe3788e868e4f40e54cf102"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms.html#a2452362a2fe3788e868e4f40e54cf102">dispatchMsg</a> (TId &amp;&amp;id, TMsg &amp;msg, THandler &amp;handler) -&gt; details::MessageInterfaceDispatchRetType&lt; typename std::decay&lt; decltype(handler)&gt;::type &gt;</td></tr>
 <tr class="memdesc:a2452362a2fe3788e868e4f40e54cf102"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dispatch message object into appropriate <b>handle()</b> function in the provided handler using either "polymorphic" or "static binary search" behavior.  <a href="#a2452362a2fe3788e868e4f40e54cf102">More...</a><br /></td></tr>
@@ -256,12 +264,28 @@ Functions</h2></td></tr>
 <tr class="separator:ab1de1104c31ee7b06c782dd84c9746e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ba1e1002f4c6c0868d4d13c2f427bc2"><td class="memTemplParams" colspan="2">template&lt;typename TAllMessages &gt; </td></tr>
 <tr class="memitem:a7ba1e1002f4c6c0868d4d13c2f427bc2"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms.html#a7ba1e1002f4c6c0868d4d13c2f427bc2">dispatchMsgTypeIsPolymorphic</a> ()</td></tr>
-<tr class="memdesc:a7ba1e1002f4c6c0868d4d13c2f427bc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time check whether the <a class="el" href="namespacecomms.html#ae6afbd722340e3bf0d18054bdab484cd">dispatchMsgType()</a> or <a class="el" href="namespacecomms.html#ae6afbd722340e3bf0d18054bdab484cd">dispatchMsgType()</a> will use "polymorphic" dispatch for provided tuple of messages.  <a href="#a7ba1e1002f4c6c0868d4d13c2f427bc2">More...</a><br /></td></tr>
+<tr class="memdesc:a7ba1e1002f4c6c0868d4d13c2f427bc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time check whether the <a class="el" href="namespacecomms.html#ae6afbd722340e3bf0d18054bdab484cd">dispatchMsgType()</a> will use "polymorphic" dispatch for provided tuple of messages.  <a href="#a7ba1e1002f4c6c0868d4d13c2f427bc2">More...</a><br /></td></tr>
 <tr class="separator:a7ba1e1002f4c6c0868d4d13c2f427bc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0616720714175c82e10a6725d62393a5"><td class="memTemplParams" colspan="2">template&lt;typename TAllMessages , typename TMsg , typename THandler &gt; </td></tr>
+<tr class="memitem:a0616720714175c82e10a6725d62393a5"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms.html#a0616720714175c82e10a6725d62393a5">dispatchMsgIsPolymorphic</a> ()</td></tr>
+<tr class="memdesc:a0616720714175c82e10a6725d62393a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time check whether the <a class="el" href="namespacecomms.html#a2452362a2fe3788e868e4f40e54cf102">dispatchMsg()</a> will use "polymorphic" (including "direct") dispatch for provided tuple of messages and handler.  <a href="#a0616720714175c82e10a6725d62393a5">More...</a><br /></td></tr>
+<tr class="separator:a0616720714175c82e10a6725d62393a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a4130b5e308065717b8d71356fbd91f"><td class="memTemplParams" colspan="2">template&lt;typename TAllMessages , typename TMsg , typename THandler &gt; </td></tr>
+<tr class="memitem:a3a4130b5e308065717b8d71356fbd91f"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms.html#a3a4130b5e308065717b8d71356fbd91f">dispatchMsgIsPolymorphic</a> (TMsg &amp;&amp;msg, THandler &amp;&amp;handler)</td></tr>
+<tr class="memdesc:a3a4130b5e308065717b8d71356fbd91f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Similar to other <a class="el" href="namespacecomms.html#a0616720714175c82e10a6725d62393a5">dispatchMsgIsPolymorphic()</a>, but can help in deducing template arguments.  <a href="#a3a4130b5e308065717b8d71356fbd91f">More...</a><br /></td></tr>
+<tr class="separator:a3a4130b5e308065717b8d71356fbd91f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9219e19e1a89e42dfbaf2f7769b32dfa"><td class="memTemplParams" colspan="2">template&lt;typename TAllMessages &gt; </td></tr>
 <tr class="memitem:a9219e19e1a89e42dfbaf2f7769b32dfa"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms.html#a9219e19e1a89e42dfbaf2f7769b32dfa">dispatchMsgTypeIsStaticBinSearch</a> ()</td></tr>
 <tr class="memdesc:a9219e19e1a89e42dfbaf2f7769b32dfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time check whether the <a class="el" href="namespacecomms.html#ae6afbd722340e3bf0d18054bdab484cd">dispatchMsgType()</a> or <a class="el" href="namespacecomms.html#ae6afbd722340e3bf0d18054bdab484cd">dispatchMsgType()</a> will use "static binary search" dispatch for provided tuple of messages.  <a href="#a9219e19e1a89e42dfbaf2f7769b32dfa">More...</a><br /></td></tr>
 <tr class="separator:a9219e19e1a89e42dfbaf2f7769b32dfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61c7f05f508ffaa6e3de6c7249c7f607"><td class="memTemplParams" colspan="2">template&lt;typename TAllMessages , typename TMsg , typename THandler &gt; </td></tr>
+<tr class="memitem:a61c7f05f508ffaa6e3de6c7249c7f607"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms.html#a61c7f05f508ffaa6e3de6c7249c7f607">dispatchMsgIsStaticBinSearch</a> ()</td></tr>
+<tr class="memdesc:a61c7f05f508ffaa6e3de6c7249c7f607"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time check whether the <a class="el" href="namespacecomms.html#a2452362a2fe3788e868e4f40e54cf102">dispatchMsg()</a> will use "static binary search" dispatch for provided tuple of messages and handler.  <a href="#a61c7f05f508ffaa6e3de6c7249c7f607">More...</a><br /></td></tr>
+<tr class="separator:a61c7f05f508ffaa6e3de6c7249c7f607"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac60741f830029beea5c6e38ef741b073"><td class="memTemplParams" colspan="2">template&lt;typename TAllMessages , typename TMsg , typename THandler &gt; </td></tr>
+<tr class="memitem:ac60741f830029beea5c6e38ef741b073"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms.html#ac60741f830029beea5c6e38ef741b073">dispatchMsgIsStaticBinSearch</a> (TMsg &amp;&amp;msg, THandler &amp;&amp;handler)</td></tr>
+<tr class="memdesc:ac60741f830029beea5c6e38ef741b073"><td class="mdescLeft">&#160;</td><td class="mdescRight">Similar to other <a class="el" href="namespacecomms.html#a61c7f05f508ffaa6e3de6c7249c7f607">dispatchMsgIsStaticBinSearch()</a>, but can help in deducing template arguments.  <a href="#ac60741f830029beea5c6e38ef741b073">More...</a><br /></td></tr>
+<tr class="separator:ac60741f830029beea5c6e38ef741b073"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a518f83d11b4e0c2a58dadb5ad0ea3042"><td class="memTemplParams" colspan="2">template&lt;typename TMessage , typename TIter &gt; </td></tr>
 <tr class="memitem:a518f83d11b4e0c2a58dadb5ad0ea3042"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms.html#a518f83d11b4e0c2a58dadb5ad0ea3042">readIteratorFor</a> (TIter &amp;&amp;iter) -&gt; decltype(details::ReadIterator&lt; TMessage &gt;::get(std::forward&lt; TIter &gt;(iter)))</td></tr>
 <tr class="memdesc:a518f83d11b4e0c2a58dadb5ad0ea3042"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and initialise iterator for message read.  <a href="#a518f83d11b4e0c2a58dadb5ad0ea3042">More...</a><br /></td></tr>
@@ -521,6 +545,12 @@ template&lt;typename TAllMessages , typename TId , typename TMsg , typename THan
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>What the called <b>handle()</b> member function of handler object returns. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Defined in <a class="el" href="dispatch_8h.html">comms/dispatch.h</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacecomms.html#a0616720714175c82e10a6725d62393a5">dispatchMsgIsPolymorphic()</a> </dd>
+<dd>
+<a class="el" href="namespacecomms.html#a61c7f05f508ffaa6e3de6c7249c7f607">dispatchMsgIsStaticBinSearch()</a> </dd>
+<dd>
+<a class="el" href="namespacecomms.html#a0c2c64f47246460f460f2b7c7d3031df">dispatchMsgIsDirect()</a>; </dd></dl>
 
 </div>
 </div>
@@ -583,6 +613,12 @@ template&lt;typename TAllMessages , typename TId , typename TMsg , typename THan
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>What the called <b>handle()</b> member function of handler object returns. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Defined in <a class="el" href="dispatch_8h.html">comms/dispatch.h</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacecomms.html#a0616720714175c82e10a6725d62393a5">dispatchMsgIsPolymorphic()</a> </dd>
+<dd>
+<a class="el" href="namespacecomms.html#a61c7f05f508ffaa6e3de6c7249c7f607">dispatchMsgIsStaticBinSearch()</a> </dd>
+<dd>
+<a class="el" href="namespacecomms.html#a0c2c64f47246460f460f2b7c7d3031df">dispatchMsgIsDirect()</a>; </dd></dl>
 
 </div>
 </div>
@@ -631,6 +667,231 @@ template&lt;typename TAllMessages , typename TMsg , typename THandler &gt; </div
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>What the called <b>handle()</b> member function of handler object returns. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Defined in <a class="el" href="dispatch_8h.html">comms/dispatch.h</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacecomms.html#a0616720714175c82e10a6725d62393a5">dispatchMsgIsPolymorphic()</a> </dd>
+<dd>
+<a class="el" href="namespacecomms.html#a61c7f05f508ffaa6e3de6c7249c7f607">dispatchMsgIsStaticBinSearch()</a> </dd>
+<dd>
+<a class="el" href="namespacecomms.html#a0c2c64f47246460f460f2b7c7d3031df">dispatchMsgIsDirect()</a>; </dd></dl>
+
+</div>
+</div>
+<a id="a0c2c64f47246460f460f2b7c7d3031df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c2c64f47246460f460f2b7c7d3031df">&#9670;&nbsp;</a></span>dispatchMsgIsDirect() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TMsg , typename THandler &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool comms::dispatchMsgIsDirect </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compile time check whether the message object can use its own polymorphic <b>dispatch()</b> (see <a class="el" href="page_use_prot.html#page_use_prot_interface_handle">Polymorphic Dispatch Message for Handling</a>) when <a class="el" href="namespacecomms.html#a2452362a2fe3788e868e4f40e54cf102">dispatchMsg()</a> is invoked. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">TMsg</td><td>Type of the message interface. </td></tr>
+    <tr><td class="paramname">THandler</td><td>Type of the message handler. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Defined in <a class="el" href="dispatch_8h.html">comms/dispatch.h</a> </dd></dl>
+
+</div>
+</div>
+<a id="a5e8c9c182e141da40135598e5f54ccfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e8c9c182e141da40135598e5f54ccfb">&#9670;&nbsp;</a></span>dispatchMsgIsDirect() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TMsg , typename THandler &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool comms::dispatchMsgIsDirect </td>
+          <td>(</td>
+          <td class="paramtype">TMsg &amp;&amp;&#160;</td>
+          <td class="paramname"><em>msg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">THandler &amp;&amp;&#160;</td>
+          <td class="paramname"><em>handler</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Similar to other <a class="el" href="namespacecomms.html#a0c2c64f47246460f460f2b7c7d3031df">dispatchMsgIsDirect()</a>, but can help in deducing template arguments. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msg</td><td>Reference to the message object via its interface class. </td></tr>
+    <tr><td class="paramname">handler</td><td>Reference to the handler object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>The result can be evaluated at compile time, but compilers don't support usage of this form in static_assert. </dd>
+<dd>
+Defined in <a class="el" href="dispatch_8h.html">comms/dispatch.h</a> </dd></dl>
+
+</div>
+</div>
+<a id="a0616720714175c82e10a6725d62393a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0616720714175c82e10a6725d62393a5">&#9670;&nbsp;</a></span>dispatchMsgIsPolymorphic() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TAllMessages , typename TMsg , typename THandler &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool comms::dispatchMsgIsPolymorphic </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compile time check whether the <a class="el" href="namespacecomms.html#a2452362a2fe3788e868e4f40e54cf102">dispatchMsg()</a> will use "polymorphic" (including "direct") dispatch for provided tuple of messages and handler. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">TAllMessages</td><td><b>std::tuple</b> of supported message classes, sorted in ascending order by their numeric IDs. </td></tr>
+    <tr><td class="paramname">TMsg</td><td>Type of the common message interface. </td></tr>
+    <tr><td class="paramname">THandler</td><td>Type of the handler being used for dispatch. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Will return <b>true</b> in case <a class="el" href="namespacecomms.html#a0c2c64f47246460f460f2b7c7d3031df">dispatchMsgIsDirect()</a> returns true; </dd>
+<dd>
+Defined in <a class="el" href="dispatch_8h.html">comms/dispatch.h</a> </dd></dl>
+
+</div>
+</div>
+<a id="a3a4130b5e308065717b8d71356fbd91f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a4130b5e308065717b8d71356fbd91f">&#9670;&nbsp;</a></span>dispatchMsgIsPolymorphic() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TAllMessages , typename TMsg , typename THandler &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool comms::dispatchMsgIsPolymorphic </td>
+          <td>(</td>
+          <td class="paramtype">TMsg &amp;&amp;&#160;</td>
+          <td class="paramname"><em>msg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">THandler &amp;&amp;&#160;</td>
+          <td class="paramname"><em>handler</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Similar to other <a class="el" href="namespacecomms.html#a0616720714175c82e10a6725d62393a5">dispatchMsgIsPolymorphic()</a>, but can help in deducing template arguments. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msg</td><td>Reference to the message object via its interface class. </td></tr>
+    <tr><td class="paramname">handler</td><td>Reference to the handler object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>The result can be evaluated at compile time, but compilers don't support usage of this form in static_assert. </dd>
+<dd>
+Defined in <a class="el" href="dispatch_8h.html">comms/dispatch.h</a> </dd></dl>
+
+</div>
+</div>
+<a id="a61c7f05f508ffaa6e3de6c7249c7f607"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61c7f05f508ffaa6e3de6c7249c7f607">&#9670;&nbsp;</a></span>dispatchMsgIsStaticBinSearch() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TAllMessages , typename TMsg , typename THandler &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool comms::dispatchMsgIsStaticBinSearch </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compile time check whether the <a class="el" href="namespacecomms.html#a2452362a2fe3788e868e4f40e54cf102">dispatchMsg()</a> will use "static binary search" dispatch for provided tuple of messages and handler. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">TAllMessages</td><td><b>std::tuple</b> of supported message classes, sorted in ascending order by their numeric IDs. </td></tr>
+    <tr><td class="paramname">TMsg</td><td>Type of the common message interface. </td></tr>
+    <tr><td class="paramname">THandler</td><td>Type of the handler being used for dispatch. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Will return <b>false</b> in case <a class="el" href="namespacecomms.html#a0c2c64f47246460f460f2b7c7d3031df">dispatchMsgIsDirect()</a> returns true; </dd>
+<dd>
+Defined in <a class="el" href="dispatch_8h.html">comms/dispatch.h</a> </dd></dl>
+
+</div>
+</div>
+<a id="ac60741f830029beea5c6e38ef741b073"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac60741f830029beea5c6e38ef741b073">&#9670;&nbsp;</a></span>dispatchMsgIsStaticBinSearch() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TAllMessages , typename TMsg , typename THandler &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool comms::dispatchMsgIsStaticBinSearch </td>
+          <td>(</td>
+          <td class="paramtype">TMsg &amp;&amp;&#160;</td>
+          <td class="paramname"><em>msg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">THandler &amp;&amp;&#160;</td>
+          <td class="paramname"><em>handler</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Similar to other <a class="el" href="namespacecomms.html#a61c7f05f508ffaa6e3de6c7249c7f607">dispatchMsgIsStaticBinSearch()</a>, but can help in deducing template arguments. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msg</td><td>Reference to the message object via its interface class. </td></tr>
+    <tr><td class="paramname">handler</td><td>Reference to the handler object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>The result can be evaluated at compile time, but compilers don't support usage of this form in static_assert. </dd>
+<dd>
+Defined in <a class="el" href="dispatch_8h.html">comms/dispatch.h</a> </dd></dl>
 
 </div>
 </div>
@@ -686,6 +947,7 @@ template&lt;typename TAllMessages , typename TId , typename TMsg , typename THan
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>What the called <b>handle()</b> member function of handler object returns. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Defined in <a class="el" href="dispatch_8h.html">comms/dispatch.h</a> </dd></dl>
 
 </div>
 </div>
@@ -748,6 +1010,7 @@ template&lt;typename TAllMessages , typename TId , typename TMsg , typename THan
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>What the called <b>handle()</b> member function of handler object returns. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Defined in <a class="el" href="dispatch_8h.html">comms/dispatch.h</a> </dd></dl>
 
 </div>
 </div>
@@ -796,6 +1059,7 @@ template&lt;typename TAllMessages , typename TMsg , typename THandler &gt; </div
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>What the called <b>handle()</b> member function of handler object returns. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Defined in <a class="el" href="dispatch_8h.html">comms/dispatch.h</a> </dd></dl>
 
 </div>
 </div>
@@ -851,6 +1115,7 @@ template&lt;typename TAllMessages , typename TId , typename TMsg , typename THan
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>What the called <b>handle()</b> member function of handler object returns. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Defined in <a class="el" href="dispatch_8h.html">comms/dispatch.h</a> </dd></dl>
 
 </div>
 </div>
@@ -913,6 +1178,7 @@ template&lt;typename TAllMessages , typename TId , typename TMsg , typename THan
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>What the called <b>handle()</b> member function of handler object returns. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Defined in <a class="el" href="dispatch_8h.html">comms/dispatch.h</a> </dd></dl>
 
 </div>
 </div>
@@ -961,6 +1227,7 @@ template&lt;typename TAllMessages , typename TMsg , typename THandler &gt; </div
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>What the called <b>handle()</b> member function of handler object returns. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Defined in <a class="el" href="dispatch_8h.html">comms/dispatch.h</a> </dd></dl>
 
 </div>
 </div>
@@ -1023,6 +1290,7 @@ template&lt;typename TAllMessages , typename TId , typename TMsg , typename THan
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>What the called <b>handle()</b> member function of handler object returns. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Defined in <a class="el" href="dispatch_8h.html">comms/dispatch.h</a> </dd></dl>
 
 </div>
 </div>
@@ -1078,6 +1346,7 @@ template&lt;typename TAllMessages , typename TId , typename TMsg , typename THan
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>What the called <b>handle()</b> member function of handler object returns. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Defined in <a class="el" href="dispatch_8h.html">comms/dispatch.h</a> </dd></dl>
 
 </div>
 </div>
@@ -1126,6 +1395,7 @@ template&lt;typename TAllMessages , typename TMsg , typename THandler &gt; </div
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>What the called <b>handle()</b> member function of handler object returns. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Defined in <a class="el" href="dispatch_8h.html">comms/dispatch.h</a> </dd></dl>
 
 </div>
 </div>
@@ -1172,6 +1442,10 @@ template&lt;typename TAllMessages , typename TId , typename THandler &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><b>true</b> in case the appropriate <b>handle()</b> member function of the handler object has been called, <b>false</b> otherwise. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Defined in <a class="el" href="dispatch_8h.html">comms/dispatch.h</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacecomms.html#a7ba1e1002f4c6c0868d4d13c2f427bc2">dispatchMsgTypeIsPolymorphic()</a> </dd>
+<dd>
+<a class="el" href="namespacecomms.html#a9219e19e1a89e42dfbaf2f7769b32dfa">dispatchMsgTypeIsStaticBinSearch()</a> </dd></dl>
 
 </div>
 </div>
@@ -1225,6 +1499,10 @@ template&lt;typename TAllMessages , typename TId , typename THandler &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><b>true</b> in case the appropriate <b>handle()</b> member function of the handler object has been called, <b>false</b> otherwise. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Defined in <a class="el" href="dispatch_8h.html">comms/dispatch.h</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacecomms.html#a7ba1e1002f4c6c0868d4d13c2f427bc2">dispatchMsgTypeIsPolymorphic()</a> </dd>
+<dd>
+<a class="el" href="namespacecomms.html#a9219e19e1a89e42dfbaf2f7769b32dfa">dispatchMsgTypeIsStaticBinSearch()</a> </dd></dl>
 
 </div>
 </div>
@@ -1259,6 +1537,7 @@ template&lt;typename TAllMessages , typename TId &gt; </div>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>Defined in <a class="el" href="dispatch_8h.html">comms/dispatch.h</a> </dd></dl>
 
 </div>
 </div>
@@ -1279,13 +1558,14 @@ template&lt;typename TAllMessages &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Compile time check whether the <a class="el" href="namespacecomms.html#ae6afbd722340e3bf0d18054bdab484cd">dispatchMsgType()</a> or <a class="el" href="namespacecomms.html#ae6afbd722340e3bf0d18054bdab484cd">dispatchMsgType()</a> will use "polymorphic" dispatch for provided tuple of messages. </p>
+<p>Compile time check whether the <a class="el" href="namespacecomms.html#ae6afbd722340e3bf0d18054bdab484cd">dispatchMsgType()</a> will use "polymorphic" dispatch for provided tuple of messages. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">TAllMessages</td><td><b>std::tuple</b> of supported message classes, sorted in ascending order by their numeric IDs. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>Defined in <a class="el" href="dispatch_8h.html">comms/dispatch.h</a> </dd></dl>
 
 </div>
 </div>
@@ -1313,6 +1593,7 @@ template&lt;typename TAllMessages &gt; </div>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>Defined in <a class="el" href="dispatch_8h.html">comms/dispatch.h</a> </dd></dl>
 
 </div>
 </div>
@@ -1359,6 +1640,7 @@ template&lt;typename TAllMessages , typename TId , typename THandler &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><b>true</b> in case the appropriate <b>handle()</b> member function of the handler object has been called, <b>false</b> otherwise. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Defined in <a class="el" href="dispatch_8h.html">comms/dispatch.h</a> </dd></dl>
 
 </div>
 </div>
@@ -1412,6 +1694,7 @@ template&lt;typename TAllMessages , typename TId , typename THandler &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><b>true</b> in case the appropriate <b>handle()</b> member function of the handler object has been called, <b>false</b> otherwise. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Defined in <a class="el" href="dispatch_8h.html">comms/dispatch.h</a> </dd></dl>
 
 </div>
 </div>
@@ -1458,6 +1741,7 @@ template&lt;typename TAllMessages , typename TId , typename THandler &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><b>true</b> in case the appropriate <b>handle()</b> member function of the handler object has been called, <b>false</b> otherwise. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Defined in <a class="el" href="dispatch_8h.html">comms/dispatch.h</a> </dd></dl>
 
 </div>
 </div>
@@ -1511,6 +1795,7 @@ template&lt;typename TAllMessages , typename TId , typename THandler &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><b>true</b> in case the appropriate <b>handle()</b> member function of the handler object has been called, <b>false</b> otherwise. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Defined in <a class="el" href="dispatch_8h.html">comms/dispatch.h</a> </dd></dl>
 
 </div>
 </div>
@@ -1557,6 +1842,7 @@ template&lt;typename TAllMessages , typename TId , typename THandler &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><b>true</b> in case the appropriate <b>handle()</b> member function of the handler object has been called, <b>false</b> otherwise. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Defined in <a class="el" href="dispatch_8h.html">comms/dispatch.h</a> </dd></dl>
 
 </div>
 </div>
@@ -1610,6 +1896,7 @@ template&lt;typename TAllMessages , typename TId , typename THandler &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><b>true</b> in case the appropriate <b>handle()</b> member function of the handler object has been called, <b>false</b> otherwise. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Defined in <a class="el" href="dispatch_8h.html">comms/dispatch.h</a> </dd></dl>
 
 </div>
 </div>
@@ -2208,7 +2495,7 @@ template&lt;typename TMessage , typename TIter &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 6 2019 16:13:37 for COMMS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 11 2019 15:44:52 for COMMS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

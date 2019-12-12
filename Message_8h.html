@@ -101,8 +101,11 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a6fe96d7272148945853ce61572b3d4b1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Message_8h.html#a6fe96d7272148945853ce61572b3d4b1">COMMS_MSG_TRANSPORT_FIELD_ALIAS_NOTEMPLATE</a>(f_, ...)&#160;&#160;&#160;COMMS_EXPAND(COMMS_DO_ALIAS_NOTEMPLATE(transportField_, f_, __VA_ARGS__))</td></tr>
-<tr class="memdesc:a6fe96d7272148945853ce61572b3d4b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate convinience alias access member functions for extra member transport fields in non template interface classes.  <a href="#a6fe96d7272148945853ce61572b3d4b1">More...</a><br /></td></tr>
+<tr class="memitem:ad869d496cd7e59771fb13079970cd102"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Message_8h.html#ad869d496cd7e59771fb13079970cd102">COMMS_MSG_TRANSPORT_FIELD_ALIAS_ACCESS_NOTEMPLATE</a>(f_, ...)&#160;&#160;&#160;COMMS_EXPAND(COMMS_DO_ALIAS_NOTEMPLATE(transportField_, f_, __VA_ARGS__))</td></tr>
+<tr class="memdesc:ad869d496cd7e59771fb13079970cd102"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate convinience alias access member functions for extra member transport fields in non template interface classes.  <a href="#ad869d496cd7e59771fb13079970cd102">More...</a><br /></td></tr>
+<tr class="separator:ad869d496cd7e59771fb13079970cd102"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fe96d7272148945853ce61572b3d4b1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Message_8h.html#a6fe96d7272148945853ce61572b3d4b1">COMMS_MSG_TRANSPORT_FIELD_ALIAS_NOTEMPLATE</a>(f_, ...)</td></tr>
+<tr class="memdesc:a6fe96d7272148945853ce61572b3d4b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate convinience alias access member functions and type for extra member transport fields in non template interface classes.  <a href="#a6fe96d7272148945853ce61572b3d4b1">More...</a><br /></td></tr>
 <tr class="separator:a6fe96d7272148945853ce61572b3d4b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
@@ -132,6 +135,38 @@ template&lt;typename... TOptions&gt; </td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains definition of Message object interface and various base classes for custom messages. </p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ad869d496cd7e59771fb13079970cd102"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad869d496cd7e59771fb13079970cd102">&#9670;&nbsp;</a></span>COMMS_MSG_TRANSPORT_FIELD_ALIAS_ACCESS_NOTEMPLATE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define COMMS_MSG_TRANSPORT_FIELD_ALIAS_ACCESS_NOTEMPLATE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">f_, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;COMMS_EXPAND(COMMS_DO_ALIAS_NOTEMPLATE(transportField_, f_, __VA_ARGS__))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generate convinience alias access member functions for extra member transport fields in non template interface classes. </p>
+<p>Similar to <a class="el" href="classcomms_1_1Message.html#adfa416afa2a8a77af9c46b42d3034f3e">COMMS_MSG_TRANSPORT_FIELD_ALIAS</a>, but needs to be used in <b>non-template</b> interface class to allow compilation with gcc-4.8 </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classcomms_1_1Message.html#a33954a8d8c1b0e04175ada3e840bcb83">COMMS_MSG_TRANSPORT_FIELD_ALIAS_ACCESS()</a> </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Defined in "comms/Message.h" </dd></dl>
+
+</div>
+</div>
 <a id="a6fe96d7272148945853ce61572b3d4b1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6fe96d7272148945853ce61572b3d4b1">&#9670;&nbsp;</a></span>COMMS_MSG_TRANSPORT_FIELD_ALIAS_NOTEMPLATE</h2>
 
@@ -153,20 +188,22 @@ template&lt;typename... TOptions&gt; </td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;COMMS_EXPAND(COMMS_DO_ALIAS_NOTEMPLATE(transportField_, f_, __VA_ARGS__))</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Generate convinience alias access member functions for extra member transport fields in non template interface classes. </p>
-<p>Similar to <a class="el" href="classcomms_1_1Message.html#adfa416afa2a8a77af9c46b42d3034f3e">COMMS_MSG_TRANSPORT_FIELD_ALIAS</a>, but needs to be used in <b>non-template</b> interface class to allow compilation with gcc-4.8 </p>
+<b>Value:</b><div class="fragment"><div class="line">COMMS_EXPAND(<a class="code" href="Message_8h.html#ad869d496cd7e59771fb13079970cd102">COMMS_MSG_TRANSPORT_FIELD_ALIAS_ACCESS_NOTEMPLATE</a>(f_, __VA_ARGS__)) \</div><div class="line">    COMMS_EXPAND(COMMS_DO_ALIAS_TYPEDEF(TransportField_, f_, __VA_ARGS__))</div><div class="ttc" id="Message_8h_html_ad869d496cd7e59771fb13079970cd102"><div class="ttname"><a href="Message_8h.html#ad869d496cd7e59771fb13079970cd102">COMMS_MSG_TRANSPORT_FIELD_ALIAS_ACCESS_NOTEMPLATE</a></div><div class="ttdeci">#define COMMS_MSG_TRANSPORT_FIELD_ALIAS_ACCESS_NOTEMPLATE(f_,...)</div><div class="ttdoc">Generate convinience alias access member functions for extra member transport fields in non template ...</div><div class="ttdef"><b>Definition:</b> Message.h:738</div></div>
+</div><!-- fragment -->
+<p>Generate convinience alias access member functions and type for extra member transport fields in non template interface classes. </p>
+<p>Similar to <a class="el" href="classcomms_1_1Message.html#adfa416afa2a8a77af9c46b42d3034f3e">COMMS_MSG_TRANSPORT_FIELD_ALIAS()</a>, but needs to be used in <b>non-template</b> interface class to allow compilation with gcc-4.8 </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classcomms_1_1Message.html#adfa416afa2a8a77af9c46b42d3034f3e">COMMS_MSG_TRANSPORT_FIELD_ALIAS()</a> </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Defined in "comms/Message.h" </dd></dl>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 11 2019 15:44:50 for COMMS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 13 2019 07:37:27 for COMMS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

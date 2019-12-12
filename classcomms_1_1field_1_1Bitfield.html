@@ -102,9 +102,11 @@ class comms::field::Bitfield&lt; TFieldBase, TMembers, TOptions &gt;</h3>
 <dl class="section pre"><dt>Precondition</dt><dd>TMember is a variant of std::tuple, that contains other fields. </dd>
 <dd>
 Every field member specifies its length in bits using <a class="el" href="structcomms_1_1option_1_1def_1_1FixedBitLength.html">comms::option::def::FixedBitLength</a> option.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classcomms_1_1field_1_1Bitfield.html#a96226a2c000a3145a48ce074b6a7f847">COMMS_FIELD_MEMBERS_ACCESS()</a> </dd>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="Field_8h.html#af74198f06b52d3f58c92e795b2ff7129">COMMS_FIELD_MEMBERS_NAMES()</a> </dd>
 <dd>
-<a class="el" href="classcomms_1_1field_1_1Bitfield.html#a83dcd24efc7be6d3a95eadfb259a6b33">COMMS_FIELD_MEMBERS_ACCESS_NOTEMPLATE()</a> </dd>
+<a class="el" href="Field_8h.html#a96226a2c000a3145a48ce074b6a7f847">COMMS_FIELD_MEMBERS_ACCESS()</a> </dd>
+<dd>
+<a class="el" href="Field_8h.html#a83dcd24efc7be6d3a95eadfb259a6b33">COMMS_FIELD_MEMBERS_ACCESS_NOTEMPLATE()</a> </dd>
 <dd>
 <a class="el" href="Field_8h.html#a7adc16bdcc59b3f0a646c106816c9cab">COMMS_FIELD_ALIAS()</a> </dd></dl>
 </div><div class="dynheader">
@@ -275,12 +277,6 @@ Related Functions</h2></td></tr>
 <tr class="memitem:a9806f9a996cf17660fddb5a5ae363f46"><td class="memTemplItemLeft" align="right" valign="top">const <a class="el" href="classcomms_1_1field_1_1Bitfield.html">Bitfield</a>&lt; TFieldBase, TMembers, TOptions... &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1Bitfield.html#a9806f9a996cf17660fddb5a5ae363f46">toFieldBase</a> (const <a class="el" href="classcomms_1_1field_1_1Bitfield.html">Bitfield</a>&lt; TFieldBase, TMembers, TOptions... &gt; &amp;field)</td></tr>
 <tr class="memdesc:a9806f9a996cf17660fddb5a5ae363f46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Upcast type of the field definition to its parent <a class="el" href="classcomms_1_1field_1_1Bitfield.html" title="Bitfield field. ">comms::field::Bitfield</a> type in order to have access to its internal types.  <a href="#a9806f9a996cf17660fddb5a5ae363f46">More...</a><br /></td></tr>
 <tr class="separator:a9806f9a996cf17660fddb5a5ae363f46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96226a2c000a3145a48ce074b6a7f847"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1Bitfield.html#a96226a2c000a3145a48ce074b6a7f847">COMMS_FIELD_MEMBERS_ACCESS</a>(...)</td></tr>
-<tr class="memdesc:a96226a2c000a3145a48ce074b6a7f847"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add convenience access enum and functions to the members of bundle fields, such as <a class="el" href="classcomms_1_1field_1_1Bundle.html" title="Bundles multiple fields into a single field. ">comms::field::Bundle</a> or <a class="el" href="classcomms_1_1field_1_1Bitfield.html" title="Bitfield field. ">comms::field::Bitfield</a>.  <a href="#a96226a2c000a3145a48ce074b6a7f847">More...</a><br /></td></tr>
-<tr class="separator:a96226a2c000a3145a48ce074b6a7f847"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83dcd24efc7be6d3a95eadfb259a6b33"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1Bitfield.html#a83dcd24efc7be6d3a95eadfb259a6b33">COMMS_FIELD_MEMBERS_ACCESS_NOTEMPLATE</a>(...)</td></tr>
-<tr class="memdesc:a83dcd24efc7be6d3a95eadfb259a6b33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Similar to <a class="el" href="classcomms_1_1field_1_1Bitfield.html#a96226a2c000a3145a48ce074b6a7f847">COMMS_FIELD_MEMBERS_ACCESS()</a>, but dedicated for non-template classes.  <a href="#a83dcd24efc7be6d3a95eadfb259a6b33">More...</a><br /></td></tr>
-<tr class="separator:a83dcd24efc7be6d3a95eadfb259a6b33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a7d94711fcc0ef8a6fe831cb8d2fd551a"></a>
@@ -1070,78 +1066,6 @@ template&lt;typename TIter &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Friends And Related Function Documentation</h2>
-<a id="a96226a2c000a3145a48ce074b6a7f847"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96226a2c000a3145a48ce074b6a7f847">&#9670;&nbsp;</a></span>COMMS_FIELD_MEMBERS_ACCESS</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename TFieldBase, typename TMembers, typename... TOptions&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define COMMS_FIELD_MEMBERS_ACCESS</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>...</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">COMMS_EXPAND(COMMS_DEFINE_FIELD_ENUM(__VA_ARGS__)) \</div><div class="line">    COMMS_FIELD_VALUE_ACCESS_FUNC { \</div><div class="line">        auto&amp; val = <a class="code" href="namespacecomms_1_1field.html#a9127363faf239beb7a9d44afc5c5665f">comms::field::toFieldBase</a>(*this).value(); \</div><div class="line">        using AllFieldsTuple = <span class="keyword">typename</span> std::decay&lt;decltype(val)&gt;::type; \</div><div class="line">        static_assert(std::tuple_size&lt;AllFieldsTuple&gt;::value == FieldIdx_numOfValues, \</div><div class="line">            <span class="stringliteral">&quot;Invalid number of names for fields tuple&quot;</span>); \</div><div class="line">        return val; \</div><div class="line">    } \</div><div class="line">    COMMS_FIELD_VALUE_ACCESS_CONST_FUNC { \</div><div class="line">        auto&amp; val = <a class="code" href="namespacecomms_1_1field.html#a9127363faf239beb7a9d44afc5c5665f">comms::field::toFieldBase</a>(*this).value(); \</div><div class="line">        using AllFieldsTuple = <span class="keyword">typename</span> std::decay&lt;decltype(val)&gt;::type; \</div><div class="line">        static_assert(std::tuple_size&lt;AllFieldsTuple&gt;::value == FieldIdx_numOfValues, \</div><div class="line">            <span class="stringliteral">&quot;Invalid number of names for fields tuple&quot;</span>); \</div><div class="line">        return val; \</div><div class="line">    } \</div><div class="line">    COMMS_EXPAND(COMMS_DO_FIELD_ACC_FUNC(<a class="code" href="classcomms_1_1field_1_1Bitfield.html#a7d94711fcc0ef8a6fe831cb8d2fd551a">ValueType</a>, <a class="code" href="classcomms_1_1field_1_1Bitfield.html#a80cf3ed42ed61895a62e98a6ebfe4e3c">value</a>(), __VA_ARGS__))</div></div><!-- fragment -->
-<p>Add convenience access enum and functions to the members of bundle fields, such as <a class="el" href="classcomms_1_1field_1_1Bundle.html" title="Bundles multiple fields into a single field. ">comms::field::Bundle</a> or <a class="el" href="classcomms_1_1field_1_1Bitfield.html" title="Bitfield field. ">comms::field::Bitfield</a>. </p>
-<p>The fields of "bundle" types, such as <a class="el" href="classcomms_1_1field_1_1Bundle.html" title="Bundles multiple fields into a single field. ">comms::field::Bundle</a> or <a class="el" href="classcomms_1_1field_1_1Bitfield.html" title="Bitfield field. ">comms::field::Bitfield</a> keep their members bundled in <a href="http://en.cppreference.com/w/cpp/utility/tuple">std::tuple</a> and provide access to them via <b><a class="el" href="classcomms_1_1field_1_1Bitfield.html#a860dec7b3bdc52722f91037d6adacc03" title="Get access to the stored tuple of fields. ">value()</a></b> member functions. The access to the specific member field can be obtained using <a href="http://en.cppreference.com/w/cpp/utility/tuple/get">std::get</a> later on: </p><div class="fragment"><div class="line"><span class="keyword">using</span> MyFieldBase = <a class="code" href="classcomms_1_1Field.html">comms::Field&lt;comms::option::def::BigEndian&gt;</a>;</div><div class="line"><span class="keyword">using</span> ... Field1;</div><div class="line"><span class="keyword">using</span> ... Field2;</div><div class="line"><span class="keyword">using</span> ... Field3;</div><div class="line"><span class="keyword">using</span> MyField =</div><div class="line">    <a class="code" href="classcomms_1_1field_1_1Bitfield.html">comms::field::Bitfield</a>&lt;</div><div class="line">        MyFieldBase,</div><div class="line">        std::tuple&lt;Field1, Field2, Field3&gt;</div><div class="line">    &gt;;</div><div class="line"></div><div class="line">MyField field;</div><div class="line"><span class="keyword">auto</span>&amp; members = field.<a class="code" href="classcomms_1_1field_1_1Bitfield.html#a80cf3ed42ed61895a62e98a6ebfe4e3c">value</a>();</div><div class="line"><span class="keyword">auto</span>&amp; firstMember = std::get&lt;0&gt;(members);</div><div class="line"><span class="keyword">auto</span>&amp; secondMember = std::get&lt;1&gt;(members);</div><div class="line"><span class="keyword">auto</span>&amp; thirdMember = std::get&lt;2&gt;(members);</div></div><!-- fragment --><p> However, it would be convenient to provide names and easier access to the member fields. The <a class="el" href="classcomms_1_1field_1_1Bitfield.html#a96226a2c000a3145a48ce074b6a7f847" title="Add convenience access enum and functions to the members of bundle fields, such as comms::field::Bund...">COMMS_FIELD_MEMBERS_ACCESS()</a> macro does exactly that when used inside the field class definition. Just inherit from the "bundle" field and use the macro inside with the names for the member fields: </p><div class="fragment"><div class="line"><span class="keyword">class </span>MyField : <span class="keyword">public</span> <a class="code" href="classcomms_1_1field_1_1Bitfield.html">comms::field::Bitfield</a>&lt;...&gt;</div><div class="line">{</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <a class="code" href="classcomms_1_1field_1_1Bitfield.html#a96226a2c000a3145a48ce074b6a7f847">COMMS_FIELD_MEMBERS_ACCESS</a>(member1, member2, member3);</div><div class="line">}</div></div><!-- fragment --><p> It would be equivalent to having the following types and functions definitions: </p><div class="fragment"><div class="line"><span class="keyword">class </span>MyField : <span class="keyword">public</span> <a class="code" href="classcomms_1_1field_1_1Bitfield.html">comms::field::Bitfield</a>&lt;...&gt;</div><div class="line">{</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="comment">// Access indices for member fields</span></div><div class="line">    <span class="keyword">enum</span> FieldIdx {</div><div class="line">        FieldIdx_member1,</div><div class="line">        FieldIdx_member2,</div><div class="line">        FieldIdx_member3,</div><div class="line">        FieldIdx_numOfValues</div><div class="line">    };</div><div class="line"></div><div class="line">    <span class="comment">// Accessor to &quot;member1&quot; member field.</span></div><div class="line">    <span class="keyword">auto</span> field_member1() -&gt; decltype(std::get&lt;FieldIdx_member1&gt;(<a class="code" href="classcomms_1_1field_1_1Bitfield.html#a80cf3ed42ed61895a62e98a6ebfe4e3c">value</a>()))</div><div class="line">    {</div><div class="line">        <span class="keywordflow">return</span> std::get&lt;FieldIdx_member1&gt;(<a class="code" href="classcomms_1_1field_1_1Bitfield.html#a80cf3ed42ed61895a62e98a6ebfe4e3c">value</a>());</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">// Accessor to const &quot;member1&quot; member field.</span></div><div class="line">    <span class="keyword">auto</span> field_member1() const -&gt; decltype(<a class="code" href="namespacestd.html">std</a>::get&lt;FieldIdx_member1&gt;(<a class="code" href="classcomms_1_1field_1_1Bitfield.html#a80cf3ed42ed61895a62e98a6ebfe4e3c">value</a>()))</div><div class="line">    {</div><div class="line">        <span class="keywordflow">return</span> std::get&lt;FieldIdx_member1&gt;(<a class="code" href="classcomms_1_1field_1_1Bitfield.html#a80cf3ed42ed61895a62e98a6ebfe4e3c">value</a>());</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">// Accessor to &quot;member2&quot; member field.</span></div><div class="line">    <span class="keyword">auto</span> field_member2() -&gt; decltype(std::get&lt;FieldIdx_member2&gt;(<a class="code" href="classcomms_1_1field_1_1Bitfield.html#a80cf3ed42ed61895a62e98a6ebfe4e3c">value</a>()))</div><div class="line">    {</div><div class="line">        <span class="keywordflow">return</span> std::get&lt;FieldIdx_member2&gt;(<a class="code" href="classcomms_1_1field_1_1Bitfield.html#a80cf3ed42ed61895a62e98a6ebfe4e3c">value</a>());</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">// Accessor to const &quot;member2&quot; member field.</span></div><div class="line">    <span class="keyword">auto</span> field_member2() const -&gt; decltype(<a class="code" href="namespacestd.html">std</a>::get&lt;FieldIdx_member2&gt;(<a class="code" href="classcomms_1_1field_1_1Bitfield.html#a80cf3ed42ed61895a62e98a6ebfe4e3c">value</a>()))</div><div class="line">    {</div><div class="line">        <span class="keywordflow">return</span> std::get&lt;FieldIdx_member2&gt;(<a class="code" href="classcomms_1_1field_1_1Bitfield.html#a80cf3ed42ed61895a62e98a6ebfe4e3c">value</a>());</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">// Accessor to &quot;member3&quot; member field.</span></div><div class="line">    <span class="keyword">auto</span> field_member3() -&gt; decltype(std::get&lt;FieldIdx_member2&gt;(<a class="code" href="classcomms_1_1field_1_1Bitfield.html#a80cf3ed42ed61895a62e98a6ebfe4e3c">value</a>()))</div><div class="line">    {</div><div class="line">        <span class="keywordflow">return</span> std::get&lt;FieldIdx_member3&gt;(<a class="code" href="classcomms_1_1field_1_1Bitfield.html#a80cf3ed42ed61895a62e98a6ebfe4e3c">value</a>());</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">// Accessor to const &quot;member3&quot; member field.</span></div><div class="line">    <span class="keyword">auto</span> field_member2() const -&gt; decltype(<a class="code" href="namespacestd.html">std</a>::get&lt;FieldIdx_member3&gt;(<a class="code" href="classcomms_1_1field_1_1Bitfield.html#a80cf3ed42ed61895a62e98a6ebfe4e3c">value</a>()))</div><div class="line">    {</div><div class="line">        <span class="keywordflow">return</span> std::get&lt;FieldIdx_member3&gt;(<a class="code" href="classcomms_1_1field_1_1Bitfield.html#a80cf3ed42ed61895a62e98a6ebfe4e3c">value</a>());</div><div class="line">    }</div><div class="line">};</div></div><!-- fragment --><p> <b>NOTE</b>, that provided names <b>member1</b>, <b>member2</b>, and <b>member3</b>, have found their way to the following definitions: </p><ul>
-<li><b>FieldIdx</b> enum. The names are prefixed with <b>FieldIdx_</b>. The <b>FieldIdx_nameOfValues</b> value is automatically added at the end. </li>
-<li>Accessor functions prefixed with <b>field_</b> </li>
-</ul>
-<p>See <a class="el" href="page_field_tutorial.html#sec_field_tutorial_bitfield">Bitfield Fields</a> for more examples and details </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">...</td><td>List of member fields' names.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section warning"><dt>Warning</dt><dd>Some compilers, such as <b>clang</b> or early versions of <b>g++</b> may have problems compiling code generated by this macro even though it uses valid C++11 constructs in attempt to automatically identify the type of the base class. If the compilation fails, and this macro resides inside a <b>NON-template</b> class, please use <a class="el" href="classcomms_1_1field_1_1Bitfield.html#a83dcd24efc7be6d3a95eadfb259a6b33">COMMS_FIELD_MEMBERS_ACCESS_NOTEMPLATE()</a> macro instead. In case this macro needs to reside inside a <b>template</b> class, then there is a need to define inner <b>Base</b> type, which specifies exact type of the <a class="el" href="classcomms_1_1field_1_1Bitfield.html">comms::field::Bitfield</a> class. For example: <div class="fragment"><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span>... TExtraOptions&gt;</div><div class="line"><span class="keyword">class </span>MyField : <span class="keyword">public</span></div><div class="line">    <a class="code" href="classcomms_1_1field_1_1Bitfield.html">comms::field::Bitfield</a>&lt;</div><div class="line">        MyFieldBase,</div><div class="line">        std::tuple&lt;Field1, Field2, Field3&gt;,</div><div class="line">        TExtraOptions...</div><div class="line">    &gt;</div><div class="line">{</div><div class="line">    <span class="comment">// Define type of the base class</span></div><div class="line">    <span class="keyword">using</span> Base =</div><div class="line">        <a class="code" href="classcomms_1_1field_1_1Bitfield.html">comms::field::Bitfield</a>&lt;</div><div class="line">            MyFieldBase,</div><div class="line">            std::tuple&lt;Field1, Field2, Field3&gt;,</div><div class="line">            TExtraOptions...</div><div class="line">        &gt;;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <a class="code" href="classcomms_1_1field_1_1Bitfield.html#a96226a2c000a3145a48ce074b6a7f847">COMMS_FIELD_MEMBERS_ACCESS</a>(member1, member2, member3);</div><div class="line">};</div></div><!-- fragment --> </dd></dl>
-
-</div>
-</div>
-<a id="a83dcd24efc7be6d3a95eadfb259a6b33"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a83dcd24efc7be6d3a95eadfb259a6b33">&#9670;&nbsp;</a></span>COMMS_FIELD_MEMBERS_ACCESS_NOTEMPLATE</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename TFieldBase, typename TMembers, typename... TOptions&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define COMMS_FIELD_MEMBERS_ACCESS_NOTEMPLATE</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>...</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">related</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">COMMS_EXPAND(COMMS_DEFINE_FIELD_ENUM(__VA_ARGS__)) \</div><div class="line">    COMMS_EXPAND(COMMS_DO_FIELD_ACC_FUNC_NOTEMPLATE(__VA_ARGS__))</div></div><!-- fragment -->
-<p>Similar to <a class="el" href="classcomms_1_1field_1_1Bitfield.html#a96226a2c000a3145a48ce074b6a7f847">COMMS_FIELD_MEMBERS_ACCESS()</a>, but dedicated for non-template classes. </p>
-<p>The <a class="el" href="classcomms_1_1field_1_1Bitfield.html#a96226a2c000a3145a48ce074b6a7f847">COMMS_FIELD_MEMBERS_ACCESS()</a> macro is a generic one, which can be used in any class (template, or non-template). However, some compilers (such as <b>g++-4.9</b> and below, <b>clang-4.0</b> and below) may fail to compile it even though it uses valid C++11 constructs. If the compilation fails and the class it is being used in is <b>NOT</b> a template one, please use <a class="el" href="classcomms_1_1field_1_1Bitfield.html#a83dcd24efc7be6d3a95eadfb259a6b33">COMMS_FIELD_MEMBERS_ACCESS_NOTEMPLATE()</a> instead. </p>
-
-</div>
-</div>
 <a id="a53af4544b98de91f768dc4bc1a3d4910"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a53af4544b98de91f768dc4bc1a3d4910">&#9670;&nbsp;</a></span>isBitfield()</h2>
 
@@ -1382,14 +1306,13 @@ template&lt;typename TFieldBase , typename TMembers , typename... TOptions&gt; <
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/comms/field/<a class="el" href="Bitfield_8h_source.html">Bitfield.h</a></li>
-<li>include/comms/<a class="el" href="Field_8h_source.html">Field.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 11 2019 15:44:52 for COMMS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 13 2019 07:37:32 for COMMS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

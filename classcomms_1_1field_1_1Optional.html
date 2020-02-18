@@ -1029,10 +1029,8 @@ template&lt;typename TIter &gt; </div>
 </div><div class="memdoc">
 
 <p>Write current field value to output data sequence. </p>
-<p>If field is marked as missing (mode is <a class="el" href="namespacecomms_1_1field.html#ab1a00acfb597ac892cc9d5a73740ad9ea2aee0be2678ee90fd327cc186826438e" title="Field doesn&#39;t exist. ">OptionalMode::Missing</a>), function returns <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38" title="Used to indicate successful outcome of the operation. ">comms::ErrorStatus::Success</a> without advancing iterator.<br />
- If field is marked as existing (mode is <a class="el" href="namespacecomms_1_1field.html#ab1a00acfb597ac892cc9d5a73740ad9ea2a8eb028670e972535e8e246be645821" title="Field must exist. ">OptionalMode::Exists</a>) the <a class="el" href="classcomms_1_1field_1_1Optional.html#ada54d12b7ceeba866517ac1ae3a60339" title="Write current field value to output data sequence. ">write()</a> member function of the wrapped field object is invoked.<br />
- If field is marked to be tentative (mode is <a class="el" href="namespacecomms_1_1field.html#ab1a00acfb597ac892cc9d5a73740ad9eaa556234919c177c5759fa36a2040bafa">OptionalMode::Tentative</a>), the call redirected to wrapped field's <a class="el" href="classcomms_1_1field_1_1Optional.html#ada54d12b7ceeba866517ac1ae3a60339" title="Write current field value to output data sequence. ">write()</a> member function if value of the "len" parameter is greater than 0, i.e. there is space available for writing.<br />
- Otherwise, <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38" title="Used to indicate successful outcome of the operation. ">comms::ErrorStatus::Success</a> is returned. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>If field is marked as missing (mode is <a class="el" href="namespacecomms_1_1field.html#ab1a00acfb597ac892cc9d5a73740ad9ea2aee0be2678ee90fd327cc186826438e" title="Field doesn&#39;t exist. ">OptionalMode::Missing</a>) or tentative (mode is <a class="el" href="namespacecomms_1_1field.html#ab1a00acfb597ac892cc9d5a73740ad9eaa556234919c177c5759fa36a2040bafa">OptionalMode::Tentative</a>) the function returns <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38" title="Used to indicate successful outcome of the operation. ">comms::ErrorStatus::Success</a> without advancing iterator.<br />
+ If field is marked as existing (mode is <a class="el" href="namespacecomms_1_1field.html#ab1a00acfb597ac892cc9d5a73740ad9ea2a8eb028670e972535e8e246be645821" title="Field must exist. ">OptionalMode::Exists</a>) the <a class="el" href="classcomms_1_1field_1_1Optional.html#ada54d12b7ceeba866517ac1ae3a60339" title="Write current field value to output data sequence. ">write()</a> member function of the wrapped field object is invoked. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">iter</td><td>Iterator to write the data. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>Maximal number of bytes that can be written. </td></tr>
@@ -1587,7 +1585,7 @@ template&lt;typename TField , typename... TOptions&gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Dec 17 2019 07:39:41 for COMMS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Feb 18 2020 08:01:05 for COMMS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

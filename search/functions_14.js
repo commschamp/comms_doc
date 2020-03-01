@@ -10,6 +10,7 @@ var searchData=
   ['_7eenumvalue',['~EnumValue',['../classcomms_1_1field_1_1EnumValue.html#a9ede1314b4ce73d8f1eed94bc494ad63',1,'comms::field::EnumValue']]],
   ['_7egenerichandler',['~GenericHandler',['../classcomms_1_1GenericHandler.html#a236c3d4534b00a0b2c6b8c0def35ccc1',1,'comms::GenericHandler']]],
   ['_7egenericmessage',['~GenericMessage',['../classcomms_1_1GenericMessage.html#aa82d0346539c62ffcf0a33844a2d5bbe',1,'comms::GenericMessage']]],
+  ['_7einplacesingle',['~InPlaceSingle',['../classcomms_1_1util_1_1alloc_1_1InPlaceSingle.html#a093f6a3d117b2569a808055da5f6aca3',1,'comms::util::alloc::InPlaceSingle']]],
   ['_7eintvalue',['~IntValue',['../classcomms_1_1field_1_1IntValue.html#a2a5edcf75d6e1da722d7c656910878b6',1,'comms::field::IntValue']]],
   ['_7emessage',['~Message',['../classcomms_1_1Message.html#a2e92ee93252dcf912384ade08349dd74',1,'comms::Message']]],
   ['_7emsgdatalayer',['~MsgDataLayer',['../classcomms_1_1protocol_1_1MsgDataLayer.html#af2e02a2b105548981f6802bf72b38f90',1,'comms::protocol::MsgDataLayer']]],

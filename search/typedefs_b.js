@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['megabytesratio',['MegabytesRatio',['../namespacecomms_1_1traits_1_1units.html#a817ff543ea140b6dcfc53e41af0edd89',1,'comms::traits::units']]],
   ['megahzratio',['MegaHzRatio',['../namespacecomms_1_1traits_1_1units.html#afcec2b654a33c98fb8b932bc4d201102',1,'comms::traits::units']]],
   ['members',['Members',['../classcomms_1_1field_1_1Variant.html#ab2eb6294779f735e19e2202bb751a40b',1,'comms::field::Variant']]],
   ['message',['Message',['../classcomms_1_1MsgFactory.html#a9752974bea52f5c1d0da9baccca19c08',1,'comms::MsgFactory::Message()'],['../classcomms_1_1protocol_1_1MsgIdLayer.html#a620b70fe3164c7dc2dcb7223d7fcffcf',1,'comms::protocol::MsgIdLayer::Message()']]],

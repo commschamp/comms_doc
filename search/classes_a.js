@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['memory',['Memory',['../structcomms_1_1traits_1_1units_1_1Memory.html',1,'comms::traits::units']]],
   ['message',['Message',['../classcomms_1_1Message.html',1,'comms']]],
   ['messagebase',['MessageBase',['../classcomms_1_1MessageBase.html',1,'comms']]],
   ['messagebase_3c_20tmessage_2c_20comms_3a_3aoption_3a_3adef_3a_3afieldsimpl_3c_20genericmessagefields_3c_20tmessage_3a_3afield_2c_20tfieldopts_20_3e_20_3e_2c_20comms_3a_3aoption_3a_3adef_3a_3amsgtype_3c_20genericmessage_3c_20tmessage_2c_20tfieldopts_2c_20textraopts_20_3e_20_3e_2c_20comms_3a_3aoption_3a_3adef_3a_3ahasdogetid_2c_20comms_3a_3aoption_3a_3adef_3a_3ahasname_2c_20textraopts_20_3e',['MessageBase&lt; TMessage, comms::option::def::FieldsImpl&lt; GenericMessageFields&lt; TMessage::Field, TFieldOpts &gt; &gt;, comms::option::def::MsgType&lt; GenericMessage&lt; TMessage, TFieldOpts, TExtraOpts &gt; &gt;, comms::option::def::HasDoGetId, comms::option::def::HasName, TExtraOpts &gt;',['../classcomms_1_1MessageBase.html',1,'comms']]],

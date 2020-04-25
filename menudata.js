@@ -28,10 +28,12 @@ var menudata={children:[
 {text:"w",url:"namespacemembers_w.html#index_w"},
 {text:"z",url:"namespacemembers_z.html#index_z"}]},
 {text:"Functions",url:"namespacemembers_func.html",children:[
-{text:"c",url:"namespacemembers_func.html#index_c"},
+{text:"a",url:"namespacemembers_func.html#index_a"},
+{text:"c",url:"namespacemembers_func_c.html#index_c"},
 {text:"d",url:"namespacemembers_func_d.html#index_d"},
 {text:"f",url:"namespacemembers_func_f.html#index_f"},
 {text:"g",url:"namespacemembers_func_g.html#index_g"},
+{text:"h",url:"namespacemembers_func_h.html#index_h"},
 {text:"i",url:"namespacemembers_func_i.html#index_i"},
 {text:"m",url:"namespacemembers_func_m.html#index_m"},
 {text:"p",url:"namespacemembers_func_p.html#index_p"},

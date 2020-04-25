@@ -64,6 +64,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
@@ -77,6 +78,12 @@ $(function() {
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Namespace for various utility classes and/or functions used by COMMS library. </p>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacecomms_1_1util_1_1detect"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1util_1_1detect.html">detect</a></td></tr>
+<tr class="memdesc:namespacecomms_1_1util_1_1detect"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for various <b>compile-time</b> detection operations of whether a type has certain member types and/or member functions. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1util_1_1ArrayView.html">ArrayView</a></td></tr>
@@ -210,6 +217,10 @@ template&lt;typename T , std::size_t TSize, typename TIter &gt; </td></tr>
 <tr class="memitem:ab2f6f5090da8f7ddbe0764b321cb0e4b"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1util.html#ab2f6f5090da8f7ddbe0764b321cb0e4b">readData</a> (TIter &amp;iter, const <a class="el" href="structcomms_1_1util_1_1traits_1_1endian_1_1Little.html">traits::endian::Little</a> &amp;endian)</td></tr>
 <tr class="memdesc:ab2f6f5090da8f7ddbe0764b321cb0e4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="namespacecomms_1_1util.html#a54e372f33dbb939e3d7eef06330c15dd" title="Same as readBig&lt;T, TIter&gt;() ">readData&lt;T, TSize, TIter&gt;()</a> <br /></td></tr>
 <tr class="separator:ab2f6f5090da8f7ddbe0764b321cb0e4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b2699905fdbe18d691e4cf30619c7cc"><td class="memTemplParams" colspan="2">template&lt;typename T , typename TIter &gt; </td></tr>
+<tr class="memitem:a8b2699905fdbe18d691e4cf30619c7cc"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1util.html#a8b2699905fdbe18d691e4cf30619c7cc">assign</a> (T &amp;obj, TIter from, TIter to)</td></tr>
+<tr class="memdesc:a8b2699905fdbe18d691e4cf30619c7cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns a new value to provided object.  <a href="#a8b2699905fdbe18d691e4cf30619c7cc">More...</a><br /></td></tr>
+<tr class="separator:a8b2699905fdbe18d691e4cf30619c7cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf59ca5a23253d6a0acb92d9eed7520a"><td class="memTemplParams" colspan="2">template&lt;typename TType &gt; </td></tr>
 <tr class="memitem:acf59ca5a23253d6a0acb92d9eed7520a"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1util.html#acf59ca5a23253d6a0acb92d9eed7520a">isTuple</a> ()</td></tr>
 <tr class="memdesc:acf59ca5a23253d6a0acb92d9eed7520a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether provided type is a variant of <a href="http://en.cppreference.com/w/cpp/utility/tuple">std::tuple</a>.  <a href="#acf59ca5a23253d6a0acb92d9eed7520a">More...</a><br /></td></tr>
@@ -272,6 +283,44 @@ template&lt;typename T , std::size_t TSize, typename TIter &gt; </td></tr>
 <tr class="separator:a53dd7e6d9194fe01e2ce42d4b8cc35f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a8b2699905fdbe18d691e4cf30619c7cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b2699905fdbe18d691e4cf30619c7cc">&#9670;&nbsp;</a></span>assign()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename TIter &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void comms::util::assign </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TIter&#160;</td>
+          <td class="paramname"><em>from</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TIter&#160;</td>
+          <td class="paramname"><em>to</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Assigns a new value to provided object. </p>
+<p>The function detects at <b>compile-time</b> presence of <a class="el" href="namespacecomms_1_1util.html#a8b2699905fdbe18d691e4cf30619c7cc" title="Assigns a new value to provided object. ">assign()</a> member function and uses it. In case the <a class="el" href="namespacecomms_1_1util.html#a8b2699905fdbe18d691e4cf30619c7cc" title="Assigns a new value to provided object. ">assign()</a> member function does not exist (for types like <b>std::string_view</b> or <b>std::span</b>) the function checks for presence of a constructor that can receive a pointer to the first element + number of elements (size) and uses it instead to create temporary object and then uses move / copy constructor to assign the value. </p><div class="fragment"><div class="line"><span class="keyword">static</span> <span class="keyword">const</span> std::string Str(<span class="stringliteral">&quot;hello&quot;</span>);</div><div class="line"></div><div class="line">std::string s1;</div><div class="line"><a class="code" href="namespacecomms_1_1util.html#a8b2699905fdbe18d691e4cf30619c7cc">comms::util::assign</a>(s1, Str.begin(), Str.end()) <span class="comment">// &lt;-- equivalent to s1.assign(Str.begin(), Str.end());</span></div><div class="line"></div><div class="line">std::string_view s2;</div><div class="line"><a class="code" href="namespacecomms_1_1util.html#a8b2699905fdbe18d691e4cf30619c7cc">comms::util::assign</a>(s2, Str.begin(), Str.end()) <span class="comment">// &lt;-- equivalent to s2 = std::string_view(&amp;(*Str.begin()), std::distance(Str.begin(), Str.end()));</span></div></div><!-- fragment --> 
+</div>
+</div>
 <a id="acf59ca5a23253d6a0acb92d9eed7520a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acf59ca5a23253d6a0acb92d9eed7520a">&#9670;&nbsp;</a></span>isTuple()</h2>
 
@@ -1308,7 +1357,7 @@ template&lt;typename T , typename TIter &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Feb 27 2020 07:50:56 for COMMS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Apr 25 2020 10:21:10 for COMMS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

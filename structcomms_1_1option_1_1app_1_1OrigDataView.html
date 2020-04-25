@@ -71,16 +71,21 @@ $(function() {
 <p><code>#include &quot;<a class="el" href="options_8h_source.html">comms/options.h</a>&quot;</code></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Use "view" on original raw data instead of copying it. </p>
-<p>Can be used with <a class="el" href="classcomms_1_1field_1_1String.html">comms::field::String</a> and raw data <a class="el" href="classcomms_1_1field_1_1ArrayList.html">comms::field::ArrayList</a>, will force usage of <a class="el" href="classcomms_1_1util_1_1StringView.html">comms::util::StringView</a> and <a class="el" href="classcomms_1_1util_1_1ArrayView.html" title="Describes an object that can refer to a constant contiguous sequence of other objects. ">comms::util::ArrayView</a> respectively as data storage type. </p><dl class="section note"><dt>Note</dt><dd>The original data must be preserved until destruction of the field that uses the "view". </dd>
+<p>Can be used with <a class="el" href="classcomms_1_1field_1_1String.html">comms::field::String</a> and raw data <a class="el" href="classcomms_1_1field_1_1ArrayList.html">comms::field::ArrayList</a>.<br />
+ For <a class="el" href="classcomms_1_1field_1_1String.html">comms::field::String</a> it will force usage of <a href="https://en.cppreference.com/w/cpp/string/basic_string_view">std::string_view</a> (if available) as inner storage type (instead of <b>std::string</b>). In case <b>std::string_view</b> is unavalable (C++17 support is disabled or standard library of insufficient version) <a class="el" href="classcomms_1_1util_1_1StringView.html">comms::util::StringView</a> will be used instead.<br />
+ For raw data <a class="el" href="classcomms_1_1field_1_1ArrayList.html">comms::field::ArrayList</a> it will force usage of <a href="https://en.cppreference.com/w/cpp/container/span">std::span&lt;std::uint8_t&gt;</a>(if available) as inner storage type (instead of <b>std::vector&lt;std::uint8_t&gt;</b>). In case <b>std::span</b> is unavalable (C++20 support is disabled or standard library of insufficient version) <a class="el" href="classcomms_1_1util_1_1ArrayView.html">comms::util::ArrayView</a> will be used instead.<br />
+</p><dl class="section note"><dt>Note</dt><dd>The original data must be preserved until destruction of the field that uses the "view". </dd>
 <dd>
-Incompatible with other options that contol data storage type, such as <a class="el" href="namespacecomms_1_1option.html#ad5985379c19124ac48082850c891b73e">comms::option::CustomStorageType</a> or <a class="el" href="namespacecomms_1_1option.html#ad4e3c3a82b1d31d1dd1aa0cae2447e09">comms::option::FixedSizeStorage</a> </dd></dl>
+Incompatible with other options that contol data storage type, such as <a class="el" href="namespacecomms_1_1option.html#ad5985379c19124ac48082850c891b73e">comms::option::CustomStorageType</a> or <a class="el" href="namespacecomms_1_1option.html#ad4e3c3a82b1d31d1dd1aa0cae2447e09">comms::option::FixedSizeStorage</a> </dd>
+<dd>
+To force usage of provided <a class="el" href="classcomms_1_1util_1_1StringView.html">comms::util::StringView</a> or <a class="el" href="classcomms_1_1util_1_1ArrayView.html">comms::util::ArrayView</a> instead of standard <b>std::string_view</b> or <b>std::span</b>, use <a class="el" href="namespacecomms_1_1option.html#ad5985379c19124ac48082850c891b73e">comms::option::CustomStorageType</a> option. </dd></dl>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>include/comms/<a class="el" href="options_8h_source.html">options.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Feb 27 2020 07:50:55 for COMMS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Apr 25 2020 10:21:10 for COMMS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

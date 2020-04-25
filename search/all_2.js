@@ -82,6 +82,7 @@ var searchData=
   ['customstoragetype',['CustomStorageType',['../structcomms_1_1option_1_1app_1_1CustomStorageType.html',1,'comms::option::app::CustomStorageType&lt; TType &gt;'],['../namespacecomms_1_1option.html#ad5985379c19124ac48082850c891b73e',1,'comms::option::CustomStorageType()']]],
   ['customvaluereader',['CustomValueReader',['../structcomms_1_1option_1_1def_1_1CustomValueReader.html',1,'comms::option::def::CustomValueReader&lt; T &gt;'],['../namespacecomms_1_1option.html#a93238995e3b9c60b7fce22478dd7a755',1,'comms::option::CustomValueReader()']]],
   ['def',['def',['../namespacecomms_1_1option_1_1def.html',1,'comms::option']]],
+  ['detect',['detect',['../namespacecomms_1_1util_1_1detect.html',1,'comms::util']]],
   ['dispatch',['dispatch',['../namespacecomms_1_1traits_1_1dispatch.html',1,'comms::traits']]],
   ['endian',['endian',['../namespacecomms_1_1traits_1_1endian.html',1,'comms::traits']]],
   ['field',['field',['../namespacecomms_1_1field.html',1,'comms']]],

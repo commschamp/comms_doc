@@ -13,5 +13,6 @@ var searchData=
   ['bitmaskvalue_2eh',['BitmaskValue.h',['../BitmaskValue_8h.html',1,'']]],
   ['bufferoverflow',['BufferOverflow',['../namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a68ec6e62c5fcbbb68b5ce093bdd60717',1,'comms']]],
   ['bundle',['Bundle',['../classcomms_1_1field_1_1Bundle.html',1,'comms::field::Bundle&lt; TFieldBase, TMembers, TOptions &gt;'],['../classcomms_1_1field_1_1Bundle.html#a1d92cbd0d7e192109edb5ce861507e93',1,'comms::field::Bundle::Bundle()=default'],['../classcomms_1_1field_1_1Bundle.html#a2c24185396c16efe9a3c2d8db3f931d9',1,'comms::field::Bundle::Bundle(const ValueType &amp;val)'],['../classcomms_1_1field_1_1Bundle.html#aaeb6b2eade887be4b3ebc477412197d9',1,'comms::field::Bundle::Bundle(ValueType &amp;&amp;val)']]],
-  ['bundle_2eh',['Bundle.h',['../Bundle_8h.html',1,'']]]
+  ['bundle_2eh',['Bundle.h',['../Bundle_8h.html',1,'']]],
+  ['bytesratio',['BytesRatio',['../namespacecomms_1_1traits_1_1units.html#a461b0997fd3e3762fe86399cb8ec9ae5',1,'comms::traits::units']]]
 ];

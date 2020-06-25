@@ -1,0 +1,14 @@
+<map id="include/comms/protocol/ProtocolLayerBase.h" name="include/comms/protocol/ProtocolLayerBase.h">
+<area shape="rect" id="node1" title=" " alt="" coords="562,5,740,47"/>
+<area shape="rect" id="node2" href="$process_8h.html" title=" " alt="" coords="158,273,344,300"/>
+<area shape="rect" id="node4" href="$details_2ProtocolLayerBase_8h_source.html" title=" " alt="" coords="440,95,646,136"/>
+<area shape="rect" id="node11" href="$MsgDataLayer_8h.html" title=" " alt="" coords="752,95,931,136"/>
+<area shape="rect" id="node12" href="$TransportValueLayer_8h.html" title=" " alt="" coords="995,95,1174,136"/>
+<area shape="rect" id="node3" href="$comms_8h.html" title=" " alt="" coords="266,348,452,375"/>
+<area shape="rect" id="node5" href="$ChecksumLayer_8h.html" title=" " alt="" coords="28,184,207,225"/>
+<area shape="rect" id="node7" href="$ChecksumPrefixLayer_8h.html" title=" " alt="" coords="231,184,410,225"/>
+<area shape="rect" id="node8" href="$MsgIdLayer_8h.html" title=" " alt="" coords="434,184,612,225"/>
+<area shape="rect" id="node9" href="$MsgSizeLayer_8h.html" title=" " alt="" coords="636,184,815,225"/>
+<area shape="rect" id="node10" href="$SyncPrefixLayer_8h.html" title=" " alt="" coords="839,184,1018,225"/>
+<area shape="rect" id="node6" href="$protocols_8h.html" title=" " alt="" coords="526,273,723,300"/>
+</map>

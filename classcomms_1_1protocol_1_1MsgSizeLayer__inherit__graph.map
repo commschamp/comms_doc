@@ -1,0 +1,4 @@
+<map id="comms::protocol::MsgSizeLayer&lt; TField, TNextLayer, TOptions &gt;" name="comms::protocol::MsgSizeLayer&lt; TField, TNextLayer, TOptions &gt;">
+<area shape="rect" id="node1" title="Protocol layer that uses size field as a prefix to all the subsequent data written by other (next) la..." alt="" coords="368,35,567,91"/>
+<area shape="rect" id="node2" href="$classcomms_1_1protocol_1_1ProtocolLayerBase.html" title="Base class for all the middle (non MsgDataLayer) protocol transport layers." alt="" coords="5,5,320,120"/>
+</map>

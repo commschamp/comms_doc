@@ -1,0 +1,5 @@
+<map id="comms::GenericMessage&lt; TMessage, TFieldOpts, TExtraOpts &gt;" name="comms::GenericMessage&lt; TMessage, TFieldOpts, TExtraOpts &gt;">
+<area shape="rect" id="node1" title="Generic Message." alt="" coords="664,57,851,113"/>
+<area shape="rect" id="node2" href="$classcomms_1_1MessageBase.html" title=" " alt="" coords="277,5,616,164"/>
+<area shape="rect" id="node3" href="$classcomms_1_1Message.html" title="Main interface class for all the messages." alt="" coords="5,71,229,98"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classcomms_1_1Message.html" title="Main interface class for all the messages." alt="" coords="5,75,229,102"/>
+<area shape="rect" id="node2" href="$classcomms_1_1MessageBase.html" title="Base class for all the custom protocol messages." alt="" coords="355,5,539,47"/>
+<area shape="rect" id="node3" href="$classcomms_1_1MessageBase.html" title=" " alt="" coords="277,71,616,229"/>
+<area shape="rect" id="node4" href="$classcomms_1_1GenericMessage.html" title="Generic Message." alt="" coords="664,122,851,178"/>
+</map>

@@ -1,0 +1,15 @@
+<map id="comms::Field&lt; TOptions &gt;" name="comms::Field&lt; TOptions &gt;">
+<area shape="rect" id="node1" title="Base class to all the field classes." alt="" coords="5,419,203,445"/>
+<area shape="rect" id="node2" href="$classcomms_1_1field_1_1ArrayList.html" title="Field that represents a sequential collection of fields." alt="" coords="281,5,463,61"/>
+<area shape="rect" id="node3" href="$classcomms_1_1field_1_1Bitfield.html" title="Bitfield field." alt="" coords="277,85,467,141"/>
+<area shape="rect" id="node4" href="$classcomms_1_1field_1_1BitmaskValue.html" title="Bitmask value field." alt="" coords="270,166,474,207"/>
+<area shape="rect" id="node5" href="$classcomms_1_1field_1_1Bundle.html" title="Bundles multiple fields into a single field." alt="" coords="277,232,467,288"/>
+<area shape="rect" id="node6" href="$classcomms_1_1field_1_1EnumValue.html" title="Enumerator value field." alt="" coords="251,313,493,354"/>
+<area shape="rect" id="node7" href="$classcomms_1_1field_1_1FloatValue.html" title="Field that represent floating point value." alt="" coords="269,378,475,419"/>
+<area shape="rect" id="node8" href="$classcomms_1_1field_1_1IntValue.html" title="Field that represent integral value." alt="" coords="269,443,475,485"/>
+<area shape="rect" id="node9" href="$classcomms_1_1field_1_1NoValue.html" title="Dummy field with &quot;do&#45;nothing&quot; read/write operations." alt="" coords="288,509,456,550"/>
+<area shape="rect" id="node10" href="$classcomms_1_1field_1_1Optional.html" title="Adaptor class to any other field, that makes the field optional." alt="" coords="287,574,457,615"/>
+<area shape="rect" id="node11" href="$classcomms_1_1field_1_1String.html" title="Field that represents a string." alt="" coords="277,639,467,681"/>
+<area shape="rect" id="node12" href="$classcomms_1_1field_1_1Variant.html" title="Defines a &quot;variant&quot; field, that can contain any of the provided ones." alt="" coords="277,705,467,761"/>
+<area shape="rect" id="node13" href="$classcomms_1_1field_1_1IntValue.html" title=" " alt="" coords="271,785,473,841"/>
+</map>

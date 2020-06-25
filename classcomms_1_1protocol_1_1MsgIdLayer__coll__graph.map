@@ -1,0 +1,4 @@
+<map id="comms::protocol::MsgIdLayer&lt; TField, TMessage, TAllMessages, TNextLayer, TOptions &gt;" name="comms::protocol::MsgIdLayer&lt; TField, TMessage, TAllMessages, TNextLayer, TOptions &gt;">
+<area shape="rect" id="node1" title="Protocol layer that uses uses message ID field as a prefix to all the subsequent data written by othe..." alt="" coords="329,35,580,91"/>
+<area shape="rect" id="node2" href="$classcomms_1_1protocol_1_1ProtocolLayerBase.html" title="Base class for all the middle (non MsgDataLayer) protocol transport layers." alt="" coords="5,5,281,120"/>
+</map>

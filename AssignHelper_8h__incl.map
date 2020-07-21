@@ -1,10 +1,10 @@
 <map id="include/comms/util/details/AssignHelper.h" name="include/comms/util/details/AssignHelper.h">
-<area shape="rect" id="node1" title=" " alt="" coords="168,5,339,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="243,177,335,203"/>
-<area shape="rect" id="node3" title=" " alt="" coords="182,95,253,121"/>
-<area shape="rect" id="node4" href="$util_2detect_8h.html" title="Various compile&#45;time detection functions of whether specific member functions and/or types exist." alt="" coords="5,95,157,121"/>
-<area shape="rect" id="node6" href="$Assert_8h.html" title=" " alt="" coords="330,95,457,121"/>
-<area shape="rect" id="node5" href="$util_2details_2detect_8h.html" title=" " alt="" coords="10,169,153,211"/>
-<area shape="rect" id="node7" title=" " alt="" coords="360,177,429,203"/>
-<area shape="rect" id="node8" title=" " alt="" coords="454,177,514,203"/>
+<area shape="rect" id="node1" title=" " alt="" coords="155,5,311,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="225,177,307,203"/>
+<area shape="rect" id="node3" title=" " alt="" coords="167,95,229,121"/>
+<area shape="rect" id="node4" href="$util_2detect_8h.html" title="Various compile&#45;time detection functions of whether specific member functions and/or types exist." alt="" coords="5,95,143,121"/>
+<area shape="rect" id="node6" href="$Assert_8h.html" title=" " alt="" coords="305,95,424,121"/>
+<area shape="rect" id="node5" href="$util_2details_2detect_8h.html" title=" " alt="" coords="10,169,138,211"/>
+<area shape="rect" id="node7" title=" " alt="" coords="332,177,397,203"/>
+<area shape="rect" id="node8" title=" " alt="" coords="422,177,475,203"/>
 </map>

@@ -1,4 +1,4 @@
 <map id="comms::MessageBase&lt; TMessage, TOptions &gt;" name="comms::MessageBase&lt; TMessage, TOptions &gt;">
-<area shape="rect" id="node1" title="Base class for all the custom protocol messages." alt="" coords="25,80,209,121"/>
-<area shape="rect" id="node2" href="$classcomms_1_1Message.html" title="Main interface class for all the messages." alt="" coords="5,5,229,32"/>
+<area shape="rect" id="node1" title="Base class for all the custom protocol messages." alt="" coords="23,80,191,121"/>
+<area shape="rect" id="node2" href="$classcomms_1_1Message.html" title="Main interface class for all the messages." alt="" coords="5,5,208,32"/>
 </map>

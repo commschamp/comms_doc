@@ -1,6 +1,6 @@
 <map id="include/comms/fields.h" name="include/comms/fields.h">
-<area shape="rect" id="node1" title=" " alt="" coords="9,5,181,32"/>
-<area shape="rect" id="node2" href="$comms_8h.html" title=" " alt="" coords="5,244,191,271"/>
-<area shape="rect" id="node3" href="$MsgIdLayer_8h.html" title=" " alt="" coords="71,80,250,121"/>
-<area shape="rect" id="node4" href="$protocols_8h.html" title=" " alt="" coords="67,169,265,196"/>
+<area shape="rect" id="node1" title=" " alt="" coords="9,5,165,32"/>
+<area shape="rect" id="node2" href="$comms_8h.html" title=" " alt="" coords="5,244,173,271"/>
+<area shape="rect" id="node3" href="$MsgIdLayer_8h.html" title=" " alt="" coords="68,80,228,121"/>
+<area shape="rect" id="node4" href="$protocols_8h.html" title=" " alt="" coords="64,169,243,196"/>
 </map>

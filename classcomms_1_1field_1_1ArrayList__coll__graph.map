@@ -1,4 +1,4 @@
 <map id="comms::field::ArrayList&lt; TFieldBase, TElement, TOptions &gt;" name="comms::field::ArrayList&lt; TFieldBase, TElement, TOptions &gt;">
-<area shape="rect" id="node1" title="Field that represents a sequential collection of fields." alt="" coords="13,80,195,136"/>
-<area shape="rect" id="node2" href="$classcomms_1_1Field.html" title="Base class to all the field classes." alt="" coords="5,5,203,32"/>
+<area shape="rect" id="node1" title="Field that represents a sequential collection of fields." alt="" coords="11,80,179,136"/>
+<area shape="rect" id="node2" href="$classcomms_1_1Field.html" title="Base class to all the field classes." alt="" coords="5,5,184,32"/>
 </map>

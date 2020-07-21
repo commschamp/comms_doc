@@ -180,14 +180,22 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ae45d58655196689af98b797ac080a8a1"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ae45d58655196689af98b797ac080a8a1">readUntilDataFieldsCached</a> (TAllFields &amp;allFields, TMsg &amp;msg, TIter &amp;iter, std::size_t size, TExtraValues...)</td></tr>
 <tr class="memdesc:ae45d58655196689af98b797ac080a8a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read transport fields with caching until data layer.  <a href="classcomms_1_1protocol_1_1MsgDataLayer.html#ae45d58655196689af98b797ac080a8a1">More...</a><br /></td></tr>
 <tr class="separator:ae45d58655196689af98b797ac080a8a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace01cbbe59b714cc85660f7ddf473fa5"><td class="memTemplParams" colspan="2">template&lt;typename TMsg , typename TIter &gt; </td></tr>
+<tr class="memitem:ace01cbbe59b714cc85660f7ddf473fa5"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ace01cbbe59b714cc85660f7ddf473fa5">update</a> (const TMsg &amp;msg, TIter &amp;iter, std::size_t size)</td></tr>
+<tr class="memdesc:ace01cbbe59b714cc85660f7ddf473fa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update recently written (using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a935db3ebfbe34f8e7f586f79d26b48ed" title="Write the message contents.">write()</a>) message contents data.  <a href="classcomms_1_1protocol_1_1MsgDataLayer.html#ace01cbbe59b714cc85660f7ddf473fa5">More...</a><br /></td></tr>
+<tr class="separator:ace01cbbe59b714cc85660f7ddf473fa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01cb43cba733e7823d92488c6de9dbb5"><td class="memTemplParams" colspan="2">template&lt;typename TIter &gt; </td></tr>
 <tr class="memitem:a01cb43cba733e7823d92488c6de9dbb5"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a01cb43cba733e7823d92488c6de9dbb5">update</a> (TIter &amp;iter, std::size_t size)</td></tr>
 <tr class="memdesc:a01cb43cba733e7823d92488c6de9dbb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update recently written (using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a935db3ebfbe34f8e7f586f79d26b48ed" title="Write the message contents.">write()</a>) message contents data.  <a href="classcomms_1_1protocol_1_1MsgDataLayer.html#a01cb43cba733e7823d92488c6de9dbb5">More...</a><br /></td></tr>
 <tr class="separator:a01cb43cba733e7823d92488c6de9dbb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9da78812d0b88df92b05dd0a9da90481"><td class="memTemplParams" colspan="2">template&lt;std::size_t TIdx, typename TAllFields , typename TIter &gt; </td></tr>
-<tr class="memitem:a9da78812d0b88df92b05dd0a9da90481"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a9da78812d0b88df92b05dd0a9da90481">updateFieldsCached</a> (TAllFields &amp;allFields, TIter &amp;iter, std::size_t size)</td></tr>
-<tr class="memdesc:a9da78812d0b88df92b05dd0a9da90481"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update recently written (using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ade1b09931e8153a8b2a6a34f5ec580e6" title="Write the message contents while caching the written transport information fields.">writeFieldsCached()</a>) message data as well as cached transport information fields.  <a href="classcomms_1_1protocol_1_1MsgDataLayer.html#a9da78812d0b88df92b05dd0a9da90481">More...</a><br /></td></tr>
-<tr class="separator:a9da78812d0b88df92b05dd0a9da90481"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e6b3f04f7c7f4825f83bbd3f166e8f6"><td class="memTemplParams" colspan="2">template&lt;typename TAllFields , typename TMsg , typename TIter &gt; </td></tr>
+<tr class="memitem:a5e6b3f04f7c7f4825f83bbd3f166e8f6"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a5e6b3f04f7c7f4825f83bbd3f166e8f6">updateFieldsCached</a> (TAllFields &amp;allFields, const TMsg &amp;msg, TIter &amp;iter, std::size_t size)</td></tr>
+<tr class="memdesc:a5e6b3f04f7c7f4825f83bbd3f166e8f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update recently written (using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ade1b09931e8153a8b2a6a34f5ec580e6" title="Write the message contents while caching the written transport information fields.">writeFieldsCached()</a>) message data as well as cached transport information fields.  <a href="classcomms_1_1protocol_1_1MsgDataLayer.html#a5e6b3f04f7c7f4825f83bbd3f166e8f6">More...</a><br /></td></tr>
+<tr class="separator:a5e6b3f04f7c7f4825f83bbd3f166e8f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5cfb5158062ac054561486107c1731e"><td class="memTemplParams" colspan="2">template&lt;typename TAllFields , typename TIter &gt; </td></tr>
+<tr class="memitem:ad5cfb5158062ac054561486107c1731e"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ad5cfb5158062ac054561486107c1731e">updateFieldsCached</a> (TAllFields &amp;allFields, TIter &amp;iter, std::size_t size)</td></tr>
+<tr class="memdesc:ad5cfb5158062ac054561486107c1731e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update recently written (using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ade1b09931e8153a8b2a6a34f5ec580e6" title="Write the message contents while caching the written transport information fields.">writeFieldsCached()</a>) message data as well as cached transport information fields.  <a href="classcomms_1_1protocol_1_1MsgDataLayer.html#ad5cfb5158062ac054561486107c1731e">More...</a><br /></td></tr>
+<tr class="separator:ad5cfb5158062ac054561486107c1731e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a935db3ebfbe34f8e7f586f79d26b48ed"><td class="memTemplParams" colspan="2">template&lt;typename TMsg , typename TIter &gt; </td></tr>
 <tr class="memitem:a935db3ebfbe34f8e7f586f79d26b48ed"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a935db3ebfbe34f8e7f586f79d26b48ed">write</a> (const TMsg &amp;msg, TIter &amp;iter, std::size_t size)</td></tr>
 <tr class="memdesc:a935db3ebfbe34f8e7f586f79d26b48ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the message contents.  <a href="classcomms_1_1protocol_1_1MsgDataLayer.html#a935db3ebfbe34f8e7f586f79d26b48ed">More...</a><br /></td></tr>
@@ -771,8 +779,65 @@ template&lt;typename TAllFields , typename TMsg , typename TIter , typename... T
 
 </div>
 </div>
+<a id="ace01cbbe59b714cc85660f7ddf473fa5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace01cbbe59b714cc85660f7ddf473fa5">&#9670;&nbsp;</a></span>update() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... TExtraOpts&gt; </div>
+<div class="memtemplate">
+template&lt;typename TMsg , typename TIter &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TExtraOpts &gt;::update </td>
+          <td>(</td>
+          <td class="paramtype">const TMsg &amp;&#160;</td>
+          <td class="paramname"><em>msg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TIter &amp;&#160;</td>
+          <td class="paramname"><em>iter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Update recently written (using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a935db3ebfbe34f8e7f586f79d26b48ed" title="Write the message contents.">write()</a>) message contents data. </p>
+<p>Same as other <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a01cb43cba733e7823d92488c6de9dbb5">update()</a>, but with extra message parameter/ </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">msg</td><td>Reference to recently writtem message object. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">iter</td><td>Any random access iterator. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>Number of bytes that have been written using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a935db3ebfbe34f8e7f586f79d26b48ed" title="Write the message contents.">write()</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Status of the update operation. </dd></dl>
+
+</div>
+</div>
 <a id="a01cb43cba733e7823d92488c6de9dbb5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01cb43cba733e7823d92488c6de9dbb5">&#9670;&nbsp;</a></span>update()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a01cb43cba733e7823d92488c6de9dbb5">&#9670;&nbsp;</a></span>update() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -821,15 +886,87 @@ template&lt;typename TIter &gt; </div>
 
 </div>
 </div>
-<a id="a9da78812d0b88df92b05dd0a9da90481"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9da78812d0b88df92b05dd0a9da90481">&#9670;&nbsp;</a></span>updateFieldsCached()</h2>
+<a id="a5e6b3f04f7c7f4825f83bbd3f166e8f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e6b3f04f7c7f4825f83bbd3f166e8f6">&#9670;&nbsp;</a></span>updateFieldsCached() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename... TExtraOpts&gt; </div>
 <div class="memtemplate">
-template&lt;std::size_t TIdx, typename TAllFields , typename TIter &gt; </div>
+template&lt;typename TAllFields , typename TMsg , typename TIter &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TExtraOpts &gt;::updateFieldsCached </td>
+          <td>(</td>
+          <td class="paramtype">TAllFields &amp;&#160;</td>
+          <td class="paramname"><em>allFields</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const TMsg &amp;&#160;</td>
+          <td class="paramname"><em>msg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TIter &amp;&#160;</td>
+          <td class="paramname"><em>iter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Update recently written (using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ade1b09931e8153a8b2a6a34f5ec580e6" title="Write the message contents while caching the written transport information fields.">writeFieldsCached()</a>) message data as well as cached transport information fields. </p>
+<p>Very similar to other <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ad5cfb5158062ac054561486107c1731e">updateFieldsCached()</a> member function, but adds "msg" parameter to reference message object if needed. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">TAllFields</td><td>std::tuple of all the transport fields, must be <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7d76d495ae96c078a9408d0d491f326a">AllFields</a> type defined in the last layer class that defines protocol stack. </td></tr>
+    <tr><td class="paramname">TMsg</td><td>Type of <b>msg</b> parameter. </td></tr>
+    <tr><td class="paramname">TIter</td><td>Type of the random access iterator. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">allFields</td><td>Reference to the std::tuple object that wraps all transport fields (<a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7d76d495ae96c078a9408d0d491f326a">AllFields</a> type of the last protocol layer class). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">msg</td><td>Reference to recently written message object. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">iter</td><td>Random access iterator to the written data. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>Number of bytes that have been written using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ade1b09931e8153a8b2a6a34f5ec580e6" title="Write the message contents while caching the written transport information fields.">writeFieldsCached()</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Status of the update operation. </dd></dl>
+
+</div>
+</div>
+<a id="ad5cfb5158062ac054561486107c1731e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5cfb5158062ac054561486107c1731e">&#9670;&nbsp;</a></span>updateFieldsCached() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... TExtraOpts&gt; </div>
+<div class="memtemplate">
+template&lt;typename TAllFields , typename TIter &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -868,7 +1005,6 @@ template&lt;std::size_t TIdx, typename TAllFields , typename TIter &gt; </div>
 <p>Update recently written (using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ade1b09931e8153a8b2a6a34f5ec580e6" title="Write the message contents while caching the written transport information fields.">writeFieldsCached()</a>) message data as well as cached transport information fields. </p>
 <p>Very similar to <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a01cb43cba733e7823d92488c6de9dbb5" title="Update recently written (using write()) message contents data.">update()</a> member function, but adds "allFields" parameter to store raw data of the message. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">TIdx</td><td>Index of the data field in TAllFields, expected to be last element in the tuple. </td></tr>
     <tr><td class="paramname">TAllFields</td><td>std::tuple of all the transport fields, must be <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7d76d495ae96c078a9408d0d491f326a">AllFields</a> type defined in the last layer class that defines protocol stack. </td></tr>
     <tr><td class="paramname">TIter</td><td>Type of the random access iterator. </td></tr>
   </table>

@@ -1,11 +1,11 @@
 <map id="include/comms/units.h" name="include/comms/units.h">
-<area shape="rect" id="node1" title=" " alt="" coords="36,5,205,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="108,155,160,181"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,229,97,256"/>
-<area shape="rect" id="node4" href="$traits_8h.html" title=" " alt="" coords="158,80,278,107"/>
-<area shape="rect" id="node5" href="$access_8h_source.html" title=" " alt="" coords="187,155,289,181"/>
-<area shape="rect" id="node6" title=" " alt="" coords="391,229,461,256"/>
-<area shape="rect" id="node7" title=" " alt="" coords="122,229,189,256"/>
-<area shape="rect" id="node8" title=" " alt="" coords="213,229,271,256"/>
-<area shape="rect" id="node9" title=" " alt="" coords="296,229,367,256"/>
+<area shape="rect" id="node1" title=" " alt="" coords="35,5,189,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="99,155,146,181"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,229,88,256"/>
+<area shape="rect" id="node4" href="$traits_8h.html" title=" " alt="" coords="149,80,259,107"/>
+<area shape="rect" id="node5" href="$access_8h_source.html" title=" " alt="" coords="173,155,269,181"/>
+<area shape="rect" id="node6" title=" " alt="" coords="362,229,427,256"/>
+<area shape="rect" id="node7" title=" " alt="" coords="112,229,173,256"/>
+<area shape="rect" id="node8" title=" " alt="" coords="197,229,251,256"/>
+<area shape="rect" id="node9" title=" " alt="" coords="275,229,338,256"/>
 </map>

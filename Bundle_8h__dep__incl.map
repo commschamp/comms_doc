@@ -1,7 +1,7 @@
 <map id="include/comms/field/Bundle.h" name="include/comms/field/Bundle.h">
-<area shape="rect" id="node1" title="Contains definition of comms::field::Bundle." alt="" coords="19,5,172,47"/>
-<area shape="rect" id="node2" href="$fields_8h.html" title=" " alt="" coords="9,95,181,121"/>
-<area shape="rect" id="node3" href="$comms_8h.html" title=" " alt="" coords="5,333,191,360"/>
-<area shape="rect" id="node4" href="$MsgIdLayer_8h.html" title=" " alt="" coords="71,169,250,211"/>
-<area shape="rect" id="node5" href="$protocols_8h.html" title=" " alt="" coords="67,259,265,285"/>
+<area shape="rect" id="node1" title="Contains definition of comms::field::Bundle." alt="" coords="17,5,156,47"/>
+<area shape="rect" id="node2" href="$fields_8h.html" title=" " alt="" coords="9,95,165,121"/>
+<area shape="rect" id="node3" href="$comms_8h.html" title=" " alt="" coords="5,333,173,360"/>
+<area shape="rect" id="node4" href="$MsgIdLayer_8h.html" title=" " alt="" coords="68,169,228,211"/>
+<area shape="rect" id="node5" href="$protocols_8h.html" title=" " alt="" coords="64,259,243,285"/>
 </map>

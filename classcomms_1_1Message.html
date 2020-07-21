@@ -114,10 +114,10 @@ Inheritance diagram for comms::Message&lt; TOptions &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classcomms_1_1Message__inherit__graph.png" border="0" usemap="#comms_1_1Message_3_01TOptions_01_4_inherit__map" alt="Inheritance graph"/></div>
 <map name="comms_1_1Message_3_01TOptions_01_4_inherit__map" id="comms_1_1Message_3_01TOptions_01_4_inherit__map">
-<area shape="rect" title="Main interface class for all the messages." alt="" coords="5,75,229,102"/>
-<area shape="rect" href="classcomms_1_1MessageBase.html" title="Base class for all the custom protocol messages." alt="" coords="355,5,539,47"/>
-<area shape="rect" href="classcomms_1_1MessageBase.html" title=" " alt="" coords="277,71,616,229"/>
-<area shape="rect" href="classcomms_1_1GenericMessage.html" title="Generic Message." alt="" coords="664,122,851,178"/>
+<area shape="rect" title="Main interface class for all the messages." alt="" coords="5,75,208,102"/>
+<area shape="rect" href="classcomms_1_1MessageBase.html" title="Base class for all the custom protocol messages." alt="" coords="327,5,495,47"/>
+<area shape="rect" href="classcomms_1_1MessageBase.html" title=" " alt="" coords="256,71,565,229"/>
+<area shape="rect" href="classcomms_1_1GenericMessage.html" title="Generic Message." alt="" coords="613,122,784,178"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -1651,33 +1651,33 @@ template&lt;typename... TOptions&gt; </div>
 <div class="line">        <span class="stringliteral">&quot;Number of expected transport fields is incorrect&quot;</span>);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Accessor to &quot;name1&quot; transport field.</span></div>
-<div class="line">    <span class="keyword">auto</span> transportField_name1() -&gt; decltype(std::get&lt;FieldIdx_name1&gt;(Base::transportFields()))</div>
+<div class="line">    <span class="keyword">auto</span> transportField_name1() -&gt; decltype(std::get&lt;TransportFieldIdx_name1&gt;(Base::transportFields()))</div>
 <div class="line">    {</div>
-<div class="line">        <span class="keywordflow">return</span> std::get&lt;FieldIdx_name1&gt;(Base::transportFields());</div>
+<div class="line">        <span class="keywordflow">return</span> std::get&lt;TransportFieldIdx_name1&gt;(Base::transportFields());</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Accessor to &quot;name1&quot; field.</span></div>
-<div class="line">    <span class="keyword">auto</span> transportField_name1() const -&gt; decltype(std::get&lt;FieldIdx_name1&gt;(Base::<a class="code" href="classcomms_1_1Message.html#a6da7116040cb3e35912aa4b82a2a66b1">transportFields</a>()))</div>
+<div class="line">    <span class="keyword">auto</span> transportField_name1() const -&gt; decltype(std::get&lt;TransportFieldIdx_name1&gt;(Base::<a class="code" href="classcomms_1_1Message.html#a6da7116040cb3e35912aa4b82a2a66b1">transportFields</a>()))</div>
 <div class="line">    {</div>
-<div class="line">        <span class="keywordflow">return</span> std::get&lt;FieldIdx_name1&gt;(Base::transportFields());</div>
+<div class="line">        <span class="keywordflow">return</span> std::get&lt;TransportFieldIdx_name1&gt;(Base::transportFields());</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Accessor to &quot;name2&quot; field.</span></div>
-<div class="line">    <span class="keyword">auto</span> transportField_name2() -&gt; decltype(std::get&lt;FieldIdx_name2&gt;(Base::transportFields()))</div>
+<div class="line">    <span class="keyword">auto</span> transportField_name2() -&gt; decltype(std::get&lt;TransportFieldIdx_name2&gt;(Base::transportFields()))</div>
 <div class="line">    {</div>
-<div class="line">        <span class="keywordflow">return</span> std::get&lt;FieldIdx_name2&gt;(Base::transportFields());</div>
+<div class="line">        <span class="keywordflow">return</span> std::get&lt;TransportFieldIdx_name2&gt;(Base::transportFields());</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Accessor to &quot;name2&quot; field.</span></div>
-<div class="line">    <span class="keyword">auto</span> transportField_name2() const -&gt; decltype(std::get&lt;FieldIdx_name2&gt;(Base::<a class="code" href="classcomms_1_1Message.html#a6da7116040cb3e35912aa4b82a2a66b1">transportFields</a>()))</div>
+<div class="line">    <span class="keyword">auto</span> transportField_name2() const -&gt; decltype(std::get&lt;TransportFieldIdx_name2&gt;(Base::<a class="code" href="classcomms_1_1Message.html#a6da7116040cb3e35912aa4b82a2a66b1">transportFields</a>()))</div>
 <div class="line">    {</div>
-<div class="line">        <span class="keywordflow">return</span> std::get&lt;FieldIdx_name2&gt;(Base::transportFields());</div>
+<div class="line">        <span class="keywordflow">return</span> std::get&lt;TransportFieldIdx_name2&gt;(Base::transportFields());</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Accessor to &quot;name3&quot; field.</span></div>
-<div class="line">    <span class="keyword">auto</span> transportField_name3() -&gt; decltype(std::get&lt;FieldIdx_name3&gt;(Base::transportFields()))</div>
+<div class="line">    <span class="keyword">auto</span> transportField_name3() -&gt; decltype(std::get&lt;TransportFieldIdx_name3&gt;(Base::transportFields()))</div>
 <div class="line">    {</div>
-<div class="line">        <span class="keywordflow">return</span> std::get&lt;FieldIdx_name3&gt;(Base::transportFields());</div>
+<div class="line">        <span class="keywordflow">return</span> std::get&lt;TransportFieldIdx_name3&gt;(Base::transportFields());</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Accessor to &quot;name3&quot; field.</span></div>

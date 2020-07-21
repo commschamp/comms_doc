@@ -1,4 +1,4 @@
 <map id="comms::field::IntValue&lt; TFieldBase, T, TOptions &gt;" name="comms::field::IntValue&lt; TFieldBase, T, TOptions &gt;">
-<area shape="rect" id="node1" title="Field that represent integral value." alt="" coords="5,80,211,121"/>
-<area shape="rect" id="node2" href="$classcomms_1_1Field.html" title="Base class to all the field classes." alt="" coords="9,5,207,32"/>
+<area shape="rect" id="node1" title="Field that represent integral value." alt="" coords="5,80,192,121"/>
+<area shape="rect" id="node2" href="$classcomms_1_1Field.html" title="Base class to all the field classes." alt="" coords="9,5,188,32"/>
 </map>

@@ -104,13 +104,13 @@ Inheritance diagram for comms::protocol::ProtocolLayerBase&lt; TField, TNextLaye
 <div class="dyncontent">
 <div class="center"><img src="classcomms_1_1protocol_1_1ProtocolLayerBase__inherit__graph.png" border="0" usemap="#comms_1_1protocol_1_1ProtocolLayerBase_3_01TField_00_01TNextLayer_00_01TDerived_00_01TOptions_01_4_inherit__map" alt="Inheritance graph"/></div>
 <map name="comms_1_1protocol_1_1ProtocolLayerBase_3_01TField_00_01TNextLayer_00_01TDerived_00_01TOptions_01_4_inherit__map" id="comms_1_1protocol_1_1ProtocolLayerBase_3_01TField_00_01TNextLayer_00_01TDerived_00_01TOptions_01_4_inherit__map">
-<area shape="rect" title="Base class for all the middle (non MsgDataLayer) protocol transport layers." alt="" coords="5,357,236,413"/>
-<area shape="rect" href="classcomms_1_1protocol_1_1ChecksumLayer.html" title="Protocol layer that is responsible to calculate checksum on the data written by all the wrapped inter..." alt="" coords="319,5,623,105"/>
-<area shape="rect" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html" title="Protocol layer that is responsible to calculate checksum on the data written by all the wrapped inter..." alt="" coords="310,129,633,229"/>
-<area shape="rect" href="classcomms_1_1protocol_1_1MsgIdLayer.html" title="Protocol layer that uses uses message ID field as a prefix to all the subsequent data written by othe..." alt="" coords="333,254,609,369"/>
-<area shape="rect" href="classcomms_1_1protocol_1_1MsgSizeLayer.html" title="Protocol layer that uses size field as a prefix to all the subsequent data written by other (next) la..." alt="" coords="284,393,659,523"/>
-<area shape="rect" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html" title="Protocol layer that uses &quot;sync&quot; field as a prefix to all the subsequent data written by other (next) ..." alt="" coords="368,547,575,617"/>
-<area shape="rect" href="classcomms_1_1protocol_1_1TransportValueLayer.html" title="Protocol layer that reads a value from transport wrapping and reassigns it to appropriate &quot;extra tran..." alt="" coords="372,642,571,698"/>
+<area shape="rect" title="Base class for all the middle (non MsgDataLayer) protocol transport layers." alt="" coords="5,357,216,413"/>
+<area shape="rect" href="classcomms_1_1protocol_1_1ChecksumLayer.html" title="Protocol layer that is responsible to calculate checksum on the data written by all the wrapped inter..." alt="" coords="294,5,570,105"/>
+<area shape="rect" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html" title="Protocol layer that is responsible to calculate checksum on the data written by all the wrapped inter..." alt="" coords="286,129,578,229"/>
+<area shape="rect" href="classcomms_1_1protocol_1_1MsgIdLayer.html" title="Protocol layer that uses uses message ID field as a prefix to all the subsequent data written by othe..." alt="" coords="304,254,560,369"/>
+<area shape="rect" href="classcomms_1_1protocol_1_1MsgSizeLayer.html" title="Protocol layer that uses size field as a prefix to all the subsequent data written by other (next) la..." alt="" coords="264,393,600,523"/>
+<area shape="rect" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html" title="Protocol layer that uses &quot;sync&quot; field as a prefix to all the subsequent data written by other (next) ..." alt="" coords="337,547,527,617"/>
+<area shape="rect" href="classcomms_1_1protocol_1_1TransportValueLayer.html" title="Protocol layer that reads a value from transport wrapping and reassigns it to appropriate &quot;extra tran..." alt="" coords="341,642,523,698"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -164,14 +164,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a41e188996511ff20f659abad642ea40c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a17b1b0d2a42427cb7c998a41c9aa3174">MsgPtr</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a41e188996511ff20f659abad642ea40c">createMsg</a> (TId &amp;&amp;id, unsigned idx=0)</td></tr>
 <tr class="memdesc:a41e188996511ff20f659abad642ea40c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create message object given the ID.  <a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a41e188996511ff20f659abad642ea40c">More...</a><br /></td></tr>
 <tr class="separator:a41e188996511ff20f659abad642ea40c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f3eda36afa45e1c226b342980d121ea"><td class="memTemplParams" colspan="2">template&lt;typename TMsg , typename TIter , typename TNextLayerUpdater &gt; </td></tr>
+<tr class="memitem:a1f3eda36afa45e1c226b342980d121ea"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a1f3eda36afa45e1c226b342980d121ea">doUpdate</a> (const TMsg &amp;msg, <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">Field</a> &amp;field, TIter &amp;iter, std::size_t size, TNextLayerUpdater &amp;&amp;nextLayerUpdater) const</td></tr>
+<tr class="memdesc:a1f3eda36afa45e1c226b342980d121ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation of the "update" functaionality.  <a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a1f3eda36afa45e1c226b342980d121ea">More...</a><br /></td></tr>
+<tr class="separator:a1f3eda36afa45e1c226b342980d121ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94f23dc39f0adb4fd7ecd0ab2941588f"><td class="memTemplParams" colspan="2">template&lt;typename TIter , typename TNextLayerUpdater &gt; </td></tr>
 <tr class="memitem:a94f23dc39f0adb4fd7ecd0ab2941588f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a94f23dc39f0adb4fd7ecd0ab2941588f">doUpdate</a> (<a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">Field</a> &amp;field, TIter &amp;iter, std::size_t size, TNextLayerUpdater &amp;&amp;nextLayerUpdater) const</td></tr>
 <tr class="memdesc:a94f23dc39f0adb4fd7ecd0ab2941588f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation of the "update" functaionality.  <a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a94f23dc39f0adb4fd7ecd0ab2941588f">More...</a><br /></td></tr>
 <tr class="separator:a94f23dc39f0adb4fd7ecd0ab2941588f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06d5bed9027009f4b8023433a4c7a2f2"><td class="memTemplParams" colspan="2">template&lt;typename TMsg , typename TIter , typename TNextLayerUpdater &gt; </td></tr>
-<tr class="memitem:a06d5bed9027009f4b8023433a4c7a2f2"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a06d5bed9027009f4b8023433a4c7a2f2">doUpdate</a> (TMsg &amp;msg, <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">Field</a> &amp;field, TIter &amp;iter, std::size_t size, TNextLayerUpdater &amp;&amp;nextLayerUpdater) const</td></tr>
-<tr class="memdesc:a06d5bed9027009f4b8023433a4c7a2f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation of the "update" functaionality.  <a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a06d5bed9027009f4b8023433a4c7a2f2">More...</a><br /></td></tr>
-<tr class="separator:a06d5bed9027009f4b8023433a4c7a2f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d8d04d96eb426cc76884229e2286bf0"><td class="memItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a5d8d04d96eb426cc76884229e2286bf0">length</a> () const</td></tr>
 <tr class="memdesc:a5d8d04d96eb426cc76884229e2286bf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get remaining length of wrapping transport information.  <a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a5d8d04d96eb426cc76884229e2286bf0">More...</a><br /></td></tr>
 <tr class="separator:a5d8d04d96eb426cc76884229e2286bf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -231,6 +231,10 @@ const <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a9018
 <tr class="memitem:a3656112afd3d327855b8d5c93b8a6779"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a3656112afd3d327855b8d5c93b8a6779">update</a> (TIter &amp;iter, std::size_t size) const</td></tr>
 <tr class="memdesc:a3656112afd3d327855b8d5c93b8a6779"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update recently written (using <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a6799fbfb090ea3a612d3757a0d28fd06" title="Serialise message into output data sequence.">write()</a>) message contents data.  <a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a3656112afd3d327855b8d5c93b8a6779">More...</a><br /></td></tr>
 <tr class="separator:a3656112afd3d327855b8d5c93b8a6779"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7208620e2ac60a6e3dc8fc4f6b836a8c"><td class="memTemplParams" colspan="2">template&lt;typename TAllFields , typename TMsg , typename TIter &gt; </td></tr>
+<tr class="memitem:a7208620e2ac60a6e3dc8fc4f6b836a8c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a7208620e2ac60a6e3dc8fc4f6b836a8c">updateFieldsCached</a> (TAllFields &amp;allFields, const TMsg &amp;msg, TIter &amp;iter, std::size_t size) const</td></tr>
+<tr class="memdesc:a7208620e2ac60a6e3dc8fc4f6b836a8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update recently written (using <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#af0877d7cedb580508e91ecfb7353227d" title="Serialise message into output data sequence while caching the written transport information fields.">writeFieldsCached()</a>) message data as well as cached transport information fields.  <a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a7208620e2ac60a6e3dc8fc4f6b836a8c">More...</a><br /></td></tr>
+<tr class="separator:a7208620e2ac60a6e3dc8fc4f6b836a8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a618765cb8b7314e718cbcbbe7c880c6d"><td class="memTemplParams" colspan="2">template&lt;typename TAllFields , typename TIter &gt; </td></tr>
 <tr class="memitem:a618765cb8b7314e718cbcbbe7c880c6d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a618765cb8b7314e718cbcbbe7c880c6d">updateFieldsCached</a> (TAllFields &amp;allFields, TIter &amp;iter, std::size_t size) const</td></tr>
 <tr class="memdesc:a618765cb8b7314e718cbcbbe7c880c6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update recently written (using <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#af0877d7cedb580508e91ecfb7353227d" title="Serialise message into output data sequence while caching the written transport information fields.">writeFieldsCached()</a>) message data as well as cached transport information fields.  <a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a618765cb8b7314e718cbcbbe7c880c6d">More...</a><br /></td></tr>
@@ -510,8 +514,78 @@ template&lt;typename TId &gt; </div>
 
 </div>
 </div>
+<a id="a1f3eda36afa45e1c226b342980d121ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f3eda36afa45e1c226b342980d121ea">&#9670;&nbsp;</a></span>doUpdate() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TField , typename TNextLayer , typename TDerived , typename... TOptions&gt; </div>
+<div class="memtemplate">
+template&lt;typename TMsg , typename TIter , typename TNextLayerUpdater &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html">comms::protocol::ProtocolLayerBase</a>&lt; TField, TNextLayer, TDerived, TOptions &gt;::doUpdate </td>
+          <td>(</td>
+          <td class="paramtype">const TMsg &amp;&#160;</td>
+          <td class="paramname"><em>msg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">Field</a> &amp;&#160;</td>
+          <td class="paramname"><em>field</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TIter &amp;&#160;</td>
+          <td class="paramname"><em>iter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TNextLayerUpdater &amp;&amp;&#160;</td>
+          <td class="paramname"><em>nextLayerUpdater</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Default implementation of the "update" functaionality. </p>
+<p>Similar to other <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a94f23dc39f0adb4fd7ecd0ab2941588f">doUpdate()</a> but also receiving recently written message object. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">TMsg</td><td>Type of message object. </td></tr>
+    <tr><td class="paramname">TIter</td><td>Type of iterator used for updating. </td></tr>
+    <tr><td class="paramname">TNextLayerWriter</td><td>next layer updater object type. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">msg</td><td>Reference to message object. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">field</td><td><a class="el" href="classcomms_1_1Field.html" title="Base class to all the field classes.">Field</a> that needs to be updated. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">iter</td><td>Any random access iterator. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>Number of bytes that have been written using <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a6799fbfb090ea3a612d3757a0d28fd06">write()</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">nextLayerUpdater</td><td>Next layer updater object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a94f23dc39f0adb4fd7ecd0ab2941588f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a94f23dc39f0adb4fd7ecd0ab2941588f">&#9670;&nbsp;</a></span>doUpdate() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a94f23dc39f0adb4fd7ecd0ab2941588f">&#9670;&nbsp;</a></span>doUpdate() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -563,76 +637,6 @@ template&lt;typename TIter , typename TNextLayerUpdater &gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">field</td><td><a class="el" href="classcomms_1_1Field.html" title="Base class to all the field classes.">Field</a> that needs to be updated. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">iter</td><td>Any random access iterator. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>Number of bytes that have been written using <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a6799fbfb090ea3a612d3757a0d28fd06">write()</a>. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">nextLayerUpdater</td><td>Next layer updater object. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a06d5bed9027009f4b8023433a4c7a2f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a06d5bed9027009f4b8023433a4c7a2f2">&#9670;&nbsp;</a></span>doUpdate() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename TField , typename TNextLayer , typename TDerived , typename... TOptions&gt; </div>
-<div class="memtemplate">
-template&lt;typename TMsg , typename TIter , typename TNextLayerUpdater &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html">comms::protocol::ProtocolLayerBase</a>&lt; TField, TNextLayer, TDerived, TOptions &gt;::doUpdate </td>
-          <td>(</td>
-          <td class="paramtype">TMsg &amp;&#160;</td>
-          <td class="paramname"><em>msg</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">Field</a> &amp;&#160;</td>
-          <td class="paramname"><em>field</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">TIter &amp;&#160;</td>
-          <td class="paramname"><em>iter</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>size</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">TNextLayerUpdater &amp;&amp;&#160;</td>
-          <td class="paramname"><em>nextLayerUpdater</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Default implementation of the "update" functaionality. </p>
-<p>Similar to other <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a94f23dc39f0adb4fd7ecd0ab2941588f">doUpdate()</a> but also receiving recently written message object. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">TMsg</td><td>Type of message object. </td></tr>
-    <tr><td class="paramname">TIter</td><td>Type of iterator used for updating. </td></tr>
-    <tr><td class="paramname">TNextLayerWriter</td><td>next layer updater object type. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">msg</td><td>Reference to message object. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">field</td><td><a class="el" href="classcomms_1_1Field.html" title="Base class to all the field classes.">Field</a> that needs to be updated. </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">iter</td><td>Any random access iterator. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>Number of bytes that have been written using <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a6799fbfb090ea3a612d3757a0d28fd06">write()</a>. </td></tr>
@@ -1549,8 +1553,73 @@ template&lt;typename TIter &gt; </div>
 
 </div>
 </div>
+<a id="a7208620e2ac60a6e3dc8fc4f6b836a8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7208620e2ac60a6e3dc8fc4f6b836a8c">&#9670;&nbsp;</a></span>updateFieldsCached() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TField , typename TNextLayer , typename TDerived , typename... TOptions&gt; </div>
+<div class="memtemplate">
+template&lt;typename TAllFields , typename TMsg , typename TIter &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html">comms::protocol::ProtocolLayerBase</a>&lt; TField, TNextLayer, TDerived, TOptions &gt;::updateFieldsCached </td>
+          <td>(</td>
+          <td class="paramtype">TAllFields &amp;&#160;</td>
+          <td class="paramname"><em>allFields</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const TMsg &amp;&#160;</td>
+          <td class="paramname"><em>msg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TIter &amp;&#160;</td>
+          <td class="paramname"><em>iter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Update recently written (using <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#af0877d7cedb580508e91ecfb7353227d" title="Serialise message into output data sequence while caching the written transport information fields.">writeFieldsCached()</a>) message data as well as cached transport information fields. </p>
+<p>Very similar to other <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a618765cb8b7314e718cbcbbe7c880c6d">updateFieldsCached()</a> member function, but adds "msg" parameter to access message object if needed.<br  />
+ The function will also invoke the same <b><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a94f23dc39f0adb4fd7ecd0ab2941588f" title="Default implementation of the &quot;update&quot; functaionality.">doUpdate()</a></b> member function provided by the derived class, as described with <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a6799fbfb090ea3a612d3757a0d28fd06">write()</a>. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">TAllFields</td><td>std::tuple of all the transport fields, must be <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#ac9c47bcb2d5407fb4679cff923b1f86a">AllFields</a> type defined in the last layer class that defines protocol stack. </td></tr>
+    <tr><td class="paramname">TMsg</td><td>Type of <b>msg</b> parameter. </td></tr>
+    <tr><td class="paramname">TIter</td><td>Type of the random access iterator. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">allFields</td><td>Reference to the std::tuple object that wraps all transport fields (<a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#ac9c47bcb2d5407fb4679cff923b1f86a">AllFields</a> type of the last protocol layer class). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">msg</td><td>Reference to recently written message object. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">iter</td><td>Random access iterator to the written data. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>Number of bytes that have been written using <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#af0877d7cedb580508e91ecfb7353227d" title="Serialise message into output data sequence while caching the written transport information fields.">writeFieldsCached()</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Status of the update operation. </dd></dl>
+
+</div>
+</div>
 <a id="a618765cb8b7314e718cbcbbe7c880c6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a618765cb8b7314e718cbcbbe7c880c6d">&#9670;&nbsp;</a></span>updateFieldsCached()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a618765cb8b7314e718cbcbbe7c880c6d">&#9670;&nbsp;</a></span>updateFieldsCached() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1589,7 +1658,6 @@ template&lt;typename TAllFields , typename TIter &gt; </div>
 <p>Very similar to <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a3656112afd3d327855b8d5c93b8a6779">update()</a> member function, but adds "allFields" parameter to store raw data of the message.<br  />
  The function will also invoke the same <b><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a94f23dc39f0adb4fd7ecd0ab2941588f" title="Default implementation of the &quot;update&quot; functaionality.">doUpdate()</a></b> member function provided by the derived class, as described with <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a6799fbfb090ea3a612d3757a0d28fd06">write()</a>. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">TIdx</td><td>Index of the data field in TAllFields. </td></tr>
     <tr><td class="paramname">TAllFields</td><td>std::tuple of all the transport fields, must be <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#ac9c47bcb2d5407fb4679cff923b1f86a">AllFields</a> type defined in the last layer class that defines protocol stack. </td></tr>
     <tr><td class="paramname">TIter</td><td>Type of the random access iterator. </td></tr>
   </table>
@@ -1921,7 +1989,7 @@ template&lt;typename TField , typename TNextLayer , typename TDerived , typename
 <li>include/comms/protocol/<a class="el" href="ProtocolLayerBase_8h_source.html">ProtocolLayerBase.h</a></li>
 </ul>
 </div><!-- contents -->
-<div class="ttc" id="aclasscomms_1_1protocol_1_1ProtocolLayerBase_html_a94f23dc39f0adb4fd7ecd0ab2941588f"><div class="ttname"><a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a94f23dc39f0adb4fd7ecd0ab2941588f">comms::protocol::ProtocolLayerBase::doUpdate</a></div><div class="ttdeci">comms::ErrorStatus doUpdate(Field &amp;field, TIter &amp;iter, std::size_t size, TNextLayerUpdater &amp;&amp;nextLayerUpdater) const</div><div class="ttdoc">Default implementation of the &quot;update&quot; functaionality.</div><div class="ttdef"><b>Definition:</b> ProtocolLayerBase.h:661</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1ProtocolLayerBase_html_a94f23dc39f0adb4fd7ecd0ab2941588f"><div class="ttname"><a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a94f23dc39f0adb4fd7ecd0ab2941588f">comms::protocol::ProtocolLayerBase::doUpdate</a></div><div class="ttdeci">comms::ErrorStatus doUpdate(Field &amp;field, TIter &amp;iter, std::size_t size, TNextLayerUpdater &amp;&amp;nextLayerUpdater) const</div><div class="ttdoc">Default implementation of the &quot;update&quot; functaionality.</div><div class="ttdef"><b>Definition:</b> ProtocolLayerBase.h:694</div></div>
 <div class="ttc" id="aclasscomms_1_1protocol_1_1ProtocolLayerBase_html_a37d1bfc9f9d2e53ce518ebf019781f82"><div class="ttname"><a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">comms::protocol::ProtocolLayerBase::Field</a></div><div class="ttdeci">TField Field</div><div class="ttdoc">Type of the field used for this layer.</div><div class="ttdef"><b>Definition:</b> ProtocolLayerBase.h:67</div></div>
 <div class="ttc" id="anamespacecomms_html_a0a259a03d68bce98b4a129fb34aaa2e1"><div class="ttname"><a href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a></div><div class="ttdeci">ErrorStatus</div><div class="ttdoc">Error statuses reported by the Communication module.</div><div class="ttdef"><b>Definition:</b> ErrorStatus.h:27</div></div>
 <!-- start footer part -->

@@ -1,4 +1,4 @@
 <map id="comms::protocol::SyncPrefixLayer&lt; TField, TNextLayer &gt;" name="comms::protocol::SyncPrefixLayer&lt; TField, TNextLayer &gt;">
-<area shape="rect" id="node1" title="Protocol layer that uses &quot;sync&quot; field as a prefix to all the subsequent data written by other (next) ..." alt="" coords="288,13,499,54"/>
-<area shape="rect" id="node2" href="$classcomms_1_1protocol_1_1ProtocolLayerBase.html" title="Base class for all the middle (non MsgDataLayer) protocol transport layers." alt="" coords="5,5,240,61"/>
+<area shape="rect" id="node1" title="Protocol layer that uses &quot;sync&quot; field as a prefix to all the subsequent data written by other (next) ..." alt="" coords="271,13,461,54"/>
+<area shape="rect" id="node2" href="$classcomms_1_1protocol_1_1ProtocolLayerBase.html" title="Base class for all the middle (non MsgDataLayer) protocol transport layers." alt="" coords="5,5,223,61"/>
 </map>

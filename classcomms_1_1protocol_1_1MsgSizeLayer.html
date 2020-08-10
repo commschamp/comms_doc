@@ -100,21 +100,12 @@ class comms::protocol::MsgSizeLayer&lt; TField, TNextLayer, TOptions &gt;</h3>
 </div><div class="dynheader">
 Inheritance diagram for comms::protocol::MsgSizeLayer&lt; TField, TNextLayer, TOptions &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="classcomms_1_1protocol_1_1MsgSizeLayer__inherit__graph.png" border="0" usemap="#comms_1_1protocol_1_1MsgSizeLayer_3_01TField_00_01TNextLayer_00_01TOptions_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="comms_1_1protocol_1_1MsgSizeLayer_3_01TField_00_01TNextLayer_00_01TOptions_01_4_inherit__map" id="comms_1_1protocol_1_1MsgSizeLayer_3_01TField_00_01TNextLayer_00_01TOptions_01_4_inherit__map">
-<area shape="rect" title="Protocol layer that uses size field as a prefix to all the subsequent data written by other (next) la..." alt="" coords="339,35,520,91"/>
-<area shape="rect" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html" title="Base class for all the middle (non MsgDataLayer) protocol transport layers." alt="" coords="5,5,291,120"/>
-</map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
-<div class="dynheader">
-Collaboration diagram for comms::protocol::MsgSizeLayer&lt; TField, TNextLayer, TOptions &gt;:</div>
-<div class="dyncontent">
-<div class="center"><img src="classcomms_1_1protocol_1_1MsgSizeLayer__coll__graph.png" border="0" usemap="#comms_1_1protocol_1_1MsgSizeLayer_3_01TField_00_01TNextLayer_00_01TOptions_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="comms_1_1protocol_1_1MsgSizeLayer_3_01TField_00_01TNextLayer_00_01TOptions_01_4_coll__map" id="comms_1_1protocol_1_1MsgSizeLayer_3_01TField_00_01TNextLayer_00_01TOptions_01_4_coll__map">
-<area shape="rect" title="Protocol layer that uses size field as a prefix to all the subsequent data written by other (next) la..." alt="" coords="339,35,520,91"/>
-<area shape="rect" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html" title="Base class for all the middle (non MsgDataLayer) protocol transport layers." alt="" coords="5,5,291,120"/>
-</map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+ <div class="center">
+  <img src="classcomms_1_1protocol_1_1MsgSizeLayer.png" usemap="#comms::protocol::MsgSizeLayer_3C_20TField_2C_20TNextLayer_2C_20TOptions_20_3E_map" alt=""/>
+  <map id="comms::protocol::MsgSizeLayer_3C_20TField_2C_20TNextLayer_2C_20TOptions_20_3E_map" name="comms::protocol::MsgSizeLayer_3C_20TField_2C_20TNextLayer_2C_20TOptions_20_3E_map">
+<area href="classcomms_1_1protocol_1_1ProtocolLayerBase.html" title="Base class for all the middle (non MsgDataLayer) protocol transport layers." alt="comms::protocol::ProtocolLayerBase&lt; TField, TNextLayer, TDerived, TOptions &gt;" shape="rect" coords="0,0,1504,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
@@ -2552,11 +2543,11 @@ template&lt;typename TField , typename TNextLayer , typename TDerived , typename
 <li>include/comms/protocol/<a class="el" href="MsgSizeLayer_8h_source.html">MsgSizeLayer.h</a></li>
 </ul>
 </div><!-- contents -->
-<div class="ttc" id="aclasscomms_1_1protocol_1_1MsgSizeLayer_html_a7fec710a48c05e02e1a173cbd5cee0ea"><div class="ttname"><a href="classcomms_1_1protocol_1_1MsgSizeLayer.html#a7fec710a48c05e02e1a173cbd5cee0ea">comms::protocol::MsgSizeLayer::doUpdate</a></div><div class="ttdeci">comms::ErrorStatus doUpdate(Field &amp;field, TIter &amp;iter, std::size_t size, TNextLayerUpdater &amp;&amp;nextLayerUpdater) const</div><div class="ttdoc">Customized update functionality, invoked by update().</div><div class="ttdef"><b>Definition:</b> MsgSizeLayer.h:264</div></div>
-<div class="ttc" id="anamespacecomms_html_a0a259a03d68bce98b4a129fb34aaa2e1"><div class="ttname"><a href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a></div><div class="ttdeci">ErrorStatus</div><div class="ttdoc">Error statuses reported by the Communication module.</div><div class="ttdef"><b>Definition:</b> ErrorStatus.h:27</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1MsgSizeLayer_html_a3854e9d96e667929a46243690a8e0946"><div class="ttname"><a href="classcomms_1_1protocol_1_1MsgSizeLayer.html#a3854e9d96e667929a46243690a8e0946">comms::protocol::MsgSizeLayer::doWrite</a></div><div class="ttdeci">ErrorStatus doWrite(Field &amp;field, const TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerWriter &amp;&amp;nextLayerWriter) const</div><div class="ttdoc">Customized write functionality, invoked by write().</div><div class="ttdef"><b>Definition:</b> MsgSizeLayer.h:243</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1MsgSizeLayer_html_a252c080188a09640dd6d86ea69f19568"><div class="ttname"><a href="classcomms_1_1protocol_1_1MsgSizeLayer.html#a252c080188a09640dd6d86ea69f19568">comms::protocol::MsgSizeLayer::doRead</a></div><div class="ttdeci">comms::ErrorStatus doRead(Field &amp;field, TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerReader &amp;&amp;nextLayerReader, TExtraValues... extraValues)</div><div class="ttdoc">Customized read functionality, invoked by read().</div><div class="ttdef"><b>Definition:</b> MsgSizeLayer.h:164</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1MsgSizeLayer_html_ac125c850233a6d7f415205ae84745005"><div class="ttname"><a href="classcomms_1_1protocol_1_1MsgSizeLayer.html#ac125c850233a6d7f415205ae84745005">comms::protocol::MsgSizeLayer::Field</a></div><div class="ttdeci">typename BaseImpl::Field Field</div><div class="ttdoc">Type of the field object used to read/write remaining size value.</div><div class="ttdef"><b>Definition:</b> MsgSizeLayer.h:97</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1MsgSizeLayer_html_a7fec710a48c05e02e1a173cbd5cee0ea"><div class="ttname"><a href="classcomms_1_1protocol_1_1MsgSizeLayer.html#a7fec710a48c05e02e1a173cbd5cee0ea">comms::protocol::MsgSizeLayer::doUpdate</a></div><div class="ttdeci">comms::ErrorStatus doUpdate(Field &amp;field, TIter &amp;iter, std::size_t size, TNextLayerUpdater &amp;&amp;nextLayerUpdater) const</div><div class="ttdoc">Customized update functionality, invoked by update().</div><div class="ttdef"><b>Definition:</b> MsgSizeLayer.h:254</div></div>
+<div class="ttc" id="anamespacecomms_html_a0a259a03d68bce98b4a129fb34aaa2e1"><div class="ttname"><a href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a></div><div class="ttdeci">ErrorStatus</div><div class="ttdoc">Error statuses reported by the Communication module.</div><div class="ttdef"><b>Definition:</b> ErrorStatus.h:17</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1MsgSizeLayer_html_a3854e9d96e667929a46243690a8e0946"><div class="ttname"><a href="classcomms_1_1protocol_1_1MsgSizeLayer.html#a3854e9d96e667929a46243690a8e0946">comms::protocol::MsgSizeLayer::doWrite</a></div><div class="ttdeci">ErrorStatus doWrite(Field &amp;field, const TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerWriter &amp;&amp;nextLayerWriter) const</div><div class="ttdoc">Customized write functionality, invoked by write().</div><div class="ttdef"><b>Definition:</b> MsgSizeLayer.h:233</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1MsgSizeLayer_html_a252c080188a09640dd6d86ea69f19568"><div class="ttname"><a href="classcomms_1_1protocol_1_1MsgSizeLayer.html#a252c080188a09640dd6d86ea69f19568">comms::protocol::MsgSizeLayer::doRead</a></div><div class="ttdeci">comms::ErrorStatus doRead(Field &amp;field, TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerReader &amp;&amp;nextLayerReader, TExtraValues... extraValues)</div><div class="ttdoc">Customized read functionality, invoked by read().</div><div class="ttdef"><b>Definition:</b> MsgSizeLayer.h:154</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1MsgSizeLayer_html_ac125c850233a6d7f415205ae84745005"><div class="ttname"><a href="classcomms_1_1protocol_1_1MsgSizeLayer.html#ac125c850233a6d7f415205ae84745005">comms::protocol::MsgSizeLayer::Field</a></div><div class="ttdeci">typename BaseImpl::Field Field</div><div class="ttdoc">Type of the field object used to read/write remaining size value.</div><div class="ttdef"><b>Definition:</b> MsgSizeLayer.h:87</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

@@ -103,21 +103,12 @@ class comms::protocol::MsgIdLayer&lt; TField, TMessage, TAllMessages, TNextLayer
 </div><div class="dynheader">
 Inheritance diagram for comms::protocol::MsgIdLayer&lt; TField, TMessage, TAllMessages, TNextLayer, TOptions &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="classcomms_1_1protocol_1_1MsgIdLayer__inherit__graph.png" border="0" usemap="#comms_1_1protocol_1_1MsgIdLayer_3_01TField_00_01TMessage_00_01TAllMessages_00_01TNextLayer_00_01TOptions_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="comms_1_1protocol_1_1MsgIdLayer_3_01TField_00_01TMessage_00_01TAllMessages_00_01TNextLayer_00_01TOptions_01_4_inherit__map" id="comms_1_1protocol_1_1MsgIdLayer_3_01TField_00_01TMessage_00_01TAllMessages_00_01TNextLayer_00_01TOptions_01_4_inherit__map">
-<area shape="rect" title="Protocol layer that uses uses message ID field as a prefix to all the subsequent data written by othe..." alt="" coords="309,35,543,91"/>
-<area shape="rect" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html" title="Base class for all the middle (non MsgDataLayer) protocol transport layers." alt="" coords="5,5,261,120"/>
-</map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
-<div class="dynheader">
-Collaboration diagram for comms::protocol::MsgIdLayer&lt; TField, TMessage, TAllMessages, TNextLayer, TOptions &gt;:</div>
-<div class="dyncontent">
-<div class="center"><img src="classcomms_1_1protocol_1_1MsgIdLayer__coll__graph.png" border="0" usemap="#comms_1_1protocol_1_1MsgIdLayer_3_01TField_00_01TMessage_00_01TAllMessages_00_01TNextLayer_00_01TOptions_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="comms_1_1protocol_1_1MsgIdLayer_3_01TField_00_01TMessage_00_01TAllMessages_00_01TNextLayer_00_01TOptions_01_4_coll__map" id="comms_1_1protocol_1_1MsgIdLayer_3_01TField_00_01TMessage_00_01TAllMessages_00_01TNextLayer_00_01TOptions_01_4_coll__map">
-<area shape="rect" title="Protocol layer that uses uses message ID field as a prefix to all the subsequent data written by othe..." alt="" coords="309,35,543,91"/>
-<area shape="rect" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html" title="Base class for all the middle (non MsgDataLayer) protocol transport layers." alt="" coords="5,5,261,120"/>
-</map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+ <div class="center">
+  <img src="classcomms_1_1protocol_1_1MsgIdLayer.png" usemap="#comms::protocol::MsgIdLayer_3C_20TField_2C_20TMessage_2C_20TAllMessages_2C_20TNextLayer_2C_20TOptions_20_3E_map" alt=""/>
+  <map id="comms::protocol::MsgIdLayer_3C_20TField_2C_20TMessage_2C_20TAllMessages_2C_20TNextLayer_2C_20TOptions_20_3E_map" name="comms::protocol::MsgIdLayer_3C_20TField_2C_20TMessage_2C_20TAllMessages_2C_20TNextLayer_2C_20TOptions_20_3E_map">
+<area href="classcomms_1_1protocol_1_1ProtocolLayerBase.html" title="Base class for all the middle (non MsgDataLayer) protocol transport layers." alt="comms::protocol::ProtocolLayerBase&lt; TField, TNextLayer, TDerived, TOptions &gt;" shape="rect" coords="0,0,1308,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
@@ -2496,11 +2487,11 @@ template&lt;typename TField , typename TNextLayer , typename TDerived , typename
 <li>include/comms/protocol/<a class="el" href="MsgIdLayer_8h_source.html">MsgIdLayer.h</a></li>
 </ul>
 </div><!-- contents -->
-<div class="ttc" id="aclasscomms_1_1protocol_1_1MsgIdLayer_html_a7d804fa610375e1379c43549d1b20981"><div class="ttname"><a href="classcomms_1_1protocol_1_1MsgIdLayer.html#a7d804fa610375e1379c43549d1b20981">comms::protocol::MsgIdLayer::doWrite</a></div><div class="ttdeci">ErrorStatus doWrite(Field &amp;field, const TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerWriter &amp;&amp;nextLayerWriter) const</div><div class="ttdoc">Customized write functionality, invoked by write().</div><div class="ttdef"><b>Definition:</b> MsgIdLayer.h:256</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1ProtocolLayerBase_html_a94f23dc39f0adb4fd7ecd0ab2941588f"><div class="ttname"><a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a94f23dc39f0adb4fd7ecd0ab2941588f">comms::protocol::ProtocolLayerBase::doUpdate</a></div><div class="ttdeci">comms::ErrorStatus doUpdate(Field &amp;field, TIter &amp;iter, std::size_t size, TNextLayerUpdater &amp;&amp;nextLayerUpdater) const</div><div class="ttdoc">Default implementation of the &quot;update&quot; functaionality.</div><div class="ttdef"><b>Definition:</b> ProtocolLayerBase.h:694</div></div>
-<div class="ttc" id="anamespacecomms_html_a0a259a03d68bce98b4a129fb34aaa2e1"><div class="ttname"><a href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a></div><div class="ttdeci">ErrorStatus</div><div class="ttdoc">Error statuses reported by the Communication module.</div><div class="ttdef"><b>Definition:</b> ErrorStatus.h:27</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1MsgIdLayer_html_ac32b32cf672476ce4dbb77d1529a064b"><div class="ttname"><a href="classcomms_1_1protocol_1_1MsgIdLayer.html#ac32b32cf672476ce4dbb77d1529a064b">comms::protocol::MsgIdLayer::Field</a></div><div class="ttdeci">typename BaseImpl::Field Field</div><div class="ttdoc">Type of the field object used to read/write message ID value.</div><div class="ttdef"><b>Definition:</b> MsgIdLayer.h:129</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1MsgIdLayer_html_af00d71aa57799789befc68189f7f718f"><div class="ttname"><a href="classcomms_1_1protocol_1_1MsgIdLayer.html#af00d71aa57799789befc68189f7f718f">comms::protocol::MsgIdLayer::doRead</a></div><div class="ttdeci">comms::ErrorStatus doRead(Field &amp;field, TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerReader &amp;&amp;nextLayerReader, TExtraValues... extraValues)</div><div class="ttdoc">Customized read functionality, invoked by read().</div><div class="ttdef"><b>Definition:</b> MsgIdLayer.h:191</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1MsgIdLayer_html_a7d804fa610375e1379c43549d1b20981"><div class="ttname"><a href="classcomms_1_1protocol_1_1MsgIdLayer.html#a7d804fa610375e1379c43549d1b20981">comms::protocol::MsgIdLayer::doWrite</a></div><div class="ttdeci">ErrorStatus doWrite(Field &amp;field, const TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerWriter &amp;&amp;nextLayerWriter) const</div><div class="ttdoc">Customized write functionality, invoked by write().</div><div class="ttdef"><b>Definition:</b> MsgIdLayer.h:246</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1ProtocolLayerBase_html_a94f23dc39f0adb4fd7ecd0ab2941588f"><div class="ttname"><a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a94f23dc39f0adb4fd7ecd0ab2941588f">comms::protocol::ProtocolLayerBase::doUpdate</a></div><div class="ttdeci">comms::ErrorStatus doUpdate(Field &amp;field, TIter &amp;iter, std::size_t size, TNextLayerUpdater &amp;&amp;nextLayerUpdater) const</div><div class="ttdoc">Default implementation of the &quot;update&quot; functaionality.</div><div class="ttdef"><b>Definition:</b> ProtocolLayerBase.h:684</div></div>
+<div class="ttc" id="anamespacecomms_html_a0a259a03d68bce98b4a129fb34aaa2e1"><div class="ttname"><a href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a></div><div class="ttdeci">ErrorStatus</div><div class="ttdoc">Error statuses reported by the Communication module.</div><div class="ttdef"><b>Definition:</b> ErrorStatus.h:17</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1MsgIdLayer_html_ac32b32cf672476ce4dbb77d1529a064b"><div class="ttname"><a href="classcomms_1_1protocol_1_1MsgIdLayer.html#ac32b32cf672476ce4dbb77d1529a064b">comms::protocol::MsgIdLayer::Field</a></div><div class="ttdeci">typename BaseImpl::Field Field</div><div class="ttdoc">Type of the field object used to read/write message ID value.</div><div class="ttdef"><b>Definition:</b> MsgIdLayer.h:119</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1MsgIdLayer_html_af00d71aa57799789befc68189f7f718f"><div class="ttname"><a href="classcomms_1_1protocol_1_1MsgIdLayer.html#af00d71aa57799789befc68189f7f718f">comms::protocol::MsgIdLayer::doRead</a></div><div class="ttdeci">comms::ErrorStatus doRead(Field &amp;field, TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerReader &amp;&amp;nextLayerReader, TExtraValues... extraValues)</div><div class="ttdoc">Customized read functionality, invoked by read().</div><div class="ttdef"><b>Definition:</b> MsgIdLayer.h:181</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

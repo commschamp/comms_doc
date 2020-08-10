@@ -102,17 +102,17 @@ class comms::protocol::ProtocolLayerBase&lt; TField, TNextLayer, TDerived, TOpti
 </div><div class="dynheader">
 Inheritance diagram for comms::protocol::ProtocolLayerBase&lt; TField, TNextLayer, TDerived, TOptions &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="classcomms_1_1protocol_1_1ProtocolLayerBase__inherit__graph.png" border="0" usemap="#comms_1_1protocol_1_1ProtocolLayerBase_3_01TField_00_01TNextLayer_00_01TDerived_00_01TOptions_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="comms_1_1protocol_1_1ProtocolLayerBase_3_01TField_00_01TNextLayer_00_01TDerived_00_01TOptions_01_4_inherit__map" id="comms_1_1protocol_1_1ProtocolLayerBase_3_01TField_00_01TNextLayer_00_01TDerived_00_01TOptions_01_4_inherit__map">
-<area shape="rect" title="Base class for all the middle (non MsgDataLayer) protocol transport layers." alt="" coords="5,357,216,413"/>
-<area shape="rect" href="classcomms_1_1protocol_1_1ChecksumLayer.html" title="Protocol layer that is responsible to calculate checksum on the data written by all the wrapped inter..." alt="" coords="294,5,570,105"/>
-<area shape="rect" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html" title="Protocol layer that is responsible to calculate checksum on the data written by all the wrapped inter..." alt="" coords="286,129,578,229"/>
-<area shape="rect" href="classcomms_1_1protocol_1_1MsgIdLayer.html" title="Protocol layer that uses uses message ID field as a prefix to all the subsequent data written by othe..." alt="" coords="304,254,560,369"/>
-<area shape="rect" href="classcomms_1_1protocol_1_1MsgSizeLayer.html" title="Protocol layer that uses size field as a prefix to all the subsequent data written by other (next) la..." alt="" coords="264,393,600,523"/>
-<area shape="rect" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html" title="Protocol layer that uses &quot;sync&quot; field as a prefix to all the subsequent data written by other (next) ..." alt="" coords="337,547,527,617"/>
-<area shape="rect" href="classcomms_1_1protocol_1_1TransportValueLayer.html" title="Protocol layer that reads a value from transport wrapping and reassigns it to appropriate &quot;extra tran..." alt="" coords="341,642,523,698"/>
-</map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+ <div class="center">
+  <img src="classcomms_1_1protocol_1_1ProtocolLayerBase.png" usemap="#comms::protocol::ProtocolLayerBase_3C_20TField_2C_20TNextLayer_2C_20TDerived_2C_20TOptions_20_3E_map" alt=""/>
+  <map id="comms::protocol::ProtocolLayerBase_3C_20TField_2C_20TNextLayer_2C_20TDerived_2C_20TOptions_20_3E_map" name="comms::protocol::ProtocolLayerBase_3C_20TField_2C_20TNextLayer_2C_20TDerived_2C_20TOptions_20_3E_map">
+<area href="classcomms_1_1protocol_1_1ChecksumLayer.html" title="Protocol layer that is responsible to calculate checksum on the data written by all the wrapped inter..." alt="comms::protocol::ChecksumLayer&lt; TField, TCalc, TNextLayer, TOptions &gt;" shape="rect" coords="0,56,522,80"/>
+<area href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html" title="Protocol layer that is responsible to calculate checksum on the data written by all the wrapped inter..." alt="comms::protocol::ChecksumPrefixLayer&lt; TField, TCalc, TNextLayer, TOptions &gt;" shape="rect" coords="532,56,1054,80"/>
+<area href="classcomms_1_1protocol_1_1MsgIdLayer.html" title="Protocol layer that uses uses message ID field as a prefix to all the subsequent data written by othe..." alt="comms::protocol::MsgIdLayer&lt; TField, TMessage, TAllMessages, TNextLayer, TOptions &gt;" shape="rect" coords="1064,56,1586,80"/>
+<area href="classcomms_1_1protocol_1_1MsgSizeLayer.html" title="Protocol layer that uses size field as a prefix to all the subsequent data written by other (next) la..." alt="comms::protocol::MsgSizeLayer&lt; TField, TNextLayer, TOptions &gt;" shape="rect" coords="1596,56,2118,80"/>
+<area href="classcomms_1_1protocol_1_1SyncPrefixLayer.html" title="Protocol layer that uses &quot;sync&quot; field as a prefix to all the subsequent data written by other (next) ..." alt="comms::protocol::SyncPrefixLayer&lt; TField, TNextLayer &gt;" shape="rect" coords="2128,56,2650,80"/>
+<area href="classcomms_1_1protocol_1_1TransportValueLayer.html" title="Protocol layer that reads a value from transport wrapping and reassigns it to appropriate &quot;extra tran..." alt="comms::protocol::TransportValueLayer&lt; TField, TIdx, TNextLayer, TOptions &gt;" shape="rect" coords="2660,56,3182,80"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
@@ -1989,9 +1989,9 @@ template&lt;typename TField , typename TNextLayer , typename TDerived , typename
 <li>include/comms/protocol/<a class="el" href="ProtocolLayerBase_8h_source.html">ProtocolLayerBase.h</a></li>
 </ul>
 </div><!-- contents -->
-<div class="ttc" id="aclasscomms_1_1protocol_1_1ProtocolLayerBase_html_a94f23dc39f0adb4fd7ecd0ab2941588f"><div class="ttname"><a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a94f23dc39f0adb4fd7ecd0ab2941588f">comms::protocol::ProtocolLayerBase::doUpdate</a></div><div class="ttdeci">comms::ErrorStatus doUpdate(Field &amp;field, TIter &amp;iter, std::size_t size, TNextLayerUpdater &amp;&amp;nextLayerUpdater) const</div><div class="ttdoc">Default implementation of the &quot;update&quot; functaionality.</div><div class="ttdef"><b>Definition:</b> ProtocolLayerBase.h:694</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1ProtocolLayerBase_html_a37d1bfc9f9d2e53ce518ebf019781f82"><div class="ttname"><a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">comms::protocol::ProtocolLayerBase::Field</a></div><div class="ttdeci">TField Field</div><div class="ttdoc">Type of the field used for this layer.</div><div class="ttdef"><b>Definition:</b> ProtocolLayerBase.h:67</div></div>
-<div class="ttc" id="anamespacecomms_html_a0a259a03d68bce98b4a129fb34aaa2e1"><div class="ttname"><a href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a></div><div class="ttdeci">ErrorStatus</div><div class="ttdoc">Error statuses reported by the Communication module.</div><div class="ttdef"><b>Definition:</b> ErrorStatus.h:27</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1ProtocolLayerBase_html_a94f23dc39f0adb4fd7ecd0ab2941588f"><div class="ttname"><a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a94f23dc39f0adb4fd7ecd0ab2941588f">comms::protocol::ProtocolLayerBase::doUpdate</a></div><div class="ttdeci">comms::ErrorStatus doUpdate(Field &amp;field, TIter &amp;iter, std::size_t size, TNextLayerUpdater &amp;&amp;nextLayerUpdater) const</div><div class="ttdoc">Default implementation of the &quot;update&quot; functaionality.</div><div class="ttdef"><b>Definition:</b> ProtocolLayerBase.h:684</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1ProtocolLayerBase_html_a37d1bfc9f9d2e53ce518ebf019781f82"><div class="ttname"><a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">comms::protocol::ProtocolLayerBase::Field</a></div><div class="ttdeci">TField Field</div><div class="ttdoc">Type of the field used for this layer.</div><div class="ttdef"><b>Definition:</b> ProtocolLayerBase.h:57</div></div>
+<div class="ttc" id="anamespacecomms_html_a0a259a03d68bce98b4a129fb34aaa2e1"><div class="ttname"><a href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a></div><div class="ttdeci">ErrorStatus</div><div class="ttdoc">Error statuses reported by the Communication module.</div><div class="ttdef"><b>Definition:</b> ErrorStatus.h:17</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

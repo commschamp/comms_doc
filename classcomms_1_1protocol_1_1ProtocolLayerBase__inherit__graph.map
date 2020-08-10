@@ -1,9 +1,0 @@
-<map id="comms::protocol::ProtocolLayerBase&lt; TField, TNextLayer, TDerived, TOptions &gt;" name="comms::protocol::ProtocolLayerBase&lt; TField, TNextLayer, TDerived, TOptions &gt;">
-<area shape="rect" id="node1" title="Base class for all the middle (non MsgDataLayer) protocol transport layers." alt="" coords="5,357,216,413"/>
-<area shape="rect" id="node2" href="$classcomms_1_1protocol_1_1ChecksumLayer.html" title="Protocol layer that is responsible to calculate checksum on the data written by all the wrapped inter..." alt="" coords="294,5,570,105"/>
-<area shape="rect" id="node3" href="$classcomms_1_1protocol_1_1ChecksumPrefixLayer.html" title="Protocol layer that is responsible to calculate checksum on the data written by all the wrapped inter..." alt="" coords="286,129,578,229"/>
-<area shape="rect" id="node4" href="$classcomms_1_1protocol_1_1MsgIdLayer.html" title="Protocol layer that uses uses message ID field as a prefix to all the subsequent data written by othe..." alt="" coords="304,254,560,369"/>
-<area shape="rect" id="node5" href="$classcomms_1_1protocol_1_1MsgSizeLayer.html" title="Protocol layer that uses size field as a prefix to all the subsequent data written by other (next) la..." alt="" coords="264,393,600,523"/>
-<area shape="rect" id="node6" href="$classcomms_1_1protocol_1_1SyncPrefixLayer.html" title="Protocol layer that uses &quot;sync&quot; field as a prefix to all the subsequent data written by other (next) ..." alt="" coords="337,547,527,617"/>
-<area shape="rect" id="node7" href="$classcomms_1_1protocol_1_1TransportValueLayer.html" title="Protocol layer that reads a value from transport wrapping and reassigns it to appropriate &quot;extra tran..." alt="" coords="341,642,523,698"/>
-</map>

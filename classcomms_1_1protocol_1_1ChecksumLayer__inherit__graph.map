@@ -1,4 +1,0 @@
-<map id="comms::protocol::ChecksumLayer&lt; TField, TCalc, TNextLayer, TOptions &gt;" name="comms::protocol::ChecksumLayer&lt; TField, TCalc, TNextLayer, TOptions &gt;">
-<area shape="rect" id="node1" title="Protocol layer that is responsible to calculate checksum on the data written by all the wrapped inter..." alt="" coords="376,20,600,76"/>
-<area shape="rect" id="node2" href="$classcomms_1_1protocol_1_1ProtocolLayerBase.html" title="Base class for all the middle (non MsgDataLayer) protocol transport layers." alt="" coords="5,5,328,91"/>
-</map>

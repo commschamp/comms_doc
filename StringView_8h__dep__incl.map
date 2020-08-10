@@ -1,8 +1,0 @@
-<map id="include/comms/util/StringView.h" name="include/comms/util/StringView.h">
-<area shape="rect" id="node1" title="Contains comms::util::StringView class." alt="" coords="21,5,152,47"/>
-<area shape="rect" id="node2" href="$String_8h.html" title="Contains definition of comms::field::String." alt="" coords="17,95,156,136"/>
-<area shape="rect" id="node3" href="$fields_8h.html" title=" " alt="" coords="9,184,165,211"/>
-<area shape="rect" id="node4" href="$comms_8h.html" title=" " alt="" coords="5,423,173,449"/>
-<area shape="rect" id="node5" href="$MsgIdLayer_8h.html" title=" " alt="" coords="68,259,228,300"/>
-<area shape="rect" id="node6" href="$protocols_8h.html" title=" " alt="" coords="64,348,243,375"/>
-</map>

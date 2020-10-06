@@ -98,8 +98,11 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1util_1_1ArrayView.html">ArrayView</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes an object that can refer to a constant contiguous sequence of other objects.  <a href="classcomms_1_1util_1_1ArrayView.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1util_1_1IsInTuple.html">IsInTuple</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether TType type is included in the tuple TTuple.  <a href="classcomms_1_1util_1_1IsInTuple.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcomms_1_1util_1_1Conditional.html">Conditional</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replacement to std::conditional.  <a href="structcomms_1_1util_1_1Conditional.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcomms_1_1util_1_1IsInTuple.html">IsInTuple</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether TType type is included in the tuple TTuple.  <a href="structcomms_1_1util_1_1IsInTuple.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcomms_1_1util_1_1IsTuple.html">IsTuple</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether provided type is a variant of <a href="http://en.cppreference.com/w/cpp/utility/tuple">std::tuple</a>.  <a href="structcomms_1_1util_1_1IsTuple.html#details">More...</a><br /></td></tr>
@@ -122,12 +125,14 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcomms_1_1util_1_1TupleCat.html">TupleCat</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides the type of <a href="http://en.cppreference.com/w/cpp/utility/tuple/tuple_cat">std::tuple_cat</a> operation.  <a href="structcomms_1_1util_1_1TupleCat.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcomms_1_1util_1_1TupleIsUnique.html">TupleIsUnique</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether tuple is unique, i.e. doesn't have contain types.  <a href="structcomms_1_1util_1_1TupleIsUnique.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
+<tr class="memitem:a5f3e03980fb664632de41b9a0ffd1f03"><td class="memTemplParams" colspan="2"><a id="a5f3e03980fb664632de41b9a0ffd1f03"></a>
+template&lt;bool TCond, typename TTrue , typename TFalse &gt; </td></tr>
+<tr class="memitem:a5f3e03980fb664632de41b9a0ffd1f03"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1util.html#a5f3e03980fb664632de41b9a0ffd1f03">ConditionalT</a> = typename <a class="el" href="structcomms_1_1util_1_1Conditional.html">Conditional</a>&lt; TCond &gt;::template Type&lt; TTrue, TFalse &gt;</td></tr>
+<tr class="memdesc:a5f3e03980fb664632de41b9a0ffd1f03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replacement to std::conditional. <br /></td></tr>
+<tr class="separator:a5f3e03980fb664632de41b9a0ffd1f03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3f9f2d7c7aefc4b4f1cae95fb57a953"><td class="memTemplParams" colspan="2"><a id="ae3f9f2d7c7aefc4b4f1cae95fb57a953"></a>
 template&lt;typename TTuple &gt; </td></tr>
 <tr class="memitem:ae3f9f2d7c7aefc4b4f1cae95fb57a953"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1util.html#ae3f9f2d7c7aefc4b4f1cae95fb57a953">TupleAsAlignedUnionT</a> = typename <a class="el" href="structcomms_1_1util_1_1TupleAsAlignedUnion.html">TupleAsAlignedUnion</a>&lt; TTuple &gt;::Type</td></tr>

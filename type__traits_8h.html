@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>COMMS: include/comms/field/tag.h File Reference</title>
+<title>COMMS: include/comms/util/type_traits.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,33 +62,51 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_b3b90260015bf389bbf56758f180cfb9.html">comms</a></li><li class="navelem"><a class="el" href="dir_d7b1404a1a5290d39c9f05a9b34d65ce.html">field</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_b3b90260015bf389bbf56758f180cfb9.html">comms</a></li><li class="navelem"><a class="el" href="dir_478e6ec052dc2022da9c020724fad96b.html">util</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
-<div class="title">tag.h File Reference</div>  </div>
+<div class="title">type_traits.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contains definition of various tag classes.  
+<p>Replacement to some types from standard type_traits.  
 <a href="#details">More...</a></p>
-
-<p><a href="tag_8h_source.html">Go to the source code of this file.</a></p>
+<div class="textblock"><code>#include &lt;type_traits&gt;</code><br />
+<code>#include &quot;<a class="el" href="details_2type__traits_8h_source.html">comms/util/details/type_traits.h</a>&quot;</code><br />
+</div>
+<p><a href="type__traits_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcomms_1_1util_1_1Conditional.html">comms::util::Conditional&lt; TCond &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replacement to std::conditional.  <a href="structcomms_1_1util_1_1Conditional.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacecomms"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecomms.html">comms</a></td></tr>
 <tr class="memdesc:namespacecomms"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for all classes / functions of COMMS library. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespacecomms_1_1field"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1field.html">comms::field</a></td></tr>
-<tr class="memdesc:namespacecomms_1_1field"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace that contains definitions of all message fields. <br /></td></tr>
+<tr class="memitem:namespacecomms_1_1util"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1util.html">comms::util</a></td></tr>
+<tr class="memdesc:namespacecomms_1_1util"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for various utility classes and/or functions used by COMMS library. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a5f3e03980fb664632de41b9a0ffd1f03"><td class="memTemplParams" colspan="2"><a id="a5f3e03980fb664632de41b9a0ffd1f03"></a>
+template&lt;bool TCond, typename TTrue , typename TFalse &gt; </td></tr>
+<tr class="memitem:a5f3e03980fb664632de41b9a0ffd1f03"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1util.html#a5f3e03980fb664632de41b9a0ffd1f03">comms::util::ConditionalT</a> = typename Conditional&lt; TCond &gt;::template Type&lt; TTrue, TFalse &gt;</td></tr>
+<tr class="memdesc:a5f3e03980fb664632de41b9a0ffd1f03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replacement to std::conditional. <br /></td></tr>
+<tr class="separator:a5f3e03980fb664632de41b9a0ffd1f03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Contains definition of various tag classes. </p>
+<div class="textblock"><p>Replacement to some types from standard type_traits. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

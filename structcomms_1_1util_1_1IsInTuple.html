@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>COMMS: comms::util::IsInTuple&lt; TType, TTuple &gt; Class Template Reference</title>
+<title>COMMS: comms::util::IsInTuple&lt; TTuple &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,46 +62,37 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacecomms.html">comms</a></li><li class="navelem"><a class="el" href="namespacecomms_1_1util.html">util</a></li><li class="navelem"><a class="el" href="classcomms_1_1util_1_1IsInTuple.html">IsInTuple</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacecomms.html">comms</a></li><li class="navelem"><a class="el" href="namespacecomms_1_1util.html">util</a></li><li class="navelem"><a class="el" href="structcomms_1_1util_1_1IsInTuple.html">IsInTuple</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
-<a href="classcomms_1_1util_1_1IsInTuple-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">comms::util::IsInTuple&lt; TType, TTuple &gt; Class Template Reference</div>  </div>
+<div class="title">comms::util::IsInTuple&lt; TTuple &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &quot;<a class="el" href="Tuple_8h_source.html">Tuple.h</a>&quot;</code></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename TType, typename TTuple&gt;<br />
-class comms::util::IsInTuple&lt; TType, TTuple &gt;</h3>
+<div class="textblock"><h3>template&lt;typename TTuple&gt;<br />
+struct comms::util::IsInTuple&lt; TTuple &gt;</h3>
 
 <p>Check whether TType type is included in the tuple TTuple. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
+<p>Usage: </p><div class="fragment"><div class="line"><span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> InTuple = </div>
+<div class="line">    <a class="code" href="structcomms_1_1util_1_1IsInTuple.html">comms::util::IsInTuple&lt;Tuple&gt;::template</a> Type&lt;Type&gt;::value;</div>
+</div><!-- fragment --> <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">TType</td><td>Type to check </td></tr>
     <tr><td class="paramname">TTuple</td><td>Tuple </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section pre"><dt>Precondition</dt><dd><div class="fragment"><div class="line"><a class="code" href="structcomms_1_1util_1_1IsTuple.html#a4b02d25370eda227f2f5ed60a0940945">IsTuple&lt;TTuple&gt;::Value</a> == <span class="keyword">true</span> </div>
+<dl class="section pre"><dt>Precondition</dt><dd><div class="fragment"><div class="line"><a class="code" href="structcomms_1_1util_1_1IsTuple.html#afce0f738ed8e71d0520e7ad50434ca1a">IsTuple&lt;TTuple&gt;::Value</a> == <span class="keyword">true</span> </div>
 </div><!-- fragment --> </dd></dl>
-</div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:a05c02a2286416485d747cf25ae946833"><td class="memItemLeft" align="right" valign="top"><a id="a05c02a2286416485d747cf25ae946833"></a>
-static const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1util_1_1IsInTuple.html#a05c02a2286416485d747cf25ae946833">Value</a> = false</td></tr>
-<tr class="memdesc:a05c02a2286416485d747cf25ae946833"><td class="mdescLeft">&#160;</td><td class="mdescRight">By default the value is false, will be set to true if TType is found in TTuple. <br /></td></tr>
-<tr class="separator:a05c02a2286416485d747cf25ae946833"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<hr/>The documentation for this class was generated from the following file:<ul>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>include/comms/util/<a class="el" href="Tuple_8h_source.html">Tuple.h</a></li>
 </ul>
 </div><!-- contents -->
-<div class="ttc" id="astructcomms_1_1util_1_1IsTuple_html_a4b02d25370eda227f2f5ed60a0940945"><div class="ttname"><a href="structcomms_1_1util_1_1IsTuple.html#a4b02d25370eda227f2f5ed60a0940945">comms::util::IsTuple::Value</a></div><div class="ttdeci">static const bool Value</div><div class="ttdoc">By default Value has value false. Will be true for any variant of std::tuple.</div><div class="ttdef"><b>Definition:</b> Tuple.h:32</div></div>
+<div class="ttc" id="astructcomms_1_1util_1_1IsTuple_html_afce0f738ed8e71d0520e7ad50434ca1a"><div class="ttname"><a href="structcomms_1_1util_1_1IsTuple.html#afce0f738ed8e71d0520e7ad50434ca1a">comms::util::IsTuple::Value</a></div><div class="ttdeci">static constexpr bool Value</div><div class="ttdoc">By default Value has value false. Will be true for any variant of std::tuple.</div><div class="ttdef"><b>Definition:</b> Tuple.h:32</div></div>
+<div class="ttc" id="astructcomms_1_1util_1_1IsInTuple_html"><div class="ttname"><a href="structcomms_1_1util_1_1IsInTuple.html">comms::util::IsInTuple</a></div><div class="ttdoc">Check whether TType type is included in the tuple TTuple.</div><div class="ttdef"><b>Definition:</b> Tuple.h:88</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

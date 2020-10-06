@@ -95,52 +95,53 @@ $(function() {
 <div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util_1_1detect.html#a3da7b7cbbd357aec2cfe835d4b6d3bfa">   30</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1util_1_1detect.html#a3da7b7cbbd357aec2cfe835d4b6d3bfa">hasClearFunc</a>()</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">return</span> details::HasClearFunc&lt;T&gt;::Value;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util_1_1detect.html#a2e4bc8c6f76dffebb7deffabff7b291e">   41</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1util_1_1detect.html#a2e4bc8c6f76dffebb7deffabff7b291e">hasReserveFunc</a>()</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">return</span> details::HasReserveFunc&lt;T&gt;::Value;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util_1_1detect.html#ae01cf25aeb761ac6c47aae8283b523a2">   52</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1util_1_1detect.html#ae01cf25aeb761ac6c47aae8283b523a2">hasResizeFunc</a>()</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">return</span> details::HasResizeFunc&lt;T&gt;::Value;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util_1_1detect.html#a2a50acb94af141a618374754ee0fd35b">   66</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1util_1_1detect.html#a2a50acb94af141a618374754ee0fd35b">hasRemoveSuffixFunc</a>()</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;{</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">return</span> details::HasRemoveSuffixFunc&lt;T&gt;::Value;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util_1_1detect.html#a8964789a7595cdf8bbe868151a82101a">   78</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1util_1_1detect.html#a8964789a7595cdf8bbe868151a82101a">hasAssignFunc</a>()</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;{</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">return</span> details::HasAssignFunc&lt;T&gt;::Value;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util_1_1detect.html#a47424dd7c43b1f53d87de4e81d6ebee2">   90</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1util_1_1detect.html#a47424dd7c43b1f53d87de4e81d6ebee2">hasPtrSizeConstructor</a>()</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;{</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">return</span> details::HasPtrSizeConstructor&lt;T&gt;::Value;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;} <span class="comment">// namespace detect</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;} <span class="comment">// namespace util</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;} <span class="comment">// namespace comms</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">// return details::PresenceDetector&lt;void, details::HasClearOp, T&gt;::Value;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util_1_1detect.html#a2e4bc8c6f76dffebb7deffabff7b291e">   42</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1util_1_1detect.html#a2e4bc8c6f76dffebb7deffabff7b291e">hasReserveFunc</a>()</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> details::HasReserveFunc&lt;T&gt;::Value;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util_1_1detect.html#ae01cf25aeb761ac6c47aae8283b523a2">   53</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1util_1_1detect.html#ae01cf25aeb761ac6c47aae8283b523a2">hasResizeFunc</a>()</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">return</span> details::HasResizeFunc&lt;T&gt;::Value;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util_1_1detect.html#a2a50acb94af141a618374754ee0fd35b">   67</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1util_1_1detect.html#a2a50acb94af141a618374754ee0fd35b">hasRemoveSuffixFunc</a>()</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;{</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">return</span> details::HasRemoveSuffixFunc&lt;T&gt;::Value;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util_1_1detect.html#a8964789a7595cdf8bbe868151a82101a">   79</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1util_1_1detect.html#a8964789a7595cdf8bbe868151a82101a">hasAssignFunc</a>()</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;{</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">return</span> details::HasAssignFunc&lt;T&gt;::Value;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util_1_1detect.html#a47424dd7c43b1f53d87de4e81d6ebee2">   91</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1util_1_1detect.html#a47424dd7c43b1f53d87de4e81d6ebee2">hasPtrSizeConstructor</a>()</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;{</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">return</span> details::HasPtrSizeConstructor&lt;T&gt;::Value;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;}</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;} <span class="comment">// namespace detect</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;} <span class="comment">// namespace util</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;} <span class="comment">// namespace comms</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="anamespacecomms_1_1util_1_1detect_html_ae01cf25aeb761ac6c47aae8283b523a2"><div class="ttname"><a href="namespacecomms_1_1util_1_1detect.html#ae01cf25aeb761ac6c47aae8283b523a2">comms::util::detect::hasResizeFunc</a></div><div class="ttdeci">constexpr bool hasResizeFunc()</div><div class="ttdoc">Detect whether provided type has resize() member function.</div><div class="ttdef"><b>Definition:</b> detect.h:52</div></div>
+<div class="ttc" id="anamespacecomms_1_1util_1_1detect_html_ae01cf25aeb761ac6c47aae8283b523a2"><div class="ttname"><a href="namespacecomms_1_1util_1_1detect.html#ae01cf25aeb761ac6c47aae8283b523a2">comms::util::detect::hasResizeFunc</a></div><div class="ttdeci">constexpr bool hasResizeFunc()</div><div class="ttdoc">Detect whether provided type has resize() member function.</div><div class="ttdef"><b>Definition:</b> detect.h:53</div></div>
 <div class="ttc" id="autil_2details_2detect_8h_html"><div class="ttname"><a href="util_2details_2detect_8h.html">detect.h</a></div></div>
-<div class="ttc" id="anamespacecomms_1_1util_1_1detect_html_a8964789a7595cdf8bbe868151a82101a"><div class="ttname"><a href="namespacecomms_1_1util_1_1detect.html#a8964789a7595cdf8bbe868151a82101a">comms::util::detect::hasAssignFunc</a></div><div class="ttdeci">constexpr bool hasAssignFunc()</div><div class="ttdoc">Detect whether provided type has assign() member function which can receive two pointers in its argum...</div><div class="ttdef"><b>Definition:</b> detect.h:78</div></div>
+<div class="ttc" id="anamespacecomms_1_1util_1_1detect_html_a8964789a7595cdf8bbe868151a82101a"><div class="ttname"><a href="namespacecomms_1_1util_1_1detect.html#a8964789a7595cdf8bbe868151a82101a">comms::util::detect::hasAssignFunc</a></div><div class="ttdeci">constexpr bool hasAssignFunc()</div><div class="ttdoc">Detect whether provided type has assign() member function which can receive two pointers in its argum...</div><div class="ttdef"><b>Definition:</b> detect.h:79</div></div>
 <div class="ttc" id="anamespacecomms_html"><div class="ttname"><a href="namespacecomms.html">comms</a></div><div class="ttdoc">Main namespace for all classes / functions of COMMS library.</div></div>
 <div class="ttc" id="anamespacecomms_1_1util_1_1detect_html_a3da7b7cbbd357aec2cfe835d4b6d3bfa"><div class="ttname"><a href="namespacecomms_1_1util_1_1detect.html#a3da7b7cbbd357aec2cfe835d4b6d3bfa">comms::util::detect::hasClearFunc</a></div><div class="ttdeci">constexpr bool hasClearFunc()</div><div class="ttdoc">Detect whether provided type has clear() member function.</div><div class="ttdef"><b>Definition:</b> detect.h:30</div></div>
-<div class="ttc" id="anamespacecomms_1_1util_1_1detect_html_a2e4bc8c6f76dffebb7deffabff7b291e"><div class="ttname"><a href="namespacecomms_1_1util_1_1detect.html#a2e4bc8c6f76dffebb7deffabff7b291e">comms::util::detect::hasReserveFunc</a></div><div class="ttdeci">constexpr bool hasReserveFunc()</div><div class="ttdoc">Detect whether provided type has reserve() member function.</div><div class="ttdef"><b>Definition:</b> detect.h:41</div></div>
-<div class="ttc" id="anamespacecomms_1_1util_1_1detect_html_a47424dd7c43b1f53d87de4e81d6ebee2"><div class="ttname"><a href="namespacecomms_1_1util_1_1detect.html#a47424dd7c43b1f53d87de4e81d6ebee2">comms::util::detect::hasPtrSizeConstructor</a></div><div class="ttdeci">constexpr bool hasPtrSizeConstructor()</div><div class="ttdoc">Detect whether provided type has a constructor that receives a pointer + size parameters.</div><div class="ttdef"><b>Definition:</b> detect.h:90</div></div>
-<div class="ttc" id="anamespacecomms_1_1util_1_1detect_html_a2a50acb94af141a618374754ee0fd35b"><div class="ttname"><a href="namespacecomms_1_1util_1_1detect.html#a2a50acb94af141a618374754ee0fd35b">comms::util::detect::hasRemoveSuffixFunc</a></div><div class="ttdeci">constexpr bool hasRemoveSuffixFunc()</div><div class="ttdoc">Detect whether provided type has remove_suffix() member function.</div><div class="ttdef"><b>Definition:</b> detect.h:66</div></div>
+<div class="ttc" id="anamespacecomms_1_1util_1_1detect_html_a2e4bc8c6f76dffebb7deffabff7b291e"><div class="ttname"><a href="namespacecomms_1_1util_1_1detect.html#a2e4bc8c6f76dffebb7deffabff7b291e">comms::util::detect::hasReserveFunc</a></div><div class="ttdeci">constexpr bool hasReserveFunc()</div><div class="ttdoc">Detect whether provided type has reserve() member function.</div><div class="ttdef"><b>Definition:</b> detect.h:42</div></div>
+<div class="ttc" id="anamespacecomms_1_1util_1_1detect_html_a47424dd7c43b1f53d87de4e81d6ebee2"><div class="ttname"><a href="namespacecomms_1_1util_1_1detect.html#a47424dd7c43b1f53d87de4e81d6ebee2">comms::util::detect::hasPtrSizeConstructor</a></div><div class="ttdeci">constexpr bool hasPtrSizeConstructor()</div><div class="ttdoc">Detect whether provided type has a constructor that receives a pointer + size parameters.</div><div class="ttdef"><b>Definition:</b> detect.h:91</div></div>
+<div class="ttc" id="anamespacecomms_1_1util_1_1detect_html_a2a50acb94af141a618374754ee0fd35b"><div class="ttname"><a href="namespacecomms_1_1util_1_1detect.html#a2a50acb94af141a618374754ee0fd35b">comms::util::detect::hasRemoveSuffixFunc</a></div><div class="ttdeci">constexpr bool hasRemoveSuffixFunc()</div><div class="ttdoc">Detect whether provided type has remove_suffix() member function.</div><div class="ttdef"><b>Definition:</b> detect.h:67</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

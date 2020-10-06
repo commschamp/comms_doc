@@ -73,8 +73,8 @@ $(function() {
 <div class="title">iterator.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;comms/details/ReadIterator.h&quot;</code><br />
-<code>#include &quot;comms/details/WriteIterator.h&quot;</code><br />
+<div class="textblock"><code>#include &quot;comms/details/ReadIteratorHelper.h&quot;</code><br />
+<code>#include &quot;comms/details/WriteIteratorHelper.h&quot;</code><br />
 </div>
 <p><a href="iterator_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -86,22 +86,22 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a518f83d11b4e0c2a58dadb5ad0ea3042"><td class="memTemplParams" colspan="2">template&lt;typename TMessage , typename TIter &gt; </td></tr>
-<tr class="memitem:a518f83d11b4e0c2a58dadb5ad0ea3042"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms.html#a518f83d11b4e0c2a58dadb5ad0ea3042">comms::readIteratorFor</a> (TIter &amp;&amp;iter) -&gt; decltype(details::ReadIterator&lt; TMessage &gt;::get(std::forward&lt; TIter &gt;(iter)))</td></tr>
-<tr class="memdesc:a518f83d11b4e0c2a58dadb5ad0ea3042"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and initialise iterator for message read.  <a href="namespacecomms.html#a518f83d11b4e0c2a58dadb5ad0ea3042">More...</a><br /></td></tr>
-<tr class="separator:a518f83d11b4e0c2a58dadb5ad0ea3042"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18e85728732d2df79b92f31ab17f7ec6"><td class="memTemplParams" colspan="2">template&lt;typename TMessage , typename TIter &gt; </td></tr>
-<tr class="memitem:a18e85728732d2df79b92f31ab17f7ec6"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms.html#a18e85728732d2df79b92f31ab17f7ec6">comms::readIteratorFor</a> (TMessage &amp;&amp;msg, TIter &amp;&amp;iter) -&gt; decltype(details::ReadIterator&lt; typename std::decay&lt; decltype(msg)&gt;::type &gt;::get(std::forward&lt; TIter &gt;(iter)))</td></tr>
-<tr class="memdesc:a18e85728732d2df79b92f31ab17f7ec6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and initialise iterator for message read.  <a href="namespacecomms.html#a18e85728732d2df79b92f31ab17f7ec6">More...</a><br /></td></tr>
-<tr class="separator:a18e85728732d2df79b92f31ab17f7ec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afebd64712a3b9314e56bf1ecb38715b5"><td class="memTemplParams" colspan="2">template&lt;typename TMessage , typename TIter &gt; </td></tr>
-<tr class="memitem:afebd64712a3b9314e56bf1ecb38715b5"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms.html#afebd64712a3b9314e56bf1ecb38715b5">comms::writeIteratorFor</a> (TIter &amp;&amp;iter) -&gt; decltype(details::WriteIterator&lt; TMessage &gt;::get(std::forward&lt; TIter &gt;(iter)))</td></tr>
-<tr class="memdesc:afebd64712a3b9314e56bf1ecb38715b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and initialise iterator for message write.  <a href="namespacecomms.html#afebd64712a3b9314e56bf1ecb38715b5">More...</a><br /></td></tr>
-<tr class="separator:afebd64712a3b9314e56bf1ecb38715b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9adeb78847229640b89663aa1d87a9d9"><td class="memTemplParams" colspan="2">template&lt;typename TMessage , typename TIter &gt; </td></tr>
-<tr class="memitem:a9adeb78847229640b89663aa1d87a9d9"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms.html#a9adeb78847229640b89663aa1d87a9d9">comms::writeIteratorFor</a> (TMessage &amp;&amp;msg, TIter &amp;&amp;iter) -&gt; decltype(details::WriteIterator&lt; typename std::decay&lt; decltype(msg)&gt;::type &gt;::get(std::forward&lt; TIter &gt;(iter)))</td></tr>
-<tr class="memdesc:a9adeb78847229640b89663aa1d87a9d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and initialise iterator for message write.  <a href="namespacecomms.html#a9adeb78847229640b89663aa1d87a9d9">More...</a><br /></td></tr>
-<tr class="separator:a9adeb78847229640b89663aa1d87a9d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fe9279fa541d5bd8d91368a65dc8e52"><td class="memTemplParams" colspan="2">template&lt;typename TMessage , typename TIter &gt; </td></tr>
+<tr class="memitem:a3fe9279fa541d5bd8d91368a65dc8e52"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms.html#a3fe9279fa541d5bd8d91368a65dc8e52">comms::readIteratorFor</a> (TIter &amp;&amp;iter) -&gt; decltype(details::ReadIteratorHelper&lt;&gt;::template get&lt; TMessage &gt;(std::forward&lt; TIter &gt;(iter)))</td></tr>
+<tr class="memdesc:a3fe9279fa541d5bd8d91368a65dc8e52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and initialise iterator for message read.  <a href="namespacecomms.html#a3fe9279fa541d5bd8d91368a65dc8e52">More...</a><br /></td></tr>
+<tr class="separator:a3fe9279fa541d5bd8d91368a65dc8e52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68d878e6b08584d5fb215f20ecae0681"><td class="memTemplParams" colspan="2">template&lt;typename TMessage , typename TIter &gt; </td></tr>
+<tr class="memitem:a68d878e6b08584d5fb215f20ecae0681"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms.html#a68d878e6b08584d5fb215f20ecae0681">comms::readIteratorFor</a> (TMessage &amp;&amp;msg, TIter &amp;&amp;iter) -&gt; decltype(details::ReadIteratorHelper&lt;&gt;::template get&lt; typename std::decay&lt; decltype(msg)&gt;::type &gt;(std::forward&lt; TIter &gt;(iter)))</td></tr>
+<tr class="memdesc:a68d878e6b08584d5fb215f20ecae0681"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and initialise iterator for message read.  <a href="namespacecomms.html#a68d878e6b08584d5fb215f20ecae0681">More...</a><br /></td></tr>
+<tr class="separator:a68d878e6b08584d5fb215f20ecae0681"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc9bde48100a84b880ef17d4ad02076b"><td class="memTemplParams" colspan="2">template&lt;typename TMessage , typename TIter &gt; </td></tr>
+<tr class="memitem:abc9bde48100a84b880ef17d4ad02076b"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms.html#abc9bde48100a84b880ef17d4ad02076b">comms::writeIteratorFor</a> (TIter &amp;&amp;iter) -&gt; decltype(details::WriteIteratorHelper&lt;&gt;::template get&lt; TMessage &gt;(std::forward&lt; TIter &gt;(iter)))</td></tr>
+<tr class="memdesc:abc9bde48100a84b880ef17d4ad02076b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and initialise iterator for message write.  <a href="namespacecomms.html#abc9bde48100a84b880ef17d4ad02076b">More...</a><br /></td></tr>
+<tr class="separator:abc9bde48100a84b880ef17d4ad02076b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3983c2d4181f7c74d2cab5a3d1405db3"><td class="memTemplParams" colspan="2">template&lt;typename TMessage , typename TIter &gt; </td></tr>
+<tr class="memitem:a3983c2d4181f7c74d2cab5a3d1405db3"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms.html#a3983c2d4181f7c74d2cab5a3d1405db3">comms::writeIteratorFor</a> (TMessage &amp;&amp;msg, TIter &amp;&amp;iter) -&gt; decltype(details::WriteIteratorHelper&lt;&gt;::template get&lt; typename std::decay&lt; decltype(msg)&gt;::type &gt;(std::forward&lt; TIter &gt;(iter)))</td></tr>
+<tr class="memdesc:a3983c2d4181f7c74d2cab5a3d1405db3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and initialise iterator for message write.  <a href="namespacecomms.html#a3983c2d4181f7c74d2cab5a3d1405db3">More...</a><br /></td></tr>
+<tr class="separator:a3983c2d4181f7c74d2cab5a3d1405db3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Provides auxiliary functions for retrieving best type of iterator for read/write operations </p>

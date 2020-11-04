@@ -243,138 +243,139 @@ $(function() {
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span>... TParams&gt;</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> validMsg(TMsg&amp; msg, MsgObjTag&lt;TParams...&gt;)</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    {</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        <span class="keyword">using</span> <a class="code" href="namespacecomms_1_1option.html#a8aa44dd95c714cfcb604ea4e8c446cef">MsgType</a> = <span class="keyword">typename</span> std::decay&lt;decltype(msg)&gt;::type;</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        static_assert(MsgType::hasTransportFields(),</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;            <span class="stringliteral">&quot;Message interface class hasn&#39;t defined transport fields, &quot;</span></div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;            <span class="stringliteral">&quot;use comms::option::def::ExtraTransportFields option.&quot;</span>);</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        static_assert(TIdx &lt; std::tuple_size&lt;typename MsgType::TransportFields&gt;::value,</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;            <span class="stringliteral">&quot;TIdx is too big, exceeds the amount of transport fields defined in interface class&quot;</span>);</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160; </div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    }</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160; </div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span>... TParams&gt;</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span> transportFields(TMsg&amp; msgPtr, SmartPtrTag&lt;TParams...&gt;) -&gt; decltype(msgPtr-&gt;transportFields())</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    {</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        <span class="keywordflow">return</span> msgPtr-&gt;transportFields();</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    }</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160; </div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span>... TParams&gt;</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span> transportFields(TMsg&amp; msg, MsgObjTag&lt;TParams...&gt;) -&gt; decltype(msg.transportFields())</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    {</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        <span class="keywordflow">return</span> msg.transportFields();</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    }</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160; </div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... TParams&gt;</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keyword">static</span> constexpr std::size_t doFieldLengthInternal(PseudoValueTag&lt;TParams...&gt;)</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    {</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        <span class="keywordflow">return</span> 0U;</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    }</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160; </div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... TParams&gt;</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    <span class="keyword">static</span> constexpr std::size_t doFieldLengthInternal(NormalValueTag&lt;TParams...&gt;)</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    {</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;        <span class="keywordflow">return</span> BaseImpl::doFieldLength();</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    }</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160; </div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TIter, <span class="keyword">typename</span>... TExtraValues&gt;</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> readFieldInternal(</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        <a class="code" href="classcomms_1_1protocol_1_1TransportValueLayer.html#a47d2f014f008e843013a59cf32213f08">Field</a>&amp; field,</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        TIter&amp; iter,</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        std::size_t&amp; len,</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        PseudoValueTag&lt;&gt;,</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        TExtraValues...)</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    {</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(iter);</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(len);</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        field = BaseImpl::pseudoField();</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">comms::ErrorStatus::Success</a>;</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    }</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160; </div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TIter, <span class="keyword">typename</span>... TExtraValues&gt;</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> readFieldInternal(</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;        <a class="code" href="classcomms_1_1protocol_1_1TransportValueLayer.html#a47d2f014f008e843013a59cf32213f08">Field</a>&amp; field,</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        TIter&amp; iter,</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        std::size_t&amp; len,</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;        NormalValueTag&lt;&gt;,</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        TExtraValues... extraValues)</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    {</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;        <span class="keyword">auto</span> beforeReadIter = iter;</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        <span class="keyword">auto</span> es = field.read(iter, len);</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;        <span class="keywordflow">if</span> (es == <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1ab6e495eeaee7cdf1bac313472e4681ac">comms::ErrorStatus::NotEnoughData</a>) {</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;            BaseImpl::updateMissingSize(field, len, extraValues...);</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        }</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;            <span class="keyword">auto</span> fieldLen = <span class="keyword">static_cast&lt;</span>std::size_t<span class="keyword">&gt;</span>(std::distance(beforeReadIter, iter));</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;            len -= fieldLen;</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        }</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        <span class="keywordflow">return</span> es;</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    }</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160; </div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TIter, <span class="keyword">typename</span>... TParams&gt;</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> writeFieldInternal(</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;        <a class="code" href="classcomms_1_1protocol_1_1TransportValueLayer.html#a47d2f014f008e843013a59cf32213f08">Field</a>&amp; field,</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        TIter&amp; iter,</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        std::size_t&amp; len,</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        PseudoValueTag&lt;TParams...&gt;)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(iter);</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(len);</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        field = BaseImpl::pseudoField();</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">comms::ErrorStatus::Success</a>;</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    }</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160; </div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TIter, <span class="keyword">typename</span>... TParams&gt;</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> writeFieldInternal(</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;        <a class="code" href="classcomms_1_1protocol_1_1TransportValueLayer.html#a47d2f014f008e843013a59cf32213f08">Field</a>&amp; field,</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;        TIter&amp; iter,</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        std::size_t&amp; len,</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;        NormalValueTag&lt;TParams...&gt;)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;        <span class="keyword">auto</span> es = field.write(iter, len);</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        <span class="keywordflow">if</span> (es == <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">comms::ErrorStatus::Success</a>) {</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;            <a class="code" href="Assert_8h.html#a941aec86290602caa61d86b671aea550">COMMS_ASSERT</a>(field.length() &lt;= len);</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;            len -= field.length();</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;        }</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        <span class="keywordflow">return</span> es;</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    }</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;};</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160; </div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;<span class="keyword">namespace </span>details</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;{</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;<span class="keyword">struct </span>TransportValueLayerCheckHelper</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;{</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> Value = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;};</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160; </div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField, std::<span class="keywordtype">size_t</span> TIdx, <span class="keyword">typename</span> TNextLayer&gt;</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;<span class="keyword">struct </span>TransportValueLayerCheckHelper&lt;TransportValueLayer&lt;TField, TIdx, TNextLayer&gt; &gt;</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;{</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> Value = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;};</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160; </div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;} <span class="comment">// namespace details</span></div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160; </div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00383"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1TransportValueLayer.html#aae9728a667e5272003d027abac684564">  383</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="classcomms_1_1protocol_1_1TransportValueLayer.html#aae9728a667e5272003d027abac684564">isTransportValueLayer</a>()</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;{</div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;    <span class="keywordflow">return</span> details::TransportValueLayerCheckHelper&lt;T&gt;::Value;</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;}</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160; </div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;}  <span class="comment">// namespace protocol</span></div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160; </div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;}  <span class="comment">// namespace comms</span></div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160; </div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(msg);</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        <span class="keyword">using</span> <a class="code" href="namespacecomms_1_1option.html#a8aa44dd95c714cfcb604ea4e8c446cef">MsgType</a> = <span class="keyword">typename</span> std::decay&lt;decltype(msg)&gt;::type;</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        static_assert(MsgType::hasTransportFields(),</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;            <span class="stringliteral">&quot;Message interface class hasn&#39;t defined transport fields, &quot;</span></div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;            <span class="stringliteral">&quot;use comms::option::def::ExtraTransportFields option.&quot;</span>);</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        static_assert(TIdx &lt; std::tuple_size&lt;typename MsgType::TransportFields&gt;::value,</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;            <span class="stringliteral">&quot;TIdx is too big, exceeds the amount of transport fields defined in interface class&quot;</span>);</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; </div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    }</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160; </div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span>... TParams&gt;</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span> transportFields(TMsg&amp; msgPtr, SmartPtrTag&lt;TParams...&gt;) -&gt; decltype(msgPtr-&gt;transportFields())</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    {</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        <span class="keywordflow">return</span> msgPtr-&gt;transportFields();</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    }</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160; </div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span>... TParams&gt;</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span> transportFields(TMsg&amp; msg, MsgObjTag&lt;TParams...&gt;) -&gt; decltype(msg.transportFields())</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    {</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        <span class="keywordflow">return</span> msg.transportFields();</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    }</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160; </div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... TParams&gt;</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <span class="keyword">static</span> constexpr std::size_t doFieldLengthInternal(PseudoValueTag&lt;TParams...&gt;)</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    {</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        <span class="keywordflow">return</span> 0U;</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    }</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160; </div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... TParams&gt;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <span class="keyword">static</span> constexpr std::size_t doFieldLengthInternal(NormalValueTag&lt;TParams...&gt;)</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    {</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        <span class="keywordflow">return</span> BaseImpl::doFieldLength();</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    }</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160; </div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TIter, <span class="keyword">typename</span>... TExtraValues&gt;</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> readFieldInternal(</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        <a class="code" href="classcomms_1_1protocol_1_1TransportValueLayer.html#a47d2f014f008e843013a59cf32213f08">Field</a>&amp; field,</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        TIter&amp; iter,</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        std::size_t&amp; len,</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        PseudoValueTag&lt;&gt;,</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        TExtraValues...)</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    {</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(iter);</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(len);</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;        field = BaseImpl::pseudoField();</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">comms::ErrorStatus::Success</a>;</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    }</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160; </div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TIter, <span class="keyword">typename</span>... TExtraValues&gt;</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> readFieldInternal(</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        <a class="code" href="classcomms_1_1protocol_1_1TransportValueLayer.html#a47d2f014f008e843013a59cf32213f08">Field</a>&amp; field,</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        TIter&amp; iter,</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;        std::size_t&amp; len,</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        NormalValueTag&lt;&gt;,</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;        TExtraValues... extraValues)</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    {</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        <span class="keyword">auto</span> beforeReadIter = iter;</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;        <span class="keyword">auto</span> es = field.read(iter, len);</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        <span class="keywordflow">if</span> (es == <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1ab6e495eeaee7cdf1bac313472e4681ac">comms::ErrorStatus::NotEnoughData</a>) {</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;            BaseImpl::updateMissingSize(field, len, extraValues...);</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        }</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;            <span class="keyword">auto</span> fieldLen = <span class="keyword">static_cast&lt;</span>std::size_t<span class="keyword">&gt;</span>(std::distance(beforeReadIter, iter));</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;            len -= fieldLen;</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        }</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        <span class="keywordflow">return</span> es;</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    }</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160; </div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TIter, <span class="keyword">typename</span>... TParams&gt;</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> writeFieldInternal(</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        <a class="code" href="classcomms_1_1protocol_1_1TransportValueLayer.html#a47d2f014f008e843013a59cf32213f08">Field</a>&amp; field,</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        TIter&amp; iter,</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        std::size_t&amp; len,</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        PseudoValueTag&lt;TParams...&gt;)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(iter);</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(len);</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        field = BaseImpl::pseudoField();</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">comms::ErrorStatus::Success</a>;</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    }</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160; </div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TIter, <span class="keyword">typename</span>... TParams&gt;</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> writeFieldInternal(</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;        <a class="code" href="classcomms_1_1protocol_1_1TransportValueLayer.html#a47d2f014f008e843013a59cf32213f08">Field</a>&amp; field,</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        TIter&amp; iter,</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;        std::size_t&amp; len,</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;        NormalValueTag&lt;TParams...&gt;)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        <span class="keyword">auto</span> es = field.write(iter, len);</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;        <span class="keywordflow">if</span> (es == <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">comms::ErrorStatus::Success</a>) {</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;            <a class="code" href="Assert_8h.html#a941aec86290602caa61d86b671aea550">COMMS_ASSERT</a>(field.length() &lt;= len);</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;            len -= field.length();</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        }</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;        <span class="keywordflow">return</span> es;</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    }</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;};</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160; </div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;<span class="keyword">namespace </span>details</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;{</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;<span class="keyword">struct </span>TransportValueLayerCheckHelper</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;{</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> Value = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;};</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160; </div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField, std::<span class="keywordtype">size_t</span> TIdx, <span class="keyword">typename</span> TNextLayer&gt;</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;<span class="keyword">struct </span>TransportValueLayerCheckHelper&lt;TransportValueLayer&lt;TField, TIdx, TNextLayer&gt; &gt;</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;{</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> Value = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;};</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160; </div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;} <span class="comment">// namespace details</span></div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160; </div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00384"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1TransportValueLayer.html#aae9728a667e5272003d027abac684564">  384</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="classcomms_1_1protocol_1_1TransportValueLayer.html#aae9728a667e5272003d027abac684564">isTransportValueLayer</a>()</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;{</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    <span class="keywordflow">return</span> details::TransportValueLayerCheckHelper&lt;T&gt;::Value;</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;}</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160; </div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;}  <span class="comment">// namespace protocol</span></div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160; </div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;}  <span class="comment">// namespace comms</span></div>
 <div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160; </div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclasscomms_1_1protocol_1_1TransportValueLayer_html_a2ceb2a3c1efc338b27e7a960aff57bf2"><div class="ttname"><a href="classcomms_1_1protocol_1_1TransportValueLayer.html#a2ceb2a3c1efc338b27e7a960aff57bf2">comms::protocol::TransportValueLayer::~TransportValueLayer</a></div><div class="ttdeci">~TransportValueLayer() noexcept=default</div><div class="ttdoc">Destructor.</div></div>
 <div class="ttc" id="aclasscomms_1_1protocol_1_1TransportValueLayer_html_a75905b2c50410c7e43b5ab3b9b64ad9f"><div class="ttname"><a href="classcomms_1_1protocol_1_1TransportValueLayer.html#a75905b2c50410c7e43b5ab3b9b64ad9f">comms::protocol::TransportValueLayer::doWrite</a></div><div class="ttdeci">comms::ErrorStatus doWrite(Field &amp;field, const TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerWriter &amp;&amp;nextLayerWriter) const</div><div class="ttdoc">Customized write functionality, invoked by write().</div><div class="ttdef"><b>Definition:</b> TransportValueLayer.h:174</div></div>
 <div class="ttc" id="acast_8h_html"><div class="ttname"><a href="cast_8h.html">cast.h</a></div></div>
 <div class="ttc" id="anamespacecomms_html_a0a259a03d68bce98b4a129fb34aaa2e1ab6e495eeaee7cdf1bac313472e4681ac"><div class="ttname"><a href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1ab6e495eeaee7cdf1bac313472e4681ac">comms::ErrorStatus::NotEnoughData</a></div><div class="ttdeci">@ NotEnoughData</div></div>
 <div class="ttc" id="aclasscomms_1_1protocol_1_1TransportValueLayer_html_a1d5e7e1b136b32ec8f223b30e574f200"><div class="ttname"><a href="classcomms_1_1protocol_1_1TransportValueLayer.html#a1d5e7e1b136b32ec8f223b30e574f200">comms::protocol::TransportValueLayer::doRead</a></div><div class="ttdeci">comms::ErrorStatus doRead(Field &amp;field, TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerReader &amp;&amp;nextLayerReader, TExtraValues... extraValues)</div><div class="ttdoc">Customized read functionality, invoked by read().</div><div class="ttdef"><b>Definition:</b> TransportValueLayer.h:123</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1ProtocolLayerBase_html_a37d1bfc9f9d2e53ce518ebf019781f82"><div class="ttname"><a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">comms::protocol::ProtocolLayerBase::Field</a></div><div class="ttdeci">TField Field</div><div class="ttdoc">Type of the field used for this layer.</div><div class="ttdef"><b>Definition:</b> ProtocolLayerBase.h:59</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1ProtocolLayerBase_html"><div class="ttname"><a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html">comms::protocol::ProtocolLayerBase</a></div><div class="ttdoc">Base class for all the middle (non MsgDataLayer) protocol transport layers.</div><div class="ttdef"><b>Definition:</b> ProtocolLayerBase.h:55</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1ProtocolLayerBase_html_a37d1bfc9f9d2e53ce518ebf019781f82"><div class="ttname"><a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">comms::protocol::ProtocolLayerBase::Field</a></div><div class="ttdeci">TField Field</div><div class="ttdoc">Type of the field used for this layer.</div><div class="ttdef"><b>Definition:</b> ProtocolLayerBase.h:63</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1ProtocolLayerBase_html"><div class="ttname"><a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html">comms::protocol::ProtocolLayerBase</a></div><div class="ttdoc">Base class for all the middle (non MsgDataLayer) protocol transport layers.</div><div class="ttdef"><b>Definition:</b> ProtocolLayerBase.h:59</div></div>
 <div class="ttc" id="aclasscomms_1_1protocol_1_1TransportValueLayer_html_a47d2f014f008e843013a59cf32213f08"><div class="ttname"><a href="classcomms_1_1protocol_1_1TransportValueLayer.html#a47d2f014f008e843013a59cf32213f08">comms::protocol::TransportValueLayer::Field</a></div><div class="ttdeci">typename BaseImpl::Field Field</div><div class="ttdoc">Type of the field object used to read/write &quot;sync&quot; value.</div><div class="ttdef"><b>Definition:</b> TransportValueLayer.h:72</div></div>
 <div class="ttc" id="anamespacecomms_html_a0a259a03d68bce98b4a129fb34aaa2e1"><div class="ttname"><a href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a></div><div class="ttdeci">ErrorStatus</div><div class="ttdoc">Error statuses reported by the Communication module.</div><div class="ttdef"><b>Definition:</b> ErrorStatus.h:17</div></div>
 <div class="ttc" id="aclasscomms_1_1protocol_1_1TransportValueLayer_html"><div class="ttname"><a href="classcomms_1_1protocol_1_1TransportValueLayer.html">comms::protocol::TransportValueLayer</a></div><div class="ttdoc">Protocol layer that reads a value from transport wrapping and reassigns it to appropriate &quot;extra tran...</div><div class="ttdef"><b>Definition:</b> TransportValueLayer.h:48</div></div>
@@ -383,13 +384,13 @@ $(function() {
 <div class="ttc" id="anamespacecomms_html_a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38"><div class="ttname"><a href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">comms::ErrorStatus::Success</a></div><div class="ttdeci">@ Success</div><div class="ttdoc">Used to indicate successful outcome of the operation.</div></div>
 <div class="ttc" id="anamespacecomms_html"><div class="ttname"><a href="namespacecomms.html">comms</a></div><div class="ttdoc">Main namespace for all classes / functions of COMMS library.</div></div>
 <div class="ttc" id="aAssert_8h_html_a941aec86290602caa61d86b671aea550"><div class="ttname"><a href="Assert_8h.html#a941aec86290602caa61d86b671aea550">COMMS_ASSERT</a></div><div class="ttdeci">#define COMMS_ASSERT(expr)</div><div class="ttdoc">Generic assert macro.</div><div class="ttdef"><b>Definition:</b> Assert.h:170</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1TransportValueLayer_html_aae9728a667e5272003d027abac684564"><div class="ttname"><a href="classcomms_1_1protocol_1_1TransportValueLayer.html#aae9728a667e5272003d027abac684564">comms::protocol::TransportValueLayer::isTransportValueLayer</a></div><div class="ttdeci">constexpr bool isTransportValueLayer()</div><div class="ttdoc">Compile time check of whether the provided type is a variant of TransportValueLayer.</div><div class="ttdef"><b>Definition:</b> TransportValueLayer.h:383</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1TransportValueLayer_html_aae9728a667e5272003d027abac684564"><div class="ttname"><a href="classcomms_1_1protocol_1_1TransportValueLayer.html#aae9728a667e5272003d027abac684564">comms::protocol::TransportValueLayer::isTransportValueLayer</a></div><div class="ttdeci">constexpr bool isTransportValueLayer()</div><div class="ttdoc">Compile time check of whether the provided type is a variant of TransportValueLayer.</div><div class="ttdef"><b>Definition:</b> TransportValueLayer.h:384</div></div>
 <div class="ttc" id="astructcomms_1_1option_1_1def_1_1ProtocolLayerForceReadUntilDataSplit_html"><div class="ttname"><a href="structcomms_1_1option_1_1def_1_1ProtocolLayerForceReadUntilDataSplit.html">comms::option::def::ProtocolLayerForceReadUntilDataSplit</a></div><div class="ttdoc">Option to force comms::protocol::ProtocolLayerBase class to split read operation &quot;until&quot; and &quot;from&quot; d...</div><div class="ttdef"><b>Definition:</b> options.h:1181</div></div>
 <div class="ttc" id="anamespacecomms_1_1option_html_a8aa44dd95c714cfcb604ea4e8c446cef"><div class="ttname"><a href="namespacecomms_1_1option.html#a8aa44dd95c714cfcb604ea4e8c446cef">comms::option::MsgType</a></div><div class="ttdeci">comms::option::def::MsgType&lt; TMsg &gt; MsgType</div><div class="ttdoc">Same as comms::option::def::MsgType.</div><div class="ttdef"><b>Definition:</b> options.h:1480</div></div>
 <div class="ttc" id="aclasscomms_1_1protocol_1_1TransportValueLayer_html_ae3dd588ed3408193fca6fa803fd797b9"><div class="ttname"><a href="classcomms_1_1protocol_1_1TransportValueLayer.html#ae3dd588ed3408193fca6fa803fd797b9">comms::protocol::TransportValueLayer::TransportParsedOptions</a></div><div class="ttdeci">details::TransportValueLayerOptionsParser&lt; TOptions... &gt; TransportParsedOptions</div><div class="ttdoc">Parsed options.</div><div class="ttdef"><b>Definition:</b> TransportValueLayer.h:75</div></div>
 <div class="ttc" id="aclasscomms_1_1protocol_1_1TransportValueLayer_html_a80c7d4cb26208476c14993de1f8cc976"><div class="ttname"><a href="classcomms_1_1protocol_1_1TransportValueLayer.html#a80c7d4cb26208476c14993de1f8cc976">comms::protocol::TransportValueLayer::TransportValueLayer</a></div><div class="ttdeci">TransportValueLayer()=default</div><div class="ttdoc">Default constructor.</div></div>
 <div class="ttc" id="aclasscomms_1_1protocol_1_1TransportValueLayer_html_ae0c3d9fe16b720fa29300a6230743564"><div class="ttname"><a href="classcomms_1_1protocol_1_1TransportValueLayer.html#ae0c3d9fe16b720fa29300a6230743564">comms::protocol::TransportValueLayer::pseudoField</a></div><div class="ttdeci">Field &amp; pseudoField()</div><div class="ttdoc">Access to pseudo field stored internally.</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1ProtocolLayerBase_html_aff7baefef2232316e08980e680d189ef"><div class="ttname"><a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#aff7baefef2232316e08980e680d189ef">comms::protocol::ProtocolLayerBase::isMessageObjRef</a></div><div class="ttdeci">static constexpr bool isMessageObjRef()</div><div class="ttdoc">Detect whether type is actual message object.</div><div class="ttdef"><b>Definition:</b> ProtocolLayerBase.h:770</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1ProtocolLayerBase_html_aff7baefef2232316e08980e680d189ef"><div class="ttname"><a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#aff7baefef2232316e08980e680d189ef">comms::protocol::ProtocolLayerBase::isMessageObjRef</a></div><div class="ttdeci">static constexpr bool isMessageObjRef()</div><div class="ttdoc">Detect whether type is actual message object.</div><div class="ttdef"><b>Definition:</b> ProtocolLayerBase.h:774</div></div>
 <div class="ttc" id="atype__traits_8h_html"><div class="ttname"><a href="type__traits_8h.html">type_traits.h</a></div><div class="ttdoc">Replacement to some types from standard type_traits.</div></div>
 <div class="ttc" id="aProtocolLayerBase_8h_html"><div class="ttname"><a href="ProtocolLayerBase_8h.html">ProtocolLayerBase.h</a></div></div>
 <div class="ttc" id="aclasscomms_1_1protocol_1_1TransportValueLayer_html_a47fee89b6c020173fed01766f41bb126"><div class="ttname"><a href="classcomms_1_1protocol_1_1TransportValueLayer.html#a47fee89b6c020173fed01766f41bb126">comms::protocol::TransportValueLayer::doFieldLength</a></div><div class="ttdeci">static std::size_t doFieldLength(const TMsg &amp;)</div><div class="ttdoc">Customising field length calculation.</div><div class="ttdef"><b>Definition:</b> TransportValueLayer.h:211</div></div>

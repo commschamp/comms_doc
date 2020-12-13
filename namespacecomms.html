@@ -1989,7 +1989,7 @@ template&lt;typename TFieldTo , typename TFieldFrom &gt; </div>
 
 <p>Cast between fields. </p>
 <p>Sometimes the protocol may treat some specific field differently based on indication bit in some other field. This function can be used to cast one field to another type. </p><div class="fragment"><div class="line">SomeFieldType someField = comms::field_cast&lt;SomeFieldType&gt;(someOtherField);</div>
-</div><!-- fragment --> <dl class="tparams"><dt>Template Parameters</dt><dd>
+</div><!-- fragment --><p> The function will perform some compile time analysis and will do a simple static_cast between the contained values if they are convertible. Otherwise the write + read operations will be performed, i.e. the source field will be written into a temporary buffer, and the target field will perform a read operation from that buffer. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">TFieldTo</td><td>Type to cast to. </td></tr>
     <tr><td class="paramname">TFieldFrom</td><td>Type to cast from. </td></tr>

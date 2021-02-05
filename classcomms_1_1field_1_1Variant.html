@@ -304,6 +304,10 @@ Related Functions</h2></td></tr>
 <tr class="memitem:ac814aefb0d1f921ec7c7d870e465e299"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1Variant.html#ac814aefb0d1f921ec7c7d870e465e299">operator!=</a> (const <a class="el" href="classcomms_1_1field_1_1Variant.html">Variant</a>&lt; TFieldBase, TMembers, TOptions... &gt; &amp;field1, const <a class="el" href="classcomms_1_1field_1_1Variant.html">Variant</a>&lt; TFieldBase, TMembers, TOptions... &gt; &amp;field2)</td></tr>
 <tr class="memdesc:ac814aefb0d1f921ec7c7d870e465e299"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-equality comparison operator.  <a href="classcomms_1_1field_1_1Variant.html#ac814aefb0d1f921ec7c7d870e465e299">More...</a><br /></td></tr>
 <tr class="separator:ac814aefb0d1f921ec7c7d870e465e299"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3dce5864dc387739389a5bcd0851977"><td class="memTemplParams" colspan="2">template&lt;typename TFieldBase , typename TMembers , typename... TOptions&gt; </td></tr>
+<tr class="memitem:aa3dce5864dc387739389a5bcd0851977"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1Variant.html#aa3dce5864dc387739389a5bcd0851977">operator&lt;</a> (const <a class="el" href="classcomms_1_1field_1_1Variant.html">Variant</a>&lt; TFieldBase, TMembers, TOptions... &gt; &amp;field1, const <a class="el" href="classcomms_1_1field_1_1Variant.html">Variant</a>&lt; TFieldBase, TMembers, TOptions... &gt; &amp;field2)</td></tr>
+<tr class="memdesc:aa3dce5864dc387739389a5bcd0851977"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-equality comparison operator.  <a href="classcomms_1_1field_1_1Variant.html#aa3dce5864dc387739389a5bcd0851977">More...</a><br /></td></tr>
+<tr class="separator:aa3dce5864dc387739389a5bcd0851977"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc1a8ab72962d39fd24995a5f5f91f41"><td class="memTemplParams" colspan="2">template&lt;typename TFieldBase , typename TMembers , typename... TOptions&gt; </td></tr>
 <tr class="memitem:acc1a8ab72962d39fd24995a5f5f91f41"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1Variant.html#acc1a8ab72962d39fd24995a5f5f91f41">operator==</a> (const <a class="el" href="classcomms_1_1field_1_1Variant.html">Variant</a>&lt; TFieldBase, TMembers, TOptions... &gt; &amp;field1, const <a class="el" href="classcomms_1_1field_1_1Variant.html">Variant</a>&lt; TFieldBase, TMembers, TOptions... &gt; &amp;field2)</td></tr>
 <tr class="memdesc:acc1a8ab72962d39fd24995a5f5f91f41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality comparison operator.  <a href="classcomms_1_1field_1_1Variant.html#acc1a8ab72962d39fd24995a5f5f91f41">More...</a><br /></td></tr>
@@ -1610,6 +1614,54 @@ template&lt;typename TFieldBase , typename TMembers , typename... TOptions&gt; <
 
 </div>
 </div>
+<a id="aa3dce5864dc387739389a5bcd0851977"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3dce5864dc387739389a5bcd0851977">&#9670;&nbsp;</a></span>operator&lt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TFieldBase , typename TMembers , typename... TOptions&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classcomms_1_1field_1_1Variant.html">Variant</a>&lt; TFieldBase, TMembers, TOptions... &gt; &amp;&#160;</td>
+          <td class="paramname"><em>field1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classcomms_1_1field_1_1Variant.html">Variant</a>&lt; TFieldBase, TMembers, TOptions... &gt; &amp;&#160;</td>
+          <td class="paramname"><em>field2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">related</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-equality comparison operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">field1</td><td>First field. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">field2</td><td>Second field. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true in case fields are NOT equal, false otherwise. </dd></dl>
+
+</div>
+</div>
 <a id="acc1a8ab72962d39fd24995a5f5f91f41"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acc1a8ab72962d39fd24995a5f5f91f41">&#9670;&nbsp;</a></span>operator==()</h2>
 
@@ -1668,7 +1720,7 @@ template&lt;typename TFieldBase , typename TMembers , typename... TOptions&gt; <
 <div class="ttc" id="aclasscomms_1_1Field_html"><div class="ttname"><a href="classcomms_1_1Field.html">comms::Field</a></div><div class="ttdoc">Base class to all the field classes.</div><div class="ttdef"><b>Definition:</b> Field.h:32</div></div>
 <div class="ttc" id="aclasscomms_1_1field_1_1Variant_html_a6e4dd4d3fa0537593ba42374aaf542e0"><div class="ttname"><a href="classcomms_1_1field_1_1Variant.html#a6e4dd4d3fa0537593ba42374aaf542e0">comms::field::Variant::initField</a></div><div class="ttdeci">std::tuple_element&lt; TIdx, Members &gt;::type &amp; initField(TArgs &amp;&amp;... args)</div><div class="ttdoc">Construct and initialise specified contained field in the internal buffer.</div><div class="ttdef"><b>Definition:</b> Variant.h:343</div></div>
 <div class="ttc" id="aclasscomms_1_1field_1_1Variant_html_a20b3323d7a94321da9acadc097bc5f36"><div class="ttname"><a href="classcomms_1_1field_1_1Variant.html#a20b3323d7a94321da9acadc097bc5f36">comms::field::Variant::currentField</a></div><div class="ttdeci">std::size_t currentField() const</div><div class="ttdoc">Get index of the current field (within the Members tuple).</div><div class="ttdef"><b>Definition:</b> Variant.h:253</div></div>
-<div class="ttc" id="aclasscomms_1_1field_1_1Variant_html_a973a95f2928609a140296b28957b130b"><div class="ttname"><a href="classcomms_1_1field_1_1Variant.html#a973a95f2928609a140296b28957b130b">comms::field::Variant::COMMS_VARIANT_MEMBERS_ACCESS</a></div><div class="ttdeci">#define COMMS_VARIANT_MEMBERS_ACCESS(...)</div><div class="ttdoc">Add convenience access enum and functions to the members of comms::field::Variant field.</div><div class="ttdef"><b>Definition:</b> Variant.h:611</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1Variant_html_a973a95f2928609a140296b28957b130b"><div class="ttname"><a href="classcomms_1_1field_1_1Variant.html#a973a95f2928609a140296b28957b130b">comms::field::Variant::COMMS_VARIANT_MEMBERS_ACCESS</a></div><div class="ttdeci">#define COMMS_VARIANT_MEMBERS_ACCESS(...)</div><div class="ttdoc">Add convenience access enum and functions to the members of comms::field::Variant field.</div><div class="ttdef"><b>Definition:</b> Variant.h:665</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

@@ -93,6 +93,7 @@ class comms::protocol::TransportValueLayer&lt; TField, TIdx, TNextLayer, TOption
     <tr><td class="paramname">TNextLayer</td><td>Next transport layer in protocol stack. </td></tr>
     <tr><td class="paramname">TOptions</td><td>Extending functionality options. Supported options are: <ul>
 <li><a class="el" href="structcomms_1_1option_1_1def_1_1PseudoValue.html">comms::option::def::PseudoValue</a> - Mark the handled value to be "pseudo" one, i.e. the field is not getting serialised. </li>
+<li><a class="el" href="namespacecomms_1_1option.html#a36cef7e87cf2288100d2a497f7960ac9">comms::option::ExtendingClass</a> - Use this option to provide a class name of the extending class, which can be used to extend existing functionality. See also <a class="el" href="page_custom_transport_value_layer.html">Defining Custom Transport Value Protocol Stack Layer</a> tutorial page. </li>
 </ul>
 </td></tr>
   </table>
@@ -314,10 +315,22 @@ Static Protected Member Functions</h2></td></tr>
 <tr class="memitem:aff7baefef2232316e08980e680d189ef"><td class="memTemplItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#aff7baefef2232316e08980e680d189ef">isMessageObjRef</a> ()</td></tr>
 <tr class="memdesc:aff7baefef2232316e08980e680d189ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detect whether type is actual message object.  <a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#aff7baefef2232316e08980e680d189ef">More...</a><br /></td></tr>
 <tr class="separator:aff7baefef2232316e08980e680d189ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad96d476e11c30cf659b5ade51a8408e"><td class="memTemplParams" colspan="2">template&lt;typename TMsg &gt; </td></tr>
+<tr class="memitem:aad96d476e11c30cf659b5ade51a8408e"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html#aad96d476e11c30cf659b5ade51a8408e">prepareFieldForWrite</a> (const TMsg &amp;msg, <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">Field</a> &amp;field)</td></tr>
+<tr class="memdesc:aad96d476e11c30cf659b5ade51a8408e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepare field for writing.  <a href="classcomms_1_1protocol_1_1TransportValueLayer.html#aad96d476e11c30cf659b5ade51a8408e">More...</a><br /></td></tr>
+<tr class="separator:aad96d476e11c30cf659b5ade51a8408e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8f3ab09bab3b4b574302f0b7aa2f600"><td class="memTemplParams" colspan="2">template&lt;typename TMsg &gt; </td></tr>
+<tr class="memitem:af8f3ab09bab3b4b574302f0b7aa2f600"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html#af8f3ab09bab3b4b574302f0b7aa2f600">reassignFieldValue</a> (TMsg &amp;msg, const <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">Field</a> &amp;field)</td></tr>
+<tr class="memdesc:af8f3ab09bab3b4b574302f0b7aa2f600"><td class="mdescLeft">&#160;</td><td class="mdescRight">Re-assign the value from the input field to appropriate transport field in the message object.  <a href="classcomms_1_1protocol_1_1TransportValueLayer.html#af8f3ab09bab3b4b574302f0b7aa2f600">More...</a><br /></td></tr>
+<tr class="separator:af8f3ab09bab3b4b574302f0b7aa2f600"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c83babc34313e54e04a4f12d24394c9"><td class="memTemplParams" colspan="2">template&lt;typename TMsg &gt; </td></tr>
 <tr class="memitem:a0c83babc34313e54e04a4f12d24394c9"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a0c83babc34313e54e04a4f12d24394c9">resetMsg</a> (TMsg &amp;msg)</td></tr>
 <tr class="memdesc:a0c83babc34313e54e04a4f12d24394c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset msg in case it is a smart pointer (<a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a17b1b0d2a42427cb7c998a41c9aa3174">MsgPtr</a>).  <a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a0c83babc34313e54e04a4f12d24394c9">More...</a><br /></td></tr>
 <tr class="separator:a0c83babc34313e54e04a4f12d24394c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe0e556ee9a28ca50e4e3d6c3e1c3ebc"><td class="memTemplParams" colspan="2">template&lt;typename TMsg &gt; </td></tr>
+<tr class="memitem:abe0e556ee9a28ca50e4e3d6c3e1c3ebc"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#abe0e556ee9a28ca50e4e3d6c3e1c3ebc">toMsgPtr</a> (TMsg &amp;msg) -&gt; decltype(toMsgPtrInternal(msg, MsgTypeTag&lt; typename std::decay&lt; decltype(msg)&gt;::type &gt;()))</td></tr>
+<tr class="memdesc:abe0e556ee9a28ca50e4e3d6c3e1c3ebc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a pointer to the message object.  <a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#abe0e556ee9a28ca50e4e3d6c3e1c3ebc">More...</a><br /></td></tr>
+<tr class="separator:abe0e556ee9a28ca50e4e3d6c3e1c3ebc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="related"></a>
 Related Functions</h2></td></tr>
@@ -1035,6 +1048,57 @@ template&lt;typename TMsg &gt; </div>
 
 </div>
 </div>
+<a id="aad96d476e11c30cf659b5ade51a8408e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad96d476e11c30cf659b5ade51a8408e">&#9670;&nbsp;</a></span>prepareFieldForWrite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TField , std::size_t TIdx, typename TNextLayer , typename... TOptions&gt; </div>
+<div class="memtemplate">
+template&lt;typename TMsg &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void <a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html">comms::protocol::TransportValueLayer</a>&lt; TField, TIdx, TNextLayer, TOptions &gt;::prepareFieldForWrite </td>
+          <td>(</td>
+          <td class="paramtype">const TMsg &amp;&#160;</td>
+          <td class="paramname"><em>msg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">Field</a> &amp;&#160;</td>
+          <td class="paramname"><em>field</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Prepare field for writing. </p>
+<p>Copies the field value from the appropriate transport field of the message object and assigns it to the provided output field. <br  />
+ May be overridden by the extending class if some complex functionality is required. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">msg</td><td>Reference to message object being written </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">field</td><td><a class="el" href="classcomms_1_1Field.html" title="Base class to all the field classes.">Field</a>, value of which needs to be populated </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>May be non-static in the extending class </dd></dl>
+
+</div>
+</div>
 <a id="ae0c3d9fe16b720fa29300a6230743564"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae0c3d9fe16b720fa29300a6230743564">&#9670;&nbsp;</a></span>pseudoField() <span class="overload">[1/2]</span></h2>
 
@@ -1592,6 +1656,57 @@ template&lt;typename TAllFields , typename TMsg , typename TIter , typename... T
 
 </div>
 </div>
+<a id="af8f3ab09bab3b4b574302f0b7aa2f600"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8f3ab09bab3b4b574302f0b7aa2f600">&#9670;&nbsp;</a></span>reassignFieldValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TField , std::size_t TIdx, typename TNextLayer , typename... TOptions&gt; </div>
+<div class="memtemplate">
+template&lt;typename TMsg &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void <a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html">comms::protocol::TransportValueLayer</a>&lt; TField, TIdx, TNextLayer, TOptions &gt;::reassignFieldValue </td>
+          <td>(</td>
+          <td class="paramtype">TMsg &amp;&#160;</td>
+          <td class="paramname"><em>msg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">Field</a> &amp;&#160;</td>
+          <td class="paramname"><em>field</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Re-assign the value from the input field to appropriate transport field in the message object. </p>
+<p>Default implementation just assigns to the field accessed using <b>TIdx</b> index passed as the template argument to the class definition.<br  />
+ May be overridden by the extending class if some complex functionality is required. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">msg</td><td>Reference to the created message object </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">field</td><td><a class="el" href="classcomms_1_1Field.html" title="Base class to all the field classes.">Field</a>, value of which needs to be re-assigned </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>May be non-static in the extending class </dd></dl>
+
+</div>
+</div>
 <a id="a0c83babc34313e54e04a4f12d24394c9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0c83babc34313e54e04a4f12d24394c9">&#9670;&nbsp;</a></span>resetMsg()</h2>
 
@@ -1769,6 +1884,40 @@ template&lt;typename... TExtraValues&gt; </div>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="abe0e556ee9a28ca50e4e3d6c3e1c3ebc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe0e556ee9a28ca50e4e3d6c3e1c3ebc">&#9670;&nbsp;</a></span>toMsgPtr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TField , typename TNextLayer , typename TDerived , typename... TOptions&gt; </div>
+<div class="memtemplate">
+template&lt;typename TMsg &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static auto <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html">comms::protocol::ProtocolLayerBase</a>&lt; TField, TNextLayer, TDerived, TOptions &gt;::toMsgPtr </td>
+          <td>(</td>
+          <td class="paramtype">TMsg &amp;&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td> -&gt; decltype(toMsgPtrInternal(msg, MsgTypeTag&lt;typename std::decay&lt;decltype(msg)&gt;::type&gt;()))
+    </td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get a pointer to the message object. </p>
+<p>The function works seamlessly for both smart pointer and reference to the real object </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#aff7baefef2232316e08980e680d189ef">isMessageObjRef()</a>. </dd></dl>
 
 </div>
 </div>
@@ -2366,10 +2515,10 @@ template&lt;typename TField , typename TNextLayer , typename TDerived , typename
 <li>include/comms/protocol/<a class="el" href="TransportValueLayer_8h_source.html">TransportValueLayer.h</a></li>
 </ul>
 </div><!-- contents -->
-<div class="ttc" id="aclasscomms_1_1protocol_1_1TransportValueLayer_html_a75905b2c50410c7e43b5ab3b9b64ad9f"><div class="ttname"><a href="classcomms_1_1protocol_1_1TransportValueLayer.html#a75905b2c50410c7e43b5ab3b9b64ad9f">comms::protocol::TransportValueLayer::doWrite</a></div><div class="ttdeci">comms::ErrorStatus doWrite(Field &amp;field, const TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerWriter &amp;&amp;nextLayerWriter) const</div><div class="ttdoc">Customized write functionality, invoked by write().</div><div class="ttdef"><b>Definition:</b> TransportValueLayer.h:174</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1TransportValueLayer_html_a75905b2c50410c7e43b5ab3b9b64ad9f"><div class="ttname"><a href="classcomms_1_1protocol_1_1TransportValueLayer.html#a75905b2c50410c7e43b5ab3b9b64ad9f">comms::protocol::TransportValueLayer::doWrite</a></div><div class="ttdeci">comms::ErrorStatus doWrite(Field &amp;field, const TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerWriter &amp;&amp;nextLayerWriter) const</div><div class="ttdoc">Customized write functionality, invoked by write().</div><div class="ttdef"><b>Definition:</b> TransportValueLayer.h:185</div></div>
 <div class="ttc" id="aclasscomms_1_1protocol_1_1ProtocolLayerBase_html_a94f23dc39f0adb4fd7ecd0ab2941588f"><div class="ttname"><a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a94f23dc39f0adb4fd7ecd0ab2941588f">comms::protocol::ProtocolLayerBase::doUpdate</a></div><div class="ttdeci">comms::ErrorStatus doUpdate(Field &amp;field, TIter &amp;iter, std::size_t size, TNextLayerUpdater &amp;&amp;nextLayerUpdater) const</div><div class="ttdoc">Default implementation of the &quot;update&quot; functaionality.</div><div class="ttdef"><b>Definition:</b> ProtocolLayerBase.h:692</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1TransportValueLayer_html_a1d5e7e1b136b32ec8f223b30e574f200"><div class="ttname"><a href="classcomms_1_1protocol_1_1TransportValueLayer.html#a1d5e7e1b136b32ec8f223b30e574f200">comms::protocol::TransportValueLayer::doRead</a></div><div class="ttdeci">comms::ErrorStatus doRead(Field &amp;field, TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerReader &amp;&amp;nextLayerReader, TExtraValues... extraValues)</div><div class="ttdoc">Customized read functionality, invoked by read().</div><div class="ttdef"><b>Definition:</b> TransportValueLayer.h:123</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1TransportValueLayer_html_a47d2f014f008e843013a59cf32213f08"><div class="ttname"><a href="classcomms_1_1protocol_1_1TransportValueLayer.html#a47d2f014f008e843013a59cf32213f08">comms::protocol::TransportValueLayer::Field</a></div><div class="ttdeci">typename BaseImpl::Field Field</div><div class="ttdoc">Type of the field object used to read/write &quot;sync&quot; value.</div><div class="ttdef"><b>Definition:</b> TransportValueLayer.h:72</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1TransportValueLayer_html_a1d5e7e1b136b32ec8f223b30e574f200"><div class="ttname"><a href="classcomms_1_1protocol_1_1TransportValueLayer.html#a1d5e7e1b136b32ec8f223b30e574f200">comms::protocol::TransportValueLayer::doRead</a></div><div class="ttdeci">comms::ErrorStatus doRead(Field &amp;field, TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerReader &amp;&amp;nextLayerReader, TExtraValues... extraValues)</div><div class="ttdoc">Customized read functionality, invoked by read().</div><div class="ttdef"><b>Definition:</b> TransportValueLayer.h:140</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1TransportValueLayer_html_a47d2f014f008e843013a59cf32213f08"><div class="ttname"><a href="classcomms_1_1protocol_1_1TransportValueLayer.html#a47d2f014f008e843013a59cf32213f08">comms::protocol::TransportValueLayer::Field</a></div><div class="ttdeci">typename BaseImpl::Field Field</div><div class="ttdoc">Type of the field object used to read/write &quot;sync&quot; value.</div><div class="ttdef"><b>Definition:</b> TransportValueLayer.h:89</div></div>
 <div class="ttc" id="anamespacecomms_html_a0a259a03d68bce98b4a129fb34aaa2e1"><div class="ttname"><a href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a></div><div class="ttdeci">ErrorStatus</div><div class="ttdoc">Error statuses reported by the Communication module.</div><div class="ttdef"><b>Definition:</b> ErrorStatus.h:17</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

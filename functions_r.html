@@ -91,6 +91,10 @@ $(function() {
 : <a class="el" href="classcomms_1_1Field.html#a625b2614fc28507e11476c4dfa168cf8">comms::Field&lt; TOptions &gt;</a>
 , <a class="el" href="classcomms_1_1Message.html#ac484455094ac1eb1aa189bdc6d527ded">comms::Message&lt; TOptions &gt;</a>
 </li>
+<li>readField()
+: <a class="el" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a921528421a84bfbb8c6603b3a6880459">comms::protocol::ChecksumLayer&lt; TField, TCalc, TNextLayer, TOptions &gt;</a>
+, <a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#ae96c0e015724ee38c88f0188b025232e">comms::protocol::ChecksumPrefixLayer&lt; TField, TCalc, TNextLayer, TOptions &gt;</a>
+</li>
 <li>readFieldsCached()
 : <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ad27c6b31381727bc765daf1e36d98029">comms::protocol::MsgDataLayer&lt; TExtraOpts &gt;</a>
 , <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#ad22a30d6baba8a074f419fe710b809d5">comms::protocol::ProtocolLayerBase&lt; TField, TNextLayer, TDerived, TOptions &gt;</a>
@@ -160,14 +164,15 @@ $(function() {
 <li>readUntilNoStatus()
 : <a class="el" href="classcomms_1_1field_1_1Bundle.html#a794b67b2061cb8e354f02a3f12c1b625">comms::field::Bundle&lt; TFieldBase, TMembers, TOptions &gt;</a>
 </li>
-<li>reference
-: <a class="el" href="classcomms_1_1util_1_1ArrayView.html#ac1e9f9ccadae25b41a0633d88cc8b5cd">comms::util::ArrayView&lt; T &gt;</a>
+<li>reassignFieldValue()
+: <a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html#af8f3ab09bab3b4b574302f0b7aa2f600">comms::protocol::TransportValueLayer&lt; TField, TIdx, TNextLayer, TOptions &gt;</a>
 </li>
 <li>Reference
 : <a class="el" href="classcomms_1_1util_1_1ArrayView.html#a755323c18f5391bc3e5bfd7d38d95e9e">comms::util::ArrayView&lt; T &gt;</a>
 </li>
 <li>reference
-: <a class="el" href="classcomms_1_1util_1_1StaticString.html#a8fb4acff787d9adda0bc4f56e59b6fe8">comms::util::StaticString&lt; TSize, TChar &gt;</a>
+: <a class="el" href="classcomms_1_1util_1_1ArrayView.html#ac1e9f9ccadae25b41a0633d88cc8b5cd">comms::util::ArrayView&lt; T &gt;</a>
+, <a class="el" href="classcomms_1_1util_1_1StaticString.html#a8fb4acff787d9adda0bc4f56e59b6fe8">comms::util::StaticString&lt; TSize, TChar &gt;</a>
 , <a class="el" href="classcomms_1_1util_1_1StaticVector.html#a286f6330d2904e952d0a2f4b71d7241f">comms::util::StaticVector&lt; T, TSize &gt;</a>
 , <a class="el" href="classcomms_1_1util_1_1StringView.html#adaffa82c16dd341199772ddc819ccfff">comms::util::StringView</a>
 </li>
@@ -206,12 +211,12 @@ $(function() {
 </li>
 <li>rend()
 : <a class="el" href="classcomms_1_1util_1_1ArrayView.html#a5beb4c4f17e3d477ef6cebd1485362d8">comms::util::ArrayView&lt; T &gt;</a>
-, <a class="el" href="classcomms_1_1util_1_1StaticString.html#a8065a2e72dd81214536ce57fcad61260">comms::util::StaticString&lt; TSize, TChar &gt;</a>
+, <a class="el" href="classcomms_1_1util_1_1StaticString.html#a2b9a75a3d58928dfcb57a9ce16ea312c">comms::util::StaticString&lt; TSize, TChar &gt;</a>
 , <a class="el" href="classcomms_1_1util_1_1StaticVector.html#a733cfebdc3102a18ea9957633488e498">comms::util::StaticVector&lt; T, TSize &gt;</a>
 , <a class="el" href="classcomms_1_1util_1_1StringView.html#a9c6c169d05dc3c30f731084017b7a6c3">comms::util::StringView</a>
 </li>
 <li>replace()
-: <a class="el" href="classcomms_1_1util_1_1StaticString.html#adb78b7df342ecd136444285fb11782e9">comms::util::StaticString&lt; TSize, TChar &gt;</a>
+: <a class="el" href="classcomms_1_1util_1_1StaticString.html#a4215aa7913d8c24ef4ad7d94ac4a482c">comms::util::StaticString&lt; TSize, TChar &gt;</a>
 </li>
 <li>reserve()
 : <a class="el" href="classcomms_1_1util_1_1StaticString.html#a9d0d81810b288e0ec6a2931fbc1d6cc9">comms::util::StaticString&lt; TSize, TChar &gt;</a>
@@ -241,7 +246,7 @@ $(function() {
 , <a class="el" href="classcomms_1_1util_1_1StringView.html#a8fad300af9039809c29d8f59f1017730">comms::util::StringView</a>
 </li>
 <li>rfind()
-: <a class="el" href="classcomms_1_1util_1_1StaticString.html#a208ea4a9aa06fcb213f698d9403071aa">comms::util::StaticString&lt; TSize, TChar &gt;</a>
+: <a class="el" href="classcomms_1_1util_1_1StaticString.html#a33e86d6f5d517cbea008d8d92cf5f8ad">comms::util::StaticString&lt; TSize, TChar &gt;</a>
 </li>
 </ul>
 </div><!-- contents -->

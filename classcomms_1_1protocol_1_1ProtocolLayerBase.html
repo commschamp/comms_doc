@@ -109,7 +109,7 @@ Inheritance diagram for comms::protocol::ProtocolLayerBase&lt; TField, TNextLaye
 <area href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html" title="Protocol layer that is responsible to calculate checksum on the data written by all the wrapped inter..." alt="comms::protocol::ChecksumPrefixLayer&lt; TField, TCalc, TNextLayer, TOptions &gt;" shape="rect" coords="532,56,1054,80"/>
 <area href="classcomms_1_1protocol_1_1MsgIdLayer.html" title="Protocol layer that uses uses message ID field as a prefix to all the subsequent data written by othe..." alt="comms::protocol::MsgIdLayer&lt; TField, TMessage, TAllMessages, TNextLayer, TOptions &gt;" shape="rect" coords="1064,56,1586,80"/>
 <area href="classcomms_1_1protocol_1_1MsgSizeLayer.html" title="Protocol layer that uses size field as a prefix to all the subsequent data written by other (next) la..." alt="comms::protocol::MsgSizeLayer&lt; TField, TNextLayer, TOptions &gt;" shape="rect" coords="1596,56,2118,80"/>
-<area href="classcomms_1_1protocol_1_1SyncPrefixLayer.html" title="Protocol layer that uses &quot;sync&quot; field as a prefix to all the subsequent data written by other (next) ..." alt="comms::protocol::SyncPrefixLayer&lt; TField, TNextLayer &gt;" shape="rect" coords="2128,56,2650,80"/>
+<area href="classcomms_1_1protocol_1_1SyncPrefixLayer.html" title="Protocol layer that uses &quot;sync&quot; field as a prefix to all the subsequent data written by other (next) ..." alt="comms::protocol::SyncPrefixLayer&lt; TField, TNextLayer, TOptions &gt;" shape="rect" coords="2128,56,2650,80"/>
 <area href="classcomms_1_1protocol_1_1TransportValueLayer.html" title="Protocol layer that reads a value from transport wrapping and reassigns it to appropriate &quot;extra tran..." alt="comms::protocol::TransportValueLayer&lt; TField, TIdx, TNextLayer, TOptions &gt;" shape="rect" coords="2660,56,3182,80"/>
   </map>
 </div></div>
@@ -258,14 +258,12 @@ Static Public Member Functions</h2></td></tr>
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a5b40f0c816054179e57b653390662710">canSplitRead</a> ()</td></tr>
 <tr class="memdesc:a5b40f0c816054179e57b653390662710"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time check whether split read "until" and "from" data layer is allowed. <br /></td></tr>
 <tr class="separator:a5b40f0c816054179e57b653390662710"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e86bd01b3f9a678e22ec65251d98d07"><td class="memItemLeft" align="right" valign="top"><a id="a8e86bd01b3f9a678e22ec65251d98d07"></a>
-static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a8e86bd01b3f9a678e22ec65251d98d07">doFieldLength</a> ()</td></tr>
-<tr class="memdesc:a8e86bd01b3f9a678e22ec65251d98d07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation of field length retrieval. <br /></td></tr>
+<tr class="memitem:a8e86bd01b3f9a678e22ec65251d98d07"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a8e86bd01b3f9a678e22ec65251d98d07">doFieldLength</a> ()</td></tr>
+<tr class="memdesc:a8e86bd01b3f9a678e22ec65251d98d07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation of field length retrieval.  <a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a8e86bd01b3f9a678e22ec65251d98d07">More...</a><br /></td></tr>
 <tr class="separator:a8e86bd01b3f9a678e22ec65251d98d07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adab7b69ced04179d389e1458f94d223c"><td class="memTemplParams" colspan="2"><a id="adab7b69ced04179d389e1458f94d223c"></a>
-template&lt;typename TMsg &gt; </td></tr>
+<tr class="memitem:adab7b69ced04179d389e1458f94d223c"><td class="memTemplParams" colspan="2">template&lt;typename TMsg &gt; </td></tr>
 <tr class="memitem:adab7b69ced04179d389e1458f94d223c"><td class="memTemplItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#adab7b69ced04179d389e1458f94d223c">doFieldLength</a> (const TMsg &amp;)</td></tr>
-<tr class="memdesc:adab7b69ced04179d389e1458f94d223c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation of field length retrieval when message is known. <br /></td></tr>
+<tr class="memdesc:adab7b69ced04179d389e1458f94d223c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation of field length retrieval when message is known.  <a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#adab7b69ced04179d389e1458f94d223c">More...</a><br /></td></tr>
 <tr class="separator:adab7b69ced04179d389e1458f94d223c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
@@ -312,6 +310,10 @@ Static Protected Member Functions</h2></td></tr>
 <tr class="memitem:a0c83babc34313e54e04a4f12d24394c9"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a0c83babc34313e54e04a4f12d24394c9">resetMsg</a> (TMsg &amp;msg)</td></tr>
 <tr class="memdesc:a0c83babc34313e54e04a4f12d24394c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset msg in case it is a smart pointer (<a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a17b1b0d2a42427cb7c998a41c9aa3174">MsgPtr</a>).  <a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a0c83babc34313e54e04a4f12d24394c9">More...</a><br /></td></tr>
 <tr class="separator:a0c83babc34313e54e04a4f12d24394c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe0e556ee9a28ca50e4e3d6c3e1c3ebc"><td class="memTemplParams" colspan="2">template&lt;typename TMsg &gt; </td></tr>
+<tr class="memitem:abe0e556ee9a28ca50e4e3d6c3e1c3ebc"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#abe0e556ee9a28ca50e4e3d6c3e1c3ebc">toMsgPtr</a> (TMsg &amp;msg) -&gt; decltype(toMsgPtrInternal(msg, MsgTypeTag&lt; typename std::decay&lt; decltype(msg)&gt;::type &gt;()))</td></tr>
+<tr class="memdesc:abe0e556ee9a28ca50e4e3d6c3e1c3ebc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a pointer to the message object.  <a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#abe0e556ee9a28ca50e4e3d6c3e1c3ebc">More...</a><br /></td></tr>
+<tr class="separator:abe0e556ee9a28ca50e4e3d6c3e1c3ebc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="related"></a>
 Related Functions</h2></td></tr>
@@ -511,6 +513,72 @@ template&lt;typename TId &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Smart pointer (variant of std::unique_ptr) to allocated message object </dd></dl>
+
+</div>
+</div>
+<a id="a8e86bd01b3f9a678e22ec65251d98d07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e86bd01b3f9a678e22ec65251d98d07">&#9670;&nbsp;</a></span>doFieldLength() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TField , typename TNextLayer , typename TDerived , typename... TOptions&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static constexpr std::size_t <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html">comms::protocol::ProtocolLayerBase</a>&lt; TField, TNextLayer, TDerived, TOptions &gt;::doFieldLength </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default implementation of field length retrieval. </p>
+<p>Default implementation returns </p><div class="fragment"><div class="line">Field::minLength();</div>
+</div><!-- fragment --> <dl class="section note"><dt>Note</dt><dd>Can be overriden by the extending class. </dd></dl>
+
+</div>
+</div>
+<a id="adab7b69ced04179d389e1458f94d223c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adab7b69ced04179d389e1458f94d223c">&#9670;&nbsp;</a></span>doFieldLength() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TField , typename TNextLayer , typename TDerived , typename... TOptions&gt; </div>
+<div class="memtemplate">
+template&lt;typename TMsg &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static constexpr std::size_t <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html">comms::protocol::ProtocolLayerBase</a>&lt; TField, TNextLayer, TDerived, TOptions &gt;::doFieldLength </td>
+          <td>(</td>
+          <td class="paramtype">const TMsg &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default implementation of field length retrieval when message is known. </p>
+<p>Default implementation returns </p><div class="fragment"><div class="line">Field::minLength();</div>
+</div><!-- fragment --> <dl class="section note"><dt>Note</dt><dd>Can be overriden by the extending class. <br  />
+ </dd></dl>
 
 </div>
 </div>
@@ -1440,6 +1508,40 @@ template&lt;typename... TExtraValues&gt; </div>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="abe0e556ee9a28ca50e4e3d6c3e1c3ebc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe0e556ee9a28ca50e4e3d6c3e1c3ebc">&#9670;&nbsp;</a></span>toMsgPtr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TField , typename TNextLayer , typename TDerived , typename... TOptions&gt; </div>
+<div class="memtemplate">
+template&lt;typename TMsg &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static auto <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html">comms::protocol::ProtocolLayerBase</a>&lt; TField, TNextLayer, TDerived, TOptions &gt;::toMsgPtr </td>
+          <td>(</td>
+          <td class="paramtype">TMsg &amp;&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td> -&gt; decltype(toMsgPtrInternal(msg, MsgTypeTag&lt;typename std::decay&lt;decltype(msg)&gt;::type&gt;()))
+    </td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get a pointer to the message object. </p>
+<p>The function works seamlessly for both smart pointer and reference to the real object </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#aff7baefef2232316e08980e680d189ef">isMessageObjRef()</a>. </dd></dl>
 
 </div>
 </div>

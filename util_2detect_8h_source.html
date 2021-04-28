@@ -71,7 +71,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <a href="util_2detect_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright 2017 - 2020 (C). Alex Robenko. All rights reserved.</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright 2017 - 2021 (C). Alex Robenko. All rights reserved.</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// This Source Code Form is subject to the terms of the Mozilla Public</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// License, v. 2.0. If a copy of the MPL was not distributed with this</span></div>
@@ -128,14 +128,21 @@ $(function() {
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">return</span> details::HasPtrSizeConstructor&lt;T&gt;::Value;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;}</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;} <span class="comment">// namespace detect</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;} <span class="comment">// namespace util</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;} <span class="comment">// namespace comms</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util_1_1detect.html#a1faab07dcd5bed959bee75a0034cbe25">   98</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1util_1_1detect.html#a1faab07dcd5bed959bee75a0034cbe25">isStdSpan</a>()</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;{</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">return</span> details::IsStdSpan&lt;T&gt;::Value;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;} <span class="comment">// namespace detect</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;} <span class="comment">// namespace util</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;} <span class="comment">// namespace comms</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="anamespacecomms_1_1util_1_1detect_html_ae01cf25aeb761ac6c47aae8283b523a2"><div class="ttname"><a href="namespacecomms_1_1util_1_1detect.html#ae01cf25aeb761ac6c47aae8283b523a2">comms::util::detect::hasResizeFunc</a></div><div class="ttdeci">constexpr bool hasResizeFunc()</div><div class="ttdoc">Detect whether provided type has resize() member function.</div><div class="ttdef"><b>Definition:</b> detect.h:53</div></div>
 <div class="ttc" id="autil_2details_2detect_8h_html"><div class="ttname"><a href="util_2details_2detect_8h.html">detect.h</a></div></div>
+<div class="ttc" id="anamespacecomms_1_1util_1_1detect_html_a1faab07dcd5bed959bee75a0034cbe25"><div class="ttname"><a href="namespacecomms_1_1util_1_1detect.html#a1faab07dcd5bed959bee75a0034cbe25">comms::util::detect::isStdSpan</a></div><div class="ttdeci">constexpr bool isStdSpan()</div><div class="ttdoc">Detect whether provided type is std::span.</div><div class="ttdef"><b>Definition:</b> detect.h:98</div></div>
 <div class="ttc" id="anamespacecomms_1_1util_1_1detect_html_a8964789a7595cdf8bbe868151a82101a"><div class="ttname"><a href="namespacecomms_1_1util_1_1detect.html#a8964789a7595cdf8bbe868151a82101a">comms::util::detect::hasAssignFunc</a></div><div class="ttdeci">constexpr bool hasAssignFunc()</div><div class="ttdoc">Detect whether provided type has assign() member function which can receive two pointers in its argum...</div><div class="ttdef"><b>Definition:</b> detect.h:79</div></div>
 <div class="ttc" id="anamespacecomms_html"><div class="ttname"><a href="namespacecomms.html">comms</a></div><div class="ttdoc">Main namespace for all classes / functions of COMMS library.</div></div>
 <div class="ttc" id="anamespacecomms_1_1util_1_1detect_html_a3da7b7cbbd357aec2cfe835d4b6d3bfa"><div class="ttname"><a href="namespacecomms_1_1util_1_1detect.html#a3da7b7cbbd357aec2cfe835d4b6d3bfa">comms::util::detect::hasClearFunc</a></div><div class="ttdeci">constexpr bool hasClearFunc()</div><div class="ttdoc">Detect whether provided type has clear() member function.</div><div class="ttdef"><b>Definition:</b> detect.h:30</div></div>

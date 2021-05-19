@@ -295,6 +295,14 @@ Protected Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
 Static Protected Member Functions</h2></td></tr>
+<tr class="memitem:a7050fb0df8e4efc8cc3e35214436fe55"><td class="memTemplParams" colspan="2">template&lt;typename TMsg , typename TIter &gt; </td></tr>
+<tr class="memitem:a7050fb0df8e4efc8cc3e35214436fe55"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a7050fb0df8e4efc8cc3e35214436fe55">doReadField</a> (const TMsg *msgPtr, <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">Field</a> &amp;field, TIter &amp;iter, std::size_t len)</td></tr>
+<tr class="memdesc:a7050fb0df8e4efc8cc3e35214436fe55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the layer field.  <a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a7050fb0df8e4efc8cc3e35214436fe55">More...</a><br /></td></tr>
+<tr class="separator:a7050fb0df8e4efc8cc3e35214436fe55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a7d913a4c2d569ce9c0842b9e16a0cb"><td class="memTemplParams" colspan="2">template&lt;typename TMsg , typename TIter &gt; </td></tr>
+<tr class="memitem:a2a7d913a4c2d569ce9c0842b9e16a0cb"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a2a7d913a4c2d569ce9c0842b9e16a0cb">doWriteField</a> (const TMsg *msgPtr, const <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">Field</a> &amp;field, TIter &amp;iter, std::size_t len)</td></tr>
+<tr class="memdesc:a2a7d913a4c2d569ce9c0842b9e16a0cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the layer field.  <a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a2a7d913a4c2d569ce9c0842b9e16a0cb">More...</a><br /></td></tr>
+<tr class="separator:a2a7d913a4c2d569ce9c0842b9e16a0cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acfc4764b60930eed5c1067b303ba6cde"><td class="memTemplParams" colspan="2">template&lt;std::size_t TIdx, typename TAllFields &gt; </td></tr>
 <tr class="memitem:acfc4764b60930eed5c1067b303ba6cde"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">Field</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#acfc4764b60930eed5c1067b303ba6cde">getField</a> (TAllFields &amp;allFields)</td></tr>
 <tr class="memdesc:acfc4764b60930eed5c1067b303ba6cde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve reference to a layer specific field out of all fields.  <a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#acfc4764b60930eed5c1067b303ba6cde">More...</a><br /></td></tr>
@@ -663,6 +671,70 @@ template&lt;typename TMsg , typename TIter , typename TNextLayerReader , typenam
 
 </div>
 </div>
+<a id="a7050fb0df8e4efc8cc3e35214436fe55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7050fb0df8e4efc8cc3e35214436fe55">&#9670;&nbsp;</a></span>doReadField()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TField , typename TNextLayer , typename TDerived , typename... TOptions&gt; </div>
+<div class="memtemplate">
+template&lt;typename TMsg , typename TIter &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html">comms::protocol::ProtocolLayerBase</a>&lt; TField, TNextLayer, TDerived, TOptions &gt;::doReadField </td>
+          <td>(</td>
+          <td class="paramtype">const TMsg *&#160;</td>
+          <td class="paramname"><em>msgPtr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">Field</a> &amp;&#160;</td>
+          <td class="paramname"><em>field</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TIter &amp;&#160;</td>
+          <td class="paramname"><em>iter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Read the layer field. </p>
+<p>The default implementation invokes <b><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a60d0ea06c68e5b885bf651d7a7b14d1a" title="Deserialise message from the input data sequence.">read()</a></b> operation of the passed field object. The function can be overriden by the extending class. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">msgPtr</td><td>Pointer to message object (if available), can be nullptr. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">field</td><td><a class="el" href="classcomms_1_1Field.html" title="Base class to all the field classes.">Field</a> object value of which needs to be populated </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">iter</td><td>Iterator used for reading, expected to be advanced </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>Length of the input buffer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>May be non-static in the extending class </dd></dl>
+
+</div>
+</div>
 <a id="a1f3eda36afa45e1c226b342980d121ea"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1f3eda36afa45e1c226b342980d121ea">&#9670;&nbsp;</a></span>doUpdate() <span class="overload">[1/2]</span></h2>
 
@@ -882,6 +954,70 @@ template&lt;typename TMsg , typename TIter , typename TNextLayerWriter &gt; </di
 <dl class="section return"><dt>Returns</dt><dd>Status of the write operation. </dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Iterator must be valid and can be dereferenced and incremented at least "size" times; </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>The iterator will be advanced by the number of bytes was actually written. In case of an error, distance between original position and advanced will pinpoint the location of the error. </dd></dl>
+
+</div>
+</div>
+<a id="a2a7d913a4c2d569ce9c0842b9e16a0cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a7d913a4c2d569ce9c0842b9e16a0cb">&#9670;&nbsp;</a></span>doWriteField()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TField , typename TNextLayer , typename TDerived , typename... TOptions&gt; </div>
+<div class="memtemplate">
+template&lt;typename TMsg , typename TIter &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html">comms::protocol::ProtocolLayerBase</a>&lt; TField, TNextLayer, TDerived, TOptions &gt;::doWriteField </td>
+          <td>(</td>
+          <td class="paramtype">const TMsg *&#160;</td>
+          <td class="paramname"><em>msgPtr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">Field</a> &amp;&#160;</td>
+          <td class="paramname"><em>field</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TIter &amp;&#160;</td>
+          <td class="paramname"><em>iter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Write the layer field. </p>
+<p>The default implementation invokes <b><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a6799fbfb090ea3a612d3757a0d28fd06" title="Serialise message into output data sequence.">write()</a></b> operation of the passed field object. The function can be overriden by the extending class. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">msgPtr</td><td>Pointer to message object (if available), can be nullptr. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">field</td><td><a class="el" href="classcomms_1_1Field.html" title="Base class to all the field classes.">Field</a> object value of which needs to be written </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">iter</td><td>Iterator used for writing, expected to be advanced </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>Length of the output buffer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>May be non-static in the extending class, but needs to be const. </dd></dl>
 
 </div>
 </div>
@@ -2433,11 +2569,11 @@ template&lt;typename TField , typename TNextLayer , typename TDerived , typename
 <li>include/comms/protocol/<a class="el" href="SyncPrefixLayer_8h_source.html">SyncPrefixLayer.h</a></li>
 </ul>
 </div><!-- contents -->
-<div class="ttc" id="aclasscomms_1_1protocol_1_1ProtocolLayerBase_html_a94f23dc39f0adb4fd7ecd0ab2941588f"><div class="ttname"><a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a94f23dc39f0adb4fd7ecd0ab2941588f">comms::protocol::ProtocolLayerBase::doUpdate</a></div><div class="ttdeci">comms::ErrorStatus doUpdate(Field &amp;field, TIter &amp;iter, std::size_t size, TNextLayerUpdater &amp;&amp;nextLayerUpdater) const</div><div class="ttdoc">Default implementation of the &quot;update&quot; functaionality.</div><div class="ttdef"><b>Definition:</b> ProtocolLayerBase.h:692</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1SyncPrefixLayer_html_a825cd073d8e3239d4b391236879630ff"><div class="ttname"><a href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#a825cd073d8e3239d4b391236879630ff">comms::protocol::SyncPrefixLayer::Field</a></div><div class="ttdeci">typename BaseImpl::Field Field</div><div class="ttdoc">Type of the field object used to read/write &quot;sync&quot; value.</div><div class="ttdef"><b>Definition:</b> SyncPrefixLayer.h:67</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1ProtocolLayerBase_html_a94f23dc39f0adb4fd7ecd0ab2941588f"><div class="ttname"><a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a94f23dc39f0adb4fd7ecd0ab2941588f">comms::protocol::ProtocolLayerBase::doUpdate</a></div><div class="ttdeci">comms::ErrorStatus doUpdate(Field &amp;field, TIter &amp;iter, std::size_t size, TNextLayerUpdater &amp;&amp;nextLayerUpdater) const</div><div class="ttdoc">Default implementation of the &quot;update&quot; functaionality.</div><div class="ttdef"><b>Definition:</b> ProtocolLayerBase.h:693</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1SyncPrefixLayer_html_a825cd073d8e3239d4b391236879630ff"><div class="ttname"><a href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#a825cd073d8e3239d4b391236879630ff">comms::protocol::SyncPrefixLayer::Field</a></div><div class="ttdeci">typename BaseImpl::Field Field</div><div class="ttdoc">Type of the field object used to read/write &quot;sync&quot; value.</div><div class="ttdef"><b>Definition:</b> SyncPrefixLayer.h:65</div></div>
 <div class="ttc" id="anamespacecomms_html_a0a259a03d68bce98b4a129fb34aaa2e1"><div class="ttname"><a href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a></div><div class="ttdeci">ErrorStatus</div><div class="ttdoc">Error statuses reported by the Communication module.</div><div class="ttdef"><b>Definition:</b> ErrorStatus.h:17</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1SyncPrefixLayer_html_ab7ba05d62d0442f736837d90453fc55a"><div class="ttname"><a href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#ab7ba05d62d0442f736837d90453fc55a">comms::protocol::SyncPrefixLayer::doRead</a></div><div class="ttdeci">comms::ErrorStatus doRead(Field &amp;field, TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerReader &amp;&amp;nextLayerReader, TExtraValues... extraValues)</div><div class="ttdoc">Customized read functionality, invoked by read().</div><div class="ttdef"><b>Definition:</b> SyncPrefixLayer.h:110</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1SyncPrefixLayer_html_a989820b9d2478dd5a813c3ad4202ad1d"><div class="ttname"><a href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#a989820b9d2478dd5a813c3ad4202ad1d">comms::protocol::SyncPrefixLayer::doWrite</a></div><div class="ttdeci">comms::ErrorStatus doWrite(Field &amp;field, const TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerWriter &amp;&amp;nextLayerWriter) const</div><div class="ttdoc">Customized write functionality, invoked by write().</div><div class="ttdef"><b>Definition:</b> SyncPrefixLayer.h:157</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1SyncPrefixLayer_html_ab7ba05d62d0442f736837d90453fc55a"><div class="ttname"><a href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#ab7ba05d62d0442f736837d90453fc55a">comms::protocol::SyncPrefixLayer::doRead</a></div><div class="ttdeci">comms::ErrorStatus doRead(Field &amp;field, TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerReader &amp;&amp;nextLayerReader, TExtraValues... extraValues)</div><div class="ttdoc">Customized read functionality, invoked by read().</div><div class="ttdef"><b>Definition:</b> SyncPrefixLayer.h:108</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1SyncPrefixLayer_html_a989820b9d2478dd5a813c3ad4202ad1d"><div class="ttname"><a href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#a989820b9d2478dd5a813c3ad4202ad1d">comms::protocol::SyncPrefixLayer::doWrite</a></div><div class="ttdeci">comms::ErrorStatus doWrite(Field &amp;field, const TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerWriter &amp;&amp;nextLayerWriter) const</div><div class="ttdoc">Customized write functionality, invoked by write().</div><div class="ttdef"><b>Definition:</b> SyncPrefixLayer.h:156</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

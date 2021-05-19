@@ -91,7 +91,8 @@ class comms::protocol::ChecksumPrefixLayer&lt; TField, TCalc, TNextLayer, TOptio
     <tr><td class="paramname">TField</td><td>Type of the field that is used as to represent checksum value. </td></tr>
     <tr><td class="paramname">TCalc</td><td>The checksum calculater class that is used to calculate the checksum value on the provided buffer. It must have the operator() defined with the following signature: <div class="fragment"><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> TIter&gt;</div>
 <div class="line">ResultType operator()(TIter&amp; iter, std::size_t len) <span class="keyword">const</span>;</div>
-</div><!-- fragment --> It is up to the checksum calculator to choose the "ResultType" it returns. The falue is going to be casted to Field::ValueType before assigning it as a value of the check field being read and/or written. </td></tr>
+</div><!-- fragment --> It is up to the checksum calculator to choose the "ResultType" it returns. The falue is going to be casted to Field::ValueType before assigning it as a value of the check field being read and/or written.<br  />
+ Available checksum algorithms provided by the COMMS library reside in <a class="el" href="namespacecomms_1_1protocol_1_1checksum.html">comms::protocol::checksum</a> namespace (<code>comms/protocol/checkum</code> folder). </td></tr>
     <tr><td class="paramname">TNextLayer</td><td>Next transport layer in protocol stack. </td></tr>
     <tr><td class="paramname">TOptions</td><td>Extending functionality options. Supported options are: <ul>
 <li><a class="el" href="structcomms_1_1option_1_1def_1_1ChecksumLayerVerifyBeforeRead.html">comms::option::def::ChecksumLayerVerifyBeforeRead</a> - By default, the <b><a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html" title="Protocol layer that is responsible to calculate checksum on the data written by all the wrapped inter...">ChecksumPrefixLayer</a></b> will invoke <b>read</b> operation of inner (wrapped) layers and only if it is successful, it will calculate and verify the checksum value. Usage of <a class="el" href="structcomms_1_1option_1_1def_1_1ChecksumLayerVerifyBeforeRead.html">comms::option::def::ChecksumLayerVerifyBeforeRead</a> modifies the default behaviour by forcing the checksum verification prior to invocation of <b>read</b> operation in the wrapped layer(s). </li>
@@ -292,6 +293,10 @@ static const std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a c
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
+<tr class="memitem:a7d63c9abc2309c63c90aab2bfb881573"><td class="memTemplParams" colspan="2">template&lt;typename TMsg , typename TIter &gt; </td></tr>
+<tr class="memitem:a7d63c9abc2309c63c90aab2bfb881573"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#a7d63c9abc2309c63c90aab2bfb881573">readField</a> (const TMsg *msgPtr, <a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#ad6fd7695c1feedc9a64118433e60e3a7">Field</a> &amp;field, TIter &amp;iter, std::size_t len)</td></tr>
+<tr class="memdesc:a7d63c9abc2309c63c90aab2bfb881573"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the checksum field.  <a href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#a7d63c9abc2309c63c90aab2bfb881573">More...</a><br /></td></tr>
+<tr class="separator:a7d63c9abc2309c63c90aab2bfb881573"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c04cd72f7c4151e6721dce4f5a85aa6"><td class="memTemplParams" colspan="2">template&lt;typename... TExtraValues&gt; </td></tr>
 <tr class="memitem:a5c04cd72f7c4151e6721dce4f5a85aa6"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a5c04cd72f7c4151e6721dce4f5a85aa6">setMissingSize</a> (std::size_t val, TExtraValues... extraValues) const</td></tr>
 <tr class="memdesc:a5c04cd72f7c4151e6721dce4f5a85aa6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the missing size information if such is requested.  <a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a5c04cd72f7c4151e6721dce4f5a85aa6">More...</a><br /></td></tr>
@@ -312,6 +317,10 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:a8526ebff3febc385edec2a1e9ef1ae6e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a8526ebff3febc385edec2a1e9ef1ae6e">updateMissingSize</a> (std::size_t size, TExtraValues... extraValues) const</td></tr>
 <tr class="memdesc:a8526ebff3febc385edec2a1e9ef1ae6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the missing size information if such is requested.  <a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a8526ebff3febc385edec2a1e9ef1ae6e">More...</a><br /></td></tr>
 <tr class="separator:a8526ebff3febc385edec2a1e9ef1ae6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c251fcf7e13c27323cf64b27d7158fa"><td class="memTemplParams" colspan="2">template&lt;typename TMsg , typename TIter &gt; </td></tr>
+<tr class="memitem:a1c251fcf7e13c27323cf64b27d7158fa"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#a1c251fcf7e13c27323cf64b27d7158fa">writeField</a> (const TMsg *msgPtr, const <a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#ad6fd7695c1feedc9a64118433e60e3a7">Field</a> &amp;field, TIter &amp;iter, std::size_t len) const</td></tr>
+<tr class="memdesc:a1c251fcf7e13c27323cf64b27d7158fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the checksum field.  <a href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#a1c251fcf7e13c27323cf64b27d7158fa">More...</a><br /></td></tr>
+<tr class="separator:a1c251fcf7e13c27323cf64b27d7158fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
 Static Protected Member Functions</h2></td></tr>
@@ -319,6 +328,14 @@ Static Protected Member Functions</h2></td></tr>
 <tr class="memitem:af67a6b3207ae5073e694ff4c1c44cb26"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#af67a6b3207ae5073e694ff4c1c44cb26">calculateChecksum</a> (const TMsg *msg, TIter &amp;iter, std::size_t len, bool &amp;checksumValid) -&gt; decltype(TCalc()(iter, len))</td></tr>
 <tr class="memdesc:af67a6b3207ae5073e694ff4c1c44cb26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate checksum.  <a href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#af67a6b3207ae5073e694ff4c1c44cb26">More...</a><br /></td></tr>
 <tr class="separator:af67a6b3207ae5073e694ff4c1c44cb26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7050fb0df8e4efc8cc3e35214436fe55"><td class="memTemplParams" colspan="2">template&lt;typename TMsg , typename TIter &gt; </td></tr>
+<tr class="memitem:a7050fb0df8e4efc8cc3e35214436fe55"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a7050fb0df8e4efc8cc3e35214436fe55">doReadField</a> (const TMsg *msgPtr, <a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#ad6fd7695c1feedc9a64118433e60e3a7">Field</a> &amp;field, TIter &amp;iter, std::size_t len)</td></tr>
+<tr class="memdesc:a7050fb0df8e4efc8cc3e35214436fe55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the layer field.  <a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a7050fb0df8e4efc8cc3e35214436fe55">More...</a><br /></td></tr>
+<tr class="separator:a7050fb0df8e4efc8cc3e35214436fe55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a7d913a4c2d569ce9c0842b9e16a0cb"><td class="memTemplParams" colspan="2">template&lt;typename TMsg , typename TIter &gt; </td></tr>
+<tr class="memitem:a2a7d913a4c2d569ce9c0842b9e16a0cb"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a2a7d913a4c2d569ce9c0842b9e16a0cb">doWriteField</a> (const TMsg *msgPtr, const <a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#ad6fd7695c1feedc9a64118433e60e3a7">Field</a> &amp;field, TIter &amp;iter, std::size_t len)</td></tr>
+<tr class="memdesc:a2a7d913a4c2d569ce9c0842b9e16a0cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the layer field.  <a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a2a7d913a4c2d569ce9c0842b9e16a0cb">More...</a><br /></td></tr>
+<tr class="separator:a2a7d913a4c2d569ce9c0842b9e16a0cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acfc4764b60930eed5c1067b303ba6cde"><td class="memTemplParams" colspan="2">template&lt;std::size_t TIdx, typename TAllFields &gt; </td></tr>
 <tr class="memitem:acfc4764b60930eed5c1067b303ba6cde"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#ad6fd7695c1feedc9a64118433e60e3a7">Field</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#acfc4764b60930eed5c1067b303ba6cde">getField</a> (TAllFields &amp;allFields)</td></tr>
 <tr class="memdesc:acfc4764b60930eed5c1067b303ba6cde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve reference to a layer specific field out of all fields.  <a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#acfc4764b60930eed5c1067b303ba6cde">More...</a><br /></td></tr>
@@ -327,10 +344,6 @@ Static Protected Member Functions</h2></td></tr>
 <tr class="memitem:aff7baefef2232316e08980e680d189ef"><td class="memTemplItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#aff7baefef2232316e08980e680d189ef">isMessageObjRef</a> ()</td></tr>
 <tr class="memdesc:aff7baefef2232316e08980e680d189ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detect whether type is actual message object.  <a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#aff7baefef2232316e08980e680d189ef">More...</a><br /></td></tr>
 <tr class="separator:aff7baefef2232316e08980e680d189ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae96c0e015724ee38c88f0188b025232e"><td class="memTemplParams" colspan="2">template&lt;typename TMsg , typename TIter &gt; </td></tr>
-<tr class="memitem:ae96c0e015724ee38c88f0188b025232e"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#ae96c0e015724ee38c88f0188b025232e">readField</a> (const TMsg *msgPtr, <a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#ad6fd7695c1feedc9a64118433e60e3a7">Field</a> &amp;field, TIter &amp;iter, std::size_t len)</td></tr>
-<tr class="memdesc:ae96c0e015724ee38c88f0188b025232e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the checksum field.  <a href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#ae96c0e015724ee38c88f0188b025232e">More...</a><br /></td></tr>
-<tr class="separator:ae96c0e015724ee38c88f0188b025232e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c83babc34313e54e04a4f12d24394c9"><td class="memTemplParams" colspan="2">template&lt;typename TMsg &gt; </td></tr>
 <tr class="memitem:a0c83babc34313e54e04a4f12d24394c9"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a0c83babc34313e54e04a4f12d24394c9">resetMsg</a> (TMsg &amp;msg)</td></tr>
 <tr class="memdesc:a0c83babc34313e54e04a4f12d24394c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset msg in case it is a smart pointer (<a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a17b1b0d2a42427cb7c998a41c9aa3174">MsgPtr</a>).  <a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a0c83babc34313e54e04a4f12d24394c9">More...</a><br /></td></tr>
@@ -339,10 +352,6 @@ Static Protected Member Functions</h2></td></tr>
 <tr class="memitem:abe0e556ee9a28ca50e4e3d6c3e1c3ebc"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#abe0e556ee9a28ca50e4e3d6c3e1c3ebc">toMsgPtr</a> (TMsg &amp;msg) -&gt; decltype(toMsgPtrInternal(msg, MsgTypeTag&lt; typename std::decay&lt; decltype(msg)&gt;::type &gt;()))</td></tr>
 <tr class="memdesc:abe0e556ee9a28ca50e4e3d6c3e1c3ebc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a pointer to the message object.  <a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#abe0e556ee9a28ca50e4e3d6c3e1c3ebc">More...</a><br /></td></tr>
 <tr class="separator:abe0e556ee9a28ca50e4e3d6c3e1c3ebc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20574e24d725608a18f968f3411a6496"><td class="memTemplParams" colspan="2">template&lt;typename TMsg , typename TIter &gt; </td></tr>
-<tr class="memitem:a20574e24d725608a18f968f3411a6496"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#a20574e24d725608a18f968f3411a6496">writeField</a> (const TMsg *msgPtr, const <a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#ad6fd7695c1feedc9a64118433e60e3a7">Field</a> &amp;field, TIter &amp;iter, std::size_t len)</td></tr>
-<tr class="memdesc:a20574e24d725608a18f968f3411a6496"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the checksum field.  <a href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#a20574e24d725608a18f968f3411a6496">More...</a><br /></td></tr>
-<tr class="separator:a20574e24d725608a18f968f3411a6496"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="related"></a>
 Related Functions</h2></td></tr>
@@ -752,6 +761,70 @@ Iterator must be valid and can be dereferenced and incremented at least "size" t
 
 </div>
 </div>
+<a id="a7050fb0df8e4efc8cc3e35214436fe55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7050fb0df8e4efc8cc3e35214436fe55">&#9670;&nbsp;</a></span>doReadField()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TField , typename TNextLayer , typename TDerived , typename... TOptions&gt; </div>
+<div class="memtemplate">
+template&lt;typename TMsg , typename TIter &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html">comms::protocol::ProtocolLayerBase</a>&lt; TField, TNextLayer, TDerived, TOptions &gt;::doReadField </td>
+          <td>(</td>
+          <td class="paramtype">const TMsg *&#160;</td>
+          <td class="paramname"><em>msgPtr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">Field</a> &amp;&#160;</td>
+          <td class="paramname"><em>field</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TIter &amp;&#160;</td>
+          <td class="paramname"><em>iter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Read the layer field. </p>
+<p>The default implementation invokes <b><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a60d0ea06c68e5b885bf651d7a7b14d1a" title="Deserialise message from the input data sequence.">read()</a></b> operation of the passed field object. The function can be overriden by the extending class. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">msgPtr</td><td>Pointer to message object (if available), can be nullptr. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">field</td><td><a class="el" href="classcomms_1_1Field.html" title="Base class to all the field classes.">Field</a> object value of which needs to be populated </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">iter</td><td>Iterator used for reading, expected to be advanced </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>Length of the input buffer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>May be non-static in the extending class </dd></dl>
+
+</div>
+</div>
 <a id="a173133ed050fe014dbf99681e33a2f1b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a173133ed050fe014dbf99681e33a2f1b">&#9670;&nbsp;</a></span>doUpdate() <span class="overload">[1/4]</span></h2>
 
@@ -1108,6 +1181,70 @@ template&lt;typename TMsg , typename TIter , typename TNextLayerWriter &gt; </di
 
 </div>
 </div>
+<a id="a2a7d913a4c2d569ce9c0842b9e16a0cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a7d913a4c2d569ce9c0842b9e16a0cb">&#9670;&nbsp;</a></span>doWriteField()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TField , typename TNextLayer , typename TDerived , typename... TOptions&gt; </div>
+<div class="memtemplate">
+template&lt;typename TMsg , typename TIter &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html">comms::protocol::ProtocolLayerBase</a>&lt; TField, TNextLayer, TDerived, TOptions &gt;::doWriteField </td>
+          <td>(</td>
+          <td class="paramtype">const TMsg *&#160;</td>
+          <td class="paramname"><em>msgPtr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">Field</a> &amp;&#160;</td>
+          <td class="paramname"><em>field</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TIter &amp;&#160;</td>
+          <td class="paramname"><em>iter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Write the layer field. </p>
+<p>The default implementation invokes <b><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a6799fbfb090ea3a612d3757a0d28fd06" title="Serialise message into output data sequence.">write()</a></b> operation of the passed field object. The function can be overriden by the extending class. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">msgPtr</td><td>Pointer to message object (if available), can be nullptr. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">field</td><td><a class="el" href="classcomms_1_1Field.html" title="Base class to all the field classes.">Field</a> object value of which needs to be written </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">iter</td><td>Iterator used for writing, expected to be advanced </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>Length of the output buffer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>May be non-static in the extending class, but needs to be const. </dd></dl>
+
+</div>
+</div>
 <a id="acfc4764b60930eed5c1067b303ba6cde"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acfc4764b60930eed5c1067b303ba6cde">&#9670;&nbsp;</a></span>getField()</h2>
 
@@ -1357,8 +1494,8 @@ Returns <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e
 
 </div>
 </div>
-<a id="ae96c0e015724ee38c88f0188b025232e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae96c0e015724ee38c88f0188b025232e">&#9670;&nbsp;</a></span>readField()</h2>
+<a id="a7d63c9abc2309c63c90aab2bfb881573"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d63c9abc2309c63c90aab2bfb881573">&#9670;&nbsp;</a></span>readField()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1371,7 +1508,7 @@ template&lt;typename TMsg , typename TIter &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html">comms::protocol::ChecksumPrefixLayer</a>&lt; TField, TCalc, TNextLayer, TOptions &gt;::readField </td>
+          <td class="memname"><a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html">comms::protocol::ChecksumPrefixLayer</a>&lt; TField, TCalc, TNextLayer, TOptions &gt;::readField </td>
           <td>(</td>
           <td class="paramtype">const TMsg *&#160;</td>
           <td class="paramname"><em>msgPtr</em>, </td>
@@ -1402,7 +1539,7 @@ template&lt;typename TMsg , typename TIter &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1417,7 +1554,8 @@ template&lt;typename TMsg , typename TIter &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>May be non-static in the extending class </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>May be static in the extending class </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000013">Deprecated:</a></b></dt><dd>Override <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a7050fb0df8e4efc8cc3e35214436fe55">doReadField()</a> instead </dd></dl>
 
 </div>
 </div>
@@ -2505,8 +2643,8 @@ template&lt;typename TMsg , typename TIter &gt; </div>
 
 </div>
 </div>
-<a id="a20574e24d725608a18f968f3411a6496"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20574e24d725608a18f968f3411a6496">&#9670;&nbsp;</a></span>writeField()</h2>
+<a id="a1c251fcf7e13c27323cf64b27d7158fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c251fcf7e13c27323cf64b27d7158fa">&#9670;&nbsp;</a></span>writeField()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2519,7 +2657,7 @@ template&lt;typename TMsg , typename TIter &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html">comms::protocol::ChecksumPrefixLayer</a>&lt; TField, TCalc, TNextLayer, TOptions &gt;::writeField </td>
+          <td class="memname"><a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html">comms::protocol::ChecksumPrefixLayer</a>&lt; TField, TCalc, TNextLayer, TOptions &gt;::writeField </td>
           <td>(</td>
           <td class="paramtype">const TMsg *&#160;</td>
           <td class="paramname"><em>msgPtr</em>, </td>
@@ -2545,12 +2683,12 @@ template&lt;typename TMsg , typename TIter &gt; </div>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -2565,7 +2703,9 @@ template&lt;typename TMsg , typename TIter &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>May be non-static in the extending class, but needs to be const. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>May be static in the extending class, but needs to be const. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000014">Deprecated:</a></b></dt><dd>Override <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a2a7d913a4c2d569ce9c0842b9e16a0cb">doWriteField()</a> instead <br  />
+ </dd></dl>
 
 </div>
 </div>
@@ -2708,11 +2848,11 @@ template&lt;typename TField , typename TNextLayer , typename TDerived , typename
 <li>include/comms/protocol/<a class="el" href="ChecksumPrefixLayer_8h_source.html">ChecksumPrefixLayer.h</a></li>
 </ul>
 </div><!-- contents -->
-<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumPrefixLayer_html_a982e454855b6e3ec1b6c82b4a5c9ebab"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#a982e454855b6e3ec1b6c82b4a5c9ebab">comms::protocol::ChecksumPrefixLayer::doUpdate</a></div><div class="ttdeci">comms::ErrorStatus doUpdate(Field &amp;field, TIter &amp;iter, std::size_t size, TNextLayerUpdater &amp;&amp;nextLayerUpdater) const</div><div class="ttdoc">Customized update functionality, invoked by update().</div><div class="ttdef"><b>Definition:</b> ChecksumPrefixLayer.h:237</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumPrefixLayer_html_a982e454855b6e3ec1b6c82b4a5c9ebab"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#a982e454855b6e3ec1b6c82b4a5c9ebab">comms::protocol::ChecksumPrefixLayer::doUpdate</a></div><div class="ttdeci">comms::ErrorStatus doUpdate(Field &amp;field, TIter &amp;iter, std::size_t size, TNextLayerUpdater &amp;&amp;nextLayerUpdater) const</div><div class="ttdoc">Customized update functionality, invoked by update().</div><div class="ttdef"><b>Definition:</b> ChecksumPrefixLayer.h:238</div></div>
 <div class="ttc" id="anamespacecomms_html_a0a259a03d68bce98b4a129fb34aaa2e1"><div class="ttname"><a href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a></div><div class="ttdeci">ErrorStatus</div><div class="ttdoc">Error statuses reported by the Communication module.</div><div class="ttdef"><b>Definition:</b> ErrorStatus.h:17</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumPrefixLayer_html_ad6fd7695c1feedc9a64118433e60e3a7"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#ad6fd7695c1feedc9a64118433e60e3a7">comms::protocol::ChecksumPrefixLayer::Field</a></div><div class="ttdeci">typename BaseImpl::Field Field</div><div class="ttdoc">Type of the field object used to read/write checksum value.</div><div class="ttdef"><b>Definition:</b> ChecksumPrefixLayer.h:89</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumPrefixLayer_html_a185334b61a4bcf00e57f8494c120b58c"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#a185334b61a4bcf00e57f8494c120b58c">comms::protocol::ChecksumPrefixLayer::doRead</a></div><div class="ttdeci">comms::ErrorStatus doRead(Field &amp;field, TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerReader &amp;&amp;nextLayerReader, TExtraValues... extraValues)</div><div class="ttdoc">Customized read functionality, invoked by read().</div><div class="ttdef"><b>Definition:</b> ChecksumPrefixLayer.h:140</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumPrefixLayer_html_a87e0ac70f9a9d883cbaba1e2d4d0e488"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#a87e0ac70f9a9d883cbaba1e2d4d0e488">comms::protocol::ChecksumPrefixLayer::doWrite</a></div><div class="ttdeci">comms::ErrorStatus doWrite(Field &amp;field, const TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerWriter &amp;&amp;nextLayerWriter) const</div><div class="ttdoc">Customized write functionality, invoked by write().</div><div class="ttdef"><b>Definition:</b> ChecksumPrefixLayer.h:213</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumPrefixLayer_html_ad6fd7695c1feedc9a64118433e60e3a7"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#ad6fd7695c1feedc9a64118433e60e3a7">comms::protocol::ChecksumPrefixLayer::Field</a></div><div class="ttdeci">typename BaseImpl::Field Field</div><div class="ttdoc">Type of the field object used to read/write checksum value.</div><div class="ttdef"><b>Definition:</b> ChecksumPrefixLayer.h:91</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumPrefixLayer_html_a185334b61a4bcf00e57f8494c120b58c"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#a185334b61a4bcf00e57f8494c120b58c">comms::protocol::ChecksumPrefixLayer::doRead</a></div><div class="ttdeci">comms::ErrorStatus doRead(Field &amp;field, TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerReader &amp;&amp;nextLayerReader, TExtraValues... extraValues)</div><div class="ttdoc">Customized read functionality, invoked by read().</div><div class="ttdef"><b>Definition:</b> ChecksumPrefixLayer.h:142</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumPrefixLayer_html_a87e0ac70f9a9d883cbaba1e2d4d0e488"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#a87e0ac70f9a9d883cbaba1e2d4d0e488">comms::protocol::ChecksumPrefixLayer::doWrite</a></div><div class="ttdeci">comms::ErrorStatus doWrite(Field &amp;field, const TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerWriter &amp;&amp;nextLayerWriter) const</div><div class="ttdoc">Customized write functionality, invoked by write().</div><div class="ttdef"><b>Definition:</b> ChecksumPrefixLayer.h:214</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

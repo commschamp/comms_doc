@@ -84,7 +84,8 @@ $(function() {
 , <a class="el" href="classcomms_1_1util_1_1StringView.html#ac68a9830f207d6230c87f34ad363a9da">comms::util::StringView</a>
 </li>
 <li>operator()()
-: <a class="el" href="classcomms_1_1protocol_1_1checksum_1_1BasicSum.html#a7fe9be8ab4a39a17826578e0be414edd">comms::protocol::checksum::BasicSum&lt; TResult &gt;</a>
+: <a class="el" href="classcomms_1_1protocol_1_1checksum_1_1BasicSum.html#a5c85f4e1ac833439e396505e19a15af9">comms::protocol::checksum::BasicSum&lt; TResult, TInitValue &gt;</a>
+, <a class="el" href="classcomms_1_1protocol_1_1checksum_1_1BasicXor.html#afe952324deeb0156718f7e61ffaface5">comms::protocol::checksum::BasicXor&lt; TResult, TInitValue &gt;</a>
 , <a class="el" href="classcomms_1_1protocol_1_1checksum_1_1Crc.html#a4c5588f992ca19605448a1c0ab90076f">comms::protocol::checksum::Crc&lt; TResult, TPoly, TInit, TFin, TReflect, TRefrectRem &gt;</a>
 </li>
 <li>operator+=()
@@ -125,14 +126,14 @@ $(function() {
 , <a class="el" href="classcomms_1_1field_1_1String.html#aab3d8e5b4eb0a59178b62378572a0a3a">comms::field::String&lt; TFieldBase, TOptions &gt;</a>
 , <a class="el" href="classcomms_1_1GenericMessage.html#ac534af601839b2e5ceea9e44dd0e6cb9">comms::GenericMessage&lt; TMessage, TFieldOpts, TExtraOpts &gt;</a>
 , <a class="el" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a7bd9ec45710bbf5430f512d77158fdf2">comms::protocol::ChecksumLayer&lt; TField, TCalc, TNextLayer, TOptions &gt;</a>
-, <a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#ab1e6f8f45eee622cdca791a97a001339">comms::protocol::ChecksumPrefixLayer&lt; TField, TCalc, TNextLayer, TOptions &gt;</a>
+, <a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#a216324a285870e207baabdf0b38ad479">comms::protocol::ChecksumPrefixLayer&lt; TField, TCalc, TNextLayer, TOptions &gt;</a>
 , <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a2b3237af5d92811d97376d67ce0b785b">comms::protocol::MsgDataLayer&lt; TExtraOpts &gt;</a>
 , <a class="el" href="classcomms_1_1protocol_1_1MsgIdLayer.html#a2b077b5269046534ce1f95bf2acbc839">comms::protocol::MsgIdLayer&lt; TField, TMessage, TAllMessages, TNextLayer, TOptions &gt;</a>
 , <a class="el" href="classcomms_1_1protocol_1_1MsgSizeLayer.html#a25b05040cd338b635e7ca1f16a108504">comms::protocol::MsgSizeLayer&lt; TField, TNextLayer, TOptions &gt;</a>
 , <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#ae12df75b981cfd16d23796cfca24f1c4">comms::protocol::ProtocolLayerBase&lt; TField, TNextLayer, TDerived, TOptions &gt;</a>
-, <a class="el" href="classcomms_1_1util_1_1ArrayView.html#a133b3d641479c8df29c73e4a761c81ba">comms::util::ArrayView&lt; T &gt;</a>
+, <a class="el" href="classcomms_1_1util_1_1ArrayView.html#ad88abc9ff4b0cdd40c027450788c0ae0">comms::util::ArrayView&lt; T &gt;</a>
 , <a class="el" href="classcomms_1_1util_1_1ScopeGuard.html#a5da6479cdeeecc38a613363acedc016f">comms::util::ScopeGuard&lt; TFunc &gt;</a>
-, <a class="el" href="classcomms_1_1util_1_1StaticString.html#afc961a6e27fb82a09d81501d3bd8d7ae">comms::util::StaticString&lt; TSize, TChar &gt;</a>
+, <a class="el" href="classcomms_1_1util_1_1StaticString.html#a19ec64167734b2fcc5dd3c93f2acbd05">comms::util::StaticString&lt; TSize, TChar &gt;</a>
 , <a class="el" href="classcomms_1_1util_1_1StaticVector.html#aaaae45a193cd8c39212a61938f8b1e6a">comms::util::StaticVector&lt; T, TSize &gt;</a>
 , <a class="el" href="classcomms_1_1util_1_1StringView.html#a691f780cdcee89542542876a0771da0f">comms::util::StringView</a>
 </li>
@@ -150,7 +151,7 @@ $(function() {
 , <a class="el" href="classcomms_1_1field_1_1Variant.html#acc1a8ab72962d39fd24995a5f5f91f41">comms::field::Variant&lt; TFieldBase, TMembers, TOptions &gt;</a>
 , <a class="el" href="classcomms_1_1MessageBase.html#ad59f49a279a7f24e25156bacfd3a9ccc">comms::MessageBase&lt; TMessage, TOptions &gt;</a>
 , <a class="el" href="classcomms_1_1util_1_1ArrayView.html#a9207f1aca5847bf7dc65a0a2d1154c6b">comms::util::ArrayView&lt; T &gt;</a>
-, <a class="el" href="classcomms_1_1util_1_1StaticString.html#a59762a502fd5861cba00c3965a4d0319">comms::util::StaticString&lt; TSize, TChar &gt;</a>
+, <a class="el" href="classcomms_1_1util_1_1StaticString.html#aab399192ebda2bb24efe3836e4f115f9">comms::util::StaticString&lt; TSize, TChar &gt;</a>
 , <a class="el" href="classcomms_1_1util_1_1StaticVector.html#abc8afe6d51379efc122b136c7e54f4ca">comms::util::StaticVector&lt; T, TSize &gt;</a>
 , <a class="el" href="classcomms_1_1util_1_1StringView.html#ab1b4cb37f985d9aa4fc9f35011a1d8ee">comms::util::StringView</a>
 </li>
@@ -158,7 +159,7 @@ $(function() {
 : <a class="el" href="classcomms_1_1field_1_1Bundle.html#a1044dfa73a60b2773c299914c54dc76f">comms::field::Bundle&lt; TFieldBase, TMembers, TOptions &gt;</a>
 , <a class="el" href="classcomms_1_1field_1_1Optional.html#a19e21532bb5fe94902615565368f26c3">comms::field::Optional&lt; TField, TOptions &gt;</a>
 , <a class="el" href="classcomms_1_1util_1_1ArrayView.html#a77d80f6ce250ae19f171fbc6eccf1802">comms::util::ArrayView&lt; T &gt;</a>
-, <a class="el" href="classcomms_1_1util_1_1StaticString.html#a1f524de5b78b2be6700046d91f5ae74d">comms::util::StaticString&lt; TSize, TChar &gt;</a>
+, <a class="el" href="classcomms_1_1util_1_1StaticString.html#a735f3a0a38d6a27cd180fa37fa65c5b9">comms::util::StaticString&lt; TSize, TChar &gt;</a>
 , <a class="el" href="classcomms_1_1util_1_1StaticVector.html#a982857ba2148ce1a43814b3fe112d756">comms::util::StaticVector&lt; T, TSize &gt;</a>
 , <a class="el" href="classcomms_1_1util_1_1StringView.html#ad489e087a8cbad4f919fd46256653857">comms::util::StringView</a>
 </li>
@@ -166,18 +167,18 @@ $(function() {
 : <a class="el" href="classcomms_1_1field_1_1Bundle.html#a3813fdbed2a073ea8b1933471d30bde3">comms::field::Bundle&lt; TFieldBase, TMembers, TOptions &gt;</a>
 , <a class="el" href="classcomms_1_1field_1_1Optional.html#a6c7a7786f17e4047fe50e571c1bf1878">comms::field::Optional&lt; TField, TOptions &gt;</a>
 , <a class="el" href="classcomms_1_1util_1_1ArrayView.html#a4fff0180701e9ddad23b74e1e2f13964">comms::util::ArrayView&lt; T &gt;</a>
-, <a class="el" href="classcomms_1_1util_1_1StaticString.html#aa77d1b31381bcb9f9101f734bf917804">comms::util::StaticString&lt; TSize, TChar &gt;</a>
+, <a class="el" href="classcomms_1_1util_1_1StaticString.html#adf0cc5523b561d4001311cb81bd79009">comms::util::StaticString&lt; TSize, TChar &gt;</a>
 , <a class="el" href="classcomms_1_1util_1_1StaticVector.html#ac752db1a98e301bc70a43bd9a2425092">comms::util::StaticVector&lt; T, TSize &gt;</a>
 , <a class="el" href="classcomms_1_1util_1_1StringView.html#a880c63335ac58e32d11b5627c2b21dee">comms::util::StringView</a>
 </li>
 <li>operator[]()
 : <a class="el" href="classcomms_1_1util_1_1ArrayView.html#a6ebb740e2e51f8c0e96963d6573ab1fe">comms::util::ArrayView&lt; T &gt;</a>
 , <a class="el" href="classcomms_1_1util_1_1StaticString.html#a35a3287039b731a0e7b8c860eea5cda9">comms::util::StaticString&lt; TSize, TChar &gt;</a>
-, <a class="el" href="classcomms_1_1util_1_1StaticVector.html#a36a234cb8901f2b238bd2afe9e2ccefb">comms::util::StaticVector&lt; T, TSize &gt;</a>
+, <a class="el" href="classcomms_1_1util_1_1StaticVector.html#afeeeee48bbca32570db78b6c55e56822">comms::util::StaticVector&lt; T, TSize &gt;</a>
 , <a class="el" href="classcomms_1_1util_1_1StringView.html#abe16b54d8d6857fd14908c014bd01518">comms::util::StringView</a>
 </li>
 <li>Optional()
-: <a class="el" href="classcomms_1_1field_1_1Optional.html#a63af296da82fbe78dd6effa6d3a31955">comms::field::Optional&lt; TField, TOptions &gt;</a>
+: <a class="el" href="classcomms_1_1field_1_1Optional.html#a10731b095f8ed116811d6266e41dfd48">comms::field::Optional&lt; TField, TOptions &gt;</a>
 </li>
 </ul>
 </div><!-- contents -->

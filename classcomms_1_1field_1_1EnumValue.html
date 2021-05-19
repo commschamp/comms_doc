@@ -177,6 +177,9 @@ Public Member Functions</h2></td></tr>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1EnumValue.html#ab27de70d3390f08df9b4c39f60626d97">canWrite</a> () const</td></tr>
 <tr class="memdesc:ab27de70d3390f08df9b4c39f60626d97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check of whether the field has a consistent value for writing. <br /></td></tr>
 <tr class="separator:ab27de70d3390f08df9b4c39f60626d97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a566a72671b493581ee23e44aa0a16bbe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1EnumValue.html#a566a72671b493581ee23e44aa0a16bbe">getForcedLength</a> () const</td></tr>
+<tr class="memdesc:a566a72671b493581ee23e44aa0a16bbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get forced serialization length.  <a href="classcomms_1_1field_1_1EnumValue.html#a566a72671b493581ee23e44aa0a16bbe">More...</a><br /></td></tr>
+<tr class="separator:a566a72671b493581ee23e44aa0a16bbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22b0297b05d49ec4b47d79373786bf13"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcomms_1_1field_1_1EnumValue.html#a144108dffc7b2f9d4bab6473fa9bac25">VersionType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1EnumValue.html#a22b0297b05d49ec4b47d79373786bf13">getVersion</a> () const</td></tr>
 <tr class="memdesc:a22b0297b05d49ec4b47d79373786bf13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get version of the field.  <a href="classcomms_1_1field_1_1EnumValue.html#a22b0297b05d49ec4b47d79373786bf13">More...</a><br /></td></tr>
 <tr class="separator:a22b0297b05d49ec4b47d79373786bf13"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -198,6 +201,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a5e9607e2876bd07c4d37c428d01e46c1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1EnumValue.html#a5e9607e2876bd07c4d37c428d01e46c1">refresh</a> ()</td></tr>
 <tr class="memdesc:a5e9607e2876bd07c4d37c428d01e46c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Refresh the field's value.  <a href="classcomms_1_1field_1_1EnumValue.html#a5e9607e2876bd07c4d37c428d01e46c1">More...</a><br /></td></tr>
 <tr class="separator:a5e9607e2876bd07c4d37c428d01e46c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f72bd1f550fef6f2de8207efdd9753c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1EnumValue.html#a9f72bd1f550fef6f2de8207efdd9753c">setForcedLength</a> (int len)</td></tr>
+<tr class="memdesc:a9f72bd1f550fef6f2de8207efdd9753c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Force serialization length of the field.  <a href="classcomms_1_1field_1_1EnumValue.html#a9f72bd1f550fef6f2de8207efdd9753c">More...</a><br /></td></tr>
+<tr class="separator:a9f72bd1f550fef6f2de8207efdd9753c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8a77baebeaaca39fe16cd516aaf0e48"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1EnumValue.html#af8a77baebeaaca39fe16cd516aaf0e48">setVersion</a> (<a class="el" href="classcomms_1_1field_1_1EnumValue.html#a144108dffc7b2f9d4bab6473fa9bac25">VersionType</a> <a class="el" href="namespacecomms.html#a124576497d233cf87eb7432190e6c9fe">version</a>)</td></tr>
 <tr class="memdesc:af8a77baebeaaca39fe16cd516aaf0e48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation of version update.  <a href="classcomms_1_1field_1_1EnumValue.html#af8a77baebeaaca39fe16cd516aaf0e48">More...</a><br /></td></tr>
 <tr class="separator:af8a77baebeaaca39fe16cd516aaf0e48"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -351,6 +357,28 @@ template&lt;typename... TOptions&gt; </div>
 
 <p>Default check of whether the field has a consistent value for writing. </p>
 <dl class="section return"><dt>Returns</dt><dd>Always <b>true</b>. </dd></dl>
+
+</div>
+</div>
+<a id="a566a72671b493581ee23e44aa0a16bbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a566a72671b493581ee23e44aa0a16bbe">&#9670;&nbsp;</a></span>getForcedLength()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TFieldBase , typename TEnum , typename... TOptions&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classcomms_1_1field_1_1EnumValue.html">comms::field::EnumValue</a>&lt; TFieldBase, TEnum, TOptions &gt;::getForcedLength </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get forced serialization length. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classcomms_1_1field_1_1EnumValue.html#a9f72bd1f550fef6f2de8207efdd9753c">setForcedLength()</a> </dd></dl>
 
 </div>
 </div>
@@ -662,6 +690,39 @@ template&lt;typename TFieldBase , typename TEnum , typename... TOptions&gt; </di
 
 <p>Refresh the field's value. </p>
 <dl class="section return"><dt>Returns</dt><dd><b>true</b> if the value has been updated, <b>false</b> otherwise </dd></dl>
+
+</div>
+</div>
+<a id="a9f72bd1f550fef6f2de8207efdd9753c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f72bd1f550fef6f2de8207efdd9753c">&#9670;&nbsp;</a></span>setForcedLength()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TFieldBase , typename TEnum , typename... TOptions&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classcomms_1_1field_1_1EnumValue.html">comms::field::EnumValue</a>&lt; TFieldBase, TEnum, TOptions &gt;::setForcedLength </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>len</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Force serialization length of the field. </p>
+<p>Available only when <a class="el" href="structcomms_1_1option_1_1def_1_1AvailableLengthLimit.html">comms::option::def::AvailableLengthLimit</a> option is used for field definition. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>Forced serialization length. <ul>
+<li>0 means default serialization length determined by the storage type </li>
+<li>positive value means limit of the serialization length </li>
+<li>negative value means the length is determined by the stored value </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

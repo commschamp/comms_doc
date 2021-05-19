@@ -91,38 +91,38 @@ $(function() {
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">namespace </span>checksum</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TResult = std::u<span class="keywordtype">int</span>8_t&gt;</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1checksum_1_1BasicSum.html">   30</a></span>&#160;<span class="keyword">class </span><a class="code" href="classcomms_1_1protocol_1_1checksum_1_1BasicSum.html">BasicSum</a></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TIter&gt;</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1checksum_1_1BasicSum.html#a7fe9be8ab4a39a17826578e0be414edd">   39</a></span>&#160;    TResult <a class="code" href="classcomms_1_1protocol_1_1checksum_1_1BasicSum.html#a7fe9be8ab4a39a17826578e0be414edd">operator()</a>(TIter&amp; iter, std::size_t len)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">using</span> ByteType = <span class="keyword">typename</span> std::make_unsigned&lt;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <span class="keyword">typename</span> std::decay&lt;decltype(*iter)&gt;::type</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        &gt;::type;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        TResult checksum = 0;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> idx = 0U; idx &lt; len; ++idx) {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            checksum = <span class="keyword">static_cast&lt;</span>TResult<span class="keyword">&gt;</span>(checksum + <span class="keyword">static_cast&lt;</span>ByteType<span class="keyword">&gt;</span>(*iter));</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            ++iter;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">return</span> checksum;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;};</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}  <span class="comment">// namespace checksum</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}  <span class="comment">// namespace protocol</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}  <span class="comment">// namespace comms</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TResult = std::u<span class="keywordtype">int</span>8_t, TResult TInitValue = 0&gt;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1checksum_1_1BasicSum.html">   31</a></span>&#160;<span class="keyword">class </span><a class="code" href="classcomms_1_1protocol_1_1checksum_1_1BasicSum.html">BasicSum</a></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TIter&gt;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1checksum_1_1BasicSum.html#a5c85f4e1ac833439e396505e19a15af9">   40</a></span>&#160;    TResult <a class="code" href="classcomms_1_1protocol_1_1checksum_1_1BasicSum.html#a5c85f4e1ac833439e396505e19a15af9">operator()</a>(TIter&amp; iter, std::size_t len)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">using</span> ByteType = <span class="keyword">typename</span> std::make_unsigned&lt;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="keyword">typename</span> std::decay&lt;decltype(*iter)&gt;::type</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        &gt;::type;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        TResult checksum = TInitValue;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> idx = 0U; idx &lt; len; ++idx) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            checksum = <span class="keyword">static_cast&lt;</span>TResult<span class="keyword">&gt;</span>(checksum + <span class="keyword">static_cast&lt;</span>ByteType<span class="keyword">&gt;</span>(*iter));</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            ++iter;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">return</span> checksum;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;};</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}  <span class="comment">// namespace checksum</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}  <span class="comment">// namespace protocol</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}  <span class="comment">// namespace comms</span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclasscomms_1_1protocol_1_1checksum_1_1BasicSum_html_a5c85f4e1ac833439e396505e19a15af9"><div class="ttname"><a href="classcomms_1_1protocol_1_1checksum_1_1BasicSum.html#a5c85f4e1ac833439e396505e19a15af9">comms::protocol::checksum::BasicSum::operator()</a></div><div class="ttdeci">TResult operator()(TIter &amp;iter, std::size_t len) const</div><div class="ttdoc">Operator that is invoked to calculate the checksum value.</div><div class="ttdef"><b>Definition:</b> BasicSum.h:40</div></div>
 <div class="ttc" id="anamespacecomms_html"><div class="ttname"><a href="namespacecomms.html">comms</a></div><div class="ttdoc">Main namespace for all classes / functions of COMMS library.</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1checksum_1_1BasicSum_html_a7fe9be8ab4a39a17826578e0be414edd"><div class="ttname"><a href="classcomms_1_1protocol_1_1checksum_1_1BasicSum.html#a7fe9be8ab4a39a17826578e0be414edd">comms::protocol::checksum::BasicSum::operator()</a></div><div class="ttdeci">TResult operator()(TIter &amp;iter, std::size_t len) const</div><div class="ttdoc">Operator that is invoked to calculate the checksum value.</div><div class="ttdef"><b>Definition:</b> BasicSum.h:39</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1checksum_1_1BasicSum_html"><div class="ttname"><a href="classcomms_1_1protocol_1_1checksum_1_1BasicSum.html">comms::protocol::checksum::BasicSum</a></div><div class="ttdoc">Summary of all bytes checksum calculator.</div><div class="ttdef"><b>Definition:</b> BasicSum.h:30</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1checksum_1_1BasicSum_html"><div class="ttname"><a href="classcomms_1_1protocol_1_1checksum_1_1BasicSum.html">comms::protocol::checksum::BasicSum</a></div><div class="ttdoc">Summary of all bytes checksum calculator.</div><div class="ttdef"><b>Definition:</b> BasicSum.h:31</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

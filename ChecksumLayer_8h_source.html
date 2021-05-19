@@ -82,352 +82,348 @@ $(function() {
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;iterator&gt;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;type_traits&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="IntValue_8h.html">comms/field/IntValue.h</a>&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;comms/protocol/details/ProtocolLayerBase.h&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;comms/protocol/details/ChecksumLayerOptionsParser.h&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;comms/protocol/details/ProtocolLayerExtendingClassHelper.h&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="type__traits_8h.html">comms/util/type_traits.h</a>&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;comms/details/tag.h&quot;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacecomms.html">comms</a></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span>protocol</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField, <span class="keyword">typename</span> TCalc, <span class="keyword">typename</span> TNextLayer, <span class="keyword">typename</span>... TOptions&gt;</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1ChecksumLayer.html">   55</a></span>&#160;<span class="keyword">class </span><a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html">ChecksumLayer</a> : <span class="keyword">public</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <a class="code" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html">details::ProtocolLayerBase</a>&lt;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            TField,</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            TNextLayer,</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            details::ProtocolLayerExtendingClassT&lt;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                ChecksumLayer&lt;TField, TCalc, TNextLayer, TOptions...&gt;,</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                details::ChecksumLayerOptionsParser&lt;TOptions...&gt;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            &gt;,            </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            comms::option::def::ProtocolLayerDisallowReadUntilDataSplit</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        &gt;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;{</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">using</span> <a class="code" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html">BaseImpl</a> =</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <a class="code" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html">details::ProtocolLayerBase</a>&lt;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            TField,</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            TNextLayer,</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            details::ProtocolLayerExtendingClassT&lt;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html">ChecksumLayer</a>&lt;TField, TCalc, TNextLayer, TOptions...&gt;,</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                details::ChecksumLayerOptionsParser&lt;TOptions...&gt;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            &gt;,            </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <a class="code" href="structcomms_1_1option_1_1def_1_1ProtocolLayerDisallowReadUntilDataSplit.html">comms::option::def::ProtocolLayerDisallowReadUntilDataSplit</a></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        &gt;;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">using</span> ExtendingClass =</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        details::ProtocolLayerExtendingClassT&lt;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html">ChecksumLayer</a>&lt;TField, TCalc, TNextLayer, TOptions...&gt;,</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            details::ChecksumLayerOptionsParser&lt;TOptions...&gt;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        &gt;;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a2bd15e1e2270af0b3202f01ce2c7b8b5">   84</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a2bd15e1e2270af0b3202f01ce2c7b8b5">ParsedOptions</a> = details::ChecksumLayerOptionsParser&lt;TOptions...&gt;;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1ChecksumLayer.html#aee9dbe31eaa2edbd47652b8ccd3bd2b2">   87</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#aee9dbe31eaa2edbd47652b8ccd3bd2b2">Field</a> = <span class="keyword">typename</span> <a class="code" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">BaseImpl::Field</a>;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a0776a761f649b8af2624d3e412d607cd">   90</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a0776a761f649b8af2624d3e412d607cd">ChecksumCalc</a> = TCalc;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a9d8b6026cb12bac4640ccc11e9faad56">ChecksumLayer</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a9d8b6026cb12bac4640ccc11e9faad56">ChecksumLayer</a>(<span class="keyword">const</span> <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html">ChecksumLayer</a>&amp;) = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a9d8b6026cb12bac4640ccc11e9faad56">ChecksumLayer</a>(<a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html">ChecksumLayer</a>&amp;&amp;) = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a8bdcbd611f946109154ed34d2fa4911e">~ChecksumLayer</a>() noexcept = default;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html">ChecksumLayer</a>&amp; operator=(const <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html">ChecksumLayer</a>&amp;) = default;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html">ChecksumLayer</a>&amp; operator=(<a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html">ChecksumLayer</a>&amp;&amp;) = default;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    template &lt;typename TMsg, typename TIter, typename TNextLayerReader, typename... TExtraValues&gt;</div>
-<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a6df7f2446deda06ec2eb3a3395819dc7">  141</a></span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a6df7f2446deda06ec2eb3a3395819dc7">doRead</a>(</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#aee9dbe31eaa2edbd47652b8ccd3bd2b2">Field</a>&amp; field,</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        TMsg&amp; msg,</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        TIter&amp; iter,</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        std::<span class="keywordtype">size_t</span> size,</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        TNextLayerReader&amp;&amp; nextLayerReader,</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        TExtraValues... extraValues)</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    {</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <span class="keyword">using</span> IterType = <span class="keyword">typename</span> std::decay&lt;decltype(iter)&gt;::type;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        static_assert(std::is_same&lt;<span class="keyword">typename</span> std::iterator_traits&lt;IterType&gt;::iterator_category, std::random_access_iterator_tag&gt;::value,</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;            <span class="stringliteral">&quot;The read operation is expected to use random access iterator&quot;</span>);</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        <span class="keyword">using</span> VerifyTag = </div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;            <span class="keyword">typename</span> comms::util::LazyShallowConditional&lt;</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                ParsedOptions::HasVerifyBeforeRead</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;            &gt;::template Type&lt;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                VerifyBeforeReadTag,</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                VerifyAfterReadTag</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            &gt;;        </div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            readInternal(</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                field,</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                msg,</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                iter,</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                size,</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                std::forward&lt;TNextLayerReader&gt;(nextLayerReader),</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                VerifyTag(),</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;                extraValues...);</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    }</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span> TIter, <span class="keyword">typename</span> TNextLayerWriter&gt;</div>
-<div class="line"><a name="l00198"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a2969a3aace6d34086954055af267cf46">  198</a></span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a2969a3aace6d34086954055af267cf46">doWrite</a>(</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#aee9dbe31eaa2edbd47652b8ccd3bd2b2">Field</a>&amp; field,</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        <span class="keyword">const</span> TMsg&amp; msg,</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        TIter&amp; iter,</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        std::size_t size,</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        TNextLayerWriter&amp;&amp; nextLayerWriter)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        <span class="keyword">using</span> IterType = <span class="keyword">typename</span> std::decay&lt;decltype(iter)&gt;::type;</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        <span class="keyword">using</span> Tag = <span class="keyword">typename</span> std::iterator_traits&lt;IterType&gt;::iterator_category;</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        <span class="keywordflow">return</span> writeInternal(field, msg, iter, size, std::forward&lt;TNextLayerWriter&gt;(nextLayerWriter), Tag());</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    }</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160; </div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TIter, <span class="keyword">typename</span> TNextLayerUpdater&gt;</div>
-<div class="line"><a name="l00221"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1ChecksumLayer.html#ab91df4b037d83da8ad085dd3b65f230c">  221</a></span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#ab91df4b037d83da8ad085dd3b65f230c">doUpdate</a>(</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#aee9dbe31eaa2edbd47652b8ccd3bd2b2">Field</a>&amp; field,</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        TIter&amp; iter,</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        std::size_t size,</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        TNextLayerUpdater&amp;&amp; nextLayerUpdater)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        <span class="keyword">auto</span> fromIter = iter;</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        <span class="keyword">auto</span> es = nextLayerUpdater.update(iter, size - Field::maxLength());</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        <span class="keywordflow">if</span> (es != <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">comms::ErrorStatus::Success</a>) {</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;            <span class="keywordflow">return</span> es;</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        }</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160; </div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        <span class="keyword">auto</span>* msgPtr = <span class="keyword">static_cast&lt;</span>typename BaseImpl::MsgPtr::element_type*<span class="keyword">&gt;</span>(<span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        <span class="keywordflow">return</span> fieldUpdateInternal(msgPtr, fromIter, iter, size, field);</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    }</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span> TIter, <span class="keyword">typename</span> TNextLayerUpdater&gt;</div>
-<div class="line"><a name="l00247"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a23a5e2f6ae76484427c3c7a8ac90727a">  247</a></span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a23a5e2f6ae76484427c3c7a8ac90727a">doUpdate</a>(</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        <span class="keyword">const</span> TMsg&amp; msg,</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#aee9dbe31eaa2edbd47652b8ccd3bd2b2">Field</a>&amp; field,</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        TIter&amp; iter,</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        std::size_t size,</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        TNextLayerUpdater&amp;&amp; nextLayerUpdater)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        <span class="keyword">auto</span> fromIter = iter;</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        <span class="keyword">auto</span> fieldLen = <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>ExtendingClass*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a8e86bd01b3f9a678e22ec65251d98d07">doFieldLength</a>(msg);</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        <span class="keyword">auto</span> es = nextLayerUpdater.update(msg, iter, size - fieldLen);</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        <span class="keywordflow">if</span> (es != <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">comms::ErrorStatus::Success</a>) {</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;            <span class="keywordflow">return</span> es;</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        }</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160; </div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        <span class="keywordflow">return</span> fieldUpdateInternal(&amp;msg, fromIter, iter, size, field);</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    }</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="CompileControl_8h.html">comms/CompileControl.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="IntValue_8h.html">comms/field/IntValue.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;comms/protocol/details/ProtocolLayerBase.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;comms/protocol/details/ChecksumLayerOptionsParser.h&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;comms/protocol/details/ProtocolLayerExtendingClassHelper.h&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="type__traits_8h.html">comms/util/type_traits.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;comms/details/tag.h&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;COMMS_MSVC_WARNING_PUSH</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;COMMS_MSVC_WARNING_DISABLE(4189) <span class="comment">// Disable erroneous initialized but not referenced variable warning</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;namespace <a class="code" href="namespacecomms.html">comms</a></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>protocol</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField, <span class="keyword">typename</span> TCalc, <span class="keyword">typename</span> TNextLayer, <span class="keyword">typename</span>... TOptions&gt;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1ChecksumLayer.html">   62</a></span>&#160;<span class="keyword">class </span><a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html">ChecksumLayer</a> : <span class="keyword">public</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html">details::ProtocolLayerBase</a>&lt;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            TField,</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            TNextLayer,</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            details::ProtocolLayerExtendingClassT&lt;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                ChecksumLayer&lt;TField, TCalc, TNextLayer, TOptions...&gt;,</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                details::ChecksumLayerOptionsParser&lt;TOptions...&gt;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            &gt;,            </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            comms::option::def::ProtocolLayerDisallowReadUntilDataSplit</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        &gt;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;{</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">using</span> <a class="code" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html">BaseImpl</a> =</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <a class="code" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html">details::ProtocolLayerBase</a>&lt;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            TField,</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            TNextLayer,</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            details::ProtocolLayerExtendingClassT&lt;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html">ChecksumLayer</a>&lt;TField, TCalc, TNextLayer, TOptions...&gt;,</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                details::ChecksumLayerOptionsParser&lt;TOptions...&gt;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            &gt;,            </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <a class="code" href="structcomms_1_1option_1_1def_1_1ProtocolLayerDisallowReadUntilDataSplit.html">comms::option::def::ProtocolLayerDisallowReadUntilDataSplit</a></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        &gt;;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a2bd15e1e2270af0b3202f01ce2c7b8b5">   86</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a2bd15e1e2270af0b3202f01ce2c7b8b5">ParsedOptions</a> = details::ChecksumLayerOptionsParser&lt;TOptions...&gt;;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1ChecksumLayer.html#aee9dbe31eaa2edbd47652b8ccd3bd2b2">   89</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#aee9dbe31eaa2edbd47652b8ccd3bd2b2">Field</a> = <span class="keyword">typename</span> <a class="code" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">BaseImpl::Field</a>;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a0776a761f649b8af2624d3e412d607cd">   92</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a0776a761f649b8af2624d3e412d607cd">ChecksumCalc</a> = TCalc;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html">ChecksumLayer</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html">ChecksumLayer</a>(<span class="keyword">const</span> <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html">ChecksumLayer</a>&amp;) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html">ChecksumLayer</a>(<a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html">ChecksumLayer</a>&amp;&amp;) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    ~<a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html">ChecksumLayer</a>() noexcept = default;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html">ChecksumLayer</a>&amp; operator=(const <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html">ChecksumLayer</a>&amp;) = default;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html">ChecksumLayer</a>&amp; operator=(<a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html">ChecksumLayer</a>&amp;&amp;) = default;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    template &lt;typename TMsg, typename TIter, typename TNextLayerReader, typename... TExtraValues&gt;</div>
+<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a6df7f2446deda06ec2eb3a3395819dc7">  143</a></span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> doRead(</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#aee9dbe31eaa2edbd47652b8ccd3bd2b2">Field</a>&amp; field,</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        TMsg&amp; msg,</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        TIter&amp; iter,</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        std::<span class="keywordtype">size_t</span> size,</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        TNextLayerReader&amp;&amp; nextLayerReader,</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        TExtraValues... extraValues)</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    {</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <span class="keyword">using</span> IterType = <span class="keyword">typename</span> std::decay&lt;decltype(iter)&gt;::type;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        static_assert(std::is_same&lt;<span class="keyword">typename</span> std::iterator_traits&lt;IterType&gt;::iterator_category, std::random_access_iterator_tag&gt;::value,</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;            <span class="stringliteral">&quot;The read operation is expected to use random access iterator&quot;</span>);</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <span class="keyword">using</span> VerifyTag = </div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;            <span class="keyword">typename</span> comms::util::LazyShallowConditional&lt;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                ParsedOptions::HasVerifyBeforeRead</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            &gt;::template Type&lt;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                VerifyBeforeReadTag,</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                VerifyAfterReadTag</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;            &gt;;        </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;            readInternal(</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                field,</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                msg,</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                iter,</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                size,</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;                std::forward&lt;TNextLayerReader&gt;(nextLayerReader),</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                VerifyTag(),</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                extraValues...);</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    }</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span> TIter, <span class="keyword">typename</span> TNextLayerWriter&gt;</div>
+<div class="line"><a name="l00200"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a2969a3aace6d34086954055af267cf46">  200</a></span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a2969a3aace6d34086954055af267cf46">doWrite</a>(</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#aee9dbe31eaa2edbd47652b8ccd3bd2b2">Field</a>&amp; field,</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="keyword">const</span> TMsg&amp; msg,</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        TIter&amp; iter,</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        std::size_t size,</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        TNextLayerWriter&amp;&amp; nextLayerWriter)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        <span class="keyword">using</span> IterType = <span class="keyword">typename</span> std::decay&lt;decltype(iter)&gt;::type;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        <span class="keyword">using</span> Tag = <span class="keyword">typename</span> std::iterator_traits&lt;IterType&gt;::iterator_category;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        <span class="keywordflow">return</span> writeInternal(field, msg, iter, size, std::forward&lt;TNextLayerWriter&gt;(nextLayerWriter), Tag());</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    }</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160; </div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TIter, <span class="keyword">typename</span> TNextLayerUpdater&gt;</div>
+<div class="line"><a name="l00223"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1ChecksumLayer.html#ab91df4b037d83da8ad085dd3b65f230c">  223</a></span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#ab91df4b037d83da8ad085dd3b65f230c">doUpdate</a>(</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#aee9dbe31eaa2edbd47652b8ccd3bd2b2">Field</a>&amp; field,</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        TIter&amp; iter,</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        std::size_t size,</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        TNextLayerUpdater&amp;&amp; nextLayerUpdater)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        <span class="keyword">auto</span> fromIter = iter;</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        <span class="keyword">auto</span> es = nextLayerUpdater.update(iter, size - Field::maxLength());</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        <span class="keywordflow">if</span> (es != <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">comms::ErrorStatus::Success</a>) {</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;            <span class="keywordflow">return</span> es;</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        }</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160; </div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        <span class="keyword">auto</span>* msgPtr = <span class="keyword">static_cast&lt;</span>typename BaseImpl::MsgPtr::element_type*<span class="keyword">&gt;</span>(<span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        <span class="keywordflow">return</span> fieldUpdateInternal(msgPtr, fromIter, iter, size, field);</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    }</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160; </div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span> TIter, <span class="keyword">typename</span> TNextLayerUpdater&gt;</div>
+<div class="line"><a name="l00249"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a23a5e2f6ae76484427c3c7a8ac90727a">  249</a></span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a23a5e2f6ae76484427c3c7a8ac90727a">doUpdate</a>(</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        <span class="keyword">const</span> TMsg&amp; msg,</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#aee9dbe31eaa2edbd47652b8ccd3bd2b2">Field</a>&amp; field,</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        TIter&amp; iter,</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        std::size_t size,</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        TNextLayerUpdater&amp;&amp; nextLayerUpdater)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        <span class="keyword">auto</span> fromIter = iter;</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        <span class="keyword">auto</span>&amp; thisObj = BaseImpl::thisLayer();</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        <span class="keyword">auto</span> fieldLen = thisObj.doFieldLength(msg);</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        <span class="keyword">auto</span> es = nextLayerUpdater.update(msg, iter, size - fieldLen);</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        <span class="keywordflow">if</span> (es != <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">comms::ErrorStatus::Success</a>) {</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;            <span class="keywordflow">return</span> es;</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        }</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160; </div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span> TIter&gt;</div>
-<div class="line"><a name="l00274"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a921528421a84bfbb8c6603b3a6880459">  274</a></span>&#160;    <span class="keyword">static</span> <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a921528421a84bfbb8c6603b3a6880459">readField</a>(<span class="keyword">const</span> TMsg* msgPtr, <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#aee9dbe31eaa2edbd47652b8ccd3bd2b2">Field</a>&amp; field, TIter&amp; iter, std::size_t len)</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    {</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(msgPtr);</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;        <span class="keywordflow">return</span> field.read(iter, len);</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    }</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160; </div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span> TIter&gt;</div>
-<div class="line"><a name="l00289"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a058a1183f2da1e56be2b8a8c467ea0ec">  289</a></span>&#160;    <span class="keyword">static</span> <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a058a1183f2da1e56be2b8a8c467ea0ec">writeField</a>(<span class="keyword">const</span> TMsg* msgPtr, <span class="keyword">const</span> <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#aee9dbe31eaa2edbd47652b8ccd3bd2b2">Field</a>&amp; field, TIter&amp; iter, std::size_t len)</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    {</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(msgPtr);</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        <span class="keywordflow">return</span> field.write(iter, len);</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    }</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160; </div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span> TIter&gt;</div>
-<div class="line"><a name="l00308"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a19057f47fb139a102819ef3635dde158">  308</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span> <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a19057f47fb139a102819ef3635dde158">calculateChecksum</a>(<span class="keyword">const</span> TMsg* msg, TIter&amp; iter, std::size_t len, <span class="keywordtype">bool</span>&amp; checksumValid) -&gt; decltype(TCalc()(iter, len))</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    {</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(msg);</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;        checksumValid = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        <span class="keywordflow">return</span> TCalc()(iter, len);</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    }    </div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160; </div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    static_assert(comms::field::isIntValue&lt;Field&gt;(),</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        <span class="stringliteral">&quot;The checksum field is expected to be of IntValue type&quot;</span>);</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160; </div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    static_assert(Field::minLength() == Field::maxLength(),</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        <span class="stringliteral">&quot;The checksum field is expected to be of fixed length&quot;</span>);</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        <span class="keywordflow">return</span> fieldUpdateInternal(&amp;msg, fromIter, iter, size, field);</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    }</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160; </div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span> TIter&gt;</div>
+<div class="line"><a name="l00278"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a5d2709b6e378a649f3d79b826096e175">  278</a></span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a5d2709b6e378a649f3d79b826096e175">readField</a>(<span class="keyword">const</span> TMsg* msgPtr, <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#aee9dbe31eaa2edbd47652b8ccd3bd2b2">Field</a>&amp; field, TIter&amp; iter, std::size_t len)</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    {</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        <span class="keywordflow">return</span> BaseImpl::thisLayer().doReadField(msgPtr, field, iter, len);</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    }</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160; </div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span> TIter&gt;</div>
+<div class="line"><a name="l00293"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1ChecksumLayer.html#ac66ead85cf90866971d3c9f9362930cb">  293</a></span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#ac66ead85cf90866971d3c9f9362930cb">writeField</a>(<span class="keyword">const</span> TMsg* msgPtr, <span class="keyword">const</span> <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#aee9dbe31eaa2edbd47652b8ccd3bd2b2">Field</a>&amp; field, TIter&amp; iter, std::size_t len)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        <span class="keywordflow">return</span> BaseImpl::thisLayer().doWriteField(msgPtr, field, iter, len);</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    }</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160; </div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span> TIter&gt;</div>
+<div class="line"><a name="l00311"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a19057f47fb139a102819ef3635dde158">  311</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span> <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a19057f47fb139a102819ef3635dde158">calculateChecksum</a>(<span class="keyword">const</span> TMsg* msg, TIter&amp; iter, std::size_t len, <span class="keywordtype">bool</span>&amp; checksumValid) -&gt; decltype(TCalc()(iter, len))</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    {</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(msg);</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        checksumValid = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        <span class="keywordflow">return</span> TCalc()(iter, len);</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    }    </div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160; </div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    static_assert(comms::field::isIntValue&lt;Field&gt;(),</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        <span class="stringliteral">&quot;The checksum field is expected to be of IntValue type&quot;</span>);</div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160; </div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... TParams&gt;</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <span class="keyword">using</span> VerifyBeforeReadTag = comms::details::tag::Tag1&lt;&gt;;</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    static_assert(Field::minLength() == Field::maxLength(),</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        <span class="stringliteral">&quot;The checksum field is expected to be of fixed length&quot;</span>);</div>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160; </div>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... TParams&gt;</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    <span class="keyword">using</span> VerifyAfterReadTag = comms::details::tag::Tag2&lt;&gt;;</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    <span class="keyword">using</span> VerifyBeforeReadTag = comms::details::tag::Tag1&lt;&gt;;</div>
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160; </div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span> TIter, <span class="keyword">typename</span> TReader, <span class="keyword">typename</span>... TExtraValues&gt;</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> verifyRead(</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        <a class="code" href="classcomms_1_1Field.html">Field</a>&amp; field,</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        TMsg&amp; msg,</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        TIter&amp; iter,</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        std::size_t size,</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        TReader&amp;&amp; nextLayerReader,</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        TExtraValues... extraValues)</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    {</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        <span class="keyword">auto</span> fromIter = iter;</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        <span class="keyword">auto</span>* msgPtr = <a class="code" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#abe0e556ee9a28ca50e4e3d6c3e1c3ebc">BaseImpl::toMsgPtr</a>(msg);</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        <span class="keyword">auto</span> fieldLen = Field::minLength();</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        <span class="keywordflow">if</span> (msgPtr != <span class="keyword">nullptr</span>) {</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;            fieldLen = <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>ExtendingClass*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a8e86bd01b3f9a678e22ec65251d98d07">doFieldLength</a>(*msgPtr);</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        }</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        <span class="keyword">auto</span> toIter = fromIter + (size - fieldLen);</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        <span class="keyword">auto</span> len = <span class="keyword">static_cast&lt;</span>std::size_t<span class="keyword">&gt;</span>(std::distance(fromIter, toIter));</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;        </div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;        <span class="keyword">auto</span> checksumEs = </div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;            <span class="keyword">static_cast&lt;</span>ExtendingClass*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a921528421a84bfbb8c6603b3a6880459">readField</a>(</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;                    msgPtr, field, toIter, fieldLen);</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;        <span class="keywordflow">if</span> (checksumEs != <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">ErrorStatus::Success</a>) {</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;            <span class="keywordflow">return</span> checksumEs;</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        }</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160; </div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;        <span class="keywordtype">bool</span> checksumValid = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;        <span class="keyword">auto</span> checksum = </div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;            <span class="keyword">static_cast&lt;</span>ExtendingClass*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a19057f47fb139a102819ef3635dde158">calculateChecksum</a>(</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;                msgPtr,</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;                fromIter,</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;                len,</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;                checksumValid);</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160; </div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        <span class="keywordflow">if</span> (!checksumValid) {</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1aca3da8f495e4e628912a7798655da6c2">comms::ErrorStatus::ProtocolError</a>;</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;        }</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160; </div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;        <span class="keyword">auto</span> expectedValue = field.value();</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... TParams&gt;</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    <span class="keyword">using</span> VerifyAfterReadTag = comms::details::tag::Tag2&lt;&gt;;</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160; </div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span> TIter, <span class="keyword">typename</span> TReader, <span class="keyword">typename</span>... TExtraValues&gt;</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> verifyRead(</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        <a class="code" href="classcomms_1_1Field.html">Field</a>&amp; field,</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        TMsg&amp; msg,</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        TIter&amp; iter,</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;        std::size_t size,</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        TReader&amp;&amp; nextLayerReader,</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        TExtraValues... extraValues)</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    {</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        <span class="keyword">auto</span> fromIter = iter;</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        <span class="keyword">auto</span>* msgPtr = BaseImpl::toMsgPtr(msg);</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        <span class="keyword">auto</span> fieldLen = Field::minLength();</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        <span class="keyword">auto</span>&amp; thisObj = BaseImpl::thisLayer();</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        <span class="keywordflow">if</span> (msgPtr != <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;            fieldLen = thisObj.doFieldLength(*msgPtr);</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;        }</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;        <span class="keyword">auto</span> toIter = fromIter + (size - fieldLen);</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;        <span class="keyword">auto</span> len = <span class="keyword">static_cast&lt;</span>std::size_t<span class="keyword">&gt;</span>(std::distance(fromIter, toIter));</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;        </div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;        <span class="keyword">auto</span> checksumEs = thisObj.readField(msgPtr, field, toIter, fieldLen);</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        <span class="keywordflow">if</span> (checksumEs != ErrorStatus::Success) {</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;            <span class="keywordflow">return</span> checksumEs;</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;        }</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160; </div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        <span class="keywordtype">bool</span> checksumValid = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;        <span class="keyword">auto</span> checksum = </div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;            thisObj.calculateChecksum(</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;                msgPtr,</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;                fromIter,</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;                len,</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;                checksumValid);</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160; </div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;        <span class="keywordflow">if</span> (!checksumValid) {</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1aca3da8f495e4e628912a7798655da6c2">comms::ErrorStatus::ProtocolError</a>;</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;        }</div>
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160; </div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;        <span class="keywordflow">if</span> (expectedValue != <span class="keyword">static_cast&lt;</span>decltype(expectedValue)<span class="keyword">&gt;</span>(checksum)) {</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;            <a class="code" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a0c83babc34313e54e04a4f12d24394c9">BaseImpl::resetMsg</a>(msg);</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1aca3da8f495e4e628912a7798655da6c2">ErrorStatus::ProtocolError</a>;</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        }</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160; </div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;        <span class="keyword">auto</span> es = nextLayerReader.read(msg, iter, size - fieldLen, extraValues...);</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;        <span class="keywordflow">if</span> (es == <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">ErrorStatus::Success</a>) {</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;            iter = toIter;</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;        }</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160; </div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;        <span class="keywordflow">return</span> es;</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    }</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160; </div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span> TIter, <span class="keyword">typename</span> TReader, <span class="keyword">typename</span>... TExtraValues&gt;</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> readVerify(</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;        <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#aee9dbe31eaa2edbd47652b8ccd3bd2b2">Field</a>&amp; field,</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;        TMsg&amp; msg,</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;        TIter&amp; iter,</div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;        std::size_t size,</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;        TReader&amp;&amp; nextLayerReader,</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;        TExtraValues... extraValues)</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;    {</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;        <span class="keyword">auto</span> fromIter = iter;</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160; </div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;        <span class="keyword">auto</span> es = nextLayerReader.read(msg, iter, size, extraValues...);</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;        <span class="keywordflow">if</span> ((es == <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1ab6e495eeaee7cdf1bac313472e4681ac">ErrorStatus::NotEnoughData</a>) ||</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;            (es == <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1aca3da8f495e4e628912a7798655da6c2">ErrorStatus::ProtocolError</a>)) {</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;            <span class="keywordflow">return</span> es;</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;        }</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160; </div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;        <span class="keyword">auto</span> len = <span class="keyword">static_cast&lt;</span>std::size_t<span class="keyword">&gt;</span>(std::distance(fromIter, iter));</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;        <a class="code" href="Assert_8h.html#a941aec86290602caa61d86b671aea550">COMMS_ASSERT</a>(len &lt;= size);</div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;        <span class="keyword">auto</span> remSize = size - len;</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;        <span class="keyword">auto</span>* msgPtr = <a class="code" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#abe0e556ee9a28ca50e4e3d6c3e1c3ebc">BaseImpl::toMsgPtr</a>(msg);</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;        <span class="keyword">auto</span> checksumEs = </div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;            <span class="keyword">static_cast&lt;</span>ExtendingClass*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a921528421a84bfbb8c6603b3a6880459">readField</a>(msgPtr, field, iter, remSize);</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;        <span class="keywordflow">if</span> (checksumEs == <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1ab6e495eeaee7cdf1bac313472e4681ac">ErrorStatus::NotEnoughData</a>) {</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;            <a class="code" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a8526ebff3febc385edec2a1e9ef1ae6e">BaseImpl::updateMissingSize</a>(field, remSize, extraValues...);</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;        }</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160; </div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;        <span class="keywordflow">if</span> (checksumEs != <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">ErrorStatus::Success</a>) {</div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;            <a class="code" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a0c83babc34313e54e04a4f12d24394c9">BaseImpl::resetMsg</a>(msg);</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;            <span class="keywordflow">return</span> checksumEs;</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;        }</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160; </div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;        <span class="keywordtype">bool</span> checksumValid = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;        <span class="keyword">auto</span> checksum = </div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;            <span class="keyword">static_cast&lt;</span>ExtendingClass*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a19057f47fb139a102819ef3635dde158">calculateChecksum</a>(</div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;                <a class="code" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#abe0e556ee9a28ca50e4e3d6c3e1c3ebc">BaseImpl::toMsgPtr</a>(msg),</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;                fromIter,</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;                len,</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;                checksumValid);</div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160; </div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;        <span class="keywordflow">if</span> (!checksumValid) {</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1aca3da8f495e4e628912a7798655da6c2">comms::ErrorStatus::ProtocolError</a>;</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;        }</div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160; </div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;        <span class="keyword">auto</span> expectedValue = field.value();</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;        <span class="keyword">auto</span> expectedValue = field.value();</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160; </div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        <span class="keywordflow">if</span> (expectedValue != <span class="keyword">static_cast&lt;</span>decltype(expectedValue)<span class="keyword">&gt;</span>(checksum)) {</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;            BaseImpl::resetMsg(msg);</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;            <span class="keywordflow">return</span> ErrorStatus::ProtocolError;</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;        }</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160; </div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;        <span class="keyword">auto</span> es = nextLayerReader.read(msg, iter, size - fieldLen, extraValues...);</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;        <span class="keywordflow">if</span> (es == ErrorStatus::Success) {</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;            iter = toIter;</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;        }</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160; </div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;        <span class="keywordflow">return</span> es;</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    }</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160; </div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span> TIter, <span class="keyword">typename</span> TReader, <span class="keyword">typename</span>... TExtraValues&gt;</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> readVerify(</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;        Field&amp; field,</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;        TMsg&amp; msg,</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;        TIter&amp; iter,</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;        std::size_t size,</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;        TReader&amp;&amp; nextLayerReader,</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;        TExtraValues... extraValues)</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    {</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;        <span class="keyword">auto</span> fromIter = iter;</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160; </div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;        <span class="keyword">auto</span> es = nextLayerReader.read(msg, iter, size, extraValues...);</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;        <span class="keywordflow">if</span> ((es == ErrorStatus::NotEnoughData) ||</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;            (es == ErrorStatus::ProtocolError)) {</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;            <span class="keywordflow">return</span> es;</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;        }</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160; </div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;        <span class="keyword">auto</span> len = <span class="keyword">static_cast&lt;</span>std::size_t<span class="keyword">&gt;</span>(std::distance(fromIter, iter));</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;        <a class="code" href="Assert_8h.html#a941aec86290602caa61d86b671aea550">COMMS_ASSERT</a>(len &lt;= size);</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;        <span class="keyword">auto</span> remSize = size - len;</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;        <span class="keyword">auto</span>* msgPtr = BaseImpl::toMsgPtr(msg);</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;        <span class="keyword">auto</span>&amp; thisObj = BaseImpl::thisLayer();</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;        <span class="keyword">auto</span> checksumEs = thisObj.readField(msgPtr, field, iter, remSize);</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;        <span class="keywordflow">if</span> (checksumEs == ErrorStatus::NotEnoughData) {</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;            BaseImpl::updateMissingSize(field, remSize, extraValues...);</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;        }</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160; </div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;        <span class="keywordflow">if</span> (checksumEs != ErrorStatus::Success) {</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;            BaseImpl::resetMsg(msg);</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;            <span class="keywordflow">return</span> checksumEs;</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;        }</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160; </div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;        <span class="keywordtype">bool</span> checksumValid = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;        <span class="keyword">auto</span> checksum = </div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;            thisObj.calculateChecksum(</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;                BaseImpl::toMsgPtr(msg),</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;                fromIter,</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;                len,</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;                checksumValid);</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160; </div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;        <span class="keywordflow">if</span> (!checksumValid) {</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1aca3da8f495e4e628912a7798655da6c2">comms::ErrorStatus::ProtocolError</a>;</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;        }</div>
 <div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160; </div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;        <span class="keywordflow">if</span> (expectedValue != <span class="keyword">static_cast&lt;</span>decltype(expectedValue)<span class="keyword">&gt;</span>(checksum)) {</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;            <a class="code" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a0c83babc34313e54e04a4f12d24394c9">BaseImpl::resetMsg</a>(msg);</div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1aca3da8f495e4e628912a7798655da6c2">ErrorStatus::ProtocolError</a>;</div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;        }</div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160; </div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;        <span class="keywordflow">return</span> es;</div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;    }</div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160; </div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span> TIter, <span class="keyword">typename</span> TReader, <span class="keyword">typename</span>... TExtraValues&gt;</div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> readInternal(</div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;        <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#aee9dbe31eaa2edbd47652b8ccd3bd2b2">Field</a>&amp; field,</div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;        TMsg&amp; msg,</div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;        TIter&amp; iter,</div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;        std::size_t size,</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;        TReader&amp;&amp; nextLayerReader,</div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;        VerifyBeforeReadTag&lt;&gt;,</div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;        TExtraValues... extraValues)</div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;    {</div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;        <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;            verifyRead(</div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;                field,</div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;                msg,</div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;                iter,</div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;                size,</div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;                std::forward&lt;TReader&gt;(nextLayerReader),</div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;                extraValues...);</div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;    }</div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160; </div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span> TIter, <span class="keyword">typename</span> TReader, <span class="keyword">typename</span>... TExtraValues&gt;</div>
-<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> readInternal(</div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;        <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#aee9dbe31eaa2edbd47652b8ccd3bd2b2">Field</a>&amp; field,</div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;        TMsg&amp; msg,</div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;        TIter&amp; iter,</div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;        std::size_t size,</div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;        TReader&amp;&amp; nextLayerReader,</div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;        VerifyAfterReadTag&lt;&gt;,</div>
-<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;        TExtraValues... extraValues)</div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;    {</div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;        <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;            readVerify(</div>
-<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;                field,</div>
-<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;                msg,</div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;                iter,</div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;                size,</div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;                std::forward&lt;TReader&gt;(nextLayerReader),</div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;                extraValues...);</div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;    }</div>
-<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160; </div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span> TIter, <span class="keyword">typename</span> TWriter&gt;</div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> writeInternalRandomAccess(</div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;        <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#aee9dbe31eaa2edbd47652b8ccd3bd2b2">Field</a>&amp; field,</div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;        <span class="keyword">const</span> TMsg&amp; msg,</div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;        TIter&amp; iter,</div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;        std::size_t size,</div>
-<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;        TWriter&amp;&amp; nextLayerWriter)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;        <span class="keyword">auto</span> fromIter = iter;</div>
-<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;        <span class="keyword">auto</span> es = nextLayerWriter.write(msg, iter, size);</div>
-<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;        <span class="keywordflow">if</span> ((es != <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">comms::ErrorStatus::Success</a>) &amp;&amp;</div>
-<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;            (es != <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a618c95bafa9a5e5ab723e10573f3365d">comms::ErrorStatus::UpdateRequired</a>)) {</div>
-<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;            <span class="keywordflow">return</span> es;</div>
-<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;        }</div>
-<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160; </div>
-<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;        <a class="code" href="Assert_8h.html#a941aec86290602caa61d86b671aea550">COMMS_ASSERT</a>(fromIter &lt;= iter);</div>
-<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;        <span class="keyword">auto</span> len = <span class="keyword">static_cast&lt;</span>std::size_t<span class="keyword">&gt;</span>(std::distance(fromIter, iter));</div>
-<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;        <span class="keyword">auto</span> remSize = size - len;</div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160; </div>
-<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;        <span class="keywordflow">if</span> (es == <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a618c95bafa9a5e5ab723e10573f3365d">comms::ErrorStatus::UpdateRequired</a>) {</div>
-<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;            <span class="keyword">auto</span> esTmp = </div>
-<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;                <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>ExtendingClass*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a058a1183f2da1e56be2b8a8c467ea0ec">writeField</a>(</div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;                    &amp;msg, field, iter, remSize);</div>
-<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160; </div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;        <span class="keyword">auto</span> expectedValue = field.value();</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160; </div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;        <span class="keywordflow">if</span> (expectedValue != <span class="keyword">static_cast&lt;</span>decltype(expectedValue)<span class="keyword">&gt;</span>(checksum)) {</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;            BaseImpl::resetMsg(msg);</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;            <span class="keywordflow">return</span> ErrorStatus::ProtocolError;</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;        }</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160; </div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;        <span class="keywordflow">return</span> es;</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;    }</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160; </div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span> TIter, <span class="keyword">typename</span> TReader, <span class="keyword">typename</span>... TExtraValues&gt;</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> readInternal(</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;        Field&amp; field,</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;        TMsg&amp; msg,</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;        TIter&amp; iter,</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;        std::size_t size,</div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;        TReader&amp;&amp; nextLayerReader,</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;        VerifyBeforeReadTag&lt;&gt;,</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;        TExtraValues... extraValues)</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;    {</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;        <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;            verifyRead(</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;                field,</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;                msg,</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;                iter,</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;                size,</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;                std::forward&lt;TReader&gt;(nextLayerReader),</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;                extraValues...);</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;    }</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160; </div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span> TIter, <span class="keyword">typename</span> TReader, <span class="keyword">typename</span>... TExtraValues&gt;</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> readInternal(</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;        Field&amp; field,</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;        TMsg&amp; msg,</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;        TIter&amp; iter,</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;        std::size_t size,</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;        TReader&amp;&amp; nextLayerReader,</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;        VerifyAfterReadTag&lt;&gt;,</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;        TExtraValues... extraValues)</div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;    {</div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;        <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;            readVerify(</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;                field,</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;                msg,</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;                iter,</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;                size,</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;                std::forward&lt;TReader&gt;(nextLayerReader),</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;                extraValues...);</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;    }</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160; </div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span> TIter, <span class="keyword">typename</span> TWriter&gt;</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> writeInternalRandomAccess(</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;        Field&amp; field,</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;        <span class="keyword">const</span> TMsg&amp; msg,</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;        TIter&amp; iter,</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;        std::size_t size,</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;        TWriter&amp;&amp; nextLayerWriter)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;        <span class="keyword">auto</span> fromIter = iter;</div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;        <span class="keyword">auto</span> es = nextLayerWriter.write(msg, iter, size);</div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;        <span class="keywordflow">if</span> ((es != <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">comms::ErrorStatus::Success</a>) &amp;&amp;</div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;            (es != <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a618c95bafa9a5e5ab723e10573f3365d">comms::ErrorStatus::UpdateRequired</a>)) {</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;            <span class="keywordflow">return</span> es;</div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;        }</div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160; </div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;        <a class="code" href="Assert_8h.html#a941aec86290602caa61d86b671aea550">COMMS_ASSERT</a>(fromIter &lt;= iter);</div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;        <span class="keyword">auto</span> len = <span class="keyword">static_cast&lt;</span>std::size_t<span class="keyword">&gt;</span>(std::distance(fromIter, iter));</div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;        <span class="keyword">auto</span> remSize = size - len;</div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;        <span class="keyword">auto</span>&amp; thisObj = BaseImpl::thisLayer();</div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160; </div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;        <span class="keywordflow">if</span> (es == <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a618c95bafa9a5e5ab723e10573f3365d">comms::ErrorStatus::UpdateRequired</a>) {</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;            <span class="keyword">auto</span> esTmp = thisObj.writeField(&amp;msg, field, iter, remSize);</div>
 <div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;            <span class="keywordflow">if</span> (esTmp != <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">comms::ErrorStatus::Success</a>) {</div>
 <div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;                <span class="keywordflow">return</span> esTmp;</div>
 <div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;            }</div>
@@ -437,7 +433,7 @@ $(function() {
 <div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160; </div>
 <div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;        <span class="keywordtype">bool</span> checksumValid = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;        <span class="keyword">auto</span> checksum = </div>
-<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;            <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>ExtendingClass*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a19057f47fb139a102819ef3635dde158">calculateChecksum</a>(</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;            thisObj.calculateChecksum(</div>
 <div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;                &amp;msg,</div>
 <div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;                fromIter,</div>
 <div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;                len,</div>
@@ -449,150 +445,139 @@ $(function() {
 <div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160; </div>
 <div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;        <span class="keyword">using</span> FieldValueType = <span class="keyword">typename</span> Field::ValueType;</div>
 <div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;        field.value() = <span class="keyword">static_cast&lt;</span>FieldValueType<span class="keyword">&gt;</span>(checksum);</div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;        <span class="keywordflow">return</span> </div>
-<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;            <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>ExtendingClass*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a058a1183f2da1e56be2b8a8c467ea0ec">writeField</a>(</div>
-<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;                &amp;msg, field, iter, remSize);</div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;    }</div>
-<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160; </div>
-<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span> TIter, <span class="keyword">typename</span> TWriter&gt;</div>
-<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> writeInternalOutput(</div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;        <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#aee9dbe31eaa2edbd47652b8ccd3bd2b2">Field</a>&amp; field,</div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;        <span class="keyword">const</span> TMsg&amp; msg,</div>
-<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;        TIter&amp; iter,</div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;        std::size_t size,</div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;        TWriter&amp;&amp; nextLayerWriter)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;        <span class="keyword">auto</span> fieldLen = <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>ExtendingClass*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a8e86bd01b3f9a678e22ec65251d98d07">doFieldLength</a>(msg);</div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;        <span class="keyword">auto</span> es = nextLayerWriter.write(msg, iter, size - fieldLen);</div>
-<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;        <span class="keywordflow">if</span> ((es != <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">comms::ErrorStatus::Success</a>) &amp;&amp;</div>
-<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;            (es != <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a618c95bafa9a5e5ab723e10573f3365d">comms::ErrorStatus::UpdateRequired</a>)) {</div>
-<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;            <span class="keywordflow">return</span> es;</div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;        }</div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160; </div>
-<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;        <span class="keyword">auto</span> esTmp = </div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;            <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>ExtendingClass*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a058a1183f2da1e56be2b8a8c467ea0ec">writeField</a>(</div>
-<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;                &amp;msg, field, iter, fieldLen);</div>
-<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(esTmp);</div>
-<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;        <a class="code" href="Assert_8h.html#a941aec86290602caa61d86b671aea550">COMMS_ASSERT</a>(esTmp == <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">comms::ErrorStatus::Success</a>);</div>
-<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a618c95bafa9a5e5ab723e10573f3365d">comms::ErrorStatus::UpdateRequired</a>;</div>
-<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;    }</div>
-<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160; </div>
-<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span> TIter, <span class="keyword">typename</span> TWriter&gt;</div>
-<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> writeInternal(</div>
-<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;        <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#aee9dbe31eaa2edbd47652b8ccd3bd2b2">Field</a>&amp; field,</div>
-<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;        <span class="keyword">const</span> TMsg&amp; msg,</div>
-<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;        TIter&amp; iter,</div>
-<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;        std::size_t size,</div>
-<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;        TWriter&amp;&amp; nextLayerWriter,</div>
-<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;        std::random_access_iterator_tag)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;        <span class="keywordflow">return</span> writeInternalRandomAccess(field, msg, iter, size, std::forward&lt;TWriter&gt;(nextLayerWriter));</div>
-<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;    }</div>
-<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160; </div>
-<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span> TIter, <span class="keyword">typename</span> TWriter&gt;</div>
-<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> writeInternal(</div>
-<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;        <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#aee9dbe31eaa2edbd47652b8ccd3bd2b2">Field</a>&amp; field,</div>
-<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;        <span class="keyword">const</span> TMsg&amp; msg,</div>
-<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;        TIter&amp; iter,</div>
-<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;        std::size_t size,</div>
-<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;        TWriter&amp;&amp; nextLayerWriter,</div>
-<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;        std::output_iterator_tag)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;        <span class="keywordflow">return</span> writeInternalOutput(field, msg, iter, size, std::forward&lt;TWriter&gt;(nextLayerWriter));</div>
-<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;    }</div>
-<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160; </div>
-<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span> TIter&gt;</div>
-<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> fieldUpdateInternal(<span class="keyword">const</span> TMsg* msgPtr, TIter from, TIter to, std::size_t size, <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#aee9dbe31eaa2edbd47652b8ccd3bd2b2">Field</a>&amp; field)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;        <a class="code" href="Assert_8h.html#a941aec86290602caa61d86b671aea550">COMMS_ASSERT</a>(from &lt;= to);</div>
-<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;        <span class="keyword">auto</span> len = <span class="keyword">static_cast&lt;</span>std::size_t<span class="keyword">&gt;</span>(std::distance(from, to));</div>
-<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;        <span class="keywordflow">if</span> (msgPtr != <span class="keyword">nullptr</span>) {</div>
-<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;            <a class="code" href="Assert_8h.html#a941aec86290602caa61d86b671aea550">COMMS_ASSERT</a>(len == (size - <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>ExtendingClass*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a8e86bd01b3f9a678e22ec65251d98d07">doFieldLength</a>(*msgPtr)));    </div>
-<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;        }</div>
-<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;        <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;            <a class="code" href="Assert_8h.html#a941aec86290602caa61d86b671aea550">COMMS_ASSERT</a>(len == (size - Field::maxLength()));    </div>
-<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;        }</div>
-<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;        <span class="keyword">auto</span> remSize = size - len;</div>
-<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160; </div>
-<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;        <span class="keywordtype">bool</span> checksumValid = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;        <span class="keyword">auto</span> checksum = </div>
-<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;            <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>ExtendingClass*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a19057f47fb139a102819ef3635dde158">calculateChecksum</a>(</div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;                msgPtr,</div>
-<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;                from,</div>
-<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;                len,</div>
-<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;                checksumValid);</div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160; </div>
-<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;        <span class="keywordflow">if</span> (!checksumValid) {</div>
-<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1aca3da8f495e4e628912a7798655da6c2">comms::ErrorStatus::ProtocolError</a>;</div>
-<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;        }</div>
-<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160; </div>
-<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;        <span class="keyword">using</span> FieldValueType = <span class="keyword">typename</span> Field::ValueType;</div>
-<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;        field.value() = <span class="keyword">static_cast&lt;</span>FieldValueType<span class="keyword">&gt;</span>(checksum);</div>
-<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;        <span class="keywordflow">return</span> </div>
-<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;            <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>ExtendingClass*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a058a1183f2da1e56be2b8a8c467ea0ec">writeField</a>(</div>
-<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;                msgPtr, field, to, remSize);</div>
-<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;    }</div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;};</div>
-<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160; </div>
-<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;<span class="keyword">namespace </span>details</div>
-<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;{</div>
-<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;<span class="keyword">struct </span>ChecksumLayerCheckHelper</div>
-<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;{</div>
-<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> Value = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;};</div>
-<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160; </div>
-<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField, <span class="keyword">typename</span> TCalc, <span class="keyword">typename</span> TNextLayer, <span class="keyword">typename</span>... TOptions&gt;</div>
-<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;<span class="keyword">struct </span>ChecksumLayerCheckHelper&lt;ChecksumLayer&lt;TField, TCalc, TNextLayer, TOptions...&gt; &gt;</div>
-<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;{</div>
-<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> Value = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;};</div>
-<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160; </div>
-<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;} <span class="comment">// namespace details</span></div>
-<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160; </div>
-<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00624"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1ChecksumLayer.html#af09477bca3331a915255e26a7c478da3">  624</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#af09477bca3331a915255e26a7c478da3">isChecksumLayer</a>()</div>
-<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;{</div>
-<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;    <span class="keywordflow">return</span> details::ChecksumLayerCheckHelper&lt;T&gt;::Value;</div>
-<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;}</div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;        <span class="keywordflow">return</span> thisObj.writeField(&amp;msg, field, iter, remSize);</div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;    }</div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160; </div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span> TIter, <span class="keyword">typename</span> TWriter&gt;</div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> writeInternalOutput(</div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;        Field&amp; field,</div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;        <span class="keyword">const</span> TMsg&amp; msg,</div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;        TIter&amp; iter,</div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;        std::size_t size,</div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;        TWriter&amp;&amp; nextLayerWriter)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;        <span class="keyword">auto</span>&amp; thisObj = BaseImpl::thisLayer();</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;        <span class="keyword">auto</span> fieldLen = thisObj.doFieldLength(msg);</div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;        <span class="keyword">auto</span> es = nextLayerWriter.write(msg, iter, size - fieldLen);</div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;        <span class="keywordflow">if</span> ((es != <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">comms::ErrorStatus::Success</a>) &amp;&amp;</div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;            (es != <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a618c95bafa9a5e5ab723e10573f3365d">comms::ErrorStatus::UpdateRequired</a>)) {</div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;            <span class="keywordflow">return</span> es;</div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;        }</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160; </div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;        <span class="keyword">auto</span> esTmp = thisObj.writeField(&amp;msg, field, iter, fieldLen);</div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(esTmp);</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;        <a class="code" href="Assert_8h.html#a941aec86290602caa61d86b671aea550">COMMS_ASSERT</a>(esTmp == <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">comms::ErrorStatus::Success</a>);</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a618c95bafa9a5e5ab723e10573f3365d">comms::ErrorStatus::UpdateRequired</a>;</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;    }</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160; </div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span> TIter, <span class="keyword">typename</span> TWriter&gt;</div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> writeInternal(</div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;        Field&amp; field,</div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;        <span class="keyword">const</span> TMsg&amp; msg,</div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;        TIter&amp; iter,</div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;        std::size_t size,</div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;        TWriter&amp;&amp; nextLayerWriter,</div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;        std::random_access_iterator_tag)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;        <span class="keywordflow">return</span> writeInternalRandomAccess(field, msg, iter, size, std::forward&lt;TWriter&gt;(nextLayerWriter));</div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;    }</div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160; </div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span> TIter, <span class="keyword">typename</span> TWriter&gt;</div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> writeInternal(</div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;        Field&amp; field,</div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;        <span class="keyword">const</span> TMsg&amp; msg,</div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;        TIter&amp; iter,</div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;        std::size_t size,</div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;        TWriter&amp;&amp; nextLayerWriter,</div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;        std::output_iterator_tag)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;        <span class="keywordflow">return</span> writeInternalOutput(field, msg, iter, size, std::forward&lt;TWriter&gt;(nextLayerWriter));</div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;    }</div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160; </div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span> TIter&gt;</div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> fieldUpdateInternal(<span class="keyword">const</span> TMsg* msgPtr, TIter from, TIter to, std::size_t size, Field&amp; field)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;        <a class="code" href="Assert_8h.html#a941aec86290602caa61d86b671aea550">COMMS_ASSERT</a>(from &lt;= to);</div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;        <span class="keyword">auto</span> len = <span class="keyword">static_cast&lt;</span>std::size_t<span class="keyword">&gt;</span>(std::distance(from, to));</div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;        <span class="keyword">auto</span>&amp; thisObj = BaseImpl::thisLayer();</div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;        <span class="keywordflow">if</span> (msgPtr != <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;            <a class="code" href="Assert_8h.html#a941aec86290602caa61d86b671aea550">COMMS_ASSERT</a>(len == (size - thisObj.doFieldLength(*msgPtr)));    </div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;        }</div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;        <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;            <a class="code" href="Assert_8h.html#a941aec86290602caa61d86b671aea550">COMMS_ASSERT</a>(len == (size - Field::maxLength()));    </div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;        }</div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;        <span class="keyword">auto</span> remSize = size - len;</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160; </div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;        <span class="keywordtype">bool</span> checksumValid = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;        <span class="keyword">auto</span> checksum = </div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;            thisObj.calculateChecksum(</div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;                msgPtr,</div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;                from,</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;                len,</div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;                checksumValid);</div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160; </div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;        <span class="keywordflow">if</span> (!checksumValid) {</div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1aca3da8f495e4e628912a7798655da6c2">comms::ErrorStatus::ProtocolError</a>;</div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;        }</div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160; </div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;        <span class="keyword">using</span> FieldValueType = <span class="keyword">typename</span> Field::ValueType;</div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;        field.value() = <span class="keyword">static_cast&lt;</span>FieldValueType<span class="keyword">&gt;</span>(checksum);</div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;        <span class="keywordflow">return</span> thisObj.writeField(msgPtr, field, to, remSize);</div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;    }</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;};</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160; </div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;<span class="keyword">namespace </span>details</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;{</div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;<span class="keyword">struct </span>ChecksumLayerCheckHelper</div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;{</div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> Value = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;};</div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160; </div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField, <span class="keyword">typename</span> TCalc, <span class="keyword">typename</span> TNextLayer, <span class="keyword">typename</span>... TOptions&gt;</div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;<span class="keyword">struct </span>ChecksumLayerCheckHelper&lt;ChecksumLayer&lt;TField, TCalc, TNextLayer, TOptions...&gt; &gt;</div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;{</div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> Value = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;};</div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160; </div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;} <span class="comment">// namespace details</span></div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160; </div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00620"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1ChecksumLayer.html#af09477bca3331a915255e26a7c478da3">  620</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="classcomms_1_1protocol_1_1ChecksumLayer.html#af09477bca3331a915255e26a7c478da3">isChecksumLayer</a>()</div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;{</div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;    <span class="keywordflow">return</span> details::ChecksumLayerCheckHelper&lt;T&gt;::Value;</div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;}</div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160; </div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;}  <span class="comment">// namespace protocol</span></div>
+<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160; </div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;}  <span class="comment">// namespace comms</span></div>
 <div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160; </div>
-<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;}  <span class="comment">// namespace protocol</span></div>
-<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160; </div>
-<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;}  <span class="comment">// namespace comms</span></div>
-<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160; </div>
-<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160; </div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;COMMS_MSVC_WARNING_POP</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumLayer_html_aee9dbe31eaa2edbd47652b8ccd3bd2b2"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumLayer.html#aee9dbe31eaa2edbd47652b8ccd3bd2b2">comms::protocol::ChecksumLayer::Field</a></div><div class="ttdeci">typename BaseImpl::Field Field</div><div class="ttdoc">Type of the field object used to read/write checksum value.</div><div class="ttdef"><b>Definition:</b> ChecksumLayer.h:87</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumLayer_html_a23a5e2f6ae76484427c3c7a8ac90727a"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumLayer.html#a23a5e2f6ae76484427c3c7a8ac90727a">comms::protocol::ChecksumLayer::doUpdate</a></div><div class="ttdeci">comms::ErrorStatus doUpdate(const TMsg &amp;msg, Field &amp;field, TIter &amp;iter, std::size_t size, TNextLayerUpdater &amp;&amp;nextLayerUpdater) const</div><div class="ttdoc">Customized update functionality, invoked by update().</div><div class="ttdef"><b>Definition:</b> ChecksumLayer.h:247</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumLayer_html"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumLayer.html">comms::protocol::ChecksumLayer</a></div><div class="ttdoc">Protocol layer that is responsible to calculate checksum on the data written by all the wrapped inter...</div><div class="ttdef"><b>Definition:</b> ChecksumLayer.h:55</div></div>
-<div class="ttc" id="anamespacecomms_html_a0a259a03d68bce98b4a129fb34aaa2e1ab6e495eeaee7cdf1bac313472e4681ac"><div class="ttname"><a href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1ab6e495eeaee7cdf1bac313472e4681ac">comms::ErrorStatus::NotEnoughData</a></div><div class="ttdeci">@ NotEnoughData</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumLayer_html_a9d8b6026cb12bac4640ccc11e9faad56"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumLayer.html#a9d8b6026cb12bac4640ccc11e9faad56">comms::protocol::ChecksumLayer::ChecksumLayer</a></div><div class="ttdeci">ChecksumLayer()=default</div><div class="ttdoc">Default constructor.</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumLayer_html_aee9dbe31eaa2edbd47652b8ccd3bd2b2"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumLayer.html#aee9dbe31eaa2edbd47652b8ccd3bd2b2">comms::protocol::ChecksumLayer::Field</a></div><div class="ttdeci">typename BaseImpl::Field Field</div><div class="ttdoc">Type of the field object used to read/write checksum value.</div><div class="ttdef"><b>Definition:</b> ChecksumLayer.h:89</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumLayer_html_a23a5e2f6ae76484427c3c7a8ac90727a"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumLayer.html#a23a5e2f6ae76484427c3c7a8ac90727a">comms::protocol::ChecksumLayer::doUpdate</a></div><div class="ttdeci">comms::ErrorStatus doUpdate(const TMsg &amp;msg, Field &amp;field, TIter &amp;iter, std::size_t size, TNextLayerUpdater &amp;&amp;nextLayerUpdater) const</div><div class="ttdoc">Customized update functionality, invoked by update().</div><div class="ttdef"><b>Definition:</b> ChecksumLayer.h:249</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumLayer_html"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumLayer.html">comms::protocol::ChecksumLayer</a></div><div class="ttdoc">Protocol layer that is responsible to calculate checksum on the data written by all the wrapped inter...</div><div class="ttdef"><b>Definition:</b> ChecksumLayer.h:62</div></div>
 <div class="ttc" id="aIntValue_8h_html"><div class="ttname"><a href="IntValue_8h.html">IntValue.h</a></div><div class="ttdoc">Contains definition of comms::field::IntValue.</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumLayer_html_af09477bca3331a915255e26a7c478da3"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumLayer.html#af09477bca3331a915255e26a7c478da3">comms::protocol::ChecksumLayer::isChecksumLayer</a></div><div class="ttdeci">constexpr bool isChecksumLayer()</div><div class="ttdoc">Compile time check of whether the provided type is a variant of ChecksumLayer.</div><div class="ttdef"><b>Definition:</b> ChecksumLayer.h:624</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumLayer_html_af09477bca3331a915255e26a7c478da3"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumLayer.html#af09477bca3331a915255e26a7c478da3">comms::protocol::ChecksumLayer::isChecksumLayer</a></div><div class="ttdeci">constexpr bool isChecksumLayer()</div><div class="ttdoc">Compile time check of whether the provided type is a variant of ChecksumLayer.</div><div class="ttdef"><b>Definition:</b> ChecksumLayer.h:620</div></div>
 <div class="ttc" id="aclasscomms_1_1protocol_1_1ProtocolLayerBase_html_a37d1bfc9f9d2e53ce518ebf019781f82"><div class="ttname"><a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">comms::protocol::ProtocolLayerBase::Field</a></div><div class="ttdeci">TField Field</div><div class="ttdoc">Type of the field used for this layer.</div><div class="ttdef"><b>Definition:</b> ProtocolLayerBase.h:64</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumLayer_html_a2bd15e1e2270af0b3202f01ce2c7b8b5"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumLayer.html#a2bd15e1e2270af0b3202f01ce2c7b8b5">comms::protocol::ChecksumLayer::ParsedOptions</a></div><div class="ttdeci">details::ChecksumLayerOptionsParser&lt; TOptions... &gt; ParsedOptions</div><div class="ttdoc">Parsed options.</div><div class="ttdef"><b>Definition:</b> ChecksumLayer.h:84</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumLayer_html_a2bd15e1e2270af0b3202f01ce2c7b8b5"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumLayer.html#a2bd15e1e2270af0b3202f01ce2c7b8b5">comms::protocol::ChecksumLayer::ParsedOptions</a></div><div class="ttdeci">details::ChecksumLayerOptionsParser&lt; TOptions... &gt; ParsedOptions</div><div class="ttdoc">Parsed options.</div><div class="ttdef"><b>Definition:</b> ChecksumLayer.h:86</div></div>
 <div class="ttc" id="aclasscomms_1_1protocol_1_1ProtocolLayerBase_html"><div class="ttname"><a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html">comms::protocol::ProtocolLayerBase</a></div><div class="ttdoc">Base class for all the middle (non MsgDataLayer) protocol transport layers.</div><div class="ttdef"><b>Definition:</b> ProtocolLayerBase.h:60</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumLayer_html_a8bdcbd611f946109154ed34d2fa4911e"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumLayer.html#a8bdcbd611f946109154ed34d2fa4911e">comms::protocol::ChecksumLayer::~ChecksumLayer</a></div><div class="ttdeci">~ChecksumLayer() noexcept=default</div><div class="ttdoc">Destructor.</div></div>
-<div class="ttc" id="astructcomms_1_1option_1_1def_1_1ProtocolLayerDisallowReadUntilDataSplit_html"><div class="ttname"><a href="structcomms_1_1option_1_1def_1_1ProtocolLayerDisallowReadUntilDataSplit.html">comms::option::def::ProtocolLayerDisallowReadUntilDataSplit</a></div><div class="ttdoc">Disallow usage of ProtocolLayerForceReadUntilDataSplit option in earlier (outer wrapping) layers.</div><div class="ttdef"><b>Definition:</b> options.h:1190</div></div>
+<div class="ttc" id="astructcomms_1_1option_1_1def_1_1ProtocolLayerDisallowReadUntilDataSplit_html"><div class="ttname"><a href="structcomms_1_1option_1_1def_1_1ProtocolLayerDisallowReadUntilDataSplit.html">comms::option::def::ProtocolLayerDisallowReadUntilDataSplit</a></div><div class="ttdoc">Disallow usage of ProtocolLayerForceReadUntilDataSplit option in earlier (outer wrapping) layers.</div><div class="ttdef"><b>Definition:</b> options.h:1199</div></div>
 <div class="ttc" id="anamespacecomms_html_a0a259a03d68bce98b4a129fb34aaa2e1"><div class="ttname"><a href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a></div><div class="ttdeci">ErrorStatus</div><div class="ttdoc">Error statuses reported by the Communication module.</div><div class="ttdef"><b>Definition:</b> ErrorStatus.h:17</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumLayer_html_a2969a3aace6d34086954055af267cf46"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumLayer.html#a2969a3aace6d34086954055af267cf46">comms::protocol::ChecksumLayer::doWrite</a></div><div class="ttdeci">ErrorStatus doWrite(Field &amp;field, const TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerWriter &amp;&amp;nextLayerWriter) const</div><div class="ttdoc">Customized write functionality, invoked by write().</div><div class="ttdef"><b>Definition:</b> ChecksumLayer.h:198</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumLayer_html_a2969a3aace6d34086954055af267cf46"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumLayer.html#a2969a3aace6d34086954055af267cf46">comms::protocol::ChecksumLayer::doWrite</a></div><div class="ttdeci">ErrorStatus doWrite(Field &amp;field, const TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerWriter &amp;&amp;nextLayerWriter) const</div><div class="ttdoc">Customized write functionality, invoked by write().</div><div class="ttdef"><b>Definition:</b> ChecksumLayer.h:200</div></div>
 <div class="ttc" id="anamespacecomms_html_a0a259a03d68bce98b4a129fb34aaa2e1a618c95bafa9a5e5ab723e10573f3365d"><div class="ttname"><a href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a618c95bafa9a5e5ab723e10573f3365d">comms::ErrorStatus::UpdateRequired</a></div><div class="ttdeci">@ UpdateRequired</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumLayer_html_a6df7f2446deda06ec2eb3a3395819dc7"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumLayer.html#a6df7f2446deda06ec2eb3a3395819dc7">comms::protocol::ChecksumLayer::doRead</a></div><div class="ttdeci">ErrorStatus doRead(Field &amp;field, TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerReader &amp;&amp;nextLayerReader, TExtraValues... extraValues)</div><div class="ttdoc">Customized read functionality, invoked by read().</div><div class="ttdef"><b>Definition:</b> ChecksumLayer.h:141</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumLayer_html_a058a1183f2da1e56be2b8a8c467ea0ec"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumLayer.html#a058a1183f2da1e56be2b8a8c467ea0ec">comms::protocol::ChecksumLayer::writeField</a></div><div class="ttdeci">static comms::ErrorStatus writeField(const TMsg *msgPtr, const Field &amp;field, TIter &amp;iter, std::size_t len)</div><div class="ttdoc">Write the checksum field.</div><div class="ttdef"><b>Definition:</b> ChecksumLayer.h:289</div></div>
 <div class="ttc" id="aclasscomms_1_1Field_html"><div class="ttname"><a href="classcomms_1_1Field.html">comms::Field</a></div><div class="ttdoc">Base class to all the field classes.</div><div class="ttdef"><b>Definition:</b> Field.h:32</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumLayer_html_a5d2709b6e378a649f3d79b826096e175"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumLayer.html#a5d2709b6e378a649f3d79b826096e175">comms::protocol::ChecksumLayer::readField</a></div><div class="ttdeci">comms::ErrorStatus readField(const TMsg *msgPtr, Field &amp;field, TIter &amp;iter, std::size_t len)</div><div class="ttdoc">Read the checksum field.</div><div class="ttdef"><b>Definition:</b> ChecksumLayer.h:278</div></div>
 <div class="ttc" id="anamespacecomms_html_a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38"><div class="ttname"><a href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">comms::ErrorStatus::Success</a></div><div class="ttdeci">@ Success</div><div class="ttdoc">Used to indicate successful outcome of the operation.</div></div>
 <div class="ttc" id="anamespacecomms_html"><div class="ttname"><a href="namespacecomms.html">comms</a></div><div class="ttdoc">Main namespace for all classes / functions of COMMS library.</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumLayer_html_a19057f47fb139a102819ef3635dde158"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumLayer.html#a19057f47fb139a102819ef3635dde158">comms::protocol::ChecksumLayer::calculateChecksum</a></div><div class="ttdeci">static auto calculateChecksum(const TMsg *msg, TIter &amp;iter, std::size_t len, bool &amp;checksumValid) -&gt; decltype(TCalc()(iter, len))</div><div class="ttdoc">Calculate checksum.</div><div class="ttdef"><b>Definition:</b> ChecksumLayer.h:308</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumLayer_html_a19057f47fb139a102819ef3635dde158"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumLayer.html#a19057f47fb139a102819ef3635dde158">comms::protocol::ChecksumLayer::calculateChecksum</a></div><div class="ttdeci">static auto calculateChecksum(const TMsg *msg, TIter &amp;iter, std::size_t len, bool &amp;checksumValid) -&gt; decltype(TCalc()(iter, len))</div><div class="ttdoc">Calculate checksum.</div><div class="ttdef"><b>Definition:</b> ChecksumLayer.h:311</div></div>
 <div class="ttc" id="aAssert_8h_html_a941aec86290602caa61d86b671aea550"><div class="ttname"><a href="Assert_8h.html#a941aec86290602caa61d86b671aea550">COMMS_ASSERT</a></div><div class="ttdeci">#define COMMS_ASSERT(expr)</div><div class="ttdoc">Generic assert macro.</div><div class="ttdef"><b>Definition:</b> Assert.h:170</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1ProtocolLayerBase_html_a8e86bd01b3f9a678e22ec65251d98d07"><div class="ttname"><a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a8e86bd01b3f9a678e22ec65251d98d07">comms::protocol::ProtocolLayerBase::doFieldLength</a></div><div class="ttdeci">static constexpr std::size_t doFieldLength()</div><div class="ttdoc">Default implementation of field length retrieval.</div><div class="ttdef"><b>Definition:</b> ProtocolLayerBase.h:729</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumLayer_html_ab91df4b037d83da8ad085dd3b65f230c"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumLayer.html#ab91df4b037d83da8ad085dd3b65f230c">comms::protocol::ChecksumLayer::doUpdate</a></div><div class="ttdeci">comms::ErrorStatus doUpdate(Field &amp;field, TIter &amp;iter, std::size_t size, TNextLayerUpdater &amp;&amp;nextLayerUpdater) const</div><div class="ttdoc">Customized update functionality, invoked by update().</div><div class="ttdef"><b>Definition:</b> ChecksumLayer.h:221</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1ProtocolLayerBase_html_a8526ebff3febc385edec2a1e9ef1ae6e"><div class="ttname"><a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a8526ebff3febc385edec2a1e9ef1ae6e">comms::protocol::ProtocolLayerBase::updateMissingSize</a></div><div class="ttdeci">void updateMissingSize(std::size_t size, TExtraValues... extraValues) const</div><div class="ttdoc">Update the missing size information if such is requested.</div><div class="ttdef"><b>Definition:</b> ProtocolLayerBase.h:848</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumLayer_html_a921528421a84bfbb8c6603b3a6880459"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumLayer.html#a921528421a84bfbb8c6603b3a6880459">comms::protocol::ChecksumLayer::readField</a></div><div class="ttdeci">static comms::ErrorStatus readField(const TMsg *msgPtr, Field &amp;field, TIter &amp;iter, std::size_t len)</div><div class="ttdoc">Read the checksum field.</div><div class="ttdef"><b>Definition:</b> ChecksumLayer.h:274</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumLayer_html_ab91df4b037d83da8ad085dd3b65f230c"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumLayer.html#ab91df4b037d83da8ad085dd3b65f230c">comms::protocol::ChecksumLayer::doUpdate</a></div><div class="ttdeci">comms::ErrorStatus doUpdate(Field &amp;field, TIter &amp;iter, std::size_t size, TNextLayerUpdater &amp;&amp;nextLayerUpdater) const</div><div class="ttdoc">Customized update functionality, invoked by update().</div><div class="ttdef"><b>Definition:</b> ChecksumLayer.h:223</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumLayer_html_ac66ead85cf90866971d3c9f9362930cb"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumLayer.html#ac66ead85cf90866971d3c9f9362930cb">comms::protocol::ChecksumLayer::writeField</a></div><div class="ttdeci">comms::ErrorStatus writeField(const TMsg *msgPtr, const Field &amp;field, TIter &amp;iter, std::size_t len) const</div><div class="ttdoc">Write the checksum field.</div><div class="ttdef"><b>Definition:</b> ChecksumLayer.h:293</div></div>
 <div class="ttc" id="atype__traits_8h_html"><div class="ttname"><a href="type__traits_8h.html">type_traits.h</a></div><div class="ttdoc">Replacement to some types from standard type_traits.</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1ProtocolLayerBase_html_abe0e556ee9a28ca50e4e3d6c3e1c3ebc"><div class="ttname"><a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#abe0e556ee9a28ca50e4e3d6c3e1c3ebc">comms::protocol::ProtocolLayerBase::toMsgPtr</a></div><div class="ttdeci">static auto toMsgPtr(TMsg &amp;msg) -&gt; decltype(toMsgPtrInternal(msg, MsgTypeTag&lt; typename std::decay&lt; decltype(msg)&gt;::type &gt;()))</div><div class="ttdoc">Get a pointer to the message object.</div><div class="ttdef"><b>Definition:</b> ProtocolLayerBase.h:834</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1ProtocolLayerBase_html_a0c83babc34313e54e04a4f12d24394c9"><div class="ttname"><a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a0c83babc34313e54e04a4f12d24394c9">comms::protocol::ProtocolLayerBase::resetMsg</a></div><div class="ttdeci">static void resetMsg(TMsg &amp;msg)</div><div class="ttdoc">Reset msg in case it is a smart pointer (MsgPtr).</div><div class="ttdef"><b>Definition:</b> ProtocolLayerBase.h:795</div></div>
 <div class="ttc" id="anamespacecomms_html_a0a259a03d68bce98b4a129fb34aaa2e1aca3da8f495e4e628912a7798655da6c2"><div class="ttname"><a href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1aca3da8f495e4e628912a7798655da6c2">comms::ErrorStatus::ProtocolError</a></div><div class="ttdeci">@ ProtocolError</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumLayer_html_a0776a761f649b8af2624d3e412d607cd"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumLayer.html#a0776a761f649b8af2624d3e412d607cd">comms::protocol::ChecksumLayer::ChecksumCalc</a></div><div class="ttdeci">TCalc ChecksumCalc</div><div class="ttdoc">Provided checksum calculation algorithm.</div><div class="ttdef"><b>Definition:</b> ChecksumLayer.h:90</div></div>
+<div class="ttc" id="aCompileControl_8h_html"><div class="ttname"><a href="CompileControl_8h.html">CompileControl.h</a></div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumLayer_html_a0776a761f649b8af2624d3e412d607cd"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumLayer.html#a0776a761f649b8af2624d3e412d607cd">comms::protocol::ChecksumLayer::ChecksumCalc</a></div><div class="ttdeci">TCalc ChecksumCalc</div><div class="ttdoc">Provided checksum calculation algorithm.</div><div class="ttdef"><b>Definition:</b> ChecksumLayer.h:92</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

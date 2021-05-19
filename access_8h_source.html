@@ -612,146 +612,172 @@ $(function() {
 <div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(readBig&lt;ValueType, sizeof(ValueType)&gt;(iter));</div>
 <div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;}</div>
 <div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160; </div>
-<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;<span class="keyword">template</span> &lt;std::<span class="keywordtype">size_t</span> TSize, <span class="keyword">typename</span> T, <span class="keyword">typename</span> TIter&gt;</div>
-<div class="line"><a name="l00598"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#a208e984a12a58fcd3d0ec9bcd62af502">  598</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacecomms_1_1util.html#a208e984a12a58fcd3d0ec9bcd62af502">writeLittle</a>(T value, TIter&amp; iter)</div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> TIter&gt;</div>
+<div class="line"><a name="l00598"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#a9d4e92db8acf078e6fec95ba882f2a15">  598</a></span>&#160;T <a class="code" href="namespacecomms_1_1util.html#a707c3bdbc93dcfad20d948da0ef936bf">readBig</a>(TIter&amp; iter, std::size_t size)</div>
 <div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;{</div>
-<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;    details::WriteHelper&lt;&gt;::template write&lt;traits::endian::Little&gt;(value, TSize, iter);</div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;    <span class="keywordflow">return</span> details::ReadHelper&lt;&gt;::template read&lt;traits::endian::Big, T&gt;(size, iter);    </div>
 <div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;}</div>
 <div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160; </div>
-<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> TIter&gt;</div>
-<div class="line"><a name="l00613"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#ab71491486b38cf3bfa00de9bc4833933">  613</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacecomms_1_1util.html#a208e984a12a58fcd3d0ec9bcd62af502">writeLittle</a>(T value, std::size_t size, TIter&amp; iter)</div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;<span class="keyword">template</span> &lt;std::<span class="keywordtype">size_t</span> TSize, <span class="keyword">typename</span> T, <span class="keyword">typename</span> TIter&gt;</div>
+<div class="line"><a name="l00613"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#a208e984a12a58fcd3d0ec9bcd62af502">  613</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacecomms_1_1util.html#a208e984a12a58fcd3d0ec9bcd62af502">writeLittle</a>(T value, TIter&amp; iter)</div>
 <div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;{</div>
-<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;    details::WriteHelper&lt;&gt;::template write&lt;traits::endian::Little&gt;(value, size, iter);</div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;    details::WriteHelper&lt;&gt;::template write&lt;traits::endian::Little&gt;(value, TSize, iter);</div>
 <div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;}</div>
 <div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160; </div>
-<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> TIter&gt;</div>
-<div class="line"><a name="l00626"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#ab4c74b1f20336be9a140a7ee667b4f59">  626</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacecomms_1_1util.html#a208e984a12a58fcd3d0ec9bcd62af502">writeLittle</a>(T value, TIter&amp; iter)</div>
-<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;{</div>
-<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;    <span class="keyword">using</span> ValueType = <span class="keyword">typename</span> std::decay&lt;T&gt;::type;</div>
-<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;    writeLittle&lt;sizeof(ValueType)&gt;(<span class="keyword">static_cast&lt;</span>ValueType<span class="keyword">&gt;</span>(value), iter);</div>
-<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;}</div>
-<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160; </div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> TSize, <span class="keyword">typename</span> TIter&gt;</div>
-<div class="line"><a name="l00643"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#aec32de02b0289587813bd67654447c4b">  643</a></span>&#160;T <a class="code" href="namespacecomms_1_1util.html#aec32de02b0289587813bd67654447c4b">readLittle</a>(TIter&amp; iter)</div>
-<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;{</div>
-<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;    <span class="keywordflow">return</span> details::ReadHelper&lt;&gt;::template read&lt;traits::endian::Little, T, TSize&gt;(iter);</div>
-<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;}</div>
-<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160; </div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> TIter&gt;</div>
-<div class="line"><a name="l00657"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#a53b07f35abb9317aea34f401fad1d58e">  657</a></span>&#160;T <a class="code" href="namespacecomms_1_1util.html#aec32de02b0289587813bd67654447c4b">readLittle</a>(TIter&amp; iter)</div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;{</div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;    <span class="keyword">using</span> ValueType = <span class="keyword">typename</span> std::decay&lt;T&gt;::type;</div>
-<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(readLittle&lt;ValueType, sizeof(ValueType)&gt;(iter));</div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> TIter&gt;</div>
+<div class="line"><a name="l00628"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#ab71491486b38cf3bfa00de9bc4833933">  628</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacecomms_1_1util.html#a208e984a12a58fcd3d0ec9bcd62af502">writeLittle</a>(T value, std::size_t size, TIter&amp; iter)</div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;{</div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;    details::WriteHelper&lt;&gt;::template write&lt;traits::endian::Little&gt;(value, size, iter);</div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;}</div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160; </div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> TIter&gt;</div>
+<div class="line"><a name="l00641"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#ab4c74b1f20336be9a140a7ee667b4f59">  641</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacecomms_1_1util.html#a208e984a12a58fcd3d0ec9bcd62af502">writeLittle</a>(T value, TIter&amp; iter)</div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;{</div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;    <span class="keyword">using</span> ValueType = <span class="keyword">typename</span> std::decay&lt;T&gt;::type;</div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;    writeLittle&lt;sizeof(ValueType)&gt;(<span class="keyword">static_cast&lt;</span>ValueType<span class="keyword">&gt;</span>(value), iter);</div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;}</div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160; </div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> TSize, <span class="keyword">typename</span> TIter&gt;</div>
+<div class="line"><a name="l00658"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#aec32de02b0289587813bd67654447c4b">  658</a></span>&#160;T <a class="code" href="namespacecomms_1_1util.html#aec32de02b0289587813bd67654447c4b">readLittle</a>(TIter&amp; iter)</div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;{</div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;    <span class="keywordflow">return</span> details::ReadHelper&lt;&gt;::template read&lt;traits::endian::Little, T, TSize&gt;(iter);</div>
 <div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;}</div>
 <div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160; </div>
-<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> TIter&gt;</div>
-<div class="line"><a name="l00665"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#a56f162522d64a3b1a48a2511b19b97c7">  665</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacecomms_1_1util.html#a56f162522d64a3b1a48a2511b19b97c7">writeData</a>(</div>
-<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;    T value,</div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;    TIter&amp; iter,</div>
-<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;    <span class="keyword">const</span> <a class="code" href="structcomms_1_1util_1_1traits_1_1endian_1_1Big.html">traits::endian::Big</a>&amp; endian)</div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;{</div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(endian);</div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;    <a class="code" href="namespacecomms_1_1util.html#a852a92d08b43bc709266f5bc2773a8c2">writeBig</a>(value, iter);</div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;}</div>
-<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160; </div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;<span class="keyword">template</span> &lt;std::<span class="keywordtype">size_t</span> TSize, <span class="keyword">typename</span> T, <span class="keyword">typename</span> TIter&gt;</div>
-<div class="line"><a name="l00676"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#a0b1f790ca56a6a8c130212d90a809942">  676</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacecomms_1_1util.html#a56f162522d64a3b1a48a2511b19b97c7">writeData</a>(</div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;    T value,</div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;    TIter&amp; iter,</div>
-<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;    <span class="keyword">const</span> <a class="code" href="structcomms_1_1util_1_1traits_1_1endian_1_1Big.html">traits::endian::Big</a>&amp; endian)</div>
-<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;{</div>
-<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(endian);</div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;    writeBig&lt;TSize&gt;(value, iter);</div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;}</div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160; </div>
-<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> TIter&gt;</div>
-<div class="line"><a name="l00687"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#ad11b7017575b5d0a280ec934c9885ce2">  687</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacecomms_1_1util.html#a56f162522d64a3b1a48a2511b19b97c7">writeData</a>(</div>
-<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;    T value,</div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;    std::size_t size,</div>
-<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;    TIter&amp; iter,</div>
-<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;    <span class="keyword">const</span> <a class="code" href="structcomms_1_1util_1_1traits_1_1endian_1_1Big.html">traits::endian::Big</a>&amp; endian)</div>
-<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;{</div>
-<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(endian);</div>
-<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;    <a class="code" href="namespacecomms_1_1util.html#a852a92d08b43bc709266f5bc2773a8c2">writeBig</a>(value, size, iter);</div>
-<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;}</div>
-<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160; </div>
-<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> TIter&gt;</div>
-<div class="line"><a name="l00699"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#afd1fc94633ac4351daa776a5083cccfa">  699</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacecomms_1_1util.html#a56f162522d64a3b1a48a2511b19b97c7">writeData</a>(</div>
-<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;    T value,</div>
-<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;    TIter&amp; iter,</div>
-<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;    <span class="keyword">const</span> <a class="code" href="structcomms_1_1util_1_1traits_1_1endian_1_1Little.html">traits::endian::Little</a>&amp; endian)</div>
-<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;{</div>
-<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(endian);</div>
-<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;    <a class="code" href="namespacecomms_1_1util.html#a208e984a12a58fcd3d0ec9bcd62af502">writeLittle</a>(value, iter);</div>
-<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;}</div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160; </div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;<span class="keyword">template</span> &lt;std::<span class="keywordtype">size_t</span> TSize, <span class="keyword">typename</span> T, <span class="keyword">typename</span> TIter&gt;</div>
-<div class="line"><a name="l00710"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#a3b85313579a99da915170c03bca445ce">  710</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacecomms_1_1util.html#a56f162522d64a3b1a48a2511b19b97c7">writeData</a>(</div>
-<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;    T value,</div>
-<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;    TIter&amp; iter,</div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;    <span class="keyword">const</span> <a class="code" href="structcomms_1_1util_1_1traits_1_1endian_1_1Little.html">traits::endian::Little</a>&amp; endian)</div>
-<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;{</div>
-<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(endian);</div>
-<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;    <span class="keywordflow">return</span> writeLittle&lt;TSize&gt;(value, iter);</div>
-<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;}</div>
-<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160; </div>
-<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> TIter&gt;</div>
-<div class="line"><a name="l00721"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#aa557daf8c1bb5d232212aed45ae4dfe8">  721</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacecomms_1_1util.html#a56f162522d64a3b1a48a2511b19b97c7">writeData</a>(</div>
-<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;    T value,</div>
-<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;    std::size_t size, </div>
-<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;    TIter&amp; iter,</div>
-<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;    <span class="keyword">const</span> <a class="code" href="structcomms_1_1util_1_1traits_1_1endian_1_1Little.html">traits::endian::Little</a>&amp; endian)</div>
-<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;{</div>
-<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(endian);</div>
-<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;    <a class="code" href="namespacecomms_1_1util.html#a208e984a12a58fcd3d0ec9bcd62af502">writeLittle</a>(value, size, iter);</div>
-<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;}</div>
-<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160; </div>
-<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> TIter&gt;</div>
-<div class="line"><a name="l00733"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#a54e372f33dbb939e3d7eef06330c15dd">  733</a></span>&#160;T <a class="code" href="namespacecomms_1_1util.html#a54e372f33dbb939e3d7eef06330c15dd">readData</a>(TIter&amp; iter, <span class="keyword">const</span> <a class="code" href="structcomms_1_1util_1_1traits_1_1endian_1_1Big.html">traits::endian::Big</a>&amp; endian)</div>
-<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;{</div>
-<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(endian);</div>
-<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;    <span class="keywordflow">return</span> readBig&lt;T&gt;(iter);</div>
-<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;}</div>
-<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160; </div>
-<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> TSize, <span class="keyword">typename</span> TIter&gt;</div>
-<div class="line"><a name="l00741"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#a2a1d8f1396e9f5854f630ce1c4134ed2">  741</a></span>&#160;T <a class="code" href="namespacecomms_1_1util.html#a54e372f33dbb939e3d7eef06330c15dd">readData</a>(TIter&amp; iter, <span class="keyword">const</span> <a class="code" href="structcomms_1_1util_1_1traits_1_1endian_1_1Big.html">traits::endian::Big</a>&amp; endian)</div>
-<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;{</div>
-<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(endian);</div>
-<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;    <span class="keywordflow">return</span> readBig&lt;T, TSize&gt;(iter);</div>
-<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;}</div>
-<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160; </div>
-<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> TIter&gt;</div>
-<div class="line"><a name="l00749"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#a4b43756c6e3da2a661753928ee9d192d">  749</a></span>&#160;T <a class="code" href="namespacecomms_1_1util.html#a54e372f33dbb939e3d7eef06330c15dd">readData</a>(TIter&amp; iter, <span class="keyword">const</span> <a class="code" href="structcomms_1_1util_1_1traits_1_1endian_1_1Little.html">traits::endian::Little</a>&amp; endian)</div>
-<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;{</div>
-<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(endian);</div>
-<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;    <span class="keywordflow">return</span> readLittle&lt;T&gt;(iter);</div>
-<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;}</div>
-<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160; </div>
-<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> TSize, <span class="keyword">typename</span> TIter&gt;</div>
-<div class="line"><a name="l00757"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#ab2f6f5090da8f7ddbe0764b321cb0e4b">  757</a></span>&#160;T <a class="code" href="namespacecomms_1_1util.html#a54e372f33dbb939e3d7eef06330c15dd">readData</a>(TIter&amp; iter, <span class="keyword">const</span> <a class="code" href="structcomms_1_1util_1_1traits_1_1endian_1_1Little.html">traits::endian::Little</a>&amp; endian)</div>
-<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;{</div>
-<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(endian);</div>
-<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;    <span class="keywordflow">return</span> readLittle&lt;T, TSize&gt;(iter);</div>
-<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;}</div>
-<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160; </div>
-<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160; </div>
-<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;}  <span class="comment">// namespace util</span></div>
-<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160; </div>
-<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;}  <span class="comment">// namespace comms</span></div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> TIter&gt;</div>
+<div class="line"><a name="l00672"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#a53b07f35abb9317aea34f401fad1d58e">  672</a></span>&#160;T <a class="code" href="namespacecomms_1_1util.html#aec32de02b0289587813bd67654447c4b">readLittle</a>(TIter&amp; iter)</div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;{</div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;    <span class="keyword">using</span> ValueType = <span class="keyword">typename</span> std::decay&lt;T&gt;::type;</div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(readLittle&lt;ValueType, sizeof(ValueType)&gt;(iter));</div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;}</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160; </div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> TIter&gt;</div>
+<div class="line"><a name="l00688"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#a1a54abc8421911db3f615c36fed12798">  688</a></span>&#160;T <a class="code" href="namespacecomms_1_1util.html#aec32de02b0289587813bd67654447c4b">readLittle</a>(TIter&amp; iter, std::size_t size)</div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;{</div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;    <span class="keywordflow">return</span> details::ReadHelper&lt;&gt;::template read&lt;traits::endian::Little, T&gt;(size, iter);    </div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;}</div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160; </div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> TIter&gt;</div>
+<div class="line"><a name="l00695"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#a56f162522d64a3b1a48a2511b19b97c7">  695</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacecomms_1_1util.html#a56f162522d64a3b1a48a2511b19b97c7">writeData</a>(</div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;    T value,</div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;    TIter&amp; iter,</div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;    <span class="keyword">const</span> <a class="code" href="structcomms_1_1util_1_1traits_1_1endian_1_1Big.html">traits::endian::Big</a>&amp; endian)</div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;{</div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(endian);</div>
+<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;    <a class="code" href="namespacecomms_1_1util.html#a852a92d08b43bc709266f5bc2773a8c2">writeBig</a>(value, iter);</div>
+<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;}</div>
+<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160; </div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;<span class="keyword">template</span> &lt;std::<span class="keywordtype">size_t</span> TSize, <span class="keyword">typename</span> T, <span class="keyword">typename</span> TIter&gt;</div>
+<div class="line"><a name="l00706"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#a0b1f790ca56a6a8c130212d90a809942">  706</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacecomms_1_1util.html#a56f162522d64a3b1a48a2511b19b97c7">writeData</a>(</div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;    T value,</div>
+<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;    TIter&amp; iter,</div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;    <span class="keyword">const</span> <a class="code" href="structcomms_1_1util_1_1traits_1_1endian_1_1Big.html">traits::endian::Big</a>&amp; endian)</div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;{</div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(endian);</div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;    writeBig&lt;TSize&gt;(value, iter);</div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;}</div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160; </div>
+<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> TIter&gt;</div>
+<div class="line"><a name="l00717"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#ad11b7017575b5d0a280ec934c9885ce2">  717</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacecomms_1_1util.html#a56f162522d64a3b1a48a2511b19b97c7">writeData</a>(</div>
+<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;    T value,</div>
+<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;    std::size_t size,</div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;    TIter&amp; iter,</div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;    <span class="keyword">const</span> <a class="code" href="structcomms_1_1util_1_1traits_1_1endian_1_1Big.html">traits::endian::Big</a>&amp; endian)</div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;{</div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(endian);</div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;    <a class="code" href="namespacecomms_1_1util.html#a852a92d08b43bc709266f5bc2773a8c2">writeBig</a>(value, size, iter);</div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;}</div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160; </div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> TIter&gt;</div>
+<div class="line"><a name="l00729"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#afd1fc94633ac4351daa776a5083cccfa">  729</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacecomms_1_1util.html#a56f162522d64a3b1a48a2511b19b97c7">writeData</a>(</div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;    T value,</div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;    TIter&amp; iter,</div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;    <span class="keyword">const</span> <a class="code" href="structcomms_1_1util_1_1traits_1_1endian_1_1Little.html">traits::endian::Little</a>&amp; endian)</div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;{</div>
+<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(endian);</div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;    <a class="code" href="namespacecomms_1_1util.html#a208e984a12a58fcd3d0ec9bcd62af502">writeLittle</a>(value, iter);</div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;}</div>
+<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160; </div>
+<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;<span class="keyword">template</span> &lt;std::<span class="keywordtype">size_t</span> TSize, <span class="keyword">typename</span> T, <span class="keyword">typename</span> TIter&gt;</div>
+<div class="line"><a name="l00740"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#a3b85313579a99da915170c03bca445ce">  740</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacecomms_1_1util.html#a56f162522d64a3b1a48a2511b19b97c7">writeData</a>(</div>
+<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;    T value,</div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;    TIter&amp; iter,</div>
+<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;    <span class="keyword">const</span> <a class="code" href="structcomms_1_1util_1_1traits_1_1endian_1_1Little.html">traits::endian::Little</a>&amp; endian)</div>
+<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;{</div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(endian);</div>
+<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;    <span class="keywordflow">return</span> writeLittle&lt;TSize&gt;(value, iter);</div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;}</div>
+<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160; </div>
+<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> TIter&gt;</div>
+<div class="line"><a name="l00751"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#aa557daf8c1bb5d232212aed45ae4dfe8">  751</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacecomms_1_1util.html#a56f162522d64a3b1a48a2511b19b97c7">writeData</a>(</div>
+<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;    T value,</div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;    std::size_t size, </div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;    TIter&amp; iter,</div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;    <span class="keyword">const</span> <a class="code" href="structcomms_1_1util_1_1traits_1_1endian_1_1Little.html">traits::endian::Little</a>&amp; endian)</div>
+<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;{</div>
+<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(endian);</div>
+<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;    <a class="code" href="namespacecomms_1_1util.html#a208e984a12a58fcd3d0ec9bcd62af502">writeLittle</a>(value, size, iter);</div>
+<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;}</div>
+<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160; </div>
+<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> TIter&gt;</div>
+<div class="line"><a name="l00763"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#a54e372f33dbb939e3d7eef06330c15dd">  763</a></span>&#160;T <a class="code" href="namespacecomms_1_1util.html#a54e372f33dbb939e3d7eef06330c15dd">readData</a>(TIter&amp; iter, <span class="keyword">const</span> <a class="code" href="structcomms_1_1util_1_1traits_1_1endian_1_1Big.html">traits::endian::Big</a>&amp; endian)</div>
+<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;{</div>
+<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(endian);</div>
+<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;    <span class="keywordflow">return</span> readBig&lt;T&gt;(iter);</div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;}</div>
+<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160; </div>
+<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> TIter&gt;</div>
+<div class="line"><a name="l00771"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#ae5501505c2e4bf04a383b3b9b3fe1d33">  771</a></span>&#160;T <a class="code" href="namespacecomms_1_1util.html#a54e372f33dbb939e3d7eef06330c15dd">readData</a>(TIter&amp; iter, std::size_t size, <span class="keyword">const</span> <a class="code" href="structcomms_1_1util_1_1traits_1_1endian_1_1Big.html">traits::endian::Big</a>&amp; endian)</div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;{</div>
+<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(endian);</div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;    <span class="keywordflow">return</span> readBig&lt;T&gt;(iter, size);</div>
+<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;}</div>
+<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160; </div>
+<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> TSize, <span class="keyword">typename</span> TIter&gt;</div>
+<div class="line"><a name="l00779"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#a2a1d8f1396e9f5854f630ce1c4134ed2">  779</a></span>&#160;T <a class="code" href="namespacecomms_1_1util.html#a54e372f33dbb939e3d7eef06330c15dd">readData</a>(TIter&amp; iter, <span class="keyword">const</span> <a class="code" href="structcomms_1_1util_1_1traits_1_1endian_1_1Big.html">traits::endian::Big</a>&amp; endian)</div>
+<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;{</div>
+<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(endian);</div>
+<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;    <span class="keywordflow">return</span> readBig&lt;T, TSize&gt;(iter);</div>
+<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;}</div>
+<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160; </div>
+<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> TIter&gt;</div>
+<div class="line"><a name="l00787"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#a4b43756c6e3da2a661753928ee9d192d">  787</a></span>&#160;T <a class="code" href="namespacecomms_1_1util.html#a54e372f33dbb939e3d7eef06330c15dd">readData</a>(TIter&amp; iter, <span class="keyword">const</span> <a class="code" href="structcomms_1_1util_1_1traits_1_1endian_1_1Little.html">traits::endian::Little</a>&amp; endian)</div>
+<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;{</div>
+<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(endian);</div>
+<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;    <span class="keywordflow">return</span> readLittle&lt;T&gt;(iter);</div>
+<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;}</div>
+<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160; </div>
+<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> TSize, <span class="keyword">typename</span> TIter&gt;</div>
+<div class="line"><a name="l00795"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#ab2f6f5090da8f7ddbe0764b321cb0e4b">  795</a></span>&#160;T <a class="code" href="namespacecomms_1_1util.html#a54e372f33dbb939e3d7eef06330c15dd">readData</a>(TIter&amp; iter, <span class="keyword">const</span> <a class="code" href="structcomms_1_1util_1_1traits_1_1endian_1_1Little.html">traits::endian::Little</a>&amp; endian)</div>
+<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;{</div>
+<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(endian);</div>
+<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;    <span class="keywordflow">return</span> readLittle&lt;T, TSize&gt;(iter);</div>
+<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;}</div>
+<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160; </div>
+<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> TIter&gt;</div>
+<div class="line"><a name="l00803"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util.html#a48b3aec9205f2bfaacb2bd82a10def20">  803</a></span>&#160;T <a class="code" href="namespacecomms_1_1util.html#a54e372f33dbb939e3d7eef06330c15dd">readData</a>(TIter&amp; iter, std::size_t size, <span class="keyword">const</span> <a class="code" href="structcomms_1_1util_1_1traits_1_1endian_1_1Little.html">traits::endian::Little</a>&amp; endian)</div>
+<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;{</div>
+<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(endian);</div>
+<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;    <span class="keywordflow">return</span> readLittle&lt;T&gt;(iter, size);</div>
+<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;}</div>
+<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160; </div>
+<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160; </div>
+<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;}  <span class="comment">// namespace util</span></div>
+<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160; </div>
+<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;}  <span class="comment">// namespace comms</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="anamespacecomms_1_1util_html_a56f162522d64a3b1a48a2511b19b97c7"><div class="ttname"><a href="namespacecomms_1_1util.html#a56f162522d64a3b1a48a2511b19b97c7">comms::util::writeData</a></div><div class="ttdeci">void writeData(T value, TIter &amp;iter, const traits::endian::Big &amp;endian)</div><div class="ttdoc">Same as writeBig&lt;T, TIter&gt;()</div><div class="ttdef"><b>Definition:</b> access.h:665</div></div>
+<div class="ttc" id="anamespacecomms_1_1util_html_a56f162522d64a3b1a48a2511b19b97c7"><div class="ttname"><a href="namespacecomms_1_1util.html#a56f162522d64a3b1a48a2511b19b97c7">comms::util::writeData</a></div><div class="ttdeci">void writeData(T value, TIter &amp;iter, const traits::endian::Big &amp;endian)</div><div class="ttdoc">Same as writeBig&lt;T, TIter&gt;()</div><div class="ttdef"><b>Definition:</b> access.h:695</div></div>
 <div class="ttc" id="astructcomms_1_1util_1_1traits_1_1endian_1_1Big_html"><div class="ttname"><a href="structcomms_1_1util_1_1traits_1_1endian_1_1Big.html">comms::util::traits::endian::Big</a></div><div class="ttdoc">Empty class used in traits to indicate Big Endian.</div><div class="ttdef"><b>Definition:</b> access.h:32</div></div>
 <div class="ttc" id="anamespacecomms_1_1util_html_a707c3bdbc93dcfad20d948da0ef936bf"><div class="ttname"><a href="namespacecomms_1_1util.html#a707c3bdbc93dcfad20d948da0ef936bf">comms::util::readBig</a></div><div class="ttdeci">T readBig(TIter &amp;iter)</div><div class="ttdoc">Read part of integral value from the input area using big endian notation.</div><div class="ttdef"><b>Definition:</b> access.h:568</div></div>
 <div class="ttc" id="anamespacecomms_1_1traits_1_1endian_html_a078efe895c2b77731901604f5c1e01f3"><div class="ttname"><a href="namespacecomms_1_1traits_1_1endian.html#a078efe895c2b77731901604f5c1e01f3">comms::traits::endian::Little</a></div><div class="ttdeci">util::traits::endian::Little Little</div><div class="ttdoc">Empty class used in traits to indicate Little Endian.</div><div class="ttdef"><b>Definition:</b> traits.h:31</div></div>
-<div class="ttc" id="anamespacecomms_1_1util_html_a54e372f33dbb939e3d7eef06330c15dd"><div class="ttname"><a href="namespacecomms_1_1util.html#a54e372f33dbb939e3d7eef06330c15dd">comms::util::readData</a></div><div class="ttdeci">T readData(TIter &amp;iter, const traits::endian::Big &amp;endian)</div><div class="ttdoc">Same as readBig&lt;T, TIter&gt;()</div><div class="ttdef"><b>Definition:</b> access.h:733</div></div>
-<div class="ttc" id="anamespacecomms_1_1util_html_aec32de02b0289587813bd67654447c4b"><div class="ttname"><a href="namespacecomms_1_1util.html#aec32de02b0289587813bd67654447c4b">comms::util::readLittle</a></div><div class="ttdeci">T readLittle(TIter &amp;iter)</div><div class="ttdoc">Read part of integral value from the input area using little endian notation.</div><div class="ttdef"><b>Definition:</b> access.h:643</div></div>
+<div class="ttc" id="anamespacecomms_1_1util_html_a54e372f33dbb939e3d7eef06330c15dd"><div class="ttname"><a href="namespacecomms_1_1util.html#a54e372f33dbb939e3d7eef06330c15dd">comms::util::readData</a></div><div class="ttdeci">T readData(TIter &amp;iter, const traits::endian::Big &amp;endian)</div><div class="ttdoc">Same as readBig&lt;T, TIter&gt;()</div><div class="ttdef"><b>Definition:</b> access.h:763</div></div>
+<div class="ttc" id="anamespacecomms_1_1util_html_aec32de02b0289587813bd67654447c4b"><div class="ttname"><a href="namespacecomms_1_1util.html#aec32de02b0289587813bd67654447c4b">comms::util::readLittle</a></div><div class="ttdeci">T readLittle(TIter &amp;iter)</div><div class="ttdoc">Read part of integral value from the input area using little endian notation.</div><div class="ttdef"><b>Definition:</b> access.h:658</div></div>
 <div class="ttc" id="anamespacecomms_1_1util_html_a852a92d08b43bc709266f5bc2773a8c2"><div class="ttname"><a href="namespacecomms_1_1util.html#a852a92d08b43bc709266f5bc2773a8c2">comms::util::writeBig</a></div><div class="ttdeci">void writeBig(T value, TIter &amp;iter)</div><div class="ttdoc">Write part of integral value into the output area using big endian notation.</div><div class="ttdef"><b>Definition:</b> access.h:523</div></div>
 <div class="ttc" id="anamespacecomms_html"><div class="ttname"><a href="namespacecomms.html">comms</a></div><div class="ttdoc">Main namespace for all classes / functions of COMMS library.</div></div>
 <div class="ttc" id="anamespacecomms_1_1traits_1_1endian_html_afa6fdddda6db9a35758f2131a0659363"><div class="ttname"><a href="namespacecomms_1_1traits_1_1endian.html#afa6fdddda6db9a35758f2131a0659363">comms::traits::endian::Big</a></div><div class="ttdeci">util::traits::endian::Big Big</div><div class="ttdoc">Empty class used in traits to indicate Big Endian.</div><div class="ttdef"><b>Definition:</b> traits.h:28</div></div>
 <div class="ttc" id="astructcomms_1_1util_1_1traits_1_1endian_1_1Little_html"><div class="ttname"><a href="structcomms_1_1util_1_1traits_1_1endian_1_1Little.html">comms::util::traits::endian::Little</a></div><div class="ttdoc">Empty class used in traits to indicate Little Endian.</div><div class="ttdef"><b>Definition:</b> access.h:35</div></div>
 <div class="ttc" id="astructcomms_1_1util_1_1Conditional_html"><div class="ttname"><a href="structcomms_1_1util_1_1Conditional.html">comms::util::Conditional</a></div><div class="ttdoc">Replacement to std::conditional.</div><div class="ttdef"><b>Definition:</b> type_traits.h:31</div></div>
 <div class="ttc" id="atype__traits_8h_html"><div class="ttname"><a href="type__traits_8h.html">type_traits.h</a></div><div class="ttdoc">Replacement to some types from standard type_traits.</div></div>
-<div class="ttc" id="anamespacecomms_1_1util_html_a208e984a12a58fcd3d0ec9bcd62af502"><div class="ttname"><a href="namespacecomms_1_1util.html#a208e984a12a58fcd3d0ec9bcd62af502">comms::util::writeLittle</a></div><div class="ttdeci">void writeLittle(T value, TIter &amp;iter)</div><div class="ttdoc">Write part of integral value into the output area using little endian notation.</div><div class="ttdef"><b>Definition:</b> access.h:598</div></div>
+<div class="ttc" id="anamespacecomms_1_1util_html_a208e984a12a58fcd3d0ec9bcd62af502"><div class="ttname"><a href="namespacecomms_1_1util.html#a208e984a12a58fcd3d0ec9bcd62af502">comms::util::writeLittle</a></div><div class="ttdeci">void writeLittle(T value, TIter &amp;iter)</div><div class="ttdoc">Write part of integral value into the output area using little endian notation.</div><div class="ttdef"><b>Definition:</b> access.h:613</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

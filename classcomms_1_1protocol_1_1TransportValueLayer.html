@@ -94,6 +94,7 @@ class comms::protocol::TransportValueLayer&lt; TField, TIdx, TNextLayer, TOption
     <tr><td class="paramname">TOptions</td><td>Extending functionality options. Supported options are: <ul>
 <li><a class="el" href="structcomms_1_1option_1_1def_1_1PseudoValue.html">comms::option::def::PseudoValue</a> - Mark the handled value to be "pseudo" one, i.e. the field is not getting serialised. </li>
 <li><a class="el" href="namespacecomms_1_1option.html#a36cef7e87cf2288100d2a497f7960ac9">comms::option::ExtendingClass</a> - Use this option to provide a class name of the extending class, which can be used to extend existing functionality. See also <a class="el" href="page_custom_transport_value_layer.html">Defining Custom Transport Value Protocol Stack Layer</a> tutorial page. </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1ProtocolLayerSuppressReadUntilDataSplitForcing.html">comms::option::def::ProtocolLayerSuppressReadUntilDataSplitForcing</a> - Use this option when there is a need to disable passing <a class="el" href="structcomms_1_1option_1_1def_1_1ProtocolLayerForceReadUntilDataSplit.html">comms::option::def::ProtocolLayerForceReadUntilDataSplit</a> option to the <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html">comms::protocol::ProtocolLayerBase</a> base class. The passing of <a class="el" href="structcomms_1_1option_1_1def_1_1ProtocolLayerForceReadUntilDataSplit.html">comms::option::def::ProtocolLayerForceReadUntilDataSplit</a> option happens when the <a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html">comms::protocol::TransportValueLayer</a> preceeds (wraps) <a class="el" href="classcomms_1_1protocol_1_1MsgIdLayer.html">comms::protocol::MsgIdLayer</a> and is unable to re-assign the read field value to the message object, because the latter hasn't been created yet. </li>
 </ul>
 </td></tr>
   </table>
@@ -284,6 +285,10 @@ static const std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a c
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
+<tr class="memitem:a712e70394c638d82c531668a56e080ec"><td class="memTemplParams" colspan="2">template&lt;typename TMsg &gt; </td></tr>
+<tr class="memitem:a712e70394c638d82c531668a56e080ec"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html#a712e70394c638d82c531668a56e080ec">reassignFieldValueToMsg</a> (const <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">Field</a> &amp;field, TMsg *msgPtr)</td></tr>
+<tr class="memdesc:a712e70394c638d82c531668a56e080ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Re-assign the value from the input field to appropriate transport field in the message object.  <a href="classcomms_1_1protocol_1_1TransportValueLayer.html#a712e70394c638d82c531668a56e080ec">More...</a><br /></td></tr>
+<tr class="separator:a712e70394c638d82c531668a56e080ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c04cd72f7c4151e6721dce4f5a85aa6"><td class="memTemplParams" colspan="2">template&lt;typename... TExtraValues&gt; </td></tr>
 <tr class="memitem:a5c04cd72f7c4151e6721dce4f5a85aa6"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a5c04cd72f7c4151e6721dce4f5a85aa6">setMissingSize</a> (std::size_t val, TExtraValues... extraValues) const</td></tr>
 <tr class="memdesc:a5c04cd72f7c4151e6721dce4f5a85aa6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the missing size information if such is requested.  <a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a5c04cd72f7c4151e6721dce4f5a85aa6">More...</a><br /></td></tr>
@@ -1839,6 +1844,59 @@ template&lt;typename TMsg &gt; </div>
   </table>
   </dd>
 </dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000015">Deprecated:</a></b></dt><dd>Use <a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html#a712e70394c638d82c531668a56e080ec">reassignFieldValueToMsg()</a> instead. </dd></dl>
+
+</div>
+</div>
+<a id="a712e70394c638d82c531668a56e080ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a712e70394c638d82c531668a56e080ec">&#9670;&nbsp;</a></span>reassignFieldValueToMsg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TField , std::size_t TIdx, typename TNextLayer , typename... TOptions&gt; </div>
+<div class="memtemplate">
+template&lt;typename TMsg &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html">comms::protocol::TransportValueLayer</a>&lt; TField, TIdx, TNextLayer, TOptions &gt;::reassignFieldValueToMsg </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">Field</a> &amp;&#160;</td>
+          <td class="paramname"><em>field</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TMsg *&#160;</td>
+          <td class="paramname"><em>msgPtr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Re-assign the value from the input field to appropriate transport field in the message object. </p>
+<p>Default implementation just assigns to the field accessed using <b>TIdx</b> index passed as the template argument to the class definition.<br  />
+ May be overridden by the extending class if some complex functionality is required. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">field</td><td><a class="el" href="classcomms_1_1Field.html" title="Base class to all the field classes.">Field</a>, value of which needs to be re-assigned </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">msgPtr</td><td>Pointer to the created message object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> in case of successful operation, <b>false</b> othewise <br  />
+ In case <b>false</b> is returned, the <a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html#a1d5e7e1b136b32ec8f223b30e574f200">doRead()</a> member function will return <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1aca3da8f495e4e628912a7798655da6c2">comms::ErrorStatus::ProtocolError</a>. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>May be non-static in the extending class </dd></dl>
 
 </div>
@@ -2651,10 +2709,10 @@ template&lt;typename TField , typename TNextLayer , typename TDerived , typename
 <li>include/comms/protocol/<a class="el" href="TransportValueLayer_8h_source.html">TransportValueLayer.h</a></li>
 </ul>
 </div><!-- contents -->
-<div class="ttc" id="aclasscomms_1_1protocol_1_1TransportValueLayer_html_a75905b2c50410c7e43b5ab3b9b64ad9f"><div class="ttname"><a href="classcomms_1_1protocol_1_1TransportValueLayer.html#a75905b2c50410c7e43b5ab3b9b64ad9f">comms::protocol::TransportValueLayer::doWrite</a></div><div class="ttdeci">comms::ErrorStatus doWrite(Field &amp;field, const TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerWriter &amp;&amp;nextLayerWriter) const</div><div class="ttdoc">Customized write functionality, invoked by write().</div><div class="ttdef"><b>Definition:</b> TransportValueLayer.h:184</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1ProtocolLayerBase_html_a94f23dc39f0adb4fd7ecd0ab2941588f"><div class="ttname"><a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a94f23dc39f0adb4fd7ecd0ab2941588f">comms::protocol::ProtocolLayerBase::doUpdate</a></div><div class="ttdeci">comms::ErrorStatus doUpdate(Field &amp;field, TIter &amp;iter, std::size_t size, TNextLayerUpdater &amp;&amp;nextLayerUpdater) const</div><div class="ttdoc">Default implementation of the &quot;update&quot; functaionality.</div><div class="ttdef"><b>Definition:</b> ProtocolLayerBase.h:693</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1TransportValueLayer_html_a1d5e7e1b136b32ec8f223b30e574f200"><div class="ttname"><a href="classcomms_1_1protocol_1_1TransportValueLayer.html#a1d5e7e1b136b32ec8f223b30e574f200">comms::protocol::TransportValueLayer::doRead</a></div><div class="ttdeci">comms::ErrorStatus doRead(Field &amp;field, TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerReader &amp;&amp;nextLayerReader, TExtraValues... extraValues)</div><div class="ttdoc">Customized read functionality, invoked by read().</div><div class="ttdef"><b>Definition:</b> TransportValueLayer.h:138</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1TransportValueLayer_html_a47d2f014f008e843013a59cf32213f08"><div class="ttname"><a href="classcomms_1_1protocol_1_1TransportValueLayer.html#a47d2f014f008e843013a59cf32213f08">comms::protocol::TransportValueLayer::Field</a></div><div class="ttdeci">typename BaseImpl::Field Field</div><div class="ttdoc">Type of the field object used to read/write &quot;sync&quot; value.</div><div class="ttdef"><b>Definition:</b> TransportValueLayer.h:87</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1TransportValueLayer_html_a75905b2c50410c7e43b5ab3b9b64ad9f"><div class="ttname"><a href="classcomms_1_1protocol_1_1TransportValueLayer.html#a75905b2c50410c7e43b5ab3b9b64ad9f">comms::protocol::TransportValueLayer::doWrite</a></div><div class="ttdeci">comms::ErrorStatus doWrite(Field &amp;field, const TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerWriter &amp;&amp;nextLayerWriter) const</div><div class="ttdoc">Customized write functionality, invoked by write().</div><div class="ttdef"><b>Definition:</b> TransportValueLayer.h:204</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1ProtocolLayerBase_html_a94f23dc39f0adb4fd7ecd0ab2941588f"><div class="ttname"><a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a94f23dc39f0adb4fd7ecd0ab2941588f">comms::protocol::ProtocolLayerBase::doUpdate</a></div><div class="ttdeci">comms::ErrorStatus doUpdate(Field &amp;field, TIter &amp;iter, std::size_t size, TNextLayerUpdater &amp;&amp;nextLayerUpdater) const</div><div class="ttdoc">Default implementation of the &quot;update&quot; functaionality.</div><div class="ttdef"><b>Definition:</b> ProtocolLayerBase.h:692</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1TransportValueLayer_html_a1d5e7e1b136b32ec8f223b30e574f200"><div class="ttname"><a href="classcomms_1_1protocol_1_1TransportValueLayer.html#a1d5e7e1b136b32ec8f223b30e574f200">comms::protocol::TransportValueLayer::doRead</a></div><div class="ttdeci">comms::ErrorStatus doRead(Field &amp;field, TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerReader &amp;&amp;nextLayerReader, TExtraValues... extraValues)</div><div class="ttdoc">Customized read functionality, invoked by read().</div><div class="ttdef"><b>Definition:</b> TransportValueLayer.h:148</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1TransportValueLayer_html_a47d2f014f008e843013a59cf32213f08"><div class="ttname"><a href="classcomms_1_1protocol_1_1TransportValueLayer.html#a47d2f014f008e843013a59cf32213f08">comms::protocol::TransportValueLayer::Field</a></div><div class="ttdeci">typename BaseImpl::Field Field</div><div class="ttdoc">Type of the field object used to read/write &quot;sync&quot; value.</div><div class="ttdef"><b>Definition:</b> TransportValueLayer.h:97</div></div>
 <div class="ttc" id="anamespacecomms_html_a0a259a03d68bce98b4a129fb34aaa2e1"><div class="ttname"><a href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a></div><div class="ttdeci">ErrorStatus</div><div class="ttdoc">Error statuses reported by the Communication module.</div><div class="ttdef"><b>Definition:</b> ErrorStatus.h:17</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

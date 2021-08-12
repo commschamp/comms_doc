@@ -181,10 +181,15 @@ $(function() {
 <div class="line">    </div>
 <div class="line">    <span class="comment">// Re-assign the field&#39;s value to available message object.</span></div>
 <div class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg&gt;</div>
-<div class="line">    <span class="keyword">static</span> <span class="keywordtype">void</span> reassignFieldValue(TMsg&amp; msg, <span class="keyword">const</span> Field&amp; field)</div>
+<div class="line">    <span class="keywordtype">bool</span> reassignFieldValueToMsg(<span class="keyword">const</span> Field&amp; field, TMsg* msgPtr)</div>
 <div class="line">    {</div>
-<div class="line">        msg.transportField_version().value() = field.field_version().value();</div>
-<div class="line">        msg.transportField_flags().value() = field.field_flags().value();</div>
+<div class="line">        <span class="keywordflow">if</span> (msgPtr == <span class="keyword">nullptr</span>) {</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line"> </div>
+<div class="line">        msgPtr-&gt;transportField_version().value() = field.field_version().value();</div>
+<div class="line">        msgPtr-&gt;transportField_flags().value() = field.field_flags().value();</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }  </div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Update the transport field values to be written when message is serialized.</span></div>
@@ -202,7 +207,7 @@ $(function() {
 <li><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a7050fb0df8e4efc8cc3e35214436fe55">doReadField()</a> - Member function that is invoked to read field's value. </li>
 <li><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a2a7d913a4c2d569ce9c0842b9e16a0cb">doWriteField()</a> - Member function that is invoked to write field's value. </li>
 <li><a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html#ad1cc62fa40dc04a68bd4605bbbef7801">doFieldLength()</a> - Member function that is invoked to calculate serialization length of the field. </li>
-<li><a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html#af8f3ab09bab3b4b574302f0b7aa2f600">reassignFieldValue()</a> - Member function that is invoked right before reading message payload. It's responsibility is to re-assign the transport field value to the appropriate transport field(s) in the message object. </li>
+<li><a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html#a712e70394c638d82c531668a56e080ec">reassignFieldValueToMsg()</a> - Member function that is invoked to re-assign the transport field value to the appropriate transport field(s) in the message object. </li>
 <li><a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html#aad96d476e11c30cf659b5ade51a8408e">prepareFieldForWrite()</a> - Member function that is invoked to prepare the field value before its write (serialization). After the function returns, the <a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html">comms::protocol::TransportValueLayer</a> will invoke <b>write</b> member function of the passed field in order to serialize it.</li>
 </ul>
 <p>The newly defined custom protocol stack layer can be used instead of <a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html">comms::protocol::TransportValueLayer</a> when defining <a class="el" href="page_prot_stack_tutorial.html">protocol stack</a> (framing) of the protocol. For example: </p><div class="fragment"><div class="line"><span class="keyword">namespace </span>my_prot</div>
@@ -232,7 +237,7 @@ $(function() {
 </div><!-- PageDoc -->
 <div class="ttc" id="aField_8h_html_af74198f06b52d3f58c92e795b2ff7129"><div class="ttname"><a href="Field_8h.html#af74198f06b52d3f58c92e795b2ff7129">COMMS_FIELD_MEMBERS_NAMES</a></div><div class="ttdeci">#define COMMS_FIELD_MEMBERS_NAMES(...)</div><div class="ttdoc">Provide names for member fields of composite fields, such as comms::field::Bundle or comms::field::Bi...</div><div class="ttdef"><b>Definition:</b> Field.h:372</div></div>
 <div class="ttc" id="aclasscomms_1_1protocol_1_1MsgSizeLayer_html"><div class="ttname"><a href="classcomms_1_1protocol_1_1MsgSizeLayer.html">comms::protocol::MsgSizeLayer</a></div><div class="ttdoc">Protocol layer that uses size field as a prefix to all the subsequent data written by other (next) la...</div><div class="ttdef"><b>Definition:</b> MsgSizeLayer.h:64</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1TransportValueLayer_html"><div class="ttname"><a href="classcomms_1_1protocol_1_1TransportValueLayer.html">comms::protocol::TransportValueLayer</a></div><div class="ttdoc">Protocol layer that reads a value from transport wrapping and reassigns it to appropriate &quot;extra tran...</div><div class="ttdef"><b>Definition:</b> TransportValueLayer.h:57</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1TransportValueLayer_html"><div class="ttname"><a href="classcomms_1_1protocol_1_1TransportValueLayer.html">comms::protocol::TransportValueLayer</a></div><div class="ttdoc">Protocol layer that reads a value from transport wrapping and reassigns it to appropriate &quot;extra tran...</div><div class="ttdef"><b>Definition:</b> TransportValueLayer.h:65</div></div>
 <div class="ttc" id="anamespacecomms_html_a124576497d233cf87eb7432190e6c9fe"><div class="ttname"><a href="namespacecomms.html#a124576497d233cf87eb7432190e6c9fe">comms::version</a></div><div class="ttdeci">constexpr unsigned version()</div><div class="ttdoc">Version of the COMMS library as single numeric value.</div><div class="ttdef"><b>Definition:</b> version.h:64</div></div>
 <div class="ttc" id="aclasscomms_1_1Message_html"><div class="ttname"><a href="classcomms_1_1Message.html">comms::Message</a></div><div class="ttdoc">Main interface class for all the messages.</div><div class="ttdef"><b>Definition:</b> Message.h:79</div></div>
 <div class="ttc" id="aclasscomms_1_1field_1_1Bitfield_html"><div class="ttname"><a href="classcomms_1_1field_1_1Bitfield.html">comms::field::Bitfield</a></div><div class="ttdoc">Bitfield field.</div><div class="ttdef"><b>Definition:</b> Bitfield.h:101</div></div>

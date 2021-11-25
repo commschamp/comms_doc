@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['polymorphic_1009',['Polymorphic',['../structcomms_1_1traits_1_1dispatch_1_1Polymorphic.html',1,'comms::traits::dispatch']]],
-  ['protocollayerbase_1010',['ProtocolLayerBase',['../classcomms_1_1protocol_1_1ProtocolLayerBase.html',1,'comms::protocol']]],
-  ['protocollayerdisallowreaduntildatasplit_1011',['ProtocolLayerDisallowReadUntilDataSplit',['../structcomms_1_1option_1_1def_1_1ProtocolLayerDisallowReadUntilDataSplit.html',1,'comms::option::def']]],
-  ['protocollayerforcereaduntildatasplit_1012',['ProtocolLayerForceReadUntilDataSplit',['../structcomms_1_1option_1_1def_1_1ProtocolLayerForceReadUntilDataSplit.html',1,'comms::option::def']]],
-  ['protocollayersuppressreaduntildatasplitforcing_1013',['ProtocolLayerSuppressReadUntilDataSplitForcing',['../structcomms_1_1option_1_1def_1_1ProtocolLayerSuppressReadUntilDataSplitForcing.html',1,'comms::option::def']]],
-  ['pseudovalue_1014',['PseudoValue',['../structcomms_1_1option_1_1def_1_1PseudoValue.html',1,'comms::option::def']]]
+  ['polymorphic_1010',['Polymorphic',['../structcomms_1_1traits_1_1dispatch_1_1Polymorphic.html',1,'comms::traits::dispatch']]],
+  ['protocollayerbase_1011',['ProtocolLayerBase',['../classcomms_1_1protocol_1_1ProtocolLayerBase.html',1,'comms::protocol']]],
+  ['protocollayerdisallowreaduntildatasplit_1012',['ProtocolLayerDisallowReadUntilDataSplit',['../structcomms_1_1option_1_1def_1_1ProtocolLayerDisallowReadUntilDataSplit.html',1,'comms::option::def']]],
+  ['protocollayerforcereaduntildatasplit_1013',['ProtocolLayerForceReadUntilDataSplit',['../structcomms_1_1option_1_1def_1_1ProtocolLayerForceReadUntilDataSplit.html',1,'comms::option::def']]],
+  ['protocollayersuppressreaduntildatasplitforcing_1014',['ProtocolLayerSuppressReadUntilDataSplitForcing',['../structcomms_1_1option_1_1def_1_1ProtocolLayerSuppressReadUntilDataSplitForcing.html',1,'comms::option::def']]],
+  ['pseudovalue_1015',['PseudoValue',['../structcomms_1_1option_1_1def_1_1PseudoValue.html',1,'comms::option::def']]]
 ];

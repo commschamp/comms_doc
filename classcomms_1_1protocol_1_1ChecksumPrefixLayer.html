@@ -336,6 +336,9 @@ Static Protected Member Functions</h2></td></tr>
 <tr class="memitem:a2a7d913a4c2d569ce9c0842b9e16a0cb"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a2a7d913a4c2d569ce9c0842b9e16a0cb">doWriteField</a> (const TMsg *msgPtr, const <a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#ad6fd7695c1feedc9a64118433e60e3a7">Field</a> &amp;field, TIter &amp;iter, std::size_t len)</td></tr>
 <tr class="memdesc:a2a7d913a4c2d569ce9c0842b9e16a0cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the layer field.  <a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a2a7d913a4c2d569ce9c0842b9e16a0cb">More...</a><br /></td></tr>
 <tr class="separator:a2a7d913a4c2d569ce9c0842b9e16a0cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa7896d46c215fd179ea29f8829ab6b6"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#aaa7896d46c215fd179ea29f8829ab6b6">getChecksumFromField</a> (const <a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#ad6fd7695c1feedc9a64118433e60e3a7">Field</a> &amp;field) -&gt; typename Field::ValueType</td></tr>
+<tr class="memdesc:aaa7896d46c215fd179ea29f8829ab6b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve checksum value from the field.  <a href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#aaa7896d46c215fd179ea29f8829ab6b6">More...</a><br /></td></tr>
+<tr class="separator:aaa7896d46c215fd179ea29f8829ab6b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acfc4764b60930eed5c1067b303ba6cde"><td class="memTemplParams" colspan="2">template&lt;std::size_t TIdx, typename TAllFields &gt; </td></tr>
 <tr class="memitem:acfc4764b60930eed5c1067b303ba6cde"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#ad6fd7695c1feedc9a64118433e60e3a7">Field</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#acfc4764b60930eed5c1067b303ba6cde">getField</a> (TAllFields &amp;allFields)</td></tr>
 <tr class="memdesc:acfc4764b60930eed5c1067b303ba6cde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve reference to a layer specific field out of all fields.  <a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#acfc4764b60930eed5c1067b303ba6cde">More...</a><br /></td></tr>
@@ -344,6 +347,10 @@ Static Protected Member Functions</h2></td></tr>
 <tr class="memitem:aff7baefef2232316e08980e680d189ef"><td class="memTemplItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#aff7baefef2232316e08980e680d189ef">isMessageObjRef</a> ()</td></tr>
 <tr class="memdesc:aff7baefef2232316e08980e680d189ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detect whether type is actual message object.  <a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#aff7baefef2232316e08980e680d189ef">More...</a><br /></td></tr>
 <tr class="separator:aff7baefef2232316e08980e680d189ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae37c95fa767ef36c5b500a258990ad41"><td class="memTemplParams" colspan="2">template&lt;typename TChecksum , typename TMsg &gt; </td></tr>
+<tr class="memitem:ae37c95fa767ef36c5b500a258990ad41"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#ae37c95fa767ef36c5b500a258990ad41">prepareFieldForWrite</a> (TChecksum checksum, const TMsg *msg, <a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#ad6fd7695c1feedc9a64118433e60e3a7">Field</a> &amp;field)</td></tr>
+<tr class="memdesc:ae37c95fa767ef36c5b500a258990ad41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepare field for writing.  <a href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#ae37c95fa767ef36c5b500a258990ad41">More...</a><br /></td></tr>
+<tr class="separator:ae37c95fa767ef36c5b500a258990ad41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c83babc34313e54e04a4f12d24394c9"><td class="memTemplParams" colspan="2">template&lt;typename TMsg &gt; </td></tr>
 <tr class="memitem:a0c83babc34313e54e04a4f12d24394c9"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a0c83babc34313e54e04a4f12d24394c9">resetMsg</a> (TMsg &amp;msg)</td></tr>
 <tr class="memdesc:a0c83babc34313e54e04a4f12d24394c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset msg in case it is a smart pointer (<a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a17b1b0d2a42427cb7c998a41c9aa3174">MsgPtr</a>).  <a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a0c83babc34313e54e04a4f12d24394c9">More...</a><br /></td></tr>
@@ -1245,6 +1252,44 @@ template&lt;typename TMsg , typename TIter &gt; </div>
 
 </div>
 </div>
+<a id="aaa7896d46c215fd179ea29f8829ab6b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa7896d46c215fd179ea29f8829ab6b6">&#9670;&nbsp;</a></span>getChecksumFromField()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TField , typename TCalc , typename TNextLayer , typename... TOptions&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static auto <a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html">comms::protocol::ChecksumPrefixLayer</a>&lt; TField, TCalc, TNextLayer, TOptions &gt;::getChecksumFromField </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#ad6fd7695c1feedc9a64118433e60e3a7">Field</a> &amp;&#160;</td>
+          <td class="paramname"><em>field</em></td><td>)</td>
+          <td> -&gt; typename Field::ValueType
+    </td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieve checksum value from the field. </p>
+<p>May be overridden by the extending class. Default implementation is </p><div class="fragment"><div class="line"><span class="keywordflow">return</span> field.value();</div>
+</div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">field</td><td><a class="el" href="classcomms_1_1Field.html" title="Base class to all the field classes.">Field</a> for this layer. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="acfc4764b60930eed5c1067b303ba6cde"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acfc4764b60930eed5c1067b303ba6cde">&#9670;&nbsp;</a></span>getField()</h2>
 
@@ -1393,6 +1438,64 @@ template&lt;typename TMsg &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>length of the field + length reported by the next layer. </dd></dl>
+
+</div>
+</div>
+<a id="ae37c95fa767ef36c5b500a258990ad41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae37c95fa767ef36c5b500a258990ad41">&#9670;&nbsp;</a></span>prepareFieldForWrite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TField , typename TCalc , typename TNextLayer , typename... TOptions&gt; </div>
+<div class="memtemplate">
+template&lt;typename TChecksum , typename TMsg &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void <a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html">comms::protocol::ChecksumPrefixLayer</a>&lt; TField, TCalc, TNextLayer, TOptions &gt;::prepareFieldForWrite </td>
+          <td>(</td>
+          <td class="paramtype">TChecksum&#160;</td>
+          <td class="paramname"><em>checksum</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const TMsg *&#160;</td>
+          <td class="paramname"><em>msg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#ad6fd7695c1feedc9a64118433e60e3a7">Field</a> &amp;&#160;</td>
+          <td class="paramname"><em>field</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Prepare field for writing. </p>
+<p>Must assign provided checksum value. May be overridden by the extending class if some complex functionality is required. The default implementation is: </p><div class="fragment"><div class="line"><a class="code" href="namespacecomms.html#a5b8201618df7a2022eb502b194826a4e">comms::cast_assign</a>(field.value()) = checksum;</div>
+</div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">checksum</td><td>Checksum value to assign </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">msg</td><td>Pointer to message object being written, may be nullptr. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">field</td><td><a class="el" href="classcomms_1_1Field.html" title="Base class to all the field classes.">Field</a>, value of which needs to be populated </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>May be non-static in the extending class. In case of non-static, must be const </dd></dl>
 
 </div>
 </div>
@@ -2848,9 +2951,10 @@ template&lt;typename TField , typename TNextLayer , typename TDerived , typename
 <li>include/comms/protocol/<a class="el" href="ChecksumPrefixLayer_8h_source.html">ChecksumPrefixLayer.h</a></li>
 </ul>
 </div><!-- contents -->
-<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumPrefixLayer_html_a982e454855b6e3ec1b6c82b4a5c9ebab"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#a982e454855b6e3ec1b6c82b4a5c9ebab">comms::protocol::ChecksumPrefixLayer::doUpdate</a></div><div class="ttdeci">comms::ErrorStatus doUpdate(Field &amp;field, TIter &amp;iter, std::size_t size, TNextLayerUpdater &amp;&amp;nextLayerUpdater) const</div><div class="ttdoc">Customized update functionality, invoked by update().</div><div class="ttdef"><b>Definition:</b> ChecksumPrefixLayer.h:242</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumPrefixLayer_html_a982e454855b6e3ec1b6c82b4a5c9ebab"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#a982e454855b6e3ec1b6c82b4a5c9ebab">comms::protocol::ChecksumPrefixLayer::doUpdate</a></div><div class="ttdeci">comms::ErrorStatus doUpdate(Field &amp;field, TIter &amp;iter, std::size_t size, TNextLayerUpdater &amp;&amp;nextLayerUpdater) const</div><div class="ttdoc">Customized update functionality, invoked by update().</div><div class="ttdef"><b>Definition:</b> ChecksumPrefixLayer.h:241</div></div>
 <div class="ttc" id="anamespacecomms_html_a0a259a03d68bce98b4a129fb34aaa2e1"><div class="ttname"><a href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a></div><div class="ttdeci">ErrorStatus</div><div class="ttdoc">Error statuses reported by the Communication module.</div><div class="ttdef"><b>Definition:</b> ErrorStatus.h:17</div></div>
 <div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumPrefixLayer_html_ad6fd7695c1feedc9a64118433e60e3a7"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#ad6fd7695c1feedc9a64118433e60e3a7">comms::protocol::ChecksumPrefixLayer::Field</a></div><div class="ttdeci">typename BaseImpl::Field Field</div><div class="ttdoc">Type of the field object used to read/write checksum value.</div><div class="ttdef"><b>Definition:</b> ChecksumPrefixLayer.h:95</div></div>
+<div class="ttc" id="anamespacecomms_html_a5b8201618df7a2022eb502b194826a4e"><div class="ttname"><a href="namespacecomms.html#a5b8201618df7a2022eb502b194826a4e">comms::cast_assign</a></div><div class="ttdeci">details::ValueAssignWrapper&lt; T &gt; cast_assign(T &amp;value)</div><div class="ttdoc">Helper function to assign value with static_cast to appropriate type.</div><div class="ttdef"><b>Definition:</b> cast.h:29</div></div>
 <div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumPrefixLayer_html_a185334b61a4bcf00e57f8494c120b58c"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#a185334b61a4bcf00e57f8494c120b58c">comms::protocol::ChecksumPrefixLayer::doRead</a></div><div class="ttdeci">comms::ErrorStatus doRead(Field &amp;field, TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerReader &amp;&amp;nextLayerReader, TExtraValues... extraValues)</div><div class="ttdoc">Customized read functionality, invoked by read().</div><div class="ttdef"><b>Definition:</b> ChecksumPrefixLayer.h:146</div></div>
 <div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumPrefixLayer_html_a87e0ac70f9a9d883cbaba1e2d4d0e488"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#a87e0ac70f9a9d883cbaba1e2d4d0e488">comms::protocol::ChecksumPrefixLayer::doWrite</a></div><div class="ttdeci">comms::ErrorStatus doWrite(Field &amp;field, const TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerWriter &amp;&amp;nextLayerWriter) const</div><div class="ttdoc">Customized write functionality, invoked by write().</div><div class="ttdef"><b>Definition:</b> ChecksumPrefixLayer.h:218</div></div>
 <!-- start footer part -->

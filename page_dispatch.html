@@ -104,7 +104,7 @@ Dispatch of the Message Object</h1>
 <li><a class="el" href="page_dispatch.html#page_dispatch_message_object_linear_switch">Linear Switch</a></li>
 </ul>
 <p>Every way has its advantages and disadvantages, please read on and choose one that suites your needs. There are some definition commonly used for all the examples below.</p>
-<p>All the mentioned below dispatch functions are defined in <b><a class="el" href="dispatch_8h.html">comms/dispatch.h</a></b> header. </p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="dispatch_8h.html">comms/dispatch.h</a>&quot;</span></div>
+<p>All the mentioned below dispatch functions are defined in <b><a class="el" href="dispatch_8h.html" title="Contains extra logic to help with dispatching message types and objects.">comms/dispatch.h</a></b> header. </p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="dispatch_8h.html">comms/dispatch.h</a>&quot;</span></div>
 </div><!-- fragment --><p>The used name for the common interface class (see <a class="el" href="page_use_prot.html#page_use_prot_interface">Defining Message Interface Class</a>) is going to be <b>MyMessage</b> </p><div class="fragment"><div class="line"><span class="keyword">using</span> MyMessage = <a class="code" href="classcomms_1_1Message.html">comms::Message</a>&lt;...&gt;;</div>
 </div><!-- fragment --><p>The message types that need to be supported are bundled in <b>std::tuple</b> and named <b>AllMessages</b> </p><div class="fragment"><div class="line"><span class="keyword">using</span> AllMessages = </div>
 <div class="line">    std::tuple&lt;</div>
@@ -330,7 +330,7 @@ Dispatch of the Message Type</h1>
 <div class="line">        <span class="keywordflow">return</span> MyHandlerHelper&lt;TMessage&gt;::handle();</div>
 <div class="line">    }</div>
 <div class="line">};</div>
-</div><!-- fragment --><p> Similar to <a class="el" href="page_dispatch.html#page_dispatch_message_object">Dispatch of the Message Object</a> all the mentioned below dispatch functions are defined in <b><a class="el" href="dispatch_8h.html">comms/dispatch.h</a></b> header. </p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="dispatch_8h.html">comms/dispatch.h</a>&quot;</span></div>
+</div><!-- fragment --><p> Similar to <a class="el" href="page_dispatch.html#page_dispatch_message_object">Dispatch of the Message Object</a> all the mentioned below dispatch functions are defined in <b><a class="el" href="dispatch_8h.html" title="Contains extra logic to help with dispatching message types and objects.">comms/dispatch.h</a></b> header. </p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="dispatch_8h.html">comms/dispatch.h</a>&quot;</span></div>
 </div><!-- fragment --><p>The message types that need to be supported are bundled in <b>std::tuple</b> and named <b>AllMessages</b> </p><div class="fragment"><div class="line"><span class="keyword">using</span> AllMessages = </div>
 <div class="line">    std::tuple&lt;</div>
 <div class="line">        Message1&lt;MyMessage&gt;,</div>
@@ -431,7 +431,7 @@ Default Way to Dispatch</h2>
 <div class="line">static_assert(comms::dispatchMsgTypeIsStaticBinSearch&lt;AllMessages2&gt;(), <span class="stringliteral">&quot;Unexpected dispatch type&quot;</span>);</div>
 </div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
-<div class="ttc" id="adispatch_8h_html"><div class="ttname"><a href="dispatch_8h.html">dispatch.h</a></div></div>
+<div class="ttc" id="adispatch_8h_html"><div class="ttname"><a href="dispatch_8h.html">dispatch.h</a></div><div class="ttdoc">Contains extra logic to help with dispatching message types and objects.</div></div>
 <div class="ttc" id="aclasscomms_1_1Message_html"><div class="ttname"><a href="classcomms_1_1Message.html">comms::Message</a></div><div class="ttdoc">Main interface class for all the messages.</div><div class="ttdef"><b>Definition:</b> Message.h:79</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

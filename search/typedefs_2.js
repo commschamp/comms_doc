@@ -2,7 +2,7 @@ var searchData=
 [
   ['centimeterspersecondratio_1650',['CentimetersPerSecondRatio',['../namespacecomms_1_1traits_1_1units.html#a638b998a829ff35d84aed37d5ad7307f',1,'comms::traits::units']]],
   ['centimetersratio_1651',['CentimetersRatio',['../namespacecomms_1_1traits_1_1units.html#acafaf354911028ef2a57afc8768d9fb3',1,'comms::traits::units']]],
-  ['checksumcalc_1652',['ChecksumCalc',['../classcomms_1_1protocol_1_1ChecksumLayer.html#a0776a761f649b8af2624d3e412d607cd',1,'comms::protocol::ChecksumLayer']]],
+  ['checksumcalc_1652',['ChecksumCalc',['../classcomms_1_1protocol_1_1ChecksumLayer.html#a0776a761f649b8af2624d3e412d607cd',1,'comms::protocol::ChecksumLayer::ChecksumCalc()'],['../classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#a9b6628fb6db42677921655a4aa486a16',1,'comms::protocol::ChecksumPrefixLayer::ChecksumCalc()']]],
   ['checksumlayerverifybeforeread_1653',['ChecksumLayerVerifyBeforeRead',['../namespacecomms_1_1option.html#a737cf992804e15b7b72de3ba7b8755e5',1,'comms::option']]],
   ['conditionalt_1654',['ConditionalT',['../namespacecomms_1_1util.html#a5f3e03980fb664632de41b9a0ffd1f03',1,'comms::util']]],
   ['const_5fiterator_1655',['const_iterator',['../classcomms_1_1util_1_1ArrayView.html#ab9ec113a63c797e16ef00cec1affa1b7',1,'comms::util::ArrayView::const_iterator()'],['../classcomms_1_1util_1_1StaticString.html#a0eb0fa16b426c1fe7bc7351e5f3195ca',1,'comms::util::StaticString::const_iterator()'],['../classcomms_1_1util_1_1StaticVector.html#ad0a6e902f2503672f69228783dd525db',1,'comms::util::StaticVector::const_iterator()'],['../classcomms_1_1util_1_1StringView.html#a73e8c1336458d40aa4e591227859c09c',1,'comms::util::StringView::const_iterator()']]],

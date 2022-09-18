@@ -78,19 +78,19 @@ struct comms::option::def::SequenceSizeFieldPrefix&lt; TField &gt;</h3>
 
 <p>Option that modifies the default behaviour of collection fields to prepend the serialised data with number of <b>elements</b> information. </p>
 <p>Quite often when collection of fields is serialised it must be prepended with one or more bytes indicating number of elements that will follow. Applicable to fields that represent collection of raw data or other fields, such as <a class="el" href="classcomms_1_1field_1_1ArrayList.html" title="Field that represents a sequential collection of fields.">comms::field::ArrayList</a> or <a class="el" href="classcomms_1_1field_1_1String.html" title="Field that represents a string.">comms::field::String</a>.<br  />
- For example sequence of raw bytes must be prefixed with 2 bytes stating the size of the sequence: </p><div class="fragment"><div class="line"><span class="keyword">using</span> MyFieldBase = <a class="code" href="classcomms_1_1Field.html">comms::Field&lt;comms::option::BigEndian&gt;</a>;</div>
+ For example sequence of raw bytes must be prefixed with 2 bytes stating the size of the sequence: </p><div class="fragment"><div class="line"><span class="keyword">using</span> MyFieldBase = <a class="code" href="classcomms_1_1Field.html">comms::Field&lt;comms::option::def::BigEndian&gt;</a>;</div>
 <div class="line"><span class="keyword">using</span> MyField =</div>
 <div class="line">    <a class="code" href="classcomms_1_1field_1_1ArrayList.html">comms::field::ArrayList</a>&lt;</div>
 <div class="line">        MyFieldBase,</div>
 <div class="line">        std::uint8_t,</div>
-<div class="line">        <a class="code" href="structcomms_1_1option_1_1def_1_1SequenceSizeFieldPrefix.html">comms::option::SequenceSizeFieldPrefix</a>&lt;</div>
+<div class="line">        <a class="code" href="structcomms_1_1option_1_1def_1_1SequenceSizeFieldPrefix.html">comms::option::def::SequenceSizeFieldPrefix</a>&lt;</div>
 <div class="line">            <a class="code" href="classcomms_1_1field_1_1IntValue.html">comms::field::IntValue&lt;MyFieldBase, std::uint16_t&gt;</a></div>
 <div class="line">        &gt;</div>
 <div class="line">    &gt;;</div>
 <div class="ttc" id="aclasscomms_1_1Field_html"><div class="ttname"><a href="classcomms_1_1Field.html">comms::Field</a></div><div class="ttdoc">Base class to all the field classes.</div><div class="ttdef"><b>Definition:</b> Field.h:33</div></div>
 <div class="ttc" id="aclasscomms_1_1field_1_1ArrayList_html"><div class="ttname"><a href="classcomms_1_1field_1_1ArrayList.html">comms::field::ArrayList</a></div><div class="ttdoc">Field that represents a sequential collection of fields.</div><div class="ttdef"><b>Definition:</b> ArrayList.h:193</div></div>
 <div class="ttc" id="aclasscomms_1_1field_1_1IntValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1IntValue.html">comms::field::IntValue</a></div><div class="ttdoc">Field that represent integral value.</div><div class="ttdef"><b>Definition:</b> IntValue.h:73</div></div>
-<div class="ttc" id="astructcomms_1_1option_1_1def_1_1SequenceSizeFieldPrefix_html"><div class="ttname"><a href="structcomms_1_1option_1_1def_1_1SequenceSizeFieldPrefix.html">comms::option::def::SequenceSizeFieldPrefix</a></div><div class="ttdoc">Option that modifies the default behaviour of collection fields to prepend the serialised data with n...</div><div class="ttdef"><b>Definition:</b> options.h:437</div></div>
+<div class="ttc" id="astructcomms_1_1option_1_1def_1_1SequenceSizeFieldPrefix_html"><div class="ttname"><a href="structcomms_1_1option_1_1def_1_1SequenceSizeFieldPrefix.html">comms::option::def::SequenceSizeFieldPrefix</a></div><div class="ttdoc">Option that modifies the default behaviour of collection fields to prepend the serialised data with n...</div><div class="ttdef"><b>Definition:</b> options.h:438</div></div>
 </div><!-- fragment --> <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">TField</td><td>Type of the field that represents size </td></tr>

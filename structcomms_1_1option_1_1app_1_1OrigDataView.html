@@ -79,9 +79,9 @@ $(function() {
  For raw data <a class="el" href="classcomms_1_1field_1_1ArrayList.html">comms::field::ArrayList</a> it will force usage of <a href="https://en.cppreference.com/w/cpp/container/span">std::span&lt;std::uint8_t&gt;</a>(if available) as inner storage type (instead of <b>std::vector&lt;std::uint8_t&gt;</b>). In case <b>std::span</b> is unavalable (C++20 support is disabled or standard library of insufficient version) <a class="el" href="classcomms_1_1util_1_1ArrayView.html">comms::util::ArrayView</a> will be used instead.<br  />
 </p><dl class="section note"><dt>Note</dt><dd>The original data must be preserved until destruction of the field that uses the "view". </dd>
 <dd>
-Incompatible with other options that contol data storage type, such as <a class="el" href="namespacecomms_1_1option.html#ad5985379c19124ac48082850c891b73e">comms::option::CustomStorageType</a> or <a class="el" href="namespacecomms_1_1option.html#ad4e3c3a82b1d31d1dd1aa0cae2447e09">comms::option::FixedSizeStorage</a> </dd>
+Incompatible with other options that contol data storage type, such as <a class="el" href="structcomms_1_1option_1_1app_1_1CustomStorageType.html">comms::option::app::CustomStorageType</a> or <a class="el" href="structcomms_1_1option_1_1app_1_1FixedSizeStorage.html">comms::option::app::FixedSizeStorage</a> </dd>
 <dd>
-To force usage of provided <a class="el" href="classcomms_1_1util_1_1StringView.html">comms::util::StringView</a> or <a class="el" href="classcomms_1_1util_1_1ArrayView.html">comms::util::ArrayView</a> instead of standard <b>std::string_view</b> or <b>std::span</b>, use <a class="el" href="namespacecomms_1_1option.html#ad5985379c19124ac48082850c891b73e">comms::option::CustomStorageType</a> option. </dd></dl>
+To force usage of provided <a class="el" href="classcomms_1_1util_1_1StringView.html">comms::util::StringView</a> or <a class="el" href="classcomms_1_1util_1_1ArrayView.html">comms::util::ArrayView</a> instead of standard <b>std::string_view</b> or <b>std::span</b>, use <a class="el" href="structcomms_1_1option_1_1app_1_1CustomStorageType.html">comms::option::app::CustomStorageType</a> option. </dd></dl>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>include/comms/<a class="el" href="options_8h_source.html">options.h</a></li>
 </ul>

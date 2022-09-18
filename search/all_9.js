@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['kiloampsratio_483',['KiloampsRatio',['../namespacecomms_1_1traits_1_1units.html#aa94f326bfe9bc9d93b289bf31866ad73',1,'comms::traits::units']]],
-  ['kilobytesratio_484',['KilobytesRatio',['../namespacecomms_1_1traits_1_1units.html#a4bd3d3ed64c0067703cebf37ed9cf6c9',1,'comms::traits::units']]],
-  ['kilohzratio_485',['KiloHzRatio',['../namespacecomms_1_1traits_1_1units.html#a050de089523451d909a41f6528a6373e',1,'comms::traits::units']]],
-  ['kilometersperhourratio_486',['KilometersPerHourRatio',['../namespacecomms_1_1traits_1_1units.html#a5d17ec3400ed3bfa198f0ad598518a00',1,'comms::traits::units']]],
-  ['kilometerspersecondratio_487',['KilometersPerSecondRatio',['../namespacecomms_1_1traits_1_1units.html#a5cc130eb6f13011eeb49774bed095beb',1,'comms::traits::units']]],
-  ['kilometersratio_488',['KilometersRatio',['../namespacecomms_1_1traits_1_1units.html#a7ce6579883ca3885f693524b90816d22',1,'comms::traits::units']]],
-  ['kilovoltsratio_489',['KilovoltsRatio',['../namespacecomms_1_1traits_1_1units.html#a0e6ad62809e4ad1d8ed42ba3697c1cfc',1,'comms::traits::units']]]
+  ['kiloampsratio_484',['KiloampsRatio',['../namespacecomms_1_1traits_1_1units.html#aa94f326bfe9bc9d93b289bf31866ad73',1,'comms::traits::units']]],
+  ['kilobytesratio_485',['KilobytesRatio',['../namespacecomms_1_1traits_1_1units.html#a4bd3d3ed64c0067703cebf37ed9cf6c9',1,'comms::traits::units']]],
+  ['kilohzratio_486',['KiloHzRatio',['../namespacecomms_1_1traits_1_1units.html#a050de089523451d909a41f6528a6373e',1,'comms::traits::units']]],
+  ['kilometersperhourratio_487',['KilometersPerHourRatio',['../namespacecomms_1_1traits_1_1units.html#a5d17ec3400ed3bfa198f0ad598518a00',1,'comms::traits::units']]],
+  ['kilometerspersecondratio_488',['KilometersPerSecondRatio',['../namespacecomms_1_1traits_1_1units.html#a5cc130eb6f13011eeb49774bed095beb',1,'comms::traits::units']]],
+  ['kilometersratio_489',['KilometersRatio',['../namespacecomms_1_1traits_1_1units.html#a7ce6579883ca3885f693524b90816d22',1,'comms::traits::units']]],
+  ['kilovoltsratio_490',['KilovoltsRatio',['../namespacecomms_1_1traits_1_1units.html#a0e6ad62809e4ad1d8ed42ba3697c1cfc',1,'comms::traits::units']]]
 ];

@@ -85,14 +85,14 @@ $(function() {
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;limits&gt;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Assert_8h.html">comms/Assert.h</a>&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Message_8h.html">comms/Message.h</a>&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="MessageBase_8h.html">comms/MessageBase.h</a>&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;comms/util/Tuple.h&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="type__traits_8h.html">comms/util/type_traits.h</a>&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="message__check_8h.html">comms/details/message_check.h</a>&quot;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="CompileControl_8h.html">comms/CompileControl.h</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;comms/details/DispatchMsgIdRetrieveHelper.h&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;comms/details/tag.h&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="CompileControl_8h.html">comms/CompileControl.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Message_8h.html">comms/Message.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="MessageBase_8h.html">comms/MessageBase.h</a>&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="message__check_8h.html">comms/details/message_check.h</a>&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;comms/details/DispatchMsgIdRetrieveHelper.h&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;comms/details/tag.h&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;comms/util/Tuple.h&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="type__traits_8h.html">comms/util/type_traits.h</a>&quot;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacecomms.html">comms</a></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
@@ -133,7 +133,7 @@ $(function() {
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">auto</span> dispatchImpl(TMsgBase&amp; msg, THandler&amp; handler) <span class="keyword">const</span> -&gt;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        MessageInterfaceDispatchRetType&lt;THandler&gt; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#ifndef CC_COMPILER_GCC47        </span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#ifndef COMMS_COMPILER_GCC47        </span></div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keyword">override</span> <span class="keyword">final</span> </div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#endif        </span></div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    {</div>
@@ -197,7 +197,7 @@ $(function() {
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    </div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keyword">virtual</span> MsgIdParamType getIdImpl() const </div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="preprocessor">#ifndef CC_COMPILER_GCC47        </span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="preprocessor">#ifndef COMMS_COMPILER_GCC47        </span></div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keyword">override</span> <span class="keyword">final</span> </div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="preprocessor">#endif  </span></div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    {</div>
@@ -206,7 +206,7 @@ $(function() {
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">auto</span> dispatchImpl(TMsgBase&amp; msg, THandler&amp; handler) <span class="keyword">const</span> -&gt;</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        MessageInterfaceDispatchRetType&lt;THandler&gt; </div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="preprocessor">#ifndef CC_COMPILER_GCC47        </span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="preprocessor">#ifndef COMMS_COMPILER_GCC47        </span></div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            <span class="keyword">override</span> <span class="keyword">final</span> </div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="preprocessor">#endif  </span></div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    {</div>
@@ -896,7 +896,7 @@ $(function() {
 <div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160; </div>
 <div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;<span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> dispatchImpl(THandler&amp; handler) <span class="keyword">const</span> </div>
-<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;<span class="preprocessor">#ifndef CC_COMPILER_GCC47        </span></div>
+<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;<span class="preprocessor">#ifndef COMMS_COMPILER_GCC47        </span></div>
 <div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;        <span class="keyword">override</span> <span class="keyword">final</span> </div>
 <div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;<span class="preprocessor">#endif  </span></div>
 <div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;    {</div>
@@ -946,7 +946,7 @@ $(function() {
 <div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160; </div>
 <div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;<span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;    <span class="keyword">virtual</span> TMsgIdType getIdImpl() const</div>
-<div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;<span class="preprocessor">#ifndef CC_COMPILER_GCC47        </span></div>
+<div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;<span class="preprocessor">#ifndef COMMS_COMPILER_GCC47        </span></div>
 <div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;        <span class="keyword">override</span> <span class="keyword">final</span> </div>
 <div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;<span class="preprocessor">#endif      </span></div>
 <div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;    {</div>
@@ -954,7 +954,7 @@ $(function() {
 <div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160;    }</div>
 <div class="line"><a name="l00883"></a><span class="lineno">  883</span>&#160; </div>
 <div class="line"><a name="l00884"></a><span class="lineno">  884</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> dispatchImpl(THandler&amp; handler) <span class="keyword">const</span> </div>
-<div class="line"><a name="l00885"></a><span class="lineno">  885</span>&#160;<span class="preprocessor">#ifndef CC_COMPILER_GCC47        </span></div>
+<div class="line"><a name="l00885"></a><span class="lineno">  885</span>&#160;<span class="preprocessor">#ifndef COMMS_COMPILER_GCC47        </span></div>
 <div class="line"><a name="l00886"></a><span class="lineno">  886</span>&#160;        <span class="keyword">override</span> <span class="keyword">final</span> </div>
 <div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;<span class="preprocessor">#endif  </span></div>
 <div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;    {</div>

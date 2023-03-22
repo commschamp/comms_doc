@@ -265,14 +265,14 @@ $(function() {
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... TParams&gt;</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keyword">static</span> constexpr BaseSerialisedType adjustFromSerialised(SerialisedType val, JustCastTag&lt;TParams...&gt;)</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    {</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>BaseSerialisedType<span class="keyword">&gt;</span>(val);</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="keywordflow">return</span> castToBaseSerializedType(val, HasSignTag&lt;&gt;());</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    }</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... TParams&gt;</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keyword">static</span> BaseSerialisedType adjustFromSerialised(SerialisedType val, SignExtendTag&lt;TParams...&gt;)</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    {</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="keyword">auto</span> valueTmp = <span class="keyword">static_cast&lt;</span>UnsignedSerialisedType<span class="keyword">&gt;</span>(val) &amp; UnsignedValueMask;</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>BaseSerialisedType<span class="keyword">&gt;</span>(signExtUnsignedSerialised(valueTmp, HasSignTag&lt;&gt;()));</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        <span class="keywordflow">return</span> castToBaseSerializedType(signExtUnsignedSerialised(valueTmp, HasSignTag&lt;&gt;()), HasSignTag&lt;&gt;());</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    }</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; </div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... TParams&gt;</div>
@@ -294,23 +294,35 @@ $(function() {
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>SerialisedType<span class="keyword">&gt;</span>(val);</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    }</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160; </div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::size_t Length = TLen;</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::size_t BitsInByte = std::numeric_limits&lt;std::uint8_t&gt;::digits;</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::size_t BitLength = Length * BitsInByte;</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> UnsignedSerialisedType UnsignedValueMask =</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        <span class="keyword">static_cast&lt;</span>UnsignedSerialisedType<span class="keyword">&gt;</span>(details::UnsignedValueMaskWrap&lt;Length&gt;::Value);</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160; </div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    static_assert(0 &lt; Length, <span class="stringliteral">&quot;Length is expected to be greater than 0&quot;</span>);</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;};</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160; </div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;}  <span class="comment">// namespace adapter</span></div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... TParams&gt;</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="keyword">static</span> constexpr BaseSerialisedType castToBaseSerializedType(SerialisedType val, UnsignedTag&lt;TParams...&gt;)</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    {</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>BaseSerialisedType<span class="keyword">&gt;</span>(<span class="keyword">static_cast&lt;</span>UnsignedSerialisedType<span class="keyword">&gt;</span>(val));</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    }</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; </div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... TParams&gt;</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keyword">static</span> constexpr BaseSerialisedType castToBaseSerializedType(SerialisedType val, SignedTag&lt;TParams...&gt;)</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    {</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>BaseSerialisedType<span class="keyword">&gt;</span>(val);</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    }</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;}  <span class="comment">// namespace field</span></div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160; </div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;}  <span class="comment">// namespace comms</span></div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::size_t Length = TLen;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::size_t BitsInByte = std::numeric_limits&lt;std::uint8_t&gt;::digits;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::size_t BitLength = Length * BitsInByte;</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160; </div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> UnsignedSerialisedType UnsignedValueMask =</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        <span class="keyword">static_cast&lt;</span>UnsignedSerialisedType<span class="keyword">&gt;</span>(details::UnsignedValueMaskWrap&lt;Length&gt;::Value);</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160; </div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    static_assert(0 &lt; Length, <span class="stringliteral">&quot;Length is expected to be greater than 0&quot;</span>);</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;};</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160; </div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;}  <span class="comment">// namespace adapter</span></div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160; </div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;}  <span class="comment">// namespace field</span></div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160; </div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;}  <span class="comment">// namespace comms</span></div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160; </div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160; </div>
 <div class="ttc" id="aAssert_8h_html"><div class="ttname"><a href="Assert_8h.html">Assert.h</a></div><div class="ttdoc">This file contains classes required for generic custom assertion functionality.</div></div>
 <div class="ttc" id="aErrorStatus_8h_html"><div class="ttname"><a href="ErrorStatus_8h.html">ErrorStatus.h</a></div><div class="ttdoc">This file contain definition of error statuses used by comms module.</div></div>
 <div class="ttc" id="anamespacecomms_1_1option_html_a99ac6ffdcff23e2992d43cb0e5ccda4e"><div class="ttname"><a href="namespacecomms_1_1option.html#a99ac6ffdcff23e2992d43cb0e5ccda4e">comms::option::FixedLength</a></div><div class="ttdeci">comms::option::def::FixedLength&lt; TLen, TSignExtend &gt; FixedLength</div><div class="ttdoc">Same as comms::option::def::FixedLength.</div><div class="ttdef"><b>Definition:</b> options.h:1459</div></div>

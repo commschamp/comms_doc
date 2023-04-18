@@ -105,10 +105,9 @@ Inheritance diagram for comms::Field&lt; TOptions &gt;:</div>
 <area href="classcomms_1_1field_1_1EnumValue.html" title="Enumerator value field." alt="comms::field::EnumValue&lt; TFieldBase, TEnum, TOptions &gt;" shape="rect" coords="383,336,756,360"/>
 <area href="classcomms_1_1field_1_1FloatValue.html" title="Field that represent floating point value." alt="comms::field::FloatValue&lt; TFieldBase, T, TOptions &gt;" shape="rect" coords="383,392,756,416"/>
 <area href="classcomms_1_1field_1_1IntValue.html" title="Field that represent integral value." alt="comms::field::IntValue&lt; TFieldBase, T, TOptions &gt;" shape="rect" coords="383,448,756,472"/>
-<area href="classcomms_1_1field_1_1NoValue.html" title="Dummy field with &quot;do-nothing&quot; read/write operations." alt="comms::field::NoValue&lt; TFieldBase &gt;" shape="rect" coords="383,504,756,528"/>
-<area href="classcomms_1_1field_1_1Optional.html" title="Adaptor class to any other field, that makes the field optional." alt="comms::field::Optional&lt; TField, TOptions &gt;" shape="rect" coords="383,560,756,584"/>
-<area href="classcomms_1_1field_1_1String.html" title="Field that represents a string." alt="comms::field::String&lt; TFieldBase, TOptions &gt;" shape="rect" coords="383,616,756,640"/>
-<area href="classcomms_1_1field_1_1Variant.html" title="Defines a &quot;variant&quot; field, that can contain any of the provided ones." alt="comms::field::Variant&lt; TFieldBase, TMembers, TOptions &gt;" shape="rect" coords="383,672,756,696"/>
+<area href="classcomms_1_1field_1_1Optional.html" title="Adaptor class to any other field, that makes the field optional." alt="comms::field::Optional&lt; TField, TOptions &gt;" shape="rect" coords="383,504,756,528"/>
+<area href="classcomms_1_1field_1_1String.html" title="Field that represents a string." alt="comms::field::String&lt; TFieldBase, TOptions &gt;" shape="rect" coords="383,560,756,584"/>
+<area href="classcomms_1_1field_1_1Variant.html" title="Defines a &quot;variant&quot; field, that can contain any of the provided ones." alt="comms::field::Variant&lt; TFieldBase, TMembers, TOptions &gt;" shape="rect" coords="383,616,756,640"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -133,6 +132,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a6acb8fb7f1983a8da5294a177a148e3f"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1Field.html#a6acb8fb7f1983a8da5294a177a148e3f">hasReadNoStatus</a> ()</td></tr>
 <tr class="memdesc:a6acb8fb7f1983a8da5294a177a148e3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default check of whether the field has <b>readNoStatus()</b> member function.  <a href="classcomms_1_1Field.html#a6acb8fb7f1983a8da5294a177a148e3f">More...</a><br /></td></tr>
 <tr class="separator:a6acb8fb7f1983a8da5294a177a148e3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acff46470efbd63ba545801326e6b7f76"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1Field.html#acff46470efbd63ba545801326e6b7f76">hasVarLength</a> ()</td></tr>
+<tr class="memdesc:acff46470efbd63ba545801326e6b7f76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default check of whether the field has variable length definition via <a class="el" href="structcomms_1_1option_1_1def_1_1VarLength.html">comms::option::def::VarLength</a> option.  <a href="classcomms_1_1Field.html#acff46470efbd63ba545801326e6b7f76">More...</a><br /></td></tr>
+<tr class="separator:acff46470efbd63ba545801326e6b7f76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b60b0387dcea372a7397b21bd0971de"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1Field.html#a8b60b0387dcea372a7397b21bd0971de">hasWriteNoStatus</a> ()</td></tr>
 <tr class="memdesc:a8b60b0387dcea372a7397b21bd0971de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default check of whether the field has <b>writeNoStatus()</b> member function.  <a href="classcomms_1_1Field.html#a8b60b0387dcea372a7397b21bd0971de">More...</a><br /></td></tr>
 <tr class="separator:a8b60b0387dcea372a7397b21bd0971de"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -276,6 +278,36 @@ template&lt;typename... TOptions&gt; </div>
 
 <p>Default check of whether the field has <b>readNoStatus()</b> member function. </p>
 <dl class="section return"><dt>Returns</dt><dd>Always <b>true</b>. </dd></dl>
+
+</div>
+</div>
+<a id="acff46470efbd63ba545801326e6b7f76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acff46470efbd63ba545801326e6b7f76">&#9670;&nbsp;</a></span>hasVarLength()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... TOptions&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static constexpr bool <a class="el" href="classcomms_1_1Field.html">comms::Field</a>&lt; TOptions &gt;::hasVarLength </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default check of whether the field has variable length definition via <a class="el" href="structcomms_1_1option_1_1def_1_1VarLength.html">comms::option::def::VarLength</a> option. </p>
+<dl class="section return"><dt>Returns</dt><dd>Always <b>false</b>. </dd></dl>
 
 </div>
 </div>

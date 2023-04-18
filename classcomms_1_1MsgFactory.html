@@ -110,12 +110,13 @@ Public Types</h2></td></tr>
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1MsgFactory.html#a9bfccfddae66f917b11dc8ca05128402">AllMessages</a> = typename Base::AllMessages</td></tr>
 <tr class="memdesc:a9bfccfddae66f917b11dc8ca05128402"><td class="mdescLeft">&#160;</td><td class="mdescRight">All messages provided as template parameter to this class. <br /></td></tr>
 <tr class="separator:a9bfccfddae66f917b11dc8ca05128402"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30eb5aaaeec995982e2a2fb9bfe814fe"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1MsgFactory.html#a30eb5aaaeec995982e2a2fb9bfe814fe">CreateFailureReason</a> { <a class="el" href="classcomms_1_1MsgFactory.html#a30eb5aaaeec995982e2a2fb9bfe814fea6adf97f83acf6453d4a6a4b1070f3754">None</a>
-, <a class="el" href="classcomms_1_1MsgFactory.html#a30eb5aaaeec995982e2a2fb9bfe814fead17cc4f1cee6075d7b5a9d48873d6041">InvalidId</a>
-, <a class="el" href="classcomms_1_1MsgFactory.html#a30eb5aaaeec995982e2a2fb9bfe814fea0d8eeb3fc020c6669c92b4ff0e2e27ff">AllocFailure</a>
-, <a class="el" href="classcomms_1_1MsgFactory.html#a30eb5aaaeec995982e2a2fb9bfe814fea0bb4f6beda4f34c57166e6c1e14eb6f7">NumOfValues</a>
- }</td></tr>
-<tr class="separator:a30eb5aaaeec995982e2a2fb9bfe814fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47061c6e65f4aeba36b2b3d833700f5f"><td class="memItemLeft" align="right" valign="top"><a id="a47061c6e65f4aeba36b2b3d833700f5f"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1MsgFactory.html#a47061c6e65f4aeba36b2b3d833700f5f">CreateFailureReason</a> = <a class="el" href="namespacecomms.html#af61c1bae7a9edbfb7928fc2aed04c55c">MsgFactoryCreateFailureReason</a></td></tr>
+<tr class="memdesc:a47061c6e65f4aeba36b2b3d833700f5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reason for message creation failure. <br /></td></tr>
+<tr class="separator:a47061c6e65f4aeba36b2b3d833700f5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a908101d7ea919a5b491ffdcc1d5c8ddb"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1MsgFactory.html#a908101d7ea919a5b491ffdcc1d5c8ddb">GenericMessage</a> = typename ParsedOptions::GenericMessage</td></tr>
+<tr class="memdesc:a908101d7ea919a5b491ffdcc1d5c8ddb"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of generic message.  <a href="classcomms_1_1MsgFactory.html#a908101d7ea919a5b491ffdcc1d5c8ddb">More...</a><br /></td></tr>
+<tr class="separator:a908101d7ea919a5b491ffdcc1d5c8ddb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9752974bea52f5c1d0da9baccca19c08"><td class="memItemLeft" align="right" valign="top"><a id="a9752974bea52f5c1d0da9baccca19c08"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1MsgFactory.html#a9752974bea52f5c1d0da9baccca19c08">Message</a> = typename Base::Message</td></tr>
 <tr class="memdesc:a9752974bea52f5c1d0da9baccca19c08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the common base class of all the messages. <br /></td></tr>
@@ -145,7 +146,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a8c818022da2e8efbf3fd715951cc5c1b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcomms_1_1MsgFactory.html#adfa8fb1cd206c2fd25a97bd0a4e57cd7">MsgPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1MsgFactory.html#a8c818022da2e8efbf3fd715951cc5c1b">createGenericMsg</a> (<a class="el" href="classcomms_1_1MsgFactory.html#aabfb76e2cf3661edb7741d0a926d2da0">MsgIdParamType</a> id, unsigned idx=0U) const</td></tr>
 <tr class="memdesc:a8c818022da2e8efbf3fd715951cc5c1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate and initialise <a class="el" href="classcomms_1_1GenericMessage.html">comms::GenericMessage</a> object.  <a href="classcomms_1_1MsgFactory.html#a8c818022da2e8efbf3fd715951cc5c1b">More...</a><br /></td></tr>
 <tr class="separator:a8c818022da2e8efbf3fd715951cc5c1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b1ad877b2b4c26ed0e64675e0b245d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcomms_1_1MsgFactory.html#adfa8fb1cd206c2fd25a97bd0a4e57cd7">MsgPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1MsgFactory.html#a5b1ad877b2b4c26ed0e64675e0b245d3">createMsg</a> (<a class="el" href="classcomms_1_1MsgFactory.html#aabfb76e2cf3661edb7741d0a926d2da0">MsgIdParamType</a> id, unsigned idx=0U, <a class="el" href="classcomms_1_1MsgFactory.html#a30eb5aaaeec995982e2a2fb9bfe814fe">CreateFailureReason</a> *reason=nullptr) const</td></tr>
+<tr class="memitem:a5b1ad877b2b4c26ed0e64675e0b245d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcomms_1_1MsgFactory.html#adfa8fb1cd206c2fd25a97bd0a4e57cd7">MsgPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1MsgFactory.html#a5b1ad877b2b4c26ed0e64675e0b245d3">createMsg</a> (<a class="el" href="classcomms_1_1MsgFactory.html#aabfb76e2cf3661edb7741d0a926d2da0">MsgIdParamType</a> id, unsigned idx=0U, <a class="el" href="namespacecomms.html#af61c1bae7a9edbfb7928fc2aed04c55c">CreateFailureReason</a> *reason=nullptr) const</td></tr>
 <tr class="memdesc:a5b1ad877b2b4c26ed0e64675e0b245d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create message object given the ID of the message.  <a href="classcomms_1_1MsgFactory.html#a5b1ad877b2b4c26ed0e64675e0b245d3">More...</a><br /></td></tr>
 <tr class="separator:a5b1ad877b2b4c26ed0e64675e0b245d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b48fb5d596981572ccbaff84cc7d1af"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1MsgFactory.html#a4b48fb5d596981572ccbaff84cc7d1af">msgCount</a> (<a class="el" href="classcomms_1_1MsgFactory.html#aabfb76e2cf3661edb7741d0a926d2da0">MsgIdParamType</a> id) const</td></tr>
@@ -154,6 +155,17 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a9676173201c4c845c8be1dba6711eb94"><td class="memItemLeft" align="right" valign="top"><a id="a9676173201c4c845c8be1dba6711eb94"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1MsgFactory.html#a9676173201c4c845c8be1dba6711eb94">hasForcedDispatch</a> ()</td></tr>
+<tr class="memdesc:a9676173201c4c845c8be1dba6711eb94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry whether factory has forced dispatch method. <br /></td></tr>
+<tr class="separator:a9676173201c4c845c8be1dba6711eb94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31d6213bd0c8308f204f8b9979a54d4d"><td class="memItemLeft" align="right" valign="top"><a id="a31d6213bd0c8308f204f8b9979a54d4d"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1MsgFactory.html#a31d6213bd0c8308f204f8b9979a54d4d">hasGenericMessageSupport</a> ()</td></tr>
+<tr class="memdesc:a31d6213bd0c8308f204f8b9979a54d4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry whether factory supports <a class="el" href="classcomms_1_1GenericMessage.html">comms::GenericMessage</a> allocation. <br /></td></tr>
+<tr class="separator:a31d6213bd0c8308f204f8b9979a54d4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89a3821a454a302aee62b1495e659190"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1MsgFactory.html#a89a3821a454a302aee62b1495e659190">hasInPlaceAllocation</a> ()</td></tr>
+<tr class="memdesc:a89a3821a454a302aee62b1495e659190"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry whether factory supports in-place allocation.  <a href="classcomms_1_1MsgFactory.html#a89a3821a454a302aee62b1495e659190">More...</a><br /></td></tr>
+<tr class="separator:a89a3821a454a302aee62b1495e659190"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a845efd38ef0e7ecf3069c7912f44032f"><td class="memItemLeft" align="right" valign="top"><a id="a845efd38ef0e7ecf3069c7912f44032f"></a>
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1MsgFactory.html#a845efd38ef0e7ecf3069c7912f44032f">hasUniqueIds</a> ()</td></tr>
 <tr class="memdesc:a845efd38ef0e7ecf3069c7912f44032f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry whether all the message classes in the <b>TAllMessages</b> bundle have unique IDs. <br /></td></tr>
@@ -169,6 +181,25 @@ static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a clas
 <tr class="separator:a44b9375c3b500011e2a4045b1e84ba16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a908101d7ea919a5b491ffdcc1d5c8ddb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a908101d7ea919a5b491ffdcc1d5c8ddb">&#9670;&nbsp;</a></span>GenericMessage</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TMsgBase , typename TAllMessages , typename... TOptions&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classcomms_1_1MsgFactory.html">comms::MsgFactory</a>&lt; TMsgBase, TAllMessages, TOptions &gt;::<a class="el" href="classcomms_1_1MsgFactory.html#a908101d7ea919a5b491ffdcc1d5c8ddb">GenericMessage</a> =  typename ParsedOptions::GenericMessage</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>type of generic message. </p>
+<p>If supported a variant of <a class="el" href="classcomms_1_1GenericMessage.html">comms::GenericMessage</a>, <b>void</b> otherwise </p>
+
+</div>
+</div>
 <a id="adfa8fb1cd206c2fd25a97bd0a4e57cd7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adfa8fb1cd206c2fd25a97bd0a4e57cd7">&#9670;&nbsp;</a></span>MsgPtr</h2>
 
@@ -185,41 +216,6 @@ template&lt;typename TMsgBase , typename TAllMessages , typename... TOptions&gt;
 
 <p>Smart pointer to <a class="el" href="classcomms_1_1Message.html">Message</a> which holds allocated message object. </p>
 <p>It is a variant of std::unique_ptr, based on whether <a class="el" href="structcomms_1_1option_1_1app_1_1InPlaceAllocation.html">comms::option::app::InPlaceAllocation</a> option was used. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Enumeration Documentation</h2>
-<a id="a30eb5aaaeec995982e2a2fb9bfe814fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30eb5aaaeec995982e2a2fb9bfe814fe">&#9670;&nbsp;</a></span>CreateFailureReason</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename TMsgBase , typename TAllMessages , typename... TOptions&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="classcomms_1_1MsgFactory.html#a30eb5aaaeec995982e2a2fb9bfe814fe">comms::MsgFactory::CreateFailureReason</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a30eb5aaaeec995982e2a2fb9bfe814fea6adf97f83acf6453d4a6a4b1070f3754"></a>None&#160;</td><td class="fielddoc"><p>No reason. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a30eb5aaaeec995982e2a2fb9bfe814fead17cc4f1cee6075d7b5a9d48873d6041"></a>InvalidId&#160;</td><td class="fielddoc"><p>Invalid message id. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a30eb5aaaeec995982e2a2fb9bfe814fea0d8eeb3fc020c6669c92b4ff0e2e27ff"></a>AllocFailure&#160;</td><td class="fielddoc"><p>Allocation of the object has failied. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a30eb5aaaeec995982e2a2fb9bfe814fea0bb4f6beda4f34c57166e6c1e14eb6f7"></a>NumOfValues&#160;</td><td class="fielddoc"><p>Number of available values, must be last. </p>
-</td></tr>
-</table>
 
 </div>
 </div>
@@ -286,7 +282,7 @@ template&lt;typename TMsgBase , typename TAllMessages , typename... TOptions&gt;
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classcomms_1_1MsgFactory.html#a30eb5aaaeec995982e2a2fb9bfe814fe">CreateFailureReason</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacecomms.html#af61c1bae7a9edbfb7928fc2aed04c55c">CreateFailureReason</a> *&#160;</td>
           <td class="paramname"><em>reason</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
@@ -307,6 +303,36 @@ template&lt;typename TMsgBase , typename TAllMessages , typename... TOptions&gt;
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Smart pointer (variant of std::unique_ptr) to <a class="el" href="classcomms_1_1Message.html">Message</a> type, which is a common base class of all the messages (provided as first template parameter to this class). If <a class="el" href="structcomms_1_1option_1_1app_1_1InPlaceAllocation.html">comms::option::app::InPlaceAllocation</a> option was used and previously allocated message wasn't de-allocated yet, the empty (null) pointer will be returned. </dd></dl>
+
+</div>
+</div>
+<a id="a89a3821a454a302aee62b1495e659190"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89a3821a454a302aee62b1495e659190">&#9670;&nbsp;</a></span>hasInPlaceAllocation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TMsgBase , typename TAllMessages , typename... TOptions&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static constexpr bool <a class="el" href="classcomms_1_1MsgFactory.html">comms::MsgFactory</a>&lt; TMsgBase, TAllMessages, TOptions &gt;::hasInPlaceAllocation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compile time inquiry whether factory supports in-place allocation. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> in case of in-place allocation, <b>false</b> in case of dynamic memory use. </dd></dl>
 
 </div>
 </div>

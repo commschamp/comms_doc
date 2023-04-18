@@ -80,7 +80,6 @@ $(function() {
 , <a class="el" href="classcomms_1_1field_1_1EnumValue.html#a14c6a9997dbcc9e2f1efbcdf83128400">comms::field::EnumValue&lt; TFieldBase, TEnum, TOptions &gt;</a>
 , <a class="el" href="classcomms_1_1field_1_1FloatValue.html#ad2470d8e3298c679ce95920d447ad7f6">comms::field::FloatValue&lt; TFieldBase, T, TOptions &gt;</a>
 , <a class="el" href="classcomms_1_1field_1_1IntValue.html#a87d2b938f906c841d7cd633d2f366272">comms::field::IntValue&lt; TFieldBase, T, TOptions &gt;</a>
-, <a class="el" href="classcomms_1_1field_1_1NoValue.html#ab0c7a8197b8f6d9d4e878d044b8d879f">comms::field::NoValue&lt; TFieldBase &gt;</a>
 , <a class="el" href="classcomms_1_1field_1_1Optional.html#a8ff714dcbd091945c4518abd06422bce">comms::field::Optional&lt; TField, TOptions &gt;</a>
 , <a class="el" href="classcomms_1_1field_1_1String.html#ae3228609ded9266023190c4bd00705d9">comms::field::String&lt; TFieldBase, TOptions &gt;</a>
 , <a class="el" href="classcomms_1_1field_1_1Variant.html#a8b281a9850ae7d0f4ec722ca5f233351">comms::field::Variant&lt; TFieldBase, TMembers, TOptions &gt;</a>
@@ -115,7 +114,6 @@ $(function() {
 , <a class="el" href="classcomms_1_1field_1_1EnumValue.html#a9b130c1279d7c21ab9fb54ee8af051d8">comms::field::EnumValue&lt; TFieldBase, TEnum, TOptions &gt;</a>
 , <a class="el" href="classcomms_1_1field_1_1FloatValue.html#aba5b62e18c1ee33e528523185c5f5673">comms::field::FloatValue&lt; TFieldBase, T, TOptions &gt;</a>
 , <a class="el" href="classcomms_1_1field_1_1IntValue.html#a93f7f9659b7064638976fc4947032ce7">comms::field::IntValue&lt; TFieldBase, T, TOptions &gt;</a>
-, <a class="el" href="classcomms_1_1field_1_1NoValue.html#aced77f66a8dafea7257b824e6b76abc9">comms::field::NoValue&lt; TFieldBase &gt;</a>
 , <a class="el" href="classcomms_1_1field_1_1Optional.html#ae5522047eba16edf0baf65931505ad44">comms::field::Optional&lt; TField, TOptions &gt;</a>
 , <a class="el" href="classcomms_1_1field_1_1String.html#a4818a65212e7c92400a8295804ee7d12">comms::field::String&lt; TFieldBase, TOptions &gt;</a>
 , <a class="el" href="classcomms_1_1field_1_1Variant.html#ac9adcd40964b255cf50fddc115823c4f">comms::field::Variant&lt; TFieldBase, TMembers, TOptions &gt;</a>
@@ -144,8 +142,12 @@ $(function() {
 <li>MsgDispatcherTag
 : <a class="el" href="classcomms_1_1MsgDispatcher.html#a451e7ffad65566b60215980b3edb8ad8">comms::MsgDispatcher&lt; TOptions &gt;</a>
 </li>
+<li>MsgFactory
+: <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a6bd41c9b9eb7feae69742582ea930fef">comms::protocol::MsgDataLayer&lt; TExtraOpts &gt;</a>
+, <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#adf840b59ecdc8c3c9fbf3282615746bb">comms::protocol::ProtocolLayerBase&lt; TField, TNextLayer, TDerived, TOptions &gt;</a>
+</li>
 <li>MsgIdLayer()
-: <a class="el" href="classcomms_1_1protocol_1_1MsgIdLayer.html#a4df4fd1b818d780b4e0c7589aa01ea30">comms::protocol::MsgIdLayer&lt; TField, TMessage, TAllMessages, TNextLayer, TOptions &gt;</a>
+: <a class="el" href="classcomms_1_1protocol_1_1MsgIdLayer.html#a917e203e5507fb488191deba16f8e5e8">comms::protocol::MsgIdLayer&lt; TField, TMessage, TAllMessages, TNextLayer, TOptions &gt;</a>
 </li>
 <li>MsgIdParamType
 : <a class="el" href="classcomms_1_1GenericMessage.html#abc320f563eba25df652fc662a43bbaf7">comms::GenericMessage&lt; TMessage, TFieldOpts, TExtraOpts &gt;</a>
@@ -161,11 +163,14 @@ $(function() {
 </li>
 <li>MsgPtr
 : <a class="el" href="classcomms_1_1MsgFactory.html#adfa8fb1cd206c2fd25a97bd0a4e57cd7">comms::MsgFactory&lt; TMsgBase, TAllMessages, TOptions &gt;</a>
-, <a class="el" href="classcomms_1_1protocol_1_1MsgIdLayer.html#a561d5da49f0e700cdc109b68b9a30b3a">comms::protocol::MsgIdLayer&lt; TField, TMessage, TAllMessages, TNextLayer, TOptions &gt;</a>
+, <a class="el" href="classcomms_1_1protocol_1_1MsgIdLayer.html#a3444598e8ae44eaa5b09f11b694a1670">comms::protocol::MsgIdLayer&lt; TField, TMessage, TAllMessages, TNextLayer, TOptions &gt;</a>
 , <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a17b1b0d2a42427cb7c998a41c9aa3174">comms::protocol::ProtocolLayerBase&lt; TField, TNextLayer, TDerived, TOptions &gt;</a>
 </li>
 <li>MsgSizeLayer()
 : <a class="el" href="classcomms_1_1protocol_1_1MsgSizeLayer.html#afa8298abbcc4209c153848465149ad56">comms::protocol::MsgSizeLayer&lt; TField, TNextLayer, TOptions &gt;</a>
+</li>
+<li>MsgType
+: <a class="el" href="classcomms_1_1MessageBase.html#a7a6702f2f7aaf3a9bf9b241d660502ca">comms::MessageBase&lt; TMessage, TOptions &gt;</a>
 </li>
 </ul>
 </div><!-- contents -->

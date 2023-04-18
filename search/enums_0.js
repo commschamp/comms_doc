@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['createfailurereason_1906',['CreateFailureReason',['../classcomms_1_1MsgFactory.html#a30eb5aaaeec995982e2a2fb9bfe814fe',1,'comms::MsgFactory']]]
+  ['errorstatus_1994',['ErrorStatus',['../namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1',1,'comms']]]
 ];

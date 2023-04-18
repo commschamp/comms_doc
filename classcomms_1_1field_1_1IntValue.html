@@ -91,7 +91,7 @@ class comms::field::IntValue&lt; TFieldBase, T, TOptions &gt;</h3>
     <tr><td class="paramname">TOptions</td><td>Zero or more options that modify/refine default behaviour of the field. If no option is provided The field's value is serialised as is. <div class="fragment"><div class="line"><span class="keyword">using</span> MyFieldBase = <a class="code" href="classcomms_1_1Field.html">comms::Field&lt;comms::option::def::BigEndian&gt;</a>;</div>
 <div class="line"><span class="keyword">using</span> MyField =<a class="code" href="classcomms_1_1field_1_1IntValue.html">comms::field::IntValue&lt;MyFieldBase, std::uint16_t&gt;</a>;</div>
 <div class="ttc" id="aclasscomms_1_1Field_html"><div class="ttname"><a href="classcomms_1_1Field.html">comms::Field</a></div><div class="ttdoc">Base class to all the field classes.</div><div class="ttdef"><b>Definition:</b> Field.h:33</div></div>
-<div class="ttc" id="aclasscomms_1_1field_1_1IntValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1IntValue.html">comms::field::IntValue</a></div><div class="ttdoc">Field that represent integral value.</div><div class="ttdef"><b>Definition:</b> IntValue.h:73</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1IntValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1IntValue.html">comms::field::IntValue</a></div><div class="ttdoc">Field that represent integral value.</div><div class="ttdef"><b>Definition:</b> IntValue.h:72</div></div>
 </div><!-- fragment --> In the example above it will consume 2 bytes (because sizeof(std::uint16_t) == 2) and will be serialised using big endian notation.<br  />
  Supported options are: <ul>
 <li><a class="el" href="structcomms_1_1option_1_1def_1_1FixedLength.html">comms::option::def::FixedLength</a> </li>
@@ -129,10 +129,10 @@ Inheritance diagram for comms::field::IntValue&lt; TFieldBase, T, TOptions &gt;:
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a46778632dff7f58d9961fd3dcaea2b3b"><td class="memItemLeft" align="right" valign="top"><a id="a46778632dff7f58d9961fd3dcaea2b3b"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1IntValue.html#a46778632dff7f58d9961fd3dcaea2b3b">CommsTag</a> = tag::Int</td></tr>
-<tr class="memdesc:a46778632dff7f58d9961fd3dcaea2b3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tag indicating type of the field. <br /></td></tr>
-<tr class="separator:a46778632dff7f58d9961fd3dcaea2b3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a269a1fe5990ed87d3cd31596d5234d4c"><td class="memItemLeft" align="right" valign="top"><a id="a269a1fe5990ed87d3cd31596d5234d4c"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1IntValue.html#a269a1fe5990ed87d3cd31596d5234d4c">CommsTag</a> = typename BaseImpl::CommsTag</td></tr>
+<tr class="memdesc:a269a1fe5990ed87d3cd31596d5234d4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tag indicating type of the field. <br /></td></tr>
+<tr class="separator:a269a1fe5990ed87d3cd31596d5234d4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3422525d6881ba95f7242a85f834225"><td class="memItemLeft" align="right" valign="top"><a id="ae3422525d6881ba95f7242a85f834225"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1IntValue.html#ae3422525d6881ba95f7242a85f834225">Endian</a> = typename BaseImpl::Endian</td></tr>
 <tr class="memdesc:ae3422525d6881ba95f7242a85f834225"><td class="mdescLeft">&#160;</td><td class="mdescRight">Endian used for serialisation. <br /></td></tr>
@@ -141,10 +141,22 @@ using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1IntValue.html#aa824113c325490deed713bce6d9ff76e">FieldBase</a> = TFieldBase</td></tr>
 <tr class="memdesc:aa824113c325490deed713bce6d9ff76e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class provided in the first template parameter. <br /></td></tr>
 <tr class="separator:aa824113c325490deed713bce6d9ff76e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3dfb54f69aa3c14ef9ddf721fdf80936"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1IntValue.html#a3dfb54f69aa3c14ef9ddf721fdf80936">FieldType</a> = typename ParsedOptions::FieldType</td></tr>
+<tr class="memdesc:a3dfb54f69aa3c14ef9ddf721fdf80936"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of actual extending field specified via <a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a>.  <a href="classcomms_1_1field_1_1IntValue.html#a3dfb54f69aa3c14ef9ddf721fdf80936">More...</a><br /></td></tr>
+<tr class="separator:a3dfb54f69aa3c14ef9ddf721fdf80936"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17fa4e02a0eb889c386c10a1afd1ff65"><td class="memItemLeft" align="right" valign="top"><a id="a17fa4e02a0eb889c386c10a1afd1ff65"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1IntValue.html#a17fa4e02a0eb889c386c10a1afd1ff65">ParsedOptions</a> = details::OptionsParser&lt; TOptions... &gt;</td></tr>
 <tr class="memdesc:a17fa4e02a0eb889c386c10a1afd1ff65"><td class="mdescLeft">&#160;</td><td class="mdescRight">All the options provided to this class bundled into struct. <br /></td></tr>
 <tr class="separator:a17fa4e02a0eb889c386c10a1afd1ff65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b73e5c76588d4da45caad9eb678a9e4"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1IntValue.html#a6b73e5c76588d4da45caad9eb678a9e4">ScalingRatio</a> = typename ParsedOptions::ScalingRatio</td></tr>
+<tr class="memdesc:a6b73e5c76588d4da45caad9eb678a9e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scaling ratio defined by the <a class="el" href="structcomms_1_1option_1_1def_1_1ScalingRatio.html">comms::option::def::ScalingRatio</a> option.  <a href="classcomms_1_1field_1_1IntValue.html#a6b73e5c76588d4da45caad9eb678a9e4">More...</a><br /></td></tr>
+<tr class="separator:a6b73e5c76588d4da45caad9eb678a9e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d5ccbe4f8661b0d3a6539ba668265af"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1IntValue.html#a7d5ccbe4f8661b0d3a6539ba668265af">UnitsRatio</a> = typename ParsedOptions::UnitsRatio</td></tr>
+<tr class="memdesc:a7d5ccbe4f8661b0d3a6539ba668265af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scaling ratio determined by the forced units via the <b><a class="el" href="structcomms_1_1option_1_1def_1_1Units.html" title="Options to specify units of the field.">comms::option::def::Units</a>*</b> option.  <a href="classcomms_1_1field_1_1IntValue.html#a7d5ccbe4f8661b0d3a6539ba668265af">More...</a><br /></td></tr>
+<tr class="separator:a7d5ccbe4f8661b0d3a6539ba668265af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a20b1192e1588dbfb733a3102617cc1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1IntValue.html#a4a20b1192e1588dbfb733a3102617cc1">UnitsType</a> = typename ParsedOptions::UnitsType</td></tr>
+<tr class="memdesc:a4a20b1192e1588dbfb733a3102617cc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Units type defined by any of the <b><a class="el" href="structcomms_1_1option_1_1def_1_1Units.html" title="Options to specify units of the field.">comms::option::def::Units</a>*</b> option.  <a href="classcomms_1_1field_1_1IntValue.html#a4a20b1192e1588dbfb733a3102617cc1">More...</a><br /></td></tr>
+<tr class="separator:a4a20b1192e1588dbfb733a3102617cc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a72f169069219478bd2c6bce26e8809"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1IntValue.html#a0a72f169069219478bd2c6bce26e8809">ValueType</a> = typename BaseImpl::ValueType</td></tr>
 <tr class="memdesc:a0a72f169069219478bd2c6bce26e8809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of underlying integral value.  <a href="classcomms_1_1field_1_1IntValue.html#a0a72f169069219478bd2c6bce26e8809">More...</a><br /></td></tr>
 <tr class="separator:a0a72f169069219478bd2c6bce26e8809"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -250,6 +262,22 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a07c7bd49761eeb71e159d49818cd09f0"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1Field.html#a07c7bd49761eeb71e159d49818cd09f0">canWrite</a> ()</td></tr>
 <tr class="memdesc:a07c7bd49761eeb71e159d49818cd09f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default check of whether the field has a consistent value for writing.  <a href="classcomms_1_1Field.html#a07c7bd49761eeb71e159d49818cd09f0">More...</a><br /></td></tr>
 <tr class="separator:a07c7bd49761eeb71e159d49818cd09f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9075125aa328707c778669214d266d81"><td class="memItemLeft" align="right" valign="top"><a id="a9075125aa328707c778669214d266d81"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1IntValue.html#a9075125aa328707c778669214d266d81">hasEmptySerialization</a> ()</td></tr>
+<tr class="memdesc:a9075125aa328707c778669214d266d81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1EmptySerialization.html">comms::option::def::EmptySerialization</a> option has been used. <br /></td></tr>
+<tr class="separator:a9075125aa328707c778669214d266d81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1925b84ad15ddc7193fd48ba0f2fdd3d"><td class="memItemLeft" align="right" valign="top"><a id="a1925b84ad15ddc7193fd48ba0f2fdd3d"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1IntValue.html#a1925b84ad15ddc7193fd48ba0f2fdd3d">hasFailOnInvalid</a> ()</td></tr>
+<tr class="memdesc:a1925b84ad15ddc7193fd48ba0f2fdd3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1FailOnInvalid.html">comms::option::def::FailOnInvalid</a> option has been used. <br /></td></tr>
+<tr class="separator:a1925b84ad15ddc7193fd48ba0f2fdd3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15cecdc4359eaf503a4445026af12b7b"><td class="memItemLeft" align="right" valign="top"><a id="a15cecdc4359eaf503a4445026af12b7b"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1IntValue.html#a15cecdc4359eaf503a4445026af12b7b">hasFieldType</a> ()</td></tr>
+<tr class="memdesc:a15cecdc4359eaf503a4445026af12b7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a> option has been used. <br /></td></tr>
+<tr class="separator:a15cecdc4359eaf503a4445026af12b7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53710800fe1bd767d5766b028823ddcd"><td class="memItemLeft" align="right" valign="top"><a id="a53710800fe1bd767d5766b028823ddcd"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1IntValue.html#a53710800fe1bd767d5766b028823ddcd">hasIgnoreInvalid</a> ()</td></tr>
+<tr class="memdesc:a53710800fe1bd767d5766b028823ddcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1IgnoreInvalid.html">comms::option::def::IgnoreInvalid</a> option has been used. <br /></td></tr>
+<tr class="separator:a53710800fe1bd767d5766b028823ddcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad212c9320134974f3c77e3406f8d0a86"><td class="memItemLeft" align="right" valign="top"><a id="ad212c9320134974f3c77e3406f8d0a86"></a>
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1IntValue.html#ad212c9320134974f3c77e3406f8d0a86">hasNonDefaultRefresh</a> ()</td></tr>
 <tr class="memdesc:ad212c9320134974f3c77e3406f8d0a86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time check if this class has non-default refresh functionality. <br /></td></tr>
@@ -258,6 +286,18 @@ static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a clas
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1IntValue.html#aaad7bdd6858e2a94f57d1d5ba2af7300">hasReadNoStatus</a> ()</td></tr>
 <tr class="memdesc:aaad7bdd6858e2a94f57d1d5ba2af7300"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time check of whether the field has <b>proper</b> <a class="el" href="classcomms_1_1field_1_1IntValue.html#a887dc7333974577acb418cbebefe3a60">readNoStatus()</a> member function. <br /></td></tr>
 <tr class="separator:aaad7bdd6858e2a94f57d1d5ba2af7300"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47cec1de08d769c719e956810b1393d1"><td class="memItemLeft" align="right" valign="top"><a id="a47cec1de08d769c719e956810b1393d1"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1IntValue.html#a47cec1de08d769c719e956810b1393d1">hasScaling</a> ()</td></tr>
+<tr class="memdesc:a47cec1de08d769c719e956810b1393d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether scaling ratio has been provided via <a class="el" href="structcomms_1_1option_1_1def_1_1ScalingRatio.html">comms::option::def::ScalingRatio</a> option. <br /></td></tr>
+<tr class="separator:a47cec1de08d769c719e956810b1393d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4f8a5e62199cd308e6381ee21887c03"><td class="memItemLeft" align="right" valign="top"><a id="ad4f8a5e62199cd308e6381ee21887c03"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1IntValue.html#ad4f8a5e62199cd308e6381ee21887c03">hasUnits</a> ()</td></tr>
+<tr class="memdesc:ad4f8a5e62199cd308e6381ee21887c03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether units have been set via any of the <b><a class="el" href="structcomms_1_1option_1_1def_1_1Units.html" title="Options to specify units of the field.">comms::option::def::Units</a>*</b> options. <br /></td></tr>
+<tr class="separator:ad4f8a5e62199cd308e6381ee21887c03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afac70c6bc6a7d5d2ae96e2a231586f43"><td class="memItemLeft" align="right" valign="top"><a id="afac70c6bc6a7d5d2ae96e2a231586f43"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1IntValue.html#afac70c6bc6a7d5d2ae96e2a231586f43">hasVarLength</a> ()</td></tr>
+<tr class="memdesc:afac70c6bc6a7d5d2ae96e2a231586f43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1VarLength.html">comms::option::def::VarLength</a> option has been used. <br /></td></tr>
+<tr class="separator:afac70c6bc6a7d5d2ae96e2a231586f43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b3240af494d1050208bb42bfe043985"><td class="memItemLeft" align="right" valign="top"><a id="a4b3240af494d1050208bb42bfe043985"></a>
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1IntValue.html#a4b3240af494d1050208bb42bfe043985">hasWriteNoStatus</a> ()</td></tr>
 <tr class="memdesc:a4b3240af494d1050208bb42bfe043985"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time check of whether the field has <b>proper</b> <a class="el" href="classcomms_1_1field_1_1IntValue.html#ae4a5b48483771d7d31954694567bba4e">writeNoStatus()</a> member function. <br /></td></tr>
@@ -335,6 +375,82 @@ template&lt;typename TFieldBase , typename T , typename... TOptions&gt; </td></t
 <tr class="separator:a1fd79a793b51f0a43e601f81673e2b22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a3dfb54f69aa3c14ef9ddf721fdf80936"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dfb54f69aa3c14ef9ddf721fdf80936">&#9670;&nbsp;</a></span>FieldType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TFieldBase , typename T , typename... TOptions&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classcomms_1_1field_1_1IntValue.html">comms::field::IntValue</a>&lt; TFieldBase, T, TOptions &gt;::<a class="el" href="classcomms_1_1field_1_1IntValue.html#a3dfb54f69aa3c14ef9ddf721fdf80936">FieldType</a> =  typename ParsedOptions::FieldType</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Type of actual extending field specified via <a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a>. </p>
+<p><b>void</b> if <a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a> hasn't been applied. </p>
+
+</div>
+</div>
+<a id="a6b73e5c76588d4da45caad9eb678a9e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b73e5c76588d4da45caad9eb678a9e4">&#9670;&nbsp;</a></span>ScalingRatio</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TFieldBase , typename T , typename... TOptions&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classcomms_1_1field_1_1IntValue.html">comms::field::IntValue</a>&lt; TFieldBase, T, TOptions &gt;::<a class="el" href="classcomms_1_1field_1_1IntValue.html#a6b73e5c76588d4da45caad9eb678a9e4">ScalingRatio</a> =  typename ParsedOptions::ScalingRatio</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Scaling ratio defined by the <a class="el" href="structcomms_1_1option_1_1def_1_1ScalingRatio.html">comms::option::def::ScalingRatio</a> option. </p>
+<p>Equals to <b>std::ratio&lt;1, 1&gt;</b> if the option hasn't been used </p>
+
+</div>
+</div>
+<a id="a7d5ccbe4f8661b0d3a6539ba668265af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d5ccbe4f8661b0d3a6539ba668265af">&#9670;&nbsp;</a></span>UnitsRatio</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TFieldBase , typename T , typename... TOptions&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classcomms_1_1field_1_1IntValue.html">comms::field::IntValue</a>&lt; TFieldBase, T, TOptions &gt;::<a class="el" href="classcomms_1_1field_1_1IntValue.html#a7d5ccbe4f8661b0d3a6539ba668265af">UnitsRatio</a> =  typename ParsedOptions::UnitsRatio</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Scaling ratio determined by the forced units via the <b><a class="el" href="structcomms_1_1option_1_1def_1_1Units.html" title="Options to specify units of the field.">comms::option::def::Units</a>*</b> option. </p>
+<p>Equals to <b>std::ratio&lt;1, 1&gt;</b> if the option hasn't been used. </p>
+
+</div>
+</div>
+<a id="a4a20b1192e1588dbfb733a3102617cc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a20b1192e1588dbfb733a3102617cc1">&#9670;&nbsp;</a></span>UnitsType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TFieldBase , typename T , typename... TOptions&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classcomms_1_1field_1_1IntValue.html">comms::field::IntValue</a>&lt; TFieldBase, T, TOptions &gt;::<a class="el" href="classcomms_1_1field_1_1IntValue.html#a4a20b1192e1588dbfb733a3102617cc1">UnitsType</a> =  typename ParsedOptions::UnitsType</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Units type defined by any of the <b><a class="el" href="structcomms_1_1option_1_1def_1_1Units.html" title="Options to specify units of the field.">comms::option::def::Units</a>*</b> option. </p>
+<p>Aliased to <b>void</b> if no relevant options is used. </p>
+
+</div>
+</div>
 <a id="a0a72f169069219478bd2c6bce26e8809"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0a72f169069219478bd2c6bce26e8809">&#9670;&nbsp;</a></span>ValueType</h2>
 

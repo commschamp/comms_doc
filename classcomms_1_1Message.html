@@ -135,9 +135,8 @@ Public Types</h2></td></tr>
 <tr class="memitem:a30b17e6aee609c0bb061556f4a0979bb"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1Message.html#a30b17e6aee609c0bb061556f4a0979bb">Handler</a> = TypeProvidedWithOption</td></tr>
 <tr class="memdesc:a30b17e6aee609c0bb061556f4a0979bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the message handler object.  <a href="classcomms_1_1Message.html#a30b17e6aee609c0bb061556f4a0979bb">More...</a><br /></td></tr>
 <tr class="separator:a30b17e6aee609c0bb061556f4a0979bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a666cf5c4acf17424d67be09c13212c25"><td class="memItemLeft" align="right" valign="top"><a id="a666cf5c4acf17424d67be09c13212c25"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1Message.html#a666cf5c4acf17424d67be09c13212c25">InterfaceOptions</a> = details::MessageInterfaceOptionsParser&lt; TOptions... &gt;</td></tr>
-<tr class="memdesc:a666cf5c4acf17424d67be09c13212c25"><td class="mdescLeft">&#160;</td><td class="mdescRight">All the options bundled into struct. <br /></td></tr>
+<tr class="memitem:a666cf5c4acf17424d67be09c13212c25"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1Message.html#a666cf5c4acf17424d67be09c13212c25">InterfaceOptions</a> = details::MessageInterfaceOptionsParser&lt; TOptions... &gt;</td></tr>
+<tr class="memdesc:a666cf5c4acf17424d67be09c13212c25"><td class="mdescLeft">&#160;</td><td class="mdescRight">All the options bundled into struct.  <a href="classcomms_1_1Message.html#a666cf5c4acf17424d67be09c13212c25">More...</a><br /></td></tr>
 <tr class="separator:a666cf5c4acf17424d67be09c13212c25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa99780161941773e6bbe2767675c4a03"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1Message.html#aa99780161941773e6bbe2767675c4a03">MsgIdParamType</a> = typename BaseImpl::MsgIdParamType</td></tr>
 <tr class="memdesc:aa99780161941773e6bbe2767675c4a03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type used for message ID passed as parameter or returned from function.  <a href="classcomms_1_1Message.html#aa99780161941773e6bbe2767675c4a03">More...</a><br /></td></tr>
@@ -250,6 +249,9 @@ static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a clas
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1Message.html#aa7a317a10acda2cd7affd8b69a7b459a">hasWrite</a> ()</td></tr>
 <tr class="memdesc:aa7a317a10acda2cd7affd8b69a7b459a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile type inquiry whether message interface class defines <a class="el" href="classcomms_1_1Message.html#ac861cf1ef73973117f7842e567b05a13">write()</a> and <a class="el" href="classcomms_1_1Message.html#ae7ae2afc3e5059b9728644dd7034f817">writeImpl()</a> member functions as well as <a class="el" href="classcomms_1_1Message.html#aee6698a41e3975ed6047dac727fe9a0c">WriteIterator</a> type. <br /></td></tr>
 <tr class="separator:aa7a317a10acda2cd7affd8b69a7b459a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d74062683710d3e3807937227a99318"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1Message.html#a1d74062683710d3e3807937227a99318">versionIdxInTransportFields</a> ()</td></tr>
+<tr class="memdesc:a1d74062683710d3e3807937227a99318"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile type inquiry of version field index in transport field.  <a href="classcomms_1_1Message.html#a1d74062683710d3e3807937227a99318">More...</a><br /></td></tr>
+<tr class="separator:a1d74062683710d3e3807937227a99318"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -388,6 +390,25 @@ template&lt;typename... TOptions&gt; </div>
 
 <p>Type of the message handler object. </p>
 <p>The type exists only if <a class="el" href="structcomms_1_1option_1_1app_1_1Handler.html">comms::option::app::Handler</a> option was provided to <a class="el" href="classcomms_1_1Message.html" title="Main interface class for all the messages.">comms::Message</a> to specify one. </p>
+
+</div>
+</div>
+<a id="a666cf5c4acf17424d67be09c13212c25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a666cf5c4acf17424d67be09c13212c25">&#9670;&nbsp;</a></span>InterfaceOptions</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... TOptions&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classcomms_1_1Message.html">comms::Message</a>&lt; TOptions &gt;::<a class="el" href="classcomms_1_1Message.html#a666cf5c4acf17424d67be09c13212c25">InterfaceOptions</a> =  details::MessageInterfaceOptionsParser&lt;TOptions...&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>All the options bundled into struct. </p>
+<p>For internal use only. </p>
 
 </div>
 </div>
@@ -1163,6 +1184,37 @@ template&lt;typename... TOptions&gt; </div>
 
 </div>
 </div>
+<a id="a1d74062683710d3e3807937227a99318"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d74062683710d3e3807937227a99318">&#9670;&nbsp;</a></span>versionIdxInTransportFields()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... TOptions&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static constexpr std::size_t <a class="el" href="classcomms_1_1Message.html">comms::Message</a>&lt; TOptions &gt;::versionIdxInTransportFields </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compile type inquiry of version field index in transport field. </p>
+<p>If <a class="el" href="structcomms_1_1option_1_1def_1_1VersionInExtraTransportFields.html">comms::option::def::VersionInExtraTransportFields</a> option hasn't been used, the <b>std::numeric_limits&lt;std::size_t&gt;::max()</b> is returned. <br  />
+ </p>
+
+</div>
+</div>
 <a id="ac861cf1ef73973117f7842e567b05a13"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac861cf1ef73973117f7842e567b05a13">&#9670;&nbsp;</a></span>write()</h2>
 
@@ -1414,7 +1466,7 @@ template&lt;typename... TOptions&gt; </div>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">    COMMS_EXPAND(<a class="code" href="classcomms_1_1Message.html#a33954a8d8c1b0e04175ada3e840bcb83">COMMS_MSG_TRANSPORT_FIELD_ALIAS_ACCESS</a>(f_, __VA_ARGS__)) \</div>
 <div class="line">    COMMS_EXPAND(COMMS_DO_ALIAS_TYPEDEF(TransportField_, f_, __VA_ARGS__))</div>
-<div class="ttc" id="aclasscomms_1_1Message_html_a33954a8d8c1b0e04175ada3e840bcb83"><div class="ttname"><a href="classcomms_1_1Message.html#a33954a8d8c1b0e04175ada3e840bcb83">comms::Message::COMMS_MSG_TRANSPORT_FIELD_ALIAS_ACCESS</a></div><div class="ttdeci">#define COMMS_MSG_TRANSPORT_FIELD_ALIAS_ACCESS(f_,...)</div><div class="ttdoc">Generate convinience alias access member functions for extra member transport fields.</div><div class="ttdef"><b>Definition:</b> Message.h:724</div></div>
+<div class="ttc" id="aclasscomms_1_1Message_html_a33954a8d8c1b0e04175ada3e840bcb83"><div class="ttname"><a href="classcomms_1_1Message.html#a33954a8d8c1b0e04175ada3e840bcb83">comms::Message::COMMS_MSG_TRANSPORT_FIELD_ALIAS_ACCESS</a></div><div class="ttdeci">#define COMMS_MSG_TRANSPORT_FIELD_ALIAS_ACCESS(f_,...)</div><div class="ttdoc">Generate convinience alias access member functions for extra member transport fields.</div><div class="ttdef"><b>Definition:</b> Message.h:733</div></div>
 </div><!-- fragment -->
 <p>Generate convinience alias access member functions for extra member transport fields. </p>
 <p>The <a class="el" href="classcomms_1_1Message.html#a00912bb201d47afbb0c3e51fff95b338">COMMS_MSG_TRANSPORT_FIELDS_NAMES()</a> macro generates alias type as well as convenience access member functions for extra transport fields. Sometimes the fields may get renamed or moved to be a member of other fields, like <a class="el" href="classcomms_1_1field_1_1Bundle.html">comms::field::Bundle</a> or <a class="el" href="classcomms_1_1field_1_1Bitfield.html">comms::field::Bitfield</a>. In such case the compilation of the existing client code (that already uses published protocol definition) may fail. To avoid such scenarios and make the transition to newer versions of the protocol easier, the <a class="el" href="classcomms_1_1Message.html#adfa416afa2a8a77af9c46b42d3034f3e">COMMS_MSG_TRANSPORT_FIELD_ALIAS()</a> macro can be used to create alias to other fields. For example, let's assume that some common interface class was defined: like this. </p><div class="fragment"><div class="line"><span class="keyword">class </span>MyInterface : <span class="keyword">public</span> <a class="code" href="classcomms_1_1Message.html">comms::Message</a>&lt;...&gt;</div>
@@ -1425,7 +1477,7 @@ template&lt;typename... TOptions&gt; </div>
 <div class="line">    <a class="code" href="classcomms_1_1Message.html#a00912bb201d47afbb0c3e51fff95b338">COMMS_MSG_TRANSPORT_FIELDS_NAMES</a>(name1, name2, name3);</div>
 <div class="line">};</div>
 <div class="ttc" id="aclasscomms_1_1Message_html"><div class="ttname"><a href="classcomms_1_1Message.html">comms::Message</a></div><div class="ttdoc">Main interface class for all the messages.</div><div class="ttdef"><b>Definition:</b> Message.h:80</div></div>
-<div class="ttc" id="aclasscomms_1_1Message_html_a00912bb201d47afbb0c3e51fff95b338"><div class="ttname"><a href="classcomms_1_1Message.html#a00912bb201d47afbb0c3e51fff95b338">comms::Message::COMMS_MSG_TRANSPORT_FIELDS_NAMES</a></div><div class="ttdeci">#define COMMS_MSG_TRANSPORT_FIELDS_NAMES(...)</div><div class="ttdoc">Provide names for extra transport fields.</div><div class="ttdef"><b>Definition:</b> Message.h:707</div></div>
+<div class="ttc" id="aclasscomms_1_1Message_html_a00912bb201d47afbb0c3e51fff95b338"><div class="ttname"><a href="classcomms_1_1Message.html#a00912bb201d47afbb0c3e51fff95b338">comms::Message::COMMS_MSG_TRANSPORT_FIELDS_NAMES</a></div><div class="ttdeci">#define COMMS_MSG_TRANSPORT_FIELDS_NAMES(...)</div><div class="ttdoc">Provide names for extra transport fields.</div><div class="ttdef"><b>Definition:</b> Message.h:716</div></div>
 </div><!-- fragment --><p> In the future versions of the protocol "name3" was renamed to "newName3". To keep the existing code (that uses "name3" name) compiling it is possible to create an alias access function(s) with: </p><div class="fragment"><div class="line"><span class="keyword">class </span>MyInterface : <span class="keyword">public</span> <span class="keyword">public</span> <a class="code" href="classcomms_1_1Message.html">comms::Message</a>&lt;...&gt;</div>
 <div class="line">{</div>
 <div class="line">    <span class="keyword">using</span> Base = <a class="code" href="classcomms_1_1Message.html">comms::Message</a>&lt;...&gt;;</div>
@@ -1433,7 +1485,7 @@ template&lt;typename... TOptions&gt; </div>
 <div class="line">    <a class="code" href="classcomms_1_1Message.html#a00912bb201d47afbb0c3e51fff95b338">COMMS_MSG_TRANSPORT_FIELDS_NAMES</a>(name1, name2, newName3);</div>
 <div class="line">    <a class="code" href="classcomms_1_1Message.html#adfa416afa2a8a77af9c46b42d3034f3e">COMMS_MSG_TRANSPORT_FIELD_ALIAS</a>(name3, newName3);</div>
 <div class="line">};</div>
-<div class="ttc" id="aclasscomms_1_1Message_html_adfa416afa2a8a77af9c46b42d3034f3e"><div class="ttname"><a href="classcomms_1_1Message.html#adfa416afa2a8a77af9c46b42d3034f3e">comms::Message::COMMS_MSG_TRANSPORT_FIELD_ALIAS</a></div><div class="ttdeci">#define COMMS_MSG_TRANSPORT_FIELD_ALIAS(f_,...)</div><div class="ttdoc">Generate convinience alias access member functions for extra member transport fields.</div><div class="ttdef"><b>Definition:</b> Message.h:836</div></div>
+<div class="ttc" id="aclasscomms_1_1Message_html_adfa416afa2a8a77af9c46b42d3034f3e"><div class="ttname"><a href="classcomms_1_1Message.html#adfa416afa2a8a77af9c46b42d3034f3e">comms::Message::COMMS_MSG_TRANSPORT_FIELD_ALIAS</a></div><div class="ttdeci">#define COMMS_MSG_TRANSPORT_FIELD_ALIAS(f_,...)</div><div class="ttdoc">Generate convinience alias access member functions for extra member transport fields.</div><div class="ttdef"><b>Definition:</b> Message.h:845</div></div>
 </div><!-- fragment --><p> The usage of <a class="el" href="classcomms_1_1Message.html#adfa416afa2a8a77af9c46b42d3034f3e">COMMS_MSG_TRANSPORT_FIELD_ALIAS()</a> in the code above is equivalent to having the following type and functions defined: </p><div class="fragment"><div class="line"><span class="keyword">class </span>MyInterface : <span class="keyword">public</span> <span class="keyword">public</span> <a class="code" href="classcomms_1_1Message.html">comms::Message</a>&lt;...&gt;</div>
 <div class="line">{</div>
 <div class="line"><span class="keyword">public</span>:</div>
@@ -1580,9 +1632,9 @@ template&lt;typename... TOptions&gt; </div>
 <div class="line">        return <a class="code" href="namespacecomms.html#a6cfdaf9bcb9780874bac5b1f69601f6d">comms::toMessage</a>(*this).transportFields(); \</div>
 <div class="line">    } \</div>
 <div class="line">    COMMS_EXPAND(COMMS_DO_TRANSPORT_FIELD_ACC_FUNC(<a class="code" href="classcomms_1_1Message.html#a1a7c7b92d38774a038fbdedb3e0f99cc">TransportFields</a>, <a class="code" href="classcomms_1_1Message.html#a6da7116040cb3e35912aa4b82a2a66b1">transportFields</a>(), __VA_ARGS__))</div>
-<div class="ttc" id="aclasscomms_1_1Message_html_a1a7c7b92d38774a038fbdedb3e0f99cc"><div class="ttname"><a href="classcomms_1_1Message.html#a1a7c7b92d38774a038fbdedb3e0f99cc">comms::Message::TransportFields</a></div><div class="ttdeci">FieldsProvidedWithOption TransportFields</div><div class="ttdoc">std::tuple of extra fields from transport layers that may affect the way the message fields get seria...</div><div class="ttdef"><b>Definition:</b> Message.h:316</div></div>
+<div class="ttc" id="aclasscomms_1_1Message_html_a1a7c7b92d38774a038fbdedb3e0f99cc"><div class="ttname"><a href="classcomms_1_1Message.html#a1a7c7b92d38774a038fbdedb3e0f99cc">comms::Message::TransportFields</a></div><div class="ttdeci">FieldsProvidedWithOption TransportFields</div><div class="ttdoc">std::tuple of extra fields from transport layers that may affect the way the message fields get seria...</div><div class="ttdef"><b>Definition:</b> Message.h:325</div></div>
 <div class="ttc" id="aclasscomms_1_1Message_html_a6da7116040cb3e35912aa4b82a2a66b1"><div class="ttname"><a href="classcomms_1_1Message.html#a6da7116040cb3e35912aa4b82a2a66b1">comms::Message::transportFields</a></div><div class="ttdeci">TransportFields &amp; transportFields()</div><div class="ttdoc">Get access to extra transport fields.</div></div>
-<div class="ttc" id="anamespacecomms_html_a6cfdaf9bcb9780874bac5b1f69601f6d"><div class="ttname"><a href="namespacecomms.html#a6cfdaf9bcb9780874bac5b1f69601f6d">comms::toMessage</a></div><div class="ttdeci">Message&lt; TOptions... &gt; &amp; toMessage(Message&lt; TOptions... &gt; &amp;msg)</div><div class="ttdoc">Upcast type of the message object to comms::Message in order to have access to its internal types.</div><div class="ttdef"><b>Definition:</b> Message.h:515</div></div>
+<div class="ttc" id="anamespacecomms_html_a6cfdaf9bcb9780874bac5b1f69601f6d"><div class="ttname"><a href="namespacecomms.html#a6cfdaf9bcb9780874bac5b1f69601f6d">comms::toMessage</a></div><div class="ttdeci">Message&lt; TOptions... &gt; &amp; toMessage(Message&lt; TOptions... &gt; &amp;msg)</div><div class="ttdoc">Upcast type of the message object to comms::Message in order to have access to its internal types.</div><div class="ttdef"><b>Definition:</b> Message.h:524</div></div>
 </div><!-- fragment -->
 <p>Add convenience access enum and functions to extra transport fields. </p>
 <p>Very similar to <a class="el" href="classcomms_1_1Message.html#a00912bb201d47afbb0c3e51fff95b338">COMMS_MSG_TRANSPORT_FIELDS_NAMES()</a>, but does <b>NOT</b> require definition of <b>Base</b> inner member type (for some compilers) and does <b>NOT</b> define inner <b>TransportField_*</b> types for used fields. </p><dl class="params"><dt>Parameters</dt><dd>
@@ -1623,7 +1675,7 @@ template&lt;typename... TOptions&gt; </div>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">    COMMS_EXPAND(<a class="code" href="classcomms_1_1Message.html#ada784673f02d483a88fcf0c451cb72bd">COMMS_MSG_TRANSPORT_FIELDS_ACCESS</a>(__VA_ARGS__)) \</div>
 <div class="line">    COMMS_EXPAND(COMMS_DO_FIELD_TYPEDEF(<span class="keyword">typename</span> Base::TransportFields, TransportField_, TransportFieldIdx_, __VA_ARGS__))</div>
-<div class="ttc" id="aclasscomms_1_1Message_html_ada784673f02d483a88fcf0c451cb72bd"><div class="ttname"><a href="classcomms_1_1Message.html#ada784673f02d483a88fcf0c451cb72bd">comms::Message::COMMS_MSG_TRANSPORT_FIELDS_ACCESS</a></div><div class="ttdeci">#define COMMS_MSG_TRANSPORT_FIELDS_ACCESS(...)</div><div class="ttdoc">Add convenience access enum and functions to extra transport fields.</div><div class="ttdef"><b>Definition:</b> Message.h:566</div></div>
+<div class="ttc" id="aclasscomms_1_1Message_html_ada784673f02d483a88fcf0c451cb72bd"><div class="ttname"><a href="classcomms_1_1Message.html#ada784673f02d483a88fcf0c451cb72bd">comms::Message::COMMS_MSG_TRANSPORT_FIELDS_ACCESS</a></div><div class="ttdeci">#define COMMS_MSG_TRANSPORT_FIELDS_ACCESS(...)</div><div class="ttdoc">Add convenience access enum and functions to extra transport fields.</div><div class="ttdef"><b>Definition:</b> Message.h:575</div></div>
 </div><!-- fragment -->
 <p>Provide names for extra transport fields. </p>
 <p>The <a class="el" href="classcomms_1_1Message.html" title="Main interface class for all the messages.">comms::Message</a> class provides access to its extra transport fields via <a class="el" href="classcomms_1_1Message.html#a6da7116040cb3e35912aa4b82a2a66b1" title="Get access to extra transport fields.">comms::MessageBase::transportFields()</a> member function(s). The fields are bundled into <a href="http://en.cppreference.com/w/cpp/utility/tuple">std::tuple</a> and can be accessed using indices with <a href="http://en.cppreference.com/w/cpp/utility/tuple/get">std::get</a>. For convenience, the fields should be named. The <a class="el" href="classcomms_1_1Message.html#a00912bb201d47afbb0c3e51fff95b338" title="Provide names for extra transport fields.">COMMS_MSG_TRANSPORT_FIELDS_NAMES()</a> macro does exactly that. <br  />

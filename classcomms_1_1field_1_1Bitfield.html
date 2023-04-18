@@ -110,9 +110,9 @@ class comms::field::Bitfield&lt; TFieldBase, TMembers, TOptions &gt;</h3>
 <div class="line">        &gt;</div>
 <div class="line">    &gt;;</div>
 <div class="ttc" id="aclasscomms_1_1Field_html"><div class="ttname"><a href="classcomms_1_1Field.html">comms::Field</a></div><div class="ttdoc">Base class to all the field classes.</div><div class="ttdef"><b>Definition:</b> Field.h:33</div></div>
-<div class="ttc" id="aclasscomms_1_1field_1_1Bitfield_html"><div class="ttname"><a href="classcomms_1_1field_1_1Bitfield.html">comms::field::Bitfield</a></div><div class="ttdoc">Bitfield field.</div><div class="ttdef"><b>Definition:</b> Bitfield.h:93</div></div>
-<div class="ttc" id="aclasscomms_1_1field_1_1EnumValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1EnumValue.html">comms::field::EnumValue</a></div><div class="ttdoc">Enumerator value field.</div><div class="ttdef"><b>Definition:</b> EnumValue.h:74</div></div>
-<div class="ttc" id="aclasscomms_1_1field_1_1IntValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1IntValue.html">comms::field::IntValue</a></div><div class="ttdoc">Field that represent integral value.</div><div class="ttdef"><b>Definition:</b> IntValue.h:73</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1Bitfield_html"><div class="ttname"><a href="classcomms_1_1field_1_1Bitfield.html">comms::field::Bitfield</a></div><div class="ttdoc">Bitfield field.</div><div class="ttdef"><b>Definition:</b> Bitfield.h:98</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1EnumValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1EnumValue.html">comms::field::EnumValue</a></div><div class="ttdoc">Enumerator value field.</div><div class="ttdef"><b>Definition:</b> EnumValue.h:73</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1IntValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1IntValue.html">comms::field::IntValue</a></div><div class="ttdoc">Field that represent integral value.</div><div class="ttdef"><b>Definition:</b> IntValue.h:72</div></div>
 <div class="ttc" id="astructcomms_1_1option_1_1def_1_1FixedBitLength_html"><div class="ttname"><a href="structcomms_1_1option_1_1def_1_1FixedBitLength.html">comms::option::def::FixedBitLength</a></div><div class="ttdoc">Option used to specify number of bits that is used for field serialisation when a field is a member o...</div><div class="ttdef"><b>Definition:</b> options.h:310</div></div>
 </div><!-- fragment --><p> Note, that bitfield members fields specify their length in bits using <a class="el" href="structcomms_1_1option_1_1def_1_1FixedBitLength.html">comms::option::def::FixedBitLength</a> option. Also note, that all bitfield member's lengths in bits combined create a round number of bytes, i.e all the bits must sum up to 8, 16, 24, 32, ... bits.</p>
 <p>Refer to <a class="el" href="page_field_tutorial.html#sec_field_tutorial_bitfield">Bitfield Fields</a> for tutorial and usage examples. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
@@ -121,11 +121,12 @@ class comms::field::Bitfield&lt; TFieldBase, TMembers, TOptions &gt;</h3>
     <tr><td class="paramname">TMembers</td><td>All member fields bundled together in <a href="http://en.cppreference.com/w/cpp/utility/tuple">std::tuple</a>. </td></tr>
     <tr><td class="paramname">TOptions</td><td>Zero or more options that modify/refine default behaviour of the field.<br  />
  Supported options are: <ul>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1HasCustomRead.html">comms::option::def::HasCustomRead</a> - Mark field to have custom read functionality </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1HasCustomRefresh.html">comms::option::def::HasCustomRefresh</a> - Mark field to have custom refresh functionality. </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1EmptySerialization.html">comms::option::def::EmptySerialization</a> - Force empty serialization. </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1VersionStorage.html">comms::option::def::VersionStorage</a> - Add version storage. </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1HasCustomRead.html">comms::option::def::HasCustomRead</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1HasCustomRefresh.html">comms::option::def::HasCustomRefresh</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1EmptySerialization.html">comms::option::def::EmptySerialization</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1VersionStorage.html">comms::option::def::VersionStorage</a> </li>
 <li><a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1HasVersionDependentMembers.html">comms::option::def::HasVersionDependentMembers</a> </li>
 </ul>
 </td></tr>
   </table>
@@ -153,10 +154,10 @@ Inheritance diagram for comms::field::Bitfield&lt; TFieldBase, TMembers, TOption
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a30959e475b629163b687e31b8174da9f"><td class="memItemLeft" align="right" valign="top"><a id="a30959e475b629163b687e31b8174da9f"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1Bitfield.html#a30959e475b629163b687e31b8174da9f">CommsTag</a> = tag::Bitfield</td></tr>
-<tr class="memdesc:a30959e475b629163b687e31b8174da9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tag indicating type of the field. <br /></td></tr>
-<tr class="separator:a30959e475b629163b687e31b8174da9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18869532b9b29e956b3edc8811033768"><td class="memItemLeft" align="right" valign="top"><a id="a18869532b9b29e956b3edc8811033768"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1Bitfield.html#a18869532b9b29e956b3edc8811033768">CommsTag</a> = typename BaseImpl::CommsTag</td></tr>
+<tr class="memdesc:a18869532b9b29e956b3edc8811033768"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tag indicating type of the field. <br /></td></tr>
+<tr class="separator:a18869532b9b29e956b3edc8811033768"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0cd66fd2e4b8541803263bf32898b6c7"><td class="memItemLeft" align="right" valign="top"><a id="a0cd66fd2e4b8541803263bf32898b6c7"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1Bitfield.html#a0cd66fd2e4b8541803263bf32898b6c7">Endian</a> = typename BaseImpl::Endian</td></tr>
 <tr class="memdesc:a0cd66fd2e4b8541803263bf32898b6c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Endian used for serialisation. <br /></td></tr>
@@ -165,6 +166,9 @@ using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1Bitfield.html#a531afdfa3a92ad6db63270155c0bcc02">FieldBase</a> = TFieldBase</td></tr>
 <tr class="memdesc:a531afdfa3a92ad6db63270155c0bcc02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class provided in the first template parameter. <br /></td></tr>
 <tr class="separator:a531afdfa3a92ad6db63270155c0bcc02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3afcf04fa3ae1277eb6d7a80cde4e0f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1Bitfield.html#ad3afcf04fa3ae1277eb6d7a80cde4e0f">FieldType</a> = typename ParsedOptions::FieldType</td></tr>
+<tr class="memdesc:ad3afcf04fa3ae1277eb6d7a80cde4e0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of actual extending field specified via <a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a>.  <a href="classcomms_1_1field_1_1Bitfield.html#ad3afcf04fa3ae1277eb6d7a80cde4e0f">More...</a><br /></td></tr>
+<tr class="separator:ad3afcf04fa3ae1277eb6d7a80cde4e0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae0e9487827803ca99f537063ee20435"><td class="memItemLeft" align="right" valign="top"><a id="aae0e9487827803ca99f537063ee20435"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1Bitfield.html#aae0e9487827803ca99f537063ee20435">ParsedOptions</a> = details::OptionsParser&lt; TOptions... &gt;</td></tr>
 <tr class="memdesc:aae0e9487827803ca99f537063ee20435"><td class="mdescLeft">&#160;</td><td class="mdescRight">All the options provided to this class bundled into struct. <br /></td></tr>
@@ -243,6 +247,22 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a07c7bd49761eeb71e159d49818cd09f0"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1Field.html#a07c7bd49761eeb71e159d49818cd09f0">canWrite</a> ()</td></tr>
 <tr class="memdesc:a07c7bd49761eeb71e159d49818cd09f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default check of whether the field has a consistent value for writing.  <a href="classcomms_1_1Field.html#a07c7bd49761eeb71e159d49818cd09f0">More...</a><br /></td></tr>
 <tr class="separator:a07c7bd49761eeb71e159d49818cd09f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3321a2a1b0c1b3e5f21f2ed02f2a905c"><td class="memItemLeft" align="right" valign="top"><a id="a3321a2a1b0c1b3e5f21f2ed02f2a905c"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1Bitfield.html#a3321a2a1b0c1b3e5f21f2ed02f2a905c">hasEmptySerialization</a> ()</td></tr>
+<tr class="memdesc:a3321a2a1b0c1b3e5f21f2ed02f2a905c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1EmptySerialization.html">comms::option::def::EmptySerialization</a> option has been used. <br /></td></tr>
+<tr class="separator:a3321a2a1b0c1b3e5f21f2ed02f2a905c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5822d92917472bd42240a2f3007a78d"><td class="memItemLeft" align="right" valign="top"><a id="ac5822d92917472bd42240a2f3007a78d"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1Bitfield.html#ac5822d92917472bd42240a2f3007a78d">hasFailOnInvalid</a> ()</td></tr>
+<tr class="memdesc:ac5822d92917472bd42240a2f3007a78d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1FailOnInvalid.html">comms::option::def::FailOnInvalid</a> option has been used. <br /></td></tr>
+<tr class="separator:ac5822d92917472bd42240a2f3007a78d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a736b146ec8816f2daddbc439a4987579"><td class="memItemLeft" align="right" valign="top"><a id="a736b146ec8816f2daddbc439a4987579"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1Bitfield.html#a736b146ec8816f2daddbc439a4987579">hasFieldType</a> ()</td></tr>
+<tr class="memdesc:a736b146ec8816f2daddbc439a4987579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a> option has been used. <br /></td></tr>
+<tr class="separator:a736b146ec8816f2daddbc439a4987579"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7066761a3e91633596bd0dc95b9b89ae"><td class="memItemLeft" align="right" valign="top"><a id="a7066761a3e91633596bd0dc95b9b89ae"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1Bitfield.html#a7066761a3e91633596bd0dc95b9b89ae">hasIgnoreInvalid</a> ()</td></tr>
+<tr class="memdesc:a7066761a3e91633596bd0dc95b9b89ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1IgnoreInvalid.html">comms::option::def::IgnoreInvalid</a> option has been used. <br /></td></tr>
+<tr class="separator:a7066761a3e91633596bd0dc95b9b89ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3bc2018965cc36bd2d178afc269cb39"><td class="memItemLeft" align="right" valign="top"><a id="af3bc2018965cc36bd2d178afc269cb39"></a>
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1Bitfield.html#af3bc2018965cc36bd2d178afc269cb39">hasNonDefaultRefresh</a> ()</td></tr>
 <tr class="memdesc:af3bc2018965cc36bd2d178afc269cb39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time check if this class has non-default refresh functionality. <br /></td></tr>
@@ -251,6 +271,9 @@ static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a clas
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1Bitfield.html#af6d545e3f6f8c346ed03cb77b9e49e63">hasReadNoStatus</a> ()</td></tr>
 <tr class="memdesc:af6d545e3f6f8c346ed03cb77b9e49e63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time check of whether the field has <b>proper</b> <a class="el" href="classcomms_1_1field_1_1Bitfield.html#a44a280593ca59553024bc8adfe0dd24c">readNoStatus()</a> member function. <br /></td></tr>
 <tr class="separator:af6d545e3f6f8c346ed03cb77b9e49e63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acff46470efbd63ba545801326e6b7f76"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1Field.html#acff46470efbd63ba545801326e6b7f76">hasVarLength</a> ()</td></tr>
+<tr class="memdesc:acff46470efbd63ba545801326e6b7f76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default check of whether the field has variable length definition via <a class="el" href="structcomms_1_1option_1_1def_1_1VarLength.html">comms::option::def::VarLength</a> option.  <a href="classcomms_1_1Field.html#acff46470efbd63ba545801326e6b7f76">More...</a><br /></td></tr>
+<tr class="separator:acff46470efbd63ba545801326e6b7f76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad704a845559c89e7c7bfd4c09f036aa3"><td class="memItemLeft" align="right" valign="top"><a id="ad704a845559c89e7c7bfd4c09f036aa3"></a>
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1Bitfield.html#ad704a845559c89e7c7bfd4c09f036aa3">hasWriteNoStatus</a> ()</td></tr>
 <tr class="memdesc:ad704a845559c89e7c7bfd4c09f036aa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time check of whether the field has <b>proper</b> <a class="el" href="classcomms_1_1field_1_1Bitfield.html#a7a5ef7e2d5b1d9c08307d1c27631affd">writeNoStatus()</a> member function. <br /></td></tr>
@@ -324,6 +347,25 @@ template&lt;typename TFieldBase , typename TMembers , typename... TOptions&gt; <
 <tr class="separator:a9806f9a996cf17660fddb5a5ae363f46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="ad3afcf04fa3ae1277eb6d7a80cde4e0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3afcf04fa3ae1277eb6d7a80cde4e0f">&#9670;&nbsp;</a></span>FieldType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TFieldBase , typename TMembers , typename... TOptions&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classcomms_1_1field_1_1Bitfield.html">comms::field::Bitfield</a>&lt; TFieldBase, TMembers, TOptions &gt;::<a class="el" href="classcomms_1_1field_1_1Bitfield.html#ad3afcf04fa3ae1277eb6d7a80cde4e0f">FieldType</a> =  typename ParsedOptions::FieldType</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Type of actual extending field specified via <a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a>. </p>
+<p><b>void</b> if <a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a> hasn't been applied. </p>
+
+</div>
+</div>
 <a id="a7d94711fcc0ef8a6fe831cb8d2fd551a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7d94711fcc0ef8a6fe831cb8d2fd551a">&#9670;&nbsp;</a></span>ValueType</h2>
 
@@ -518,6 +560,36 @@ template&lt;typename TFieldBase , typename TMembers , typename... TOptions&gt; <
 
 <p>Get version of the field. </p>
 <p>Exists only if <a class="el" href="structcomms_1_1option_1_1def_1_1VersionStorage.html">comms::option::def::VersionStorage</a> option has been provided. </p>
+
+</div>
+</div>
+<a id="acff46470efbd63ba545801326e6b7f76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acff46470efbd63ba545801326e6b7f76">&#9670;&nbsp;</a></span>hasVarLength()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... TOptions&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static constexpr bool <a class="el" href="classcomms_1_1Field.html">comms::Field</a>&lt; TOptions &gt;::hasVarLength </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default check of whether the field has variable length definition via <a class="el" href="structcomms_1_1option_1_1def_1_1VarLength.html">comms::option::def::VarLength</a> option. </p>
+<dl class="section return"><dt>Returns</dt><dd>Always <b>false</b>. </dd></dl>
 
 </div>
 </div>

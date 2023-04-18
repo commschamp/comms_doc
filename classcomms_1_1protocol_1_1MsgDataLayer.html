@@ -97,9 +97,15 @@ Public Types</h2></td></tr>
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7d76d495ae96c078a9408d0d491f326a">AllFields</a> = std::tuple&lt; <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ac674e4c28bc8e154ee1801cc39de7f58">Field</a> &gt;</td></tr>
 <tr class="memdesc:a7d76d495ae96c078a9408d0d491f326a"><td class="mdescLeft">&#160;</td><td class="mdescRight">All fields of the remaining transport layers, contains only <a class="el" href="classcomms_1_1Field.html">Field</a>. <br /></td></tr>
 <tr class="separator:a7d76d495ae96c078a9408d0d491f326a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63f49bdd6ad0146b12b4599a5bd4cfd5"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a63f49bdd6ad0146b12b4599a5bd4cfd5">AllMessages</a> = void</td></tr>
+<tr class="memdesc:a63f49bdd6ad0146b12b4599a5bd4cfd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default value of AllMessages type.  <a href="classcomms_1_1protocol_1_1MsgDataLayer.html#a63f49bdd6ad0146b12b4599a5bd4cfd5">More...</a><br /></td></tr>
+<tr class="separator:a63f49bdd6ad0146b12b4599a5bd4cfd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac674e4c28bc8e154ee1801cc39de7f58"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ac674e4c28bc8e154ee1801cc39de7f58">Field</a> = <a class="el" href="classcomms_1_1field_1_1ArrayList.html">comms::field::ArrayList</a>&lt; <a class="el" href="classcomms_1_1Field.html">comms::Field</a>&lt; <a class="el" href="namespacecomms_1_1option_1_1def.html#a606d8afcd788b9c39088709e9be2f546">comms::option::def::BigEndian</a> &gt;, std::uint8_t, TExtraOpts... &gt;</td></tr>
 <tr class="memdesc:ac674e4c28bc8e154ee1801cc39de7f58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raw data field type.  <a href="classcomms_1_1protocol_1_1MsgDataLayer.html#ac674e4c28bc8e154ee1801cc39de7f58">More...</a><br /></td></tr>
 <tr class="separator:ac674e4c28bc8e154ee1801cc39de7f58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bd41c9b9eb7feae69742582ea930fef"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a6bd41c9b9eb7feae69742582ea930fef">MsgFactory</a> = void</td></tr>
+<tr class="memdesc:a6bd41c9b9eb7feae69742582ea930fef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default value of <a class="el" href="classcomms_1_1MsgFactory.html" title="Message factory class.">MsgFactory</a> type.  <a href="classcomms_1_1protocol_1_1MsgDataLayer.html#a6bd41c9b9eb7feae69742582ea930fef">More...</a><br /></td></tr>
+<tr class="separator:a6bd41c9b9eb7feae69742582ea930fef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0ececa7e06ca2a03e582e8f06f13f65"><td class="memItemLeft" align="right" valign="top"><a id="ab0ececa7e06ca2a03e582e8f06f13f65"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ab0ececa7e06ca2a03e582e8f06f13f65">ThisLayer</a> = <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">MsgDataLayer</a>&lt; TExtraOpts... &gt;</td></tr>
 <tr class="memdesc:ab0ececa7e06ca2a03e582e8f06f13f65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of this layer. <br /></td></tr>
@@ -223,6 +229,25 @@ template&lt;typename T &gt; </td></tr>
 <tr class="separator:a0c2ec1d318a03050c9a3c0a61b787f64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a63f49bdd6ad0146b12b4599a5bd4cfd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63f49bdd6ad0146b12b4599a5bd4cfd5">&#9670;&nbsp;</a></span>AllMessages</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... TExtraOpts&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TExtraOpts &gt;::<a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a63f49bdd6ad0146b12b4599a5bd4cfd5">AllMessages</a> =  void</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Default value of AllMessages type. </p>
+<p>Defined as <b>void</b>. </p>
+
+</div>
+</div>
 <a id="ac674e4c28bc8e154ee1801cc39de7f58"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac674e4c28bc8e154ee1801cc39de7f58">&#9670;&nbsp;</a></span>Field</h2>
 
@@ -239,6 +264,25 @@ template&lt;typename... TExtraOpts&gt; </div>
 
 <p>Raw data field type. </p>
 <p>This field is used only in <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7d76d495ae96c078a9408d0d491f326a">AllFields</a> field and <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ad27c6b31381727bc765daf1e36d98029">readFieldsCached()</a> member function. </p>
+
+</div>
+</div>
+<a id="a6bd41c9b9eb7feae69742582ea930fef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bd41c9b9eb7feae69742582ea930fef">&#9670;&nbsp;</a></span>MsgFactory</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... TExtraOpts&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TExtraOpts &gt;::<a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a6bd41c9b9eb7feae69742582ea930fef">MsgFactory</a> =  void</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Default value of <a class="el" href="classcomms_1_1MsgFactory.html" title="Message factory class.">MsgFactory</a> type. </p>
+<p>Defined as <b>void</b>. </p>
 
 </div>
 </div>

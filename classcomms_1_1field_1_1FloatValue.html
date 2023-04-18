@@ -123,10 +123,10 @@ Inheritance diagram for comms::field::FloatValue&lt; TFieldBase, T, TOptions &gt
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ae114b896932c7259e6f69fecd23d5ef3"><td class="memItemLeft" align="right" valign="top"><a id="ae114b896932c7259e6f69fecd23d5ef3"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1FloatValue.html#ae114b896932c7259e6f69fecd23d5ef3">CommsTag</a> = tag::Float</td></tr>
-<tr class="memdesc:ae114b896932c7259e6f69fecd23d5ef3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tag indicating type of the field. <br /></td></tr>
-<tr class="separator:ae114b896932c7259e6f69fecd23d5ef3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22b25b361878823ae9fd3a9349d1359f"><td class="memItemLeft" align="right" valign="top"><a id="a22b25b361878823ae9fd3a9349d1359f"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1FloatValue.html#a22b25b361878823ae9fd3a9349d1359f">CommsTag</a> = typename BaseImpl::CommsTag</td></tr>
+<tr class="memdesc:a22b25b361878823ae9fd3a9349d1359f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tag indicating type of the field. <br /></td></tr>
+<tr class="separator:a22b25b361878823ae9fd3a9349d1359f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53c38bb5fd590af1d620f152cdbcb911"><td class="memItemLeft" align="right" valign="top"><a id="a53c38bb5fd590af1d620f152cdbcb911"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1FloatValue.html#a53c38bb5fd590af1d620f152cdbcb911">Endian</a> = typename BaseImpl::Endian</td></tr>
 <tr class="memdesc:a53c38bb5fd590af1d620f152cdbcb911"><td class="mdescLeft">&#160;</td><td class="mdescRight">Endian used for serialisation. <br /></td></tr>
@@ -135,10 +135,19 @@ using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1FloatValue.html#ac29296f1f628b377e31b7a91a9ede1be">FieldBase</a> = TFieldBase</td></tr>
 <tr class="memdesc:ac29296f1f628b377e31b7a91a9ede1be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class provided in the first template parameter. <br /></td></tr>
 <tr class="separator:ac29296f1f628b377e31b7a91a9ede1be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc47dd584d27327273ae2c46d99e1868"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1FloatValue.html#afc47dd584d27327273ae2c46d99e1868">FieldType</a> = typename ParsedOptions::FieldType</td></tr>
+<tr class="memdesc:afc47dd584d27327273ae2c46d99e1868"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of actual extending field specified via <a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a>.  <a href="classcomms_1_1field_1_1FloatValue.html#afc47dd584d27327273ae2c46d99e1868">More...</a><br /></td></tr>
+<tr class="separator:afc47dd584d27327273ae2c46d99e1868"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f1f41c35d6468544116a4a384126772"><td class="memItemLeft" align="right" valign="top"><a id="a8f1f41c35d6468544116a4a384126772"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1FloatValue.html#a8f1f41c35d6468544116a4a384126772">ParsedOptions</a> = details::OptionsParser&lt; TOptions... &gt;</td></tr>
 <tr class="memdesc:a8f1f41c35d6468544116a4a384126772"><td class="mdescLeft">&#160;</td><td class="mdescRight">All the options provided to this class bundled into struct. <br /></td></tr>
 <tr class="separator:a8f1f41c35d6468544116a4a384126772"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a054f0299ae2ae59a8cb492c0c4e56689"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1FloatValue.html#a054f0299ae2ae59a8cb492c0c4e56689">UnitsRatio</a> = typename ParsedOptions::UnitsRatio</td></tr>
+<tr class="memdesc:a054f0299ae2ae59a8cb492c0c4e56689"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scaling ratio determined by the forced units via the <b><a class="el" href="structcomms_1_1option_1_1def_1_1Units.html" title="Options to specify units of the field.">comms::option::def::Units</a>*</b> option.  <a href="classcomms_1_1field_1_1FloatValue.html#a054f0299ae2ae59a8cb492c0c4e56689">More...</a><br /></td></tr>
+<tr class="separator:a054f0299ae2ae59a8cb492c0c4e56689"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48f50602e8f9670d4c993faadcb324dd"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1FloatValue.html#a48f50602e8f9670d4c993faadcb324dd">UnitsType</a> = typename ParsedOptions::UnitsType</td></tr>
+<tr class="memdesc:a48f50602e8f9670d4c993faadcb324dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Units type defined by any of the <b><a class="el" href="structcomms_1_1option_1_1def_1_1Units.html" title="Options to specify units of the field.">comms::option::def::Units</a>*</b> option.  <a href="classcomms_1_1field_1_1FloatValue.html#a48f50602e8f9670d4c993faadcb324dd">More...</a><br /></td></tr>
+<tr class="separator:a48f50602e8f9670d4c993faadcb324dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a206a174ea37e86caa7fc6b94b9ef5a95"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1FloatValue.html#a206a174ea37e86caa7fc6b94b9ef5a95">ValueType</a> = typename BaseImpl::ValueType</td></tr>
 <tr class="memdesc:a206a174ea37e86caa7fc6b94b9ef5a95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of underlying floating point value.  <a href="classcomms_1_1field_1_1FloatValue.html#a206a174ea37e86caa7fc6b94b9ef5a95">More...</a><br /></td></tr>
 <tr class="separator:a206a174ea37e86caa7fc6b94b9ef5a95"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -213,6 +222,22 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a07c7bd49761eeb71e159d49818cd09f0"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1Field.html#a07c7bd49761eeb71e159d49818cd09f0">canWrite</a> ()</td></tr>
 <tr class="memdesc:a07c7bd49761eeb71e159d49818cd09f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default check of whether the field has a consistent value for writing.  <a href="classcomms_1_1Field.html#a07c7bd49761eeb71e159d49818cd09f0">More...</a><br /></td></tr>
 <tr class="separator:a07c7bd49761eeb71e159d49818cd09f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b726b6bd0d98b16e85e9e70eb33e2fb"><td class="memItemLeft" align="right" valign="top"><a id="a5b726b6bd0d98b16e85e9e70eb33e2fb"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1FloatValue.html#a5b726b6bd0d98b16e85e9e70eb33e2fb">hasEmptySerialization</a> ()</td></tr>
+<tr class="memdesc:a5b726b6bd0d98b16e85e9e70eb33e2fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1EmptySerialization.html">comms::option::def::EmptySerialization</a> option has been used. <br /></td></tr>
+<tr class="separator:a5b726b6bd0d98b16e85e9e70eb33e2fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac05d5c747e9889f0f95175a1f4f6fc9"><td class="memItemLeft" align="right" valign="top"><a id="aac05d5c747e9889f0f95175a1f4f6fc9"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1FloatValue.html#aac05d5c747e9889f0f95175a1f4f6fc9">hasFailOnInvalid</a> ()</td></tr>
+<tr class="memdesc:aac05d5c747e9889f0f95175a1f4f6fc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1FailOnInvalid.html">comms::option::def::FailOnInvalid</a> option has been used. <br /></td></tr>
+<tr class="separator:aac05d5c747e9889f0f95175a1f4f6fc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a637b66fb138fb965c4f993ac2bb3d5c0"><td class="memItemLeft" align="right" valign="top"><a id="a637b66fb138fb965c4f993ac2bb3d5c0"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1FloatValue.html#a637b66fb138fb965c4f993ac2bb3d5c0">hasFieldType</a> ()</td></tr>
+<tr class="memdesc:a637b66fb138fb965c4f993ac2bb3d5c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a> option has been used. <br /></td></tr>
+<tr class="separator:a637b66fb138fb965c4f993ac2bb3d5c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc25698612afa0fc4c5396d0a4e076b3"><td class="memItemLeft" align="right" valign="top"><a id="adc25698612afa0fc4c5396d0a4e076b3"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1FloatValue.html#adc25698612afa0fc4c5396d0a4e076b3">hasIgnoreInvalid</a> ()</td></tr>
+<tr class="memdesc:adc25698612afa0fc4c5396d0a4e076b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1IgnoreInvalid.html">comms::option::def::IgnoreInvalid</a> option has been used. <br /></td></tr>
+<tr class="separator:adc25698612afa0fc4c5396d0a4e076b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a092afd16957231a9517678649183f98d"><td class="memItemLeft" align="right" valign="top"><a id="a092afd16957231a9517678649183f98d"></a>
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1FloatValue.html#a092afd16957231a9517678649183f98d">hasNonDefaultRefresh</a> ()</td></tr>
 <tr class="memdesc:a092afd16957231a9517678649183f98d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time check if this class has non-default refresh functionality. <br /></td></tr>
@@ -221,6 +246,13 @@ static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a clas
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1FloatValue.html#a47fdbf044ded7000ae06fd492f3f3b11">hasReadNoStatus</a> ()</td></tr>
 <tr class="memdesc:a47fdbf044ded7000ae06fd492f3f3b11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time check of whether the field has <b>proper</b> <a class="el" href="classcomms_1_1field_1_1FloatValue.html#a7c9f22a1fe5354a853b66111ee4f2a7e">readNoStatus()</a> member function. <br /></td></tr>
 <tr class="separator:a47fdbf044ded7000ae06fd492f3f3b11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7ed3e0e631bb4ce742e4606b056f06c"><td class="memItemLeft" align="right" valign="top"><a id="ad7ed3e0e631bb4ce742e4606b056f06c"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1FloatValue.html#ad7ed3e0e631bb4ce742e4606b056f06c">hasUnits</a> ()</td></tr>
+<tr class="memdesc:ad7ed3e0e631bb4ce742e4606b056f06c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile type inquiry of whether units have been set via any of the <b><a class="el" href="structcomms_1_1option_1_1def_1_1Units.html" title="Options to specify units of the field.">comms::option::def::Units</a>*</b> options. <br /></td></tr>
+<tr class="separator:ad7ed3e0e631bb4ce742e4606b056f06c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acff46470efbd63ba545801326e6b7f76"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1Field.html#acff46470efbd63ba545801326e6b7f76">hasVarLength</a> ()</td></tr>
+<tr class="memdesc:acff46470efbd63ba545801326e6b7f76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default check of whether the field has variable length definition via <a class="el" href="structcomms_1_1option_1_1def_1_1VarLength.html">comms::option::def::VarLength</a> option.  <a href="classcomms_1_1Field.html#acff46470efbd63ba545801326e6b7f76">More...</a><br /></td></tr>
+<tr class="separator:acff46470efbd63ba545801326e6b7f76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67be2656e8d0f98e6a413b1c0eae0a72"><td class="memItemLeft" align="right" valign="top"><a id="a67be2656e8d0f98e6a413b1c0eae0a72"></a>
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1FloatValue.html#a67be2656e8d0f98e6a413b1c0eae0a72">hasWriteNoStatus</a> ()</td></tr>
 <tr class="memdesc:a67be2656e8d0f98e6a413b1c0eae0a72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time check of whether the field has <b>proper</b> <a class="el" href="classcomms_1_1field_1_1FloatValue.html#a9733fa6b81da8986f8ffaae334542bf3">writeNoStatus()</a> member function. <br /></td></tr>
@@ -290,6 +322,63 @@ template&lt;typename TFieldBase , typename T , typename... TOptions&gt; </td></t
 <tr class="separator:a24ae70a48ac00bf579b35ac44a7ea1d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="afc47dd584d27327273ae2c46d99e1868"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc47dd584d27327273ae2c46d99e1868">&#9670;&nbsp;</a></span>FieldType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TFieldBase , typename T , typename... TOptions&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classcomms_1_1field_1_1FloatValue.html">comms::field::FloatValue</a>&lt; TFieldBase, T, TOptions &gt;::<a class="el" href="classcomms_1_1field_1_1FloatValue.html#afc47dd584d27327273ae2c46d99e1868">FieldType</a> =  typename ParsedOptions::FieldType</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Type of actual extending field specified via <a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a>. </p>
+<p><b>void</b> if <a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a> hasn't been applied. </p>
+
+</div>
+</div>
+<a id="a054f0299ae2ae59a8cb492c0c4e56689"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a054f0299ae2ae59a8cb492c0c4e56689">&#9670;&nbsp;</a></span>UnitsRatio</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TFieldBase , typename T , typename... TOptions&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classcomms_1_1field_1_1FloatValue.html">comms::field::FloatValue</a>&lt; TFieldBase, T, TOptions &gt;::<a class="el" href="classcomms_1_1field_1_1FloatValue.html#a054f0299ae2ae59a8cb492c0c4e56689">UnitsRatio</a> =  typename ParsedOptions::UnitsRatio</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Scaling ratio determined by the forced units via the <b><a class="el" href="structcomms_1_1option_1_1def_1_1Units.html" title="Options to specify units of the field.">comms::option::def::Units</a>*</b> option. </p>
+<p>Equals to <b>std::ratio&lt;1, 1&gt;</b> if the option hasn't been used. </p>
+
+</div>
+</div>
+<a id="a48f50602e8f9670d4c993faadcb324dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48f50602e8f9670d4c993faadcb324dd">&#9670;&nbsp;</a></span>UnitsType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TFieldBase , typename T , typename... TOptions&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classcomms_1_1field_1_1FloatValue.html">comms::field::FloatValue</a>&lt; TFieldBase, T, TOptions &gt;::<a class="el" href="classcomms_1_1field_1_1FloatValue.html#a48f50602e8f9670d4c993faadcb324dd">UnitsType</a> =  typename ParsedOptions::UnitsType</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Units type defined by any of the <b><a class="el" href="structcomms_1_1option_1_1def_1_1Units.html" title="Options to specify units of the field.">comms::option::def::Units</a>*</b> option. </p>
+<p>Aliased to <b>void</b> if no relevant options is used. </p>
+
+</div>
+</div>
 <a id="a206a174ea37e86caa7fc6b94b9ef5a95"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a206a174ea37e86caa7fc6b94b9ef5a95">&#9670;&nbsp;</a></span>ValueType</h2>
 
@@ -412,6 +501,36 @@ template&lt;typename TFieldBase , typename T , typename... TOptions&gt; </div>
 
 <p>Get version of the field. </p>
 <p>Exists only if <a class="el" href="structcomms_1_1option_1_1def_1_1VersionStorage.html">comms::option::def::VersionStorage</a> option has been provided. </p>
+
+</div>
+</div>
+<a id="acff46470efbd63ba545801326e6b7f76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acff46470efbd63ba545801326e6b7f76">&#9670;&nbsp;</a></span>hasVarLength()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... TOptions&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static constexpr bool <a class="el" href="classcomms_1_1Field.html">comms::Field</a>&lt; TOptions &gt;::hasVarLength </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default check of whether the field has variable length definition via <a class="el" href="structcomms_1_1option_1_1def_1_1VarLength.html">comms::option::def::VarLength</a> option. </p>
+<dl class="section return"><dt>Returns</dt><dd>Always <b>false</b>. </dd></dl>
 
 </div>
 </div>

@@ -115,119 +115,131 @@ $(function() {
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            &gt;            </div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        &gt;;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#a825cd073d8e3239d4b391236879630ff">   65</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">Field</a> = <span class="keyword">typename</span> <a class="code" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">BaseImpl::Field</a>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#aaa244000e8c3d7a28acc4bb878cc64dd">   68</a></span>&#160;    <a class="code" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#aaa244000e8c3d7a28acc4bb878cc64dd">SyncPrefixLayer</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#a23e08c89e5dcd7613a89c18fefc143d9">   71</a></span>&#160;    <a class="code" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#a23e08c89e5dcd7613a89c18fefc143d9">SyncPrefixLayer</a>(<span class="keyword">const</span> <a class="code" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html">SyncPrefixLayer</a>&amp;) = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#ad051216231032f9813fd0e8fabdeac8a">   74</a></span>&#160;    <a class="code" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#ad051216231032f9813fd0e8fabdeac8a">SyncPrefixLayer</a>(<a class="code" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html">SyncPrefixLayer</a>&amp;&amp;) = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#aeb25b16fab7f60dd4a7d50f8cd536700">   77</a></span>&#160;    <a class="code" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#aeb25b16fab7f60dd4a7d50f8cd536700">~SyncPrefixLayer</a>() noexcept = default;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    template &lt;typename TMsg, typename TIter, typename TNextLayerReader, typename... TExtraValues&gt;</div>
-<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#ab7ba05d62d0442f736837d90453fc55a">  108</a></span>&#160;    <a class="code" href="namespacecomms.html">comms</a>::<a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> doRead(</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <a class="code" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">Field</a>&amp; field,</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        TMsg&amp; msg,</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        TIter&amp; iter,</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        std::<span class="keywordtype">size_t</span> size,</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        TNextLayerReader&amp;&amp; nextLayerReader,</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        TExtraValues... extraValues)</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    {</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keyword">auto</span>&amp; thisObj = BaseImpl::thisLayer();</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keyword">auto</span>* msgPtr = BaseImpl::toMsgPtr(msg);</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keyword">auto</span> beforeReadIter = iter;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="keyword">auto</span> es = thisObj.doReadField(msgPtr, field, iter, size);</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordflow">if</span> (es == <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1ab6e495eeaee7cdf1bac313472e4681ac">comms::ErrorStatus::NotEnoughData</a>) {</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            BaseImpl::updateMissingSize(field, size, extraValues...);</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        }</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="keywordflow">if</span> (es != <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">comms::ErrorStatus::Success</a>) {</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            <span class="keywordflow">return</span> es;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        }</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keywordtype">bool</span> verified = thisObj.verifyFieldValue(field);</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keywordflow">if</span> (!verified) {</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1aca3da8f495e4e628912a7798655da6c2">comms::ErrorStatus::ProtocolError</a>;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        }</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="keyword">auto</span> fieldLen = <span class="keyword">static_cast&lt;</span>std::size_t<span class="keyword">&gt;</span>(std::distance(beforeReadIter, iter));</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <span class="keywordflow">return</span> nextLayerReader.read(msg, iter, size - fieldLen, extraValues...);</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    }</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span> TIter, <span class="keyword">typename</span> TNextLayerWriter&gt;</div>
-<div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#a989820b9d2478dd5a813c3ad4202ad1d">  156</a></span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> <a class="code" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#a989820b9d2478dd5a813c3ad4202ad1d">doWrite</a>(</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        <a class="code" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">Field</a>&amp; field,</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="keyword">const</span> TMsg&amp; msg,</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        TIter&amp; iter,</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        std::size_t size,</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        TNextLayerWriter&amp;&amp; nextLayerWriter)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        <span class="keyword">auto</span>&amp; thisObj = BaseImpl::thisLayer();</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        thisObj.prepareFieldForWrite(field);</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        <span class="keyword">auto</span> es = thisObj.doWriteField(&amp;msg, field, iter, size);</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <span class="keywordflow">if</span> (es != ErrorStatus::Success) {</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;            <span class="keywordflow">return</span> es;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        }</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <a class="code" href="Assert_8h.html#a941aec86290602caa61d86b671aea550">COMMS_ASSERT</a>(field.length() &lt;= size);</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="keywordflow">return</span> nextLayerWriter.write(msg, iter, size - field.length());</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    }</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00181"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#aa04171d007995ed8247b3629d9759185">  181</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#aa04171d007995ed8247b3629d9759185">verifyFieldValue</a>(<span class="keyword">const</span> <a class="code" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">Field</a>&amp; field)</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    {</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <span class="keywordflow">return</span> field == <a class="code" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">Field</a>();</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    }    </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">using</span> ParsedOptionsInternal = details::SyncPrefixLayerOptionsParser&lt;TOptions...&gt;;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#a825cd073d8e3239d4b391236879630ff">   67</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">Field</a> = <span class="keyword">typename</span> <a class="code" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">BaseImpl::Field</a>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#a500393d855e33af4d7debff9d127c0f6">   72</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#a500393d855e33af4d7debff9d127c0f6">ExtendingClass</a> = <span class="keyword">typename</span> <a class="code" href="namespacecomms_1_1option.html#a36cef7e87cf2288100d2a497f7960ac9">ParsedOptionsInternal::ExtendingClass</a>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#aaa244000e8c3d7a28acc4bb878cc64dd">   75</a></span>&#160;    <a class="code" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#aaa244000e8c3d7a28acc4bb878cc64dd">SyncPrefixLayer</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#a23e08c89e5dcd7613a89c18fefc143d9">   78</a></span>&#160;    <a class="code" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#a23e08c89e5dcd7613a89c18fefc143d9">SyncPrefixLayer</a>(<span class="keyword">const</span> <a class="code" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html">SyncPrefixLayer</a>&amp;) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#ad051216231032f9813fd0e8fabdeac8a">   81</a></span>&#160;    <a class="code" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#ad051216231032f9813fd0e8fabdeac8a">SyncPrefixLayer</a>(<a class="code" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html">SyncPrefixLayer</a>&amp;&amp;) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#aeb25b16fab7f60dd4a7d50f8cd536700">   84</a></span>&#160;    <a class="code" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#aeb25b16fab7f60dd4a7d50f8cd536700">~SyncPrefixLayer</a>() noexcept = default;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#a8a2290bc964803ef52afb61e8b344a3f">   90</a></span>&#160;    static constexpr <span class="keywordtype">bool</span> hasExtendingClass()</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    {</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">return</span> ParsedOptionsInternal::HasExtendingClass;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span> TIter, <span class="keyword">typename</span> TNextLayerReader, <span class="keyword">typename</span>... TExtraValues&gt;</div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#ab7ba05d62d0442f736837d90453fc55a">  124</a></span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> <a class="code" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#ab7ba05d62d0442f736837d90453fc55a">doRead</a>(</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <a class="code" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">Field</a>&amp; field,</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        TMsg&amp; msg,</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        TIter&amp; iter,</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        std::size_t size,</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        TNextLayerReader&amp;&amp; nextLayerReader,</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        TExtraValues... extraValues)</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    {</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="keyword">auto</span>&amp; thisObj = BaseImpl::thisLayer();</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="keyword">auto</span>* msgPtr = BaseImpl::toMsgPtr(msg);</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="keyword">auto</span> beforeReadIter = iter;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <span class="keyword">auto</span> es = thisObj.doReadField(msgPtr, field, iter, size);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <span class="keywordflow">if</span> (es == <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1ab6e495eeaee7cdf1bac313472e4681ac">comms::ErrorStatus::NotEnoughData</a>) {</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            BaseImpl::updateMissingSize(field, size, extraValues...);</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        }</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        <span class="keywordflow">if</span> (es != <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">comms::ErrorStatus::Success</a>) {</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            <span class="keywordflow">return</span> es;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        }</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <span class="keywordtype">bool</span> verified = thisObj.verifyFieldValue(field);</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <span class="keywordflow">if</span> (!verified) {</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1aca3da8f495e4e628912a7798655da6c2">comms::ErrorStatus::ProtocolError</a>;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        }</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="keyword">auto</span> fieldLen = <span class="keyword">static_cast&lt;</span>std::size_t<span class="keyword">&gt;</span>(std::distance(beforeReadIter, iter));</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <span class="keywordflow">return</span> nextLayerReader.read(msg, iter, size - fieldLen, extraValues...);</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    }</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMsg, <span class="keyword">typename</span> TIter, <span class="keyword">typename</span> TNextLayerWriter&gt;</div>
+<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#a989820b9d2478dd5a813c3ad4202ad1d">  172</a></span>&#160;    <a class="code" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> <a class="code" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#a989820b9d2478dd5a813c3ad4202ad1d">doWrite</a>(</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <a class="code" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">Field</a>&amp; field,</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        <span class="keyword">const</span> TMsg&amp; msg,</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        TIter&amp; iter,</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        std::size_t size,</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        TNextLayerWriter&amp;&amp; nextLayerWriter)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        <span class="keyword">auto</span>&amp; thisObj = BaseImpl::thisLayer();</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        thisObj.prepareFieldForWrite(field);</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <span class="keyword">auto</span> es = thisObj.doWriteField(&amp;msg, field, iter, size);</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        <span class="keywordflow">if</span> (es != ErrorStatus::Success) {</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;            <span class="keywordflow">return</span> es;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        }</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
-<div class="line"><a name="l00193"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#aef2627542542fbc15229348a0b0396d9">  193</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#aef2627542542fbc15229348a0b0396d9">prepareFieldForWrite</a>(<a class="code" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">Field</a>&amp; field)</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    {</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(field);</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    }</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;};</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="keyword">namespace </span>details</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;{</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="keyword">struct </span>SyncPrefixLayerCheckHelper</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;{</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> Value = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;};</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField, <span class="keyword">typename</span> TNextLayer&gt;</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="keyword">struct </span>SyncPrefixLayerCheckHelper&lt;SyncPrefixLayer&lt;TField, TNextLayer&gt; &gt;</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;{</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> Value = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;};</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160; </div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;} <span class="comment">// namespace details</span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        <a class="code" href="Assert_8h.html#a941aec86290602caa61d86b671aea550">COMMS_ASSERT</a>(field.length() &lt;= size);</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        <span class="keywordflow">return</span> nextLayerWriter.write(msg, iter, size - field.length());</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    }</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00197"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#aa04171d007995ed8247b3629d9759185">  197</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#aa04171d007995ed8247b3629d9759185">verifyFieldValue</a>(<span class="keyword">const</span> <a class="code" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">Field</a>&amp; field)</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    {</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <span class="keywordflow">return</span> field == <a class="code" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">Field</a>();</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    }    </div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160; </div>
+<div class="line"><a name="l00209"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#aef2627542542fbc15229348a0b0396d9">  209</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#aef2627542542fbc15229348a0b0396d9">prepareFieldForWrite</a>(<a class="code" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">Field</a>&amp; field)</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    {</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(field);</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    }</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;};</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00219"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#a8ea79d460c88ba08ca9c6a4b71a39ac7">  219</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#a8ea79d460c88ba08ca9c6a4b71a39ac7">isSyncPrefixLayer</a>()</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;{</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keywordflow">return</span> details::SyncPrefixLayerCheckHelper&lt;T&gt;::Value;</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;}</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160; </div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;}  <span class="comment">// namespace protocol</span></div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;}  <span class="comment">// namespace comms</span></div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;COMMS_MSVC_WARNING_POP</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="keyword">namespace </span>details</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;{</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="keyword">struct </span>SyncPrefixLayerCheckHelper</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;{</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> Value = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;};</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField, <span class="keyword">typename</span> TNextLayer&gt;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="keyword">struct </span>SyncPrefixLayerCheckHelper&lt;SyncPrefixLayer&lt;TField, TNextLayer&gt; &gt;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;{</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> Value = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;};</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;} <span class="comment">// namespace details</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; </div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00235"></a><span class="lineno"><a class="line" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#a8ea79d460c88ba08ca9c6a4b71a39ac7">  235</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#a8ea79d460c88ba08ca9c6a4b71a39ac7">isSyncPrefixLayer</a>()</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;{</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <span class="keywordflow">return</span> details::SyncPrefixLayerCheckHelper&lt;T&gt;::Value;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;}</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160; </div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;}  <span class="comment">// namespace protocol</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160; </div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;}  <span class="comment">// namespace comms</span></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160; </div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;COMMS_MSVC_WARNING_POP</div>
 <div class="ttc" id="aAssert_8h_html_a941aec86290602caa61d86b671aea550"><div class="ttname"><a href="Assert_8h.html#a941aec86290602caa61d86b671aea550">COMMS_ASSERT</a></div><div class="ttdeci">#define COMMS_ASSERT(expr)</div><div class="ttdoc">Generic assert macro.</div><div class="ttdef"><b>Definition:</b> Assert.h:170</div></div>
 <div class="ttc" id="aCompileControl_8h_html"><div class="ttname"><a href="CompileControl_8h.html">CompileControl.h</a></div><div class="ttdoc">Contains various compiler related definitions.</div></div>
 <div class="ttc" id="aclasscomms_1_1protocol_1_1ProtocolLayerBase_html"><div class="ttname"><a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html">comms::protocol::ProtocolLayerBase</a></div><div class="ttdoc">Base class for all the middle (non MsgDataLayer) protocol transport layers.</div><div class="ttdef"><b>Definition:</b> ProtocolLayerBase.h:61</div></div>
 <div class="ttc" id="aclasscomms_1_1protocol_1_1ProtocolLayerBase_html_a37d1bfc9f9d2e53ce518ebf019781f82"><div class="ttname"><a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a37d1bfc9f9d2e53ce518ebf019781f82">comms::protocol::ProtocolLayerBase::Field</a></div><div class="ttdeci">TField Field</div><div class="ttdoc">Type of the field used for this layer.</div><div class="ttdef"><b>Definition:</b> ProtocolLayerBase.h:64</div></div>
 <div class="ttc" id="aclasscomms_1_1protocol_1_1SyncPrefixLayer_html"><div class="ttname"><a href="classcomms_1_1protocol_1_1SyncPrefixLayer.html">comms::protocol::SyncPrefixLayer</a></div><div class="ttdoc">Protocol layer that uses &quot;sync&quot; field as a prefix to all the subsequent data written by other (next) ...</div><div class="ttdef"><b>Definition:</b> SyncPrefixLayer.h:52</div></div>
 <div class="ttc" id="aclasscomms_1_1protocol_1_1SyncPrefixLayer_html_a23e08c89e5dcd7613a89c18fefc143d9"><div class="ttname"><a href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#a23e08c89e5dcd7613a89c18fefc143d9">comms::protocol::SyncPrefixLayer::SyncPrefixLayer</a></div><div class="ttdeci">SyncPrefixLayer(const SyncPrefixLayer &amp;)=default</div><div class="ttdoc">Copy constructor.</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1SyncPrefixLayer_html_a8ea79d460c88ba08ca9c6a4b71a39ac7"><div class="ttname"><a href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#a8ea79d460c88ba08ca9c6a4b71a39ac7">comms::protocol::SyncPrefixLayer::isSyncPrefixLayer</a></div><div class="ttdeci">constexpr bool isSyncPrefixLayer()</div><div class="ttdoc">Compile time check of whether the provided type is a variant of SyncPrefixLayer.</div><div class="ttdef"><b>Definition:</b> SyncPrefixLayer.h:219</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1SyncPrefixLayer_html_a989820b9d2478dd5a813c3ad4202ad1d"><div class="ttname"><a href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#a989820b9d2478dd5a813c3ad4202ad1d">comms::protocol::SyncPrefixLayer::doWrite</a></div><div class="ttdeci">comms::ErrorStatus doWrite(Field &amp;field, const TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerWriter &amp;&amp;nextLayerWriter) const</div><div class="ttdoc">Customized write functionality, invoked by write().</div><div class="ttdef"><b>Definition:</b> SyncPrefixLayer.h:156</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1SyncPrefixLayer_html_aa04171d007995ed8247b3629d9759185"><div class="ttname"><a href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#aa04171d007995ed8247b3629d9759185">comms::protocol::SyncPrefixLayer::verifyFieldValue</a></div><div class="ttdeci">static bool verifyFieldValue(const Field &amp;field)</div><div class="ttdoc">Verify the validity of the field.</div><div class="ttdef"><b>Definition:</b> SyncPrefixLayer.h:181</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1SyncPrefixLayer_html_a500393d855e33af4d7debff9d127c0f6"><div class="ttname"><a href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#a500393d855e33af4d7debff9d127c0f6">comms::protocol::SyncPrefixLayer::ExtendingClass</a></div><div class="ttdeci">typename ParsedOptionsInternal::ExtendingClass ExtendingClass</div><div class="ttdoc">Type of real extending class.</div><div class="ttdef"><b>Definition:</b> SyncPrefixLayer.h:72</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1SyncPrefixLayer_html_a8ea79d460c88ba08ca9c6a4b71a39ac7"><div class="ttname"><a href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#a8ea79d460c88ba08ca9c6a4b71a39ac7">comms::protocol::SyncPrefixLayer::isSyncPrefixLayer</a></div><div class="ttdeci">constexpr bool isSyncPrefixLayer()</div><div class="ttdoc">Compile time check of whether the provided type is a variant of SyncPrefixLayer.</div><div class="ttdef"><b>Definition:</b> SyncPrefixLayer.h:235</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1SyncPrefixLayer_html_a989820b9d2478dd5a813c3ad4202ad1d"><div class="ttname"><a href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#a989820b9d2478dd5a813c3ad4202ad1d">comms::protocol::SyncPrefixLayer::doWrite</a></div><div class="ttdeci">comms::ErrorStatus doWrite(Field &amp;field, const TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerWriter &amp;&amp;nextLayerWriter) const</div><div class="ttdoc">Customized write functionality, invoked by write().</div><div class="ttdef"><b>Definition:</b> SyncPrefixLayer.h:172</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1SyncPrefixLayer_html_aa04171d007995ed8247b3629d9759185"><div class="ttname"><a href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#aa04171d007995ed8247b3629d9759185">comms::protocol::SyncPrefixLayer::verifyFieldValue</a></div><div class="ttdeci">static bool verifyFieldValue(const Field &amp;field)</div><div class="ttdoc">Verify the validity of the field.</div><div class="ttdef"><b>Definition:</b> SyncPrefixLayer.h:197</div></div>
 <div class="ttc" id="aclasscomms_1_1protocol_1_1SyncPrefixLayer_html_aaa244000e8c3d7a28acc4bb878cc64dd"><div class="ttname"><a href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#aaa244000e8c3d7a28acc4bb878cc64dd">comms::protocol::SyncPrefixLayer::SyncPrefixLayer</a></div><div class="ttdeci">SyncPrefixLayer()=default</div><div class="ttdoc">Default constructor.</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1SyncPrefixLayer_html_ab7ba05d62d0442f736837d90453fc55a"><div class="ttname"><a href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#ab7ba05d62d0442f736837d90453fc55a">comms::protocol::SyncPrefixLayer::doRead</a></div><div class="ttdeci">comms::ErrorStatus doRead(Field &amp;field, TMsg &amp;msg, TIter &amp;iter, std::size_t size, TNextLayerReader &amp;&amp;nextLayerReader, TExtraValues... extraValues)</div><div class="ttdoc">Customized read functionality, invoked by read().</div><div class="ttdef"><b>Definition:</b> SyncPrefixLayer.h:124</div></div>
 <div class="ttc" id="aclasscomms_1_1protocol_1_1SyncPrefixLayer_html_ad051216231032f9813fd0e8fabdeac8a"><div class="ttname"><a href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#ad051216231032f9813fd0e8fabdeac8a">comms::protocol::SyncPrefixLayer::SyncPrefixLayer</a></div><div class="ttdeci">SyncPrefixLayer(SyncPrefixLayer &amp;&amp;)=default</div><div class="ttdoc">Move constructor.</div></div>
 <div class="ttc" id="aclasscomms_1_1protocol_1_1SyncPrefixLayer_html_aeb25b16fab7f60dd4a7d50f8cd536700"><div class="ttname"><a href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#aeb25b16fab7f60dd4a7d50f8cd536700">comms::protocol::SyncPrefixLayer::~SyncPrefixLayer</a></div><div class="ttdeci">~SyncPrefixLayer() noexcept=default</div><div class="ttdoc">Destructor.</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1SyncPrefixLayer_html_aef2627542542fbc15229348a0b0396d9"><div class="ttname"><a href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#aef2627542542fbc15229348a0b0396d9">comms::protocol::SyncPrefixLayer::prepareFieldForWrite</a></div><div class="ttdeci">static void prepareFieldForWrite(Field &amp;field)</div><div class="ttdoc">Prepare field for writing.</div><div class="ttdef"><b>Definition:</b> SyncPrefixLayer.h:193</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1SyncPrefixLayer_html_aef2627542542fbc15229348a0b0396d9"><div class="ttname"><a href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#aef2627542542fbc15229348a0b0396d9">comms::protocol::SyncPrefixLayer::prepareFieldForWrite</a></div><div class="ttdeci">static void prepareFieldForWrite(Field &amp;field)</div><div class="ttdoc">Prepare field for writing.</div><div class="ttdef"><b>Definition:</b> SyncPrefixLayer.h:209</div></div>
+<div class="ttc" id="anamespacecomms_1_1option_html_a36cef7e87cf2288100d2a497f7960ac9"><div class="ttname"><a href="namespacecomms_1_1option.html#a36cef7e87cf2288100d2a497f7960ac9">comms::option::ExtendingClass</a></div><div class="ttdeci">comms::option::def::ExtendingClass&lt; T &gt; ExtendingClass</div><div class="ttdoc">Same as comms::option::def::ExtendingClass.</div><div class="ttdef"><b>Definition:</b> options.h:1822</div></div>
 <div class="ttc" id="anamespacecomms_html"><div class="ttname"><a href="namespacecomms.html">comms</a></div><div class="ttdoc">Main namespace for all classes / functions of COMMS library.</div></div>
 <div class="ttc" id="anamespacecomms_html_a0a259a03d68bce98b4a129fb34aaa2e1"><div class="ttname"><a href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a></div><div class="ttdeci">ErrorStatus</div><div class="ttdoc">Error statuses reported by the Communication module.</div><div class="ttdef"><b>Definition:</b> ErrorStatus.h:17</div></div>
 <div class="ttc" id="anamespacecomms_html_a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38"><div class="ttname"><a href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">comms::ErrorStatus::Success</a></div><div class="ttdeci">@ Success</div><div class="ttdoc">Used to indicate successful outcome of the operation.</div></div>

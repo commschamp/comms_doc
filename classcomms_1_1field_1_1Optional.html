@@ -113,10 +113,10 @@ Inheritance diagram for comms::field::Optional&lt; TField, TOptions &gt;:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ad7a8471b1f7b3a6333b30aa71029e8ff"><td class="memItemLeft" align="right" valign="top"><a id="ad7a8471b1f7b3a6333b30aa71029e8ff"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1Optional.html#ad7a8471b1f7b3a6333b30aa71029e8ff">CommsTag</a> = tag::Optional</td></tr>
-<tr class="memdesc:ad7a8471b1f7b3a6333b30aa71029e8ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tag indicating type of the field. <br /></td></tr>
-<tr class="separator:ad7a8471b1f7b3a6333b30aa71029e8ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d404dc524af5a453d373e7f99d72fc3"><td class="memItemLeft" align="right" valign="top"><a id="a7d404dc524af5a453d373e7f99d72fc3"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1Optional.html#a7d404dc524af5a453d373e7f99d72fc3">CommsTag</a> = typename BaseImpl::CommsTag</td></tr>
+<tr class="memdesc:a7d404dc524af5a453d373e7f99d72fc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tag indicating type of the field. <br /></td></tr>
+<tr class="separator:a7d404dc524af5a453d373e7f99d72fc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1535b4344d4cf0dfed0a1c2a2ce8bef"><td class="memItemLeft" align="right" valign="top"><a id="ac1535b4344d4cf0dfed0a1c2a2ce8bef"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1Optional.html#ac1535b4344d4cf0dfed0a1c2a2ce8bef">Endian</a> = typename BaseImpl::Endian</td></tr>
 <tr class="memdesc:ac1535b4344d4cf0dfed0a1c2a2ce8bef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Endian used for serialisation. <br /></td></tr>
@@ -125,6 +125,9 @@ using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1Optional.html#a43371392e5391dce8ad2734967537265">Field</a> = TField</td></tr>
 <tr class="memdesc:a43371392e5391dce8ad2734967537265"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the field. <br /></td></tr>
 <tr class="separator:a43371392e5391dce8ad2734967537265"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0ee3a65be5fcd5540dd4dce455d7e8f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1Optional.html#af0ee3a65be5fcd5540dd4dce455d7e8f">FieldType</a> = typename ParsedOptions::FieldType</td></tr>
+<tr class="memdesc:af0ee3a65be5fcd5540dd4dce455d7e8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of actual extending field specified via <a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a>.  <a href="classcomms_1_1field_1_1Optional.html#af0ee3a65be5fcd5540dd4dce455d7e8f">More...</a><br /></td></tr>
+<tr class="separator:af0ee3a65be5fcd5540dd4dce455d7e8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e90125f3dac2f347ae301af3c15ef37"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1Optional.html#a9e90125f3dac2f347ae301af3c15ef37">Mode</a> = <a class="el" href="namespacecomms_1_1field.html#ab1a00acfb597ac892cc9d5a73740ad9e">OptionalMode</a></td></tr>
 <tr class="memdesc:a9e90125f3dac2f347ae301af3c15ef37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mode of the field.  <a href="classcomms_1_1field_1_1Optional.html#a9e90125f3dac2f347ae301af3c15ef37">More...</a><br /></td></tr>
 <tr class="separator:a9e90125f3dac2f347ae301af3c15ef37"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -262,6 +265,22 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a07c7bd49761eeb71e159d49818cd09f0"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1Field.html#a07c7bd49761eeb71e159d49818cd09f0">canWrite</a> ()</td></tr>
 <tr class="memdesc:a07c7bd49761eeb71e159d49818cd09f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default check of whether the field has a consistent value for writing.  <a href="classcomms_1_1Field.html#a07c7bd49761eeb71e159d49818cd09f0">More...</a><br /></td></tr>
 <tr class="separator:a07c7bd49761eeb71e159d49818cd09f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae59ce83c3e054d1324d1237112852a41"><td class="memItemLeft" align="right" valign="top"><a id="ae59ce83c3e054d1324d1237112852a41"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1Optional.html#ae59ce83c3e054d1324d1237112852a41">hasEmptySerialization</a> ()</td></tr>
+<tr class="memdesc:ae59ce83c3e054d1324d1237112852a41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1EmptySerialization.html">comms::option::def::EmptySerialization</a> option has been used. <br /></td></tr>
+<tr class="separator:ae59ce83c3e054d1324d1237112852a41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acba11e3d420174ea1ab395b25fa3d7c3"><td class="memItemLeft" align="right" valign="top"><a id="acba11e3d420174ea1ab395b25fa3d7c3"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1Optional.html#acba11e3d420174ea1ab395b25fa3d7c3">hasFailOnInvalid</a> ()</td></tr>
+<tr class="memdesc:acba11e3d420174ea1ab395b25fa3d7c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1FailOnInvalid.html">comms::option::def::FailOnInvalid</a> option has been used. <br /></td></tr>
+<tr class="separator:acba11e3d420174ea1ab395b25fa3d7c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81a4c3a2723a84f6fa5ff20459f5e14f"><td class="memItemLeft" align="right" valign="top"><a id="a81a4c3a2723a84f6fa5ff20459f5e14f"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1Optional.html#a81a4c3a2723a84f6fa5ff20459f5e14f">hasFieldType</a> ()</td></tr>
+<tr class="memdesc:a81a4c3a2723a84f6fa5ff20459f5e14f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a> option has been used. <br /></td></tr>
+<tr class="separator:a81a4c3a2723a84f6fa5ff20459f5e14f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6284a7d90ba97c8998434f2f9774e0e"><td class="memItemLeft" align="right" valign="top"><a id="aa6284a7d90ba97c8998434f2f9774e0e"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1Optional.html#aa6284a7d90ba97c8998434f2f9774e0e">hasIgnoreInvalid</a> ()</td></tr>
+<tr class="memdesc:aa6284a7d90ba97c8998434f2f9774e0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1IgnoreInvalid.html">comms::option::def::IgnoreInvalid</a> option has been used. <br /></td></tr>
+<tr class="separator:aa6284a7d90ba97c8998434f2f9774e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7dfe0a4dfa87e5bc4f3f50a6bf25bf7"><td class="memItemLeft" align="right" valign="top"><a id="ab7dfe0a4dfa87e5bc4f3f50a6bf25bf7"></a>
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1Optional.html#ab7dfe0a4dfa87e5bc4f3f50a6bf25bf7">hasNonDefaultRefresh</a> ()</td></tr>
 <tr class="memdesc:ab7dfe0a4dfa87e5bc4f3f50a6bf25bf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time check if this class has non-default refresh functionality. <br /></td></tr>
@@ -270,6 +289,9 @@ static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a clas
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1Optional.html#ab564e4aac22628a388b1e7aa54d26aeb">hasReadNoStatus</a> ()</td></tr>
 <tr class="memdesc:ab564e4aac22628a388b1e7aa54d26aeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time check of whether the field has <b>proper</b> <a class="el" href="classcomms_1_1field_1_1Optional.html#a6898c0558b176f68a92d18a39b0f8f48">readNoStatus()</a> member function. <br /></td></tr>
 <tr class="separator:ab564e4aac22628a388b1e7aa54d26aeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acff46470efbd63ba545801326e6b7f76"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1Field.html#acff46470efbd63ba545801326e6b7f76">hasVarLength</a> ()</td></tr>
+<tr class="memdesc:acff46470efbd63ba545801326e6b7f76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default check of whether the field has variable length definition via <a class="el" href="structcomms_1_1option_1_1def_1_1VarLength.html">comms::option::def::VarLength</a> option.  <a href="classcomms_1_1Field.html#acff46470efbd63ba545801326e6b7f76">More...</a><br /></td></tr>
+<tr class="separator:acff46470efbd63ba545801326e6b7f76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae39e04b671012c60f4cdda7528ce162d"><td class="memItemLeft" align="right" valign="top"><a id="ae39e04b671012c60f4cdda7528ce162d"></a>
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1Optional.html#ae39e04b671012c60f4cdda7528ce162d">hasWriteNoStatus</a> ()</td></tr>
 <tr class="memdesc:ae39e04b671012c60f4cdda7528ce162d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time check of whether the field has <b>proper</b> <a class="el" href="classcomms_1_1field_1_1Optional.html#a52012070009d13a83b0b39a382b33a7e">writeNoStatus()</a> member function. <br /></td></tr>
@@ -351,6 +373,25 @@ template&lt;typename TField , typename... TOptions&gt; </td></tr>
 <tr class="separator:a85649e327d31768f64b5fc7466e9fcf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="af0ee3a65be5fcd5540dd4dce455d7e8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0ee3a65be5fcd5540dd4dce455d7e8f">&#9670;&nbsp;</a></span>FieldType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TField , typename... TOptions&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classcomms_1_1field_1_1Optional.html">comms::field::Optional</a>&lt; TField, TOptions &gt;::<a class="el" href="classcomms_1_1field_1_1Optional.html#af0ee3a65be5fcd5540dd4dce455d7e8f">FieldType</a> =  typename ParsedOptions::FieldType</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Type of actual extending field specified via <a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a>. </p>
+<p><b>void</b> if <a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a> hasn't been applied. </p>
+
+</div>
+</div>
 <a id="a9e90125f3dac2f347ae301af3c15ef37"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9e90125f3dac2f347ae301af3c15ef37">&#9670;&nbsp;</a></span>Mode</h2>
 
@@ -523,7 +564,7 @@ template&lt;typename TField , typename... TOptions&gt; </div>
 
 <p>Check whether mode is equivalent to Mode::Exists. </p>
 <p>Convenience wrapper for <a class="el" href="classcomms_1_1field_1_1Optional.html#abc65d90c7314385f08cb7e5983bb33d1" title="Get current optional mode.">getMode()</a>, equivalent to </p><div class="fragment"><div class="line"><span class="keywordflow">return</span> <a class="code" href="classcomms_1_1field_1_1Optional.html#abc65d90c7314385f08cb7e5983bb33d1">getMode</a>() == Mode::Exists; </div>
-<div class="ttc" id="aclasscomms_1_1field_1_1Optional_html_abc65d90c7314385f08cb7e5983bb33d1"><div class="ttname"><a href="classcomms_1_1field_1_1Optional.html#abc65d90c7314385f08cb7e5983bb33d1">comms::field::Optional::getMode</a></div><div class="ttdeci">Mode getMode() const</div><div class="ttdoc">Get current optional mode.</div><div class="ttdef"><b>Definition:</b> Optional.h:192</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1Optional_html_abc65d90c7314385f08cb7e5983bb33d1"><div class="ttname"><a href="classcomms_1_1field_1_1Optional.html#abc65d90c7314385f08cb7e5983bb33d1">comms::field::Optional::getMode</a></div><div class="ttdeci">Mode getMode() const</div><div class="ttdoc">Get current optional mode.</div><div class="ttdef"><b>Definition:</b> Optional.h:224</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -568,6 +609,36 @@ template&lt;typename TField , typename... TOptions&gt; </div>
 
 <p>Get version of the field. </p>
 <p>Exists only if <a class="el" href="structcomms_1_1option_1_1def_1_1VersionStorage.html">comms::option::def::VersionStorage</a> option has been provided. </p>
+
+</div>
+</div>
+<a id="acff46470efbd63ba545801326e6b7f76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acff46470efbd63ba545801326e6b7f76">&#9670;&nbsp;</a></span>hasVarLength()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... TOptions&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static constexpr bool <a class="el" href="classcomms_1_1Field.html">comms::Field</a>&lt; TOptions &gt;::hasVarLength </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default check of whether the field has variable length definition via <a class="el" href="structcomms_1_1option_1_1def_1_1VarLength.html">comms::option::def::VarLength</a> option. </p>
+<dl class="section return"><dt>Returns</dt><dd>Always <b>false</b>. </dd></dl>
 
 </div>
 </div>
@@ -918,7 +989,7 @@ template&lt;typename TField , typename... TOptions&gt; </div>
 
 <p>Set mode to Mode::Exists. </p>
 <p>Convenience wrapper for <a class="el" href="classcomms_1_1field_1_1Optional.html#ac5ff5ab63489493dce7aa1e6a49a1e0b" title="Get optional mode.">setMode()</a>, equivalent to </p><div class="fragment"><div class="line"><a class="code" href="classcomms_1_1field_1_1Optional.html#ac5ff5ab63489493dce7aa1e6a49a1e0b">setMode</a>(Mode::Exists); </div>
-<div class="ttc" id="aclasscomms_1_1field_1_1Optional_html_ac5ff5ab63489493dce7aa1e6a49a1e0b"><div class="ttname"><a href="classcomms_1_1field_1_1Optional.html#ac5ff5ab63489493dce7aa1e6a49a1e0b">comms::field::Optional::setMode</a></div><div class="ttdeci">void setMode(Mode val)</div><div class="ttdoc">Get optional mode.</div><div class="ttdef"><b>Definition:</b> Optional.h:198</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1Optional_html_ac5ff5ab63489493dce7aa1e6a49a1e0b"><div class="ttname"><a href="classcomms_1_1field_1_1Optional.html#ac5ff5ab63489493dce7aa1e6a49a1e0b">comms::field::Optional::setMode</a></div><div class="ttdeci">void setMode(Mode val)</div><div class="ttdoc">Get optional mode.</div><div class="ttdef"><b>Definition:</b> Optional.h:230</div></div>
 </div><!-- fragment --> 
 </div>
 </div>

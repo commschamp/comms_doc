@@ -97,7 +97,7 @@ class comms::field::EnumValue&lt; TFieldBase, TEnum, TOptions &gt;</h3>
 <div class="line"><span class="keyword">using</span> MyFieldBase = <a class="code" href="classcomms_1_1Field.html">comms::Field&lt;comms::option::def::BigEndian&gt;</a>;</div>
 <div class="line"><span class="keyword">using</span> MyField =<a class="code" href="classcomms_1_1field_1_1EnumValue.html">comms::field::EnumValue&lt;MyFieldBase, MyEnum&gt;</a>;</div>
 <div class="ttc" id="aclasscomms_1_1Field_html"><div class="ttname"><a href="classcomms_1_1Field.html">comms::Field</a></div><div class="ttdoc">Base class to all the field classes.</div><div class="ttdef"><b>Definition:</b> Field.h:33</div></div>
-<div class="ttc" id="aclasscomms_1_1field_1_1EnumValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1EnumValue.html">comms::field::EnumValue</a></div><div class="ttdoc">Enumerator value field.</div><div class="ttdef"><b>Definition:</b> EnumValue.h:74</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1EnumValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1EnumValue.html">comms::field::EnumValue</a></div><div class="ttdoc">Enumerator value field.</div><div class="ttdef"><b>Definition:</b> EnumValue.h:73</div></div>
 </div><!-- fragment --> The serialised value of the field in the example above will consume 2 bytes, because the underlying type of MyEnum is defined to be std::uint16_t. The value is serialised using big endian notation because base field class receives <a class="el" href="namespacecomms_1_1option_1_1def.html#a606d8afcd788b9c39088709e9be2f546" title="Alias option to Endian specifying Big endian.">comms::option::def::BigEndian</a> option.<br  />
  Supported options are: <ul>
 <li><a class="el" href="structcomms_1_1option_1_1def_1_1FixedLength.html">comms::option::def::FixedLength</a> </li>
@@ -133,10 +133,10 @@ Inheritance diagram for comms::field::EnumValue&lt; TFieldBase, TEnum, TOptions 
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a6f47d48ffcd8599b2968bb69d8ffc61b"><td class="memItemLeft" align="right" valign="top"><a id="a6f47d48ffcd8599b2968bb69d8ffc61b"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1EnumValue.html#a6f47d48ffcd8599b2968bb69d8ffc61b">CommsTag</a> = tag::Enum</td></tr>
-<tr class="memdesc:a6f47d48ffcd8599b2968bb69d8ffc61b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tag indicating type of the field. <br /></td></tr>
-<tr class="separator:a6f47d48ffcd8599b2968bb69d8ffc61b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e2caf807102d8d6c372493c83c3d79e"><td class="memItemLeft" align="right" valign="top"><a id="a3e2caf807102d8d6c372493c83c3d79e"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1EnumValue.html#a3e2caf807102d8d6c372493c83c3d79e">CommsTag</a> = typename BaseImpl::CommsTag</td></tr>
+<tr class="memdesc:a3e2caf807102d8d6c372493c83c3d79e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tag indicating type of the field. <br /></td></tr>
+<tr class="separator:a3e2caf807102d8d6c372493c83c3d79e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2e03b5ebfeb8afd9856e9f4dbbdfd60"><td class="memItemLeft" align="right" valign="top"><a id="ae2e03b5ebfeb8afd9856e9f4dbbdfd60"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1EnumValue.html#ae2e03b5ebfeb8afd9856e9f4dbbdfd60">Endian</a> = typename BaseImpl::Endian</td></tr>
 <tr class="memdesc:ae2e03b5ebfeb8afd9856e9f4dbbdfd60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Endian used for serialisation. <br /></td></tr>
@@ -145,6 +145,9 @@ using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1EnumValue.html#a4ad210c4153a77f4a9f5adaf711e28c4">FieldBase</a> = TFieldBase</td></tr>
 <tr class="memdesc:a4ad210c4153a77f4a9f5adaf711e28c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class provided in the first template parameter. <br /></td></tr>
 <tr class="separator:a4ad210c4153a77f4a9f5adaf711e28c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ad56f00d659595aad6a787149b458dc"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1EnumValue.html#a6ad56f00d659595aad6a787149b458dc">FieldType</a> = typename ParsedOptions::FieldType</td></tr>
+<tr class="memdesc:a6ad56f00d659595aad6a787149b458dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of actual extending field specified via <a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a>.  <a href="classcomms_1_1field_1_1EnumValue.html#a6ad56f00d659595aad6a787149b458dc">More...</a><br /></td></tr>
+<tr class="separator:a6ad56f00d659595aad6a787149b458dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0ef3ae32e7dccc66789ae1b28ec9cf4"><td class="memItemLeft" align="right" valign="top"><a id="aa0ef3ae32e7dccc66789ae1b28ec9cf4"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1EnumValue.html#aa0ef3ae32e7dccc66789ae1b28ec9cf4">ParsedOptions</a> = details::OptionsParser&lt; TOptions... &gt;</td></tr>
 <tr class="memdesc:aa0ef3ae32e7dccc66789ae1b28ec9cf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">All the options provided to this class bundled into struct. <br /></td></tr>
@@ -242,6 +245,22 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a07c7bd49761eeb71e159d49818cd09f0"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1Field.html#a07c7bd49761eeb71e159d49818cd09f0">canWrite</a> ()</td></tr>
 <tr class="memdesc:a07c7bd49761eeb71e159d49818cd09f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default check of whether the field has a consistent value for writing.  <a href="classcomms_1_1Field.html#a07c7bd49761eeb71e159d49818cd09f0">More...</a><br /></td></tr>
 <tr class="separator:a07c7bd49761eeb71e159d49818cd09f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7813d4ee5d203fdee7b1a3398e8fc5a1"><td class="memItemLeft" align="right" valign="top"><a id="a7813d4ee5d203fdee7b1a3398e8fc5a1"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1EnumValue.html#a7813d4ee5d203fdee7b1a3398e8fc5a1">hasEmptySerialization</a> ()</td></tr>
+<tr class="memdesc:a7813d4ee5d203fdee7b1a3398e8fc5a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1EmptySerialization.html">comms::option::def::EmptySerialization</a> option has been used. <br /></td></tr>
+<tr class="separator:a7813d4ee5d203fdee7b1a3398e8fc5a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2a248fff372524ea4d753843b15d46d"><td class="memItemLeft" align="right" valign="top"><a id="ac2a248fff372524ea4d753843b15d46d"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1EnumValue.html#ac2a248fff372524ea4d753843b15d46d">hasFailOnInvalid</a> ()</td></tr>
+<tr class="memdesc:ac2a248fff372524ea4d753843b15d46d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1FailOnInvalid.html">comms::option::def::FailOnInvalid</a> option has been used. <br /></td></tr>
+<tr class="separator:ac2a248fff372524ea4d753843b15d46d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9747ca8525ea0729287f58beb9e783ed"><td class="memItemLeft" align="right" valign="top"><a id="a9747ca8525ea0729287f58beb9e783ed"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1EnumValue.html#a9747ca8525ea0729287f58beb9e783ed">hasFieldType</a> ()</td></tr>
+<tr class="memdesc:a9747ca8525ea0729287f58beb9e783ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a> option has been used. <br /></td></tr>
+<tr class="separator:a9747ca8525ea0729287f58beb9e783ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55f9d088c7af76a908798ba31731e810"><td class="memItemLeft" align="right" valign="top"><a id="a55f9d088c7af76a908798ba31731e810"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1EnumValue.html#a55f9d088c7af76a908798ba31731e810">hasIgnoreInvalid</a> ()</td></tr>
+<tr class="memdesc:a55f9d088c7af76a908798ba31731e810"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1IgnoreInvalid.html">comms::option::def::IgnoreInvalid</a> option has been used. <br /></td></tr>
+<tr class="separator:a55f9d088c7af76a908798ba31731e810"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30fc3c9c549b326e9d950c7104823f61"><td class="memItemLeft" align="right" valign="top"><a id="a30fc3c9c549b326e9d950c7104823f61"></a>
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1EnumValue.html#a30fc3c9c549b326e9d950c7104823f61">hasNonDefaultRefresh</a> ()</td></tr>
 <tr class="memdesc:a30fc3c9c549b326e9d950c7104823f61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time check if this class has non-default refresh functionality. <br /></td></tr>
@@ -250,6 +269,9 @@ static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a clas
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1EnumValue.html#a467dbc6967a628e4873cd7c319c576d3">hasReadNoStatus</a> ()</td></tr>
 <tr class="memdesc:a467dbc6967a628e4873cd7c319c576d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time check of whether the field has <b>proper</b> <a class="el" href="classcomms_1_1field_1_1EnumValue.html#a36237c29b953fdd0d6548c70aa025802">readNoStatus()</a> member function. <br /></td></tr>
 <tr class="separator:a467dbc6967a628e4873cd7c319c576d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acff46470efbd63ba545801326e6b7f76"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1Field.html#acff46470efbd63ba545801326e6b7f76">hasVarLength</a> ()</td></tr>
+<tr class="memdesc:acff46470efbd63ba545801326e6b7f76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default check of whether the field has variable length definition via <a class="el" href="structcomms_1_1option_1_1def_1_1VarLength.html">comms::option::def::VarLength</a> option.  <a href="classcomms_1_1Field.html#acff46470efbd63ba545801326e6b7f76">More...</a><br /></td></tr>
+<tr class="separator:acff46470efbd63ba545801326e6b7f76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76cb9f044b5ac8ffa1003389e7324fd7"><td class="memItemLeft" align="right" valign="top"><a id="a76cb9f044b5ac8ffa1003389e7324fd7"></a>
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1EnumValue.html#a76cb9f044b5ac8ffa1003389e7324fd7">hasWriteNoStatus</a> ()</td></tr>
 <tr class="memdesc:a76cb9f044b5ac8ffa1003389e7324fd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time check of whether the field has <b>proper</b> <a class="el" href="classcomms_1_1field_1_1EnumValue.html#a0fdaed8710175fb035abde2828cb8220">writeNoStatus()</a> member function. <br /></td></tr>
@@ -319,6 +341,25 @@ template&lt;typename TFieldBase , typename TEnum , typename... TOptions&gt; </td
 <tr class="separator:ab357626f3ffa28bad3771e16ae9d30ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a6ad56f00d659595aad6a787149b458dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ad56f00d659595aad6a787149b458dc">&#9670;&nbsp;</a></span>FieldType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TFieldBase , typename TEnum , typename... TOptions&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classcomms_1_1field_1_1EnumValue.html">comms::field::EnumValue</a>&lt; TFieldBase, TEnum, TOptions &gt;::<a class="el" href="classcomms_1_1field_1_1EnumValue.html#a6ad56f00d659595aad6a787149b458dc">FieldType</a> =  typename ParsedOptions::FieldType</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Type of actual extending field specified via <a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a>. </p>
+<p><b>void</b> if <a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a> hasn't been applied. </p>
+
+</div>
+</div>
 <a id="a8848d098cdabf206564dada02871c161"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8848d098cdabf206564dada02871c161">&#9670;&nbsp;</a></span>ValueType</h2>
 
@@ -432,6 +473,36 @@ template&lt;typename TFieldBase , typename TEnum , typename... TOptions&gt; </di
 
 <p>Get version of the field. </p>
 <p>Exists only if <a class="el" href="structcomms_1_1option_1_1def_1_1VersionStorage.html">comms::option::def::VersionStorage</a> option has been provided. </p>
+
+</div>
+</div>
+<a id="acff46470efbd63ba545801326e6b7f76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acff46470efbd63ba545801326e6b7f76">&#9670;&nbsp;</a></span>hasVarLength()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... TOptions&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static constexpr bool <a class="el" href="classcomms_1_1Field.html">comms::Field</a>&lt; TOptions &gt;::hasVarLength </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default check of whether the field has variable length definition via <a class="el" href="structcomms_1_1option_1_1def_1_1VarLength.html">comms::option::def::VarLength</a> option. </p>
+<dl class="section return"><dt>Returns</dt><dd>Always <b>false</b>. </dd></dl>
 
 </div>
 </div>

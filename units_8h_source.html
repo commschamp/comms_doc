@@ -102,14 +102,14 @@ $(function() {
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">using</span> ScalingRatioOf = <span class="keyword">typename</span> <a class="code" href="namespacecomms_1_1option.html#af8fd76238d43170fe2e2dfe514750feb">TField::ParsedOptions::ScalingRatio</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">using</span> ScalingRatioOf = <span class="keyword">typename</span> <a class="code" href="namespacecomms_1_1option.html#af8fd76238d43170fe2e2dfe514750feb">TField::ScalingRatio</a>;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField, <span class="keyword">typename</span> TConvRatio&gt;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">using</span> FullUnitsRatioOf =</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">typename</span> std::ratio_divide&lt;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">typename</span> std::ratio_multiply&lt;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            ScalingRatioOf&lt;TField&gt;,</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <span class="keyword">typename</span> TField::ParsedOptions::UnitsRatio</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <span class="keyword">typename</span> TField::UnitsRatio</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        &gt;::type,</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        TConvRatio</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    &gt;::type;</div>
@@ -303,7 +303,7 @@ $(function() {
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField, <span class="keyword">typename</span> TType&gt;</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;constexpr <span class="keywordtype">bool</span> hasExpectedUnits()</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;{</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keywordflow">return</span> std::is_same&lt;typename TField::ParsedOptions::UnitsType, TType&gt;::value;</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keywordflow">return</span> std::is_same&lt;typename TField::UnitsType, TType&gt;::value;</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;}</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160; </div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TRet, <span class="keyword">typename</span> TConvRatio, <span class="keyword">typename</span> TField&gt;</div>
@@ -432,7 +432,7 @@ $(function() {
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField, <span class="keyword">typename</span> TConvRatio&gt;</div>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    <span class="keyword">using</span> GetTag = </div>
 <div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;        <span class="keyword">typename</span> comms::util::LazyShallowConditional&lt;</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;            std::is_same&lt;TConvRatio, typename TField::ParsedOptions::UnitsRatio&gt;::value</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;            std::is_same&lt;TConvRatio, typename TField::UnitsRatio&gt;::value</div>
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;        &gt;::template Type&lt;</div>
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;            SameUnitsTag,</div>
 <div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;            GetUnitsTag,</div>
@@ -442,7 +442,7 @@ $(function() {
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField, <span class="keyword">typename</span> TConvRatio&gt;</div>
 <div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    <span class="keyword">using</span> SetTag = </div>
 <div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;        <span class="keyword">typename</span> comms::util::LazyShallowConditional&lt;</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;            std::is_same&lt;TConvRatio, typename TField::ParsedOptions::UnitsRatio&gt;::value</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;            std::is_same&lt;TConvRatio, typename TField::UnitsRatio&gt;::value</div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;        &gt;::template Type&lt;</div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;            SameUnitsTag,</div>
 <div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;            SetUnitsTag,</div>
@@ -459,7 +459,7 @@ $(function() {
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    <span class="keyword">static</span> TRet getValueInternal(<span class="keyword">const</span> TField&amp; field, DegreesToRadiansTag&lt;TParams...&gt;)</div>
 <div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    {</div>
 <div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;        <span class="keyword">using</span> <a class="code" href="namespacecomms_1_1option.html#acb0ccfec5b21034551340b3a663497c9">FieldType</a> = <span class="keyword">typename</span> std::decay&lt;decltype(field)&gt;::type;</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;        static_assert(std::is_same&lt;typename FieldType::ParsedOptions::UnitsRatio, comms::traits::units::DegreesRatio&gt;::value,</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;        static_assert(std::is_same&lt;typename FieldType::UnitsRatio, comms::traits::units::DegreesRatio&gt;::value,</div>
 <div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;             <span class="stringliteral">&quot;The field is expected to contain degrees.&quot;</span>);</div>
 <div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160; </div>
 <div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;        <span class="keywordflow">return</span> PI&lt;TRet&gt;::Value * UnitsValueConverter&lt;&gt;::getValue&lt;TRet, TConvRatio&gt;(field);</div>
@@ -469,7 +469,7 @@ $(function() {
 <div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;    <span class="keyword">static</span> TRet getValueInternal(<span class="keyword">const</span> TField&amp; field, RadiansToDegreesTag&lt;TParams...&gt;)</div>
 <div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;    {</div>
 <div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;        <span class="keyword">using</span> <a class="code" href="namespacecomms_1_1option.html#acb0ccfec5b21034551340b3a663497c9">FieldType</a> = <span class="keyword">typename</span> std::decay&lt;decltype(field)&gt;::type;</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;        static_assert(std::is_same&lt;typename FieldType::ParsedOptions::UnitsRatio, comms::traits::units::RadiansRatio&gt;::value,</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;        static_assert(std::is_same&lt;typename FieldType::UnitsRatio, comms::traits::units::RadiansRatio&gt;::value,</div>
 <div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;             <span class="stringliteral">&quot;The field is expected to contain radians.&quot;</span>);</div>
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160; </div>
 <div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;        <span class="keywordflow">return</span> UnitsValueConverter&lt;&gt;::getValue&lt;TRet, TConvRatio&gt;(field) / PI&lt;TRet&gt;::Value;</div>
@@ -485,7 +485,7 @@ $(function() {
 <div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> setValueInternal(TField&amp; field, TVal&amp;&amp; val, DegreesToRadiansTag&lt;TParams...&gt;)</div>
 <div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;    {</div>
 <div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;        <span class="keyword">using</span> <a class="code" href="namespacecomms_1_1option.html#acb0ccfec5b21034551340b3a663497c9">FieldType</a> = <span class="keyword">typename</span> std::decay&lt;decltype(field)&gt;::type;</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;        static_assert(std::is_same&lt;typename FieldType::ParsedOptions::UnitsRatio, comms::traits::units::RadiansRatio&gt;::value,</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;        static_assert(std::is_same&lt;typename FieldType::UnitsRatio, comms::traits::units::RadiansRatio&gt;::value,</div>
 <div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;             <span class="stringliteral">&quot;The field is expected to contain radians.&quot;</span>);</div>
 <div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160; </div>
 <div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;        <span class="keyword">using</span> ValueType = <span class="keyword">typename</span> std::decay&lt;decltype(val)&gt;::type;</div>
@@ -504,7 +504,7 @@ $(function() {
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> setValueInternal(TField&amp; field, TVal&amp;&amp; val, RadiansToDegreesTag&lt;TParams...&gt;)</div>
 <div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;    {</div>
 <div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;        <span class="keyword">using</span> <a class="code" href="namespacecomms_1_1option.html#acb0ccfec5b21034551340b3a663497c9">FieldType</a> = <span class="keyword">typename</span> std::decay&lt;decltype(field)&gt;::type;</div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;        static_assert(std::is_same&lt;typename FieldType::ParsedOptions::UnitsRatio, comms::traits::units::DegreesRatio&gt;::value,</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;        static_assert(std::is_same&lt;typename FieldType::UnitsRatio, comms::traits::units::DegreesRatio&gt;::value,</div>
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;             <span class="stringliteral">&quot;The field is expected to contain degrees.&quot;</span>);</div>
 <div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160; </div>
 <div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;        <span class="keyword">using</span> ValueType = <span class="keyword">typename</span> std::decay&lt;decltype(val)&gt;::type;</div>
@@ -598,9 +598,9 @@ $(function() {
 <div class="line"><a name="l00550"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#aa65a8f13a3677fa813e9a809adf01501">  550</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#a6c8cb7b7f2b3f0c1fe16a91ad8f7a48d">isNanoseconds</a>()</div>
 <div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;{</div>
 <div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Time&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::NanosecondsRatio&gt;::value;</div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Time&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::NanosecondsRatio&gt;::value;</div>
 <div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;}</div>
 <div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160; </div>
 <div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -625,9 +625,9 @@ $(function() {
 <div class="line"><a name="l00603"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#a8d6032cd93a4115e574e68226d45f1ee">  603</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#aba6d43145f50d43fa8b1572f88560c85">isMicroseconds</a>()</div>
 <div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;{</div>
 <div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Time&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::MicrosecondsRatio&gt;::value;</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Time&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::MicrosecondsRatio&gt;::value;</div>
 <div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;}</div>
 <div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160; </div>
 <div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -652,9 +652,9 @@ $(function() {
 <div class="line"><a name="l00656"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#a9255fbcd9cd7ed1b9945cd53a3102462">  656</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#a7ecad113c7e78618a92d08c88d8e4d21">isMilliseconds</a>()</div>
 <div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;{</div>
 <div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Time&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::MillisecondsRatio&gt;::value;</div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Time&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::MillisecondsRatio&gt;::value;</div>
 <div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;}</div>
 <div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160; </div>
 <div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -679,9 +679,9 @@ $(function() {
 <div class="line"><a name="l00709"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#af1dc73fbbab70d721703c82c608b11a5">  709</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#afa059353fa763537faf8aa730f260fa9">isSeconds</a>()</div>
 <div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;{</div>
 <div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Time&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::SecondsRatio&gt;::value;</div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Time&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::SecondsRatio&gt;::value;</div>
 <div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;}</div>
 <div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160; </div>
 <div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -706,9 +706,9 @@ $(function() {
 <div class="line"><a name="l00762"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#a00192e9dbd234d4cfb16a5503197fe9b">  762</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#a74fba7e5b114fab332912f89171a27fe">isMinutes</a>()</div>
 <div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;{</div>
 <div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Time&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::MinutesRatio&gt;::value;</div>
+<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Time&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::MinutesRatio&gt;::value;</div>
 <div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;}</div>
 <div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160; </div>
 <div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -733,9 +733,9 @@ $(function() {
 <div class="line"><a name="l00815"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#a6cbe24becec880fb0fafcd903ba80f3b">  815</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#aa37270668291371723a21a91d080e131">isHours</a>()</div>
 <div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;{</div>
 <div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Time&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::HoursRatio&gt;::value;</div>
+<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Time&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::HoursRatio&gt;::value;</div>
 <div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;}</div>
 <div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160; </div>
 <div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -760,9 +760,9 @@ $(function() {
 <div class="line"><a name="l00868"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#aedbb581a53e544e93583f6f707ceff37">  868</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#a6d8c587a8d681d001a09d7e27ced5860">isDays</a>()</div>
 <div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;{</div>
 <div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Time&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::DaysRatio&gt;::value;</div>
+<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Time&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::DaysRatio&gt;::value;</div>
 <div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;}</div>
 <div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160; </div>
 <div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -787,9 +787,9 @@ $(function() {
 <div class="line"><a name="l00921"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#a94d08ef6256672b987ae2305791e05f5">  921</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#a0e2e7e1e1c882e556a87dfb5844070c5">isWeeks</a>()</div>
 <div class="line"><a name="l00922"></a><span class="lineno">  922</span>&#160;{</div>
 <div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00924"></a><span class="lineno">  924</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l00925"></a><span class="lineno">  925</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Time&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::WeeksRatio&gt;::value;</div>
+<div class="line"><a name="l00924"></a><span class="lineno">  924</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l00925"></a><span class="lineno">  925</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Time&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::WeeksRatio&gt;::value;</div>
 <div class="line"><a name="l00927"></a><span class="lineno">  927</span>&#160;}</div>
 <div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160; </div>
 <div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -814,9 +814,9 @@ $(function() {
 <div class="line"><a name="l00974"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#a32cfb8330d8d3f6d2b7d0ae7317a52bb">  974</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#a1c8114c06d14faa8b564da7a026014f4">isNanometers</a>()</div>
 <div class="line"><a name="l00975"></a><span class="lineno">  975</span>&#160;{</div>
 <div class="line"><a name="l00976"></a><span class="lineno">  976</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00977"></a><span class="lineno">  977</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l00978"></a><span class="lineno">  978</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Distance&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l00979"></a><span class="lineno">  979</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::NanometersRatio&gt;::value;</div>
+<div class="line"><a name="l00977"></a><span class="lineno">  977</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l00978"></a><span class="lineno">  978</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Distance&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l00979"></a><span class="lineno">  979</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::NanometersRatio&gt;::value;</div>
 <div class="line"><a name="l00980"></a><span class="lineno">  980</span>&#160;}</div>
 <div class="line"><a name="l00981"></a><span class="lineno">  981</span>&#160; </div>
 <div class="line"><a name="l00986"></a><span class="lineno">  986</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -841,9 +841,9 @@ $(function() {
 <div class="line"><a name="l01027"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#a630832b435e6356f9732a86361621583"> 1027</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#a81094ab8fd311779822f8d0e095e115c">isMicrometers</a>()</div>
 <div class="line"><a name="l01028"></a><span class="lineno"> 1028</span>&#160;{</div>
 <div class="line"><a name="l01029"></a><span class="lineno"> 1029</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l01030"></a><span class="lineno"> 1030</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l01031"></a><span class="lineno"> 1031</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Distance&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l01032"></a><span class="lineno"> 1032</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::MicrometersRatio&gt;::value;</div>
+<div class="line"><a name="l01030"></a><span class="lineno"> 1030</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l01031"></a><span class="lineno"> 1031</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Distance&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l01032"></a><span class="lineno"> 1032</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::MicrometersRatio&gt;::value;</div>
 <div class="line"><a name="l01033"></a><span class="lineno"> 1033</span>&#160;}</div>
 <div class="line"><a name="l01034"></a><span class="lineno"> 1034</span>&#160; </div>
 <div class="line"><a name="l01039"></a><span class="lineno"> 1039</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -868,9 +868,9 @@ $(function() {
 <div class="line"><a name="l01080"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#a1cdaab055b04b7c1beb9827f0ce73ac9"> 1080</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#a134ce8291e8ebef4f882c0d4c294fa51">isMillimeters</a>()</div>
 <div class="line"><a name="l01081"></a><span class="lineno"> 1081</span>&#160;{</div>
 <div class="line"><a name="l01082"></a><span class="lineno"> 1082</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l01083"></a><span class="lineno"> 1083</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l01084"></a><span class="lineno"> 1084</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Distance&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l01085"></a><span class="lineno"> 1085</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::MillimetersRatio&gt;::value;</div>
+<div class="line"><a name="l01083"></a><span class="lineno"> 1083</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l01084"></a><span class="lineno"> 1084</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Distance&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l01085"></a><span class="lineno"> 1085</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::MillimetersRatio&gt;::value;</div>
 <div class="line"><a name="l01086"></a><span class="lineno"> 1086</span>&#160;}</div>
 <div class="line"><a name="l01087"></a><span class="lineno"> 1087</span>&#160; </div>
 <div class="line"><a name="l01092"></a><span class="lineno"> 1092</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -895,9 +895,9 @@ $(function() {
 <div class="line"><a name="l01133"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#ae485b6eacd1e1066535f3037451e1984"> 1133</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#a6a3b10d389dfe31cedbb3b1ad98448e6">isCentimeters</a>()</div>
 <div class="line"><a name="l01134"></a><span class="lineno"> 1134</span>&#160;{</div>
 <div class="line"><a name="l01135"></a><span class="lineno"> 1135</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l01136"></a><span class="lineno"> 1136</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l01137"></a><span class="lineno"> 1137</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Distance&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l01138"></a><span class="lineno"> 1138</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::CentimetersRatio&gt;::value;</div>
+<div class="line"><a name="l01136"></a><span class="lineno"> 1136</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l01137"></a><span class="lineno"> 1137</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Distance&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l01138"></a><span class="lineno"> 1138</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::CentimetersRatio&gt;::value;</div>
 <div class="line"><a name="l01139"></a><span class="lineno"> 1139</span>&#160;}</div>
 <div class="line"><a name="l01140"></a><span class="lineno"> 1140</span>&#160; </div>
 <div class="line"><a name="l01145"></a><span class="lineno"> 1145</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -922,9 +922,9 @@ $(function() {
 <div class="line"><a name="l01186"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#a1801cdd585f36fba8736d0e33a647f50"> 1186</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#aeaf9710cd4a6bb376621f51ee7feb989">isMeters</a>()</div>
 <div class="line"><a name="l01187"></a><span class="lineno"> 1187</span>&#160;{</div>
 <div class="line"><a name="l01188"></a><span class="lineno"> 1188</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l01189"></a><span class="lineno"> 1189</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l01190"></a><span class="lineno"> 1190</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Distance&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l01191"></a><span class="lineno"> 1191</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::MetersRatio&gt;::value;</div>
+<div class="line"><a name="l01189"></a><span class="lineno"> 1189</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l01190"></a><span class="lineno"> 1190</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Distance&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l01191"></a><span class="lineno"> 1191</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::MetersRatio&gt;::value;</div>
 <div class="line"><a name="l01192"></a><span class="lineno"> 1192</span>&#160;}</div>
 <div class="line"><a name="l01193"></a><span class="lineno"> 1193</span>&#160; </div>
 <div class="line"><a name="l01198"></a><span class="lineno"> 1198</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -949,9 +949,9 @@ $(function() {
 <div class="line"><a name="l01239"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#a4cedfadf692f79f3ee37feedd4251c45"> 1239</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#a91c2856e196a08923ad685ab3583af0e">isKilometers</a>()</div>
 <div class="line"><a name="l01240"></a><span class="lineno"> 1240</span>&#160;{</div>
 <div class="line"><a name="l01241"></a><span class="lineno"> 1241</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l01242"></a><span class="lineno"> 1242</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l01243"></a><span class="lineno"> 1243</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Distance&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l01244"></a><span class="lineno"> 1244</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::KilometersRatio&gt;::value;</div>
+<div class="line"><a name="l01242"></a><span class="lineno"> 1242</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l01243"></a><span class="lineno"> 1243</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Distance&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l01244"></a><span class="lineno"> 1244</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::KilometersRatio&gt;::value;</div>
 <div class="line"><a name="l01245"></a><span class="lineno"> 1245</span>&#160;}</div>
 <div class="line"><a name="l01246"></a><span class="lineno"> 1246</span>&#160; </div>
 <div class="line"><a name="l01251"></a><span class="lineno"> 1251</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -976,9 +976,9 @@ $(function() {
 <div class="line"><a name="l01292"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#a835506b93191efcb81d3438c8951961e"> 1292</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#ab88fe0aa921cceaddb4a527e89a6fa8a">isNanometersPerSecond</a>()</div>
 <div class="line"><a name="l01293"></a><span class="lineno"> 1293</span>&#160;{</div>
 <div class="line"><a name="l01294"></a><span class="lineno"> 1294</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l01295"></a><span class="lineno"> 1295</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l01296"></a><span class="lineno"> 1296</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Speed&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l01297"></a><span class="lineno"> 1297</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::NanometersPerSecondRatio&gt;::value;</div>
+<div class="line"><a name="l01295"></a><span class="lineno"> 1295</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l01296"></a><span class="lineno"> 1296</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Speed&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l01297"></a><span class="lineno"> 1297</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::NanometersPerSecondRatio&gt;::value;</div>
 <div class="line"><a name="l01298"></a><span class="lineno"> 1298</span>&#160;}</div>
 <div class="line"><a name="l01299"></a><span class="lineno"> 1299</span>&#160; </div>
 <div class="line"><a name="l01304"></a><span class="lineno"> 1304</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -1003,9 +1003,9 @@ $(function() {
 <div class="line"><a name="l01345"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#a48706f19f4890820085ef58a306a76e0"> 1345</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#a1b0d9f7dbfe1b669fb407285aa799231">isMicrometersPerSecond</a>()</div>
 <div class="line"><a name="l01346"></a><span class="lineno"> 1346</span>&#160;{</div>
 <div class="line"><a name="l01347"></a><span class="lineno"> 1347</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l01348"></a><span class="lineno"> 1348</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l01349"></a><span class="lineno"> 1349</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Speed&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l01350"></a><span class="lineno"> 1350</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::MicrometersPerSecondRatio&gt;::value;</div>
+<div class="line"><a name="l01348"></a><span class="lineno"> 1348</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l01349"></a><span class="lineno"> 1349</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Speed&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l01350"></a><span class="lineno"> 1350</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::MicrometersPerSecondRatio&gt;::value;</div>
 <div class="line"><a name="l01351"></a><span class="lineno"> 1351</span>&#160;}</div>
 <div class="line"><a name="l01352"></a><span class="lineno"> 1352</span>&#160; </div>
 <div class="line"><a name="l01357"></a><span class="lineno"> 1357</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -1030,9 +1030,9 @@ $(function() {
 <div class="line"><a name="l01398"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#a044ec5f0a165fc542eeb5f1bd9a9cde8"> 1398</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#a32ed4ea6b7e7f239ae60a85a75dacd6b">isMillimetersPerSecond</a>()</div>
 <div class="line"><a name="l01399"></a><span class="lineno"> 1399</span>&#160;{</div>
 <div class="line"><a name="l01400"></a><span class="lineno"> 1400</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l01401"></a><span class="lineno"> 1401</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l01402"></a><span class="lineno"> 1402</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Speed&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l01403"></a><span class="lineno"> 1403</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::MillimetersPerSecondRatio&gt;::value;</div>
+<div class="line"><a name="l01401"></a><span class="lineno"> 1401</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l01402"></a><span class="lineno"> 1402</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Speed&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l01403"></a><span class="lineno"> 1403</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::MillimetersPerSecondRatio&gt;::value;</div>
 <div class="line"><a name="l01404"></a><span class="lineno"> 1404</span>&#160;}</div>
 <div class="line"><a name="l01405"></a><span class="lineno"> 1405</span>&#160; </div>
 <div class="line"><a name="l01410"></a><span class="lineno"> 1410</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -1057,9 +1057,9 @@ $(function() {
 <div class="line"><a name="l01451"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#a2bd550697cb335d05caa8add7808b561"> 1451</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#a637a241bbfbabea62ffd8ef50a2abc2b">isCentimetersPerSecond</a>()</div>
 <div class="line"><a name="l01452"></a><span class="lineno"> 1452</span>&#160;{</div>
 <div class="line"><a name="l01453"></a><span class="lineno"> 1453</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l01454"></a><span class="lineno"> 1454</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l01455"></a><span class="lineno"> 1455</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Speed&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l01456"></a><span class="lineno"> 1456</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::CentimetersPerSecondRatio&gt;::value;</div>
+<div class="line"><a name="l01454"></a><span class="lineno"> 1454</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l01455"></a><span class="lineno"> 1455</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Speed&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l01456"></a><span class="lineno"> 1456</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::CentimetersPerSecondRatio&gt;::value;</div>
 <div class="line"><a name="l01457"></a><span class="lineno"> 1457</span>&#160;}</div>
 <div class="line"><a name="l01458"></a><span class="lineno"> 1458</span>&#160; </div>
 <div class="line"><a name="l01463"></a><span class="lineno"> 1463</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -1084,9 +1084,9 @@ $(function() {
 <div class="line"><a name="l01504"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#a62ea22adf6879abb3a9ed73cd962b4e3"> 1504</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#ab1ec918440a9e889462a93e34af9a065">isMetersPerSecond</a>()</div>
 <div class="line"><a name="l01505"></a><span class="lineno"> 1505</span>&#160;{</div>
 <div class="line"><a name="l01506"></a><span class="lineno"> 1506</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l01507"></a><span class="lineno"> 1507</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l01508"></a><span class="lineno"> 1508</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Speed&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l01509"></a><span class="lineno"> 1509</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::MetersPerSecondRatio&gt;::value;</div>
+<div class="line"><a name="l01507"></a><span class="lineno"> 1507</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l01508"></a><span class="lineno"> 1508</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Speed&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l01509"></a><span class="lineno"> 1509</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::MetersPerSecondRatio&gt;::value;</div>
 <div class="line"><a name="l01510"></a><span class="lineno"> 1510</span>&#160;}</div>
 <div class="line"><a name="l01511"></a><span class="lineno"> 1511</span>&#160; </div>
 <div class="line"><a name="l01516"></a><span class="lineno"> 1516</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -1111,9 +1111,9 @@ $(function() {
 <div class="line"><a name="l01557"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#afe59f8785c56bf878307e78ce12de5f9"> 1557</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#a07a367d70e3c9280541184c3079f4218">isKilometersPerSecond</a>()</div>
 <div class="line"><a name="l01558"></a><span class="lineno"> 1558</span>&#160;{</div>
 <div class="line"><a name="l01559"></a><span class="lineno"> 1559</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l01560"></a><span class="lineno"> 1560</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l01561"></a><span class="lineno"> 1561</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Speed&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l01562"></a><span class="lineno"> 1562</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::KilometersPerSecondRatio&gt;::value;</div>
+<div class="line"><a name="l01560"></a><span class="lineno"> 1560</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l01561"></a><span class="lineno"> 1561</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Speed&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l01562"></a><span class="lineno"> 1562</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::KilometersPerSecondRatio&gt;::value;</div>
 <div class="line"><a name="l01563"></a><span class="lineno"> 1563</span>&#160;}</div>
 <div class="line"><a name="l01564"></a><span class="lineno"> 1564</span>&#160; </div>
 <div class="line"><a name="l01569"></a><span class="lineno"> 1569</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -1138,9 +1138,9 @@ $(function() {
 <div class="line"><a name="l01610"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#a4ee05f78850302d5822cc43ab26d550c"> 1610</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#abf6f25735cd331e9a9fb4725d7abf3c2">isKilometersPerHour</a>()</div>
 <div class="line"><a name="l01611"></a><span class="lineno"> 1611</span>&#160;{</div>
 <div class="line"><a name="l01612"></a><span class="lineno"> 1612</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l01613"></a><span class="lineno"> 1613</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l01614"></a><span class="lineno"> 1614</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Speed&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l01615"></a><span class="lineno"> 1615</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::KilometersPerHourRatio&gt;::value;</div>
+<div class="line"><a name="l01613"></a><span class="lineno"> 1613</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l01614"></a><span class="lineno"> 1614</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Speed&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l01615"></a><span class="lineno"> 1615</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::KilometersPerHourRatio&gt;::value;</div>
 <div class="line"><a name="l01616"></a><span class="lineno"> 1616</span>&#160;}</div>
 <div class="line"><a name="l01617"></a><span class="lineno"> 1617</span>&#160; </div>
 <div class="line"><a name="l01622"></a><span class="lineno"> 1622</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -1165,9 +1165,9 @@ $(function() {
 <div class="line"><a name="l01663"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#aee1c18efd430952dfdd14d3b14620041"> 1663</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#a25d674d605900a299c012d48be6b1590">isHertz</a>()</div>
 <div class="line"><a name="l01664"></a><span class="lineno"> 1664</span>&#160;{</div>
 <div class="line"><a name="l01665"></a><span class="lineno"> 1665</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l01666"></a><span class="lineno"> 1666</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l01667"></a><span class="lineno"> 1667</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Frequency&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l01668"></a><span class="lineno"> 1668</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::HzRatio&gt;::value;</div>
+<div class="line"><a name="l01666"></a><span class="lineno"> 1666</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l01667"></a><span class="lineno"> 1667</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Frequency&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l01668"></a><span class="lineno"> 1668</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::HzRatio&gt;::value;</div>
 <div class="line"><a name="l01669"></a><span class="lineno"> 1669</span>&#160;}</div>
 <div class="line"><a name="l01670"></a><span class="lineno"> 1670</span>&#160; </div>
 <div class="line"><a name="l01675"></a><span class="lineno"> 1675</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -1192,9 +1192,9 @@ $(function() {
 <div class="line"><a name="l01716"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#a9bd295ad6b061e4c8122bcb6a1b5a44c"> 1716</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#aac4d95e66d59be0fdc716b21c06ce36c">isKilohertz</a>()</div>
 <div class="line"><a name="l01717"></a><span class="lineno"> 1717</span>&#160;{</div>
 <div class="line"><a name="l01718"></a><span class="lineno"> 1718</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l01719"></a><span class="lineno"> 1719</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l01720"></a><span class="lineno"> 1720</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Frequency&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l01721"></a><span class="lineno"> 1721</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::KiloHzRatio&gt;::value;</div>
+<div class="line"><a name="l01719"></a><span class="lineno"> 1719</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l01720"></a><span class="lineno"> 1720</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Frequency&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l01721"></a><span class="lineno"> 1721</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::KiloHzRatio&gt;::value;</div>
 <div class="line"><a name="l01722"></a><span class="lineno"> 1722</span>&#160;}</div>
 <div class="line"><a name="l01723"></a><span class="lineno"> 1723</span>&#160; </div>
 <div class="line"><a name="l01728"></a><span class="lineno"> 1728</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -1219,9 +1219,9 @@ $(function() {
 <div class="line"><a name="l01769"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#a0b89799e1aacd06b845755c6e3d8f1bd"> 1769</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#a32dff65f8732bea885aa1206fd62aba0">isMegahertz</a>()</div>
 <div class="line"><a name="l01770"></a><span class="lineno"> 1770</span>&#160;{</div>
 <div class="line"><a name="l01771"></a><span class="lineno"> 1771</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l01772"></a><span class="lineno"> 1772</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l01773"></a><span class="lineno"> 1773</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Frequency&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l01774"></a><span class="lineno"> 1774</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::MegaHzRatio&gt;::value;</div>
+<div class="line"><a name="l01772"></a><span class="lineno"> 1772</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l01773"></a><span class="lineno"> 1773</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Frequency&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l01774"></a><span class="lineno"> 1774</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::MegaHzRatio&gt;::value;</div>
 <div class="line"><a name="l01775"></a><span class="lineno"> 1775</span>&#160;}</div>
 <div class="line"><a name="l01776"></a><span class="lineno"> 1776</span>&#160; </div>
 <div class="line"><a name="l01781"></a><span class="lineno"> 1781</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -1246,9 +1246,9 @@ $(function() {
 <div class="line"><a name="l01822"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#a9e4ad3f93ba9f85da5d203f59918c256"> 1822</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#adb752d773f91230400c03d0272fdec4d">isGigahertz</a>()</div>
 <div class="line"><a name="l01823"></a><span class="lineno"> 1823</span>&#160;{</div>
 <div class="line"><a name="l01824"></a><span class="lineno"> 1824</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l01825"></a><span class="lineno"> 1825</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l01826"></a><span class="lineno"> 1826</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Frequency&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l01827"></a><span class="lineno"> 1827</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::GigaHzRatio&gt;::value;</div>
+<div class="line"><a name="l01825"></a><span class="lineno"> 1825</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l01826"></a><span class="lineno"> 1826</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Frequency&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l01827"></a><span class="lineno"> 1827</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::GigaHzRatio&gt;::value;</div>
 <div class="line"><a name="l01828"></a><span class="lineno"> 1828</span>&#160;}</div>
 <div class="line"><a name="l01829"></a><span class="lineno"> 1829</span>&#160; </div>
 <div class="line"><a name="l01834"></a><span class="lineno"> 1834</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -1273,9 +1273,9 @@ $(function() {
 <div class="line"><a name="l01875"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#ad30939d451ffadbc8e7203624041f0b2"> 1875</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#ae715cc1890312fc1bb9fbc37f26e871e">isDegrees</a>()</div>
 <div class="line"><a name="l01876"></a><span class="lineno"> 1876</span>&#160;{</div>
 <div class="line"><a name="l01877"></a><span class="lineno"> 1877</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l01878"></a><span class="lineno"> 1878</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l01879"></a><span class="lineno"> 1879</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Angle&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l01880"></a><span class="lineno"> 1880</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::DegreesRatio&gt;::value;</div>
+<div class="line"><a name="l01878"></a><span class="lineno"> 1878</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l01879"></a><span class="lineno"> 1879</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Angle&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l01880"></a><span class="lineno"> 1880</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::DegreesRatio&gt;::value;</div>
 <div class="line"><a name="l01881"></a><span class="lineno"> 1881</span>&#160;}</div>
 <div class="line"><a name="l01882"></a><span class="lineno"> 1882</span>&#160; </div>
 <div class="line"><a name="l01887"></a><span class="lineno"> 1887</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -1300,9 +1300,9 @@ $(function() {
 <div class="line"><a name="l01928"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#ae34d27cb32fb8cbea46f8354b91bc3fd"> 1928</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#a8780460e9b4e7d5679e809d5af67f32a">isRadians</a>()</div>
 <div class="line"><a name="l01929"></a><span class="lineno"> 1929</span>&#160;{</div>
 <div class="line"><a name="l01930"></a><span class="lineno"> 1930</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l01931"></a><span class="lineno"> 1931</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l01932"></a><span class="lineno"> 1932</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Angle&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l01933"></a><span class="lineno"> 1933</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::RadiansRatio&gt;::value;</div>
+<div class="line"><a name="l01931"></a><span class="lineno"> 1931</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l01932"></a><span class="lineno"> 1932</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Angle&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l01933"></a><span class="lineno"> 1933</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::RadiansRatio&gt;::value;</div>
 <div class="line"><a name="l01934"></a><span class="lineno"> 1934</span>&#160;}</div>
 <div class="line"><a name="l01935"></a><span class="lineno"> 1935</span>&#160; </div>
 <div class="line"><a name="l01940"></a><span class="lineno"> 1940</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -1327,9 +1327,9 @@ $(function() {
 <div class="line"><a name="l01981"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#a8d8ea3235970cf26106a145af4955cae"> 1981</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#a7c8acac5a1101fd0b93682505bde75a5">isNanoamps</a>()</div>
 <div class="line"><a name="l01982"></a><span class="lineno"> 1982</span>&#160;{</div>
 <div class="line"><a name="l01983"></a><span class="lineno"> 1983</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l01984"></a><span class="lineno"> 1984</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l01985"></a><span class="lineno"> 1985</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Current&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l01986"></a><span class="lineno"> 1986</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::NanoampsRatio&gt;::value;</div>
+<div class="line"><a name="l01984"></a><span class="lineno"> 1984</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l01985"></a><span class="lineno"> 1985</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Current&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l01986"></a><span class="lineno"> 1986</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::NanoampsRatio&gt;::value;</div>
 <div class="line"><a name="l01987"></a><span class="lineno"> 1987</span>&#160;}</div>
 <div class="line"><a name="l01988"></a><span class="lineno"> 1988</span>&#160; </div>
 <div class="line"><a name="l01993"></a><span class="lineno"> 1993</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -1354,9 +1354,9 @@ $(function() {
 <div class="line"><a name="l02034"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#a733121bd90a4e857fdb3029e39c9288c"> 2034</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#afd55167a17801dc1647059444acafe87">isMicroamps</a>()</div>
 <div class="line"><a name="l02035"></a><span class="lineno"> 2035</span>&#160;{</div>
 <div class="line"><a name="l02036"></a><span class="lineno"> 2036</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l02037"></a><span class="lineno"> 2037</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l02038"></a><span class="lineno"> 2038</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Current&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l02039"></a><span class="lineno"> 2039</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::MicroampsRatio&gt;::value;</div>
+<div class="line"><a name="l02037"></a><span class="lineno"> 2037</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l02038"></a><span class="lineno"> 2038</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Current&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l02039"></a><span class="lineno"> 2039</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::MicroampsRatio&gt;::value;</div>
 <div class="line"><a name="l02040"></a><span class="lineno"> 2040</span>&#160;}</div>
 <div class="line"><a name="l02041"></a><span class="lineno"> 2041</span>&#160; </div>
 <div class="line"><a name="l02046"></a><span class="lineno"> 2046</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -1382,9 +1382,9 @@ $(function() {
 <div class="line"><a name="l02088"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#ab012e14fd00a3d4932a17d8201d1708e"> 2088</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#ae0f4b0401bbfa6c55eae4af11188aee2">isMilliamps</a>()</div>
 <div class="line"><a name="l02089"></a><span class="lineno"> 2089</span>&#160;{</div>
 <div class="line"><a name="l02090"></a><span class="lineno"> 2090</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l02091"></a><span class="lineno"> 2091</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l02092"></a><span class="lineno"> 2092</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Current&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l02093"></a><span class="lineno"> 2093</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::MilliampsRatio&gt;::value;</div>
+<div class="line"><a name="l02091"></a><span class="lineno"> 2091</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l02092"></a><span class="lineno"> 2092</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Current&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l02093"></a><span class="lineno"> 2093</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::MilliampsRatio&gt;::value;</div>
 <div class="line"><a name="l02094"></a><span class="lineno"> 2094</span>&#160;}</div>
 <div class="line"><a name="l02095"></a><span class="lineno"> 2095</span>&#160; </div>
 <div class="line"><a name="l02100"></a><span class="lineno"> 2100</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -1409,9 +1409,9 @@ $(function() {
 <div class="line"><a name="l02141"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#afd52de660b17864a45a8dfd2f7dc608d"> 2141</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#a47b34e7ce03fbf7d25f18b686fa34fdc">isAmps</a>()</div>
 <div class="line"><a name="l02142"></a><span class="lineno"> 2142</span>&#160;{</div>
 <div class="line"><a name="l02143"></a><span class="lineno"> 2143</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l02144"></a><span class="lineno"> 2144</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l02145"></a><span class="lineno"> 2145</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Current&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l02146"></a><span class="lineno"> 2146</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::AmpsRatio&gt;::value;</div>
+<div class="line"><a name="l02144"></a><span class="lineno"> 2144</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l02145"></a><span class="lineno"> 2145</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Current&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l02146"></a><span class="lineno"> 2146</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::AmpsRatio&gt;::value;</div>
 <div class="line"><a name="l02147"></a><span class="lineno"> 2147</span>&#160;}</div>
 <div class="line"><a name="l02148"></a><span class="lineno"> 2148</span>&#160; </div>
 <div class="line"><a name="l02153"></a><span class="lineno"> 2153</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -1436,9 +1436,9 @@ $(function() {
 <div class="line"><a name="l02194"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#ab038284323329c4300d662d00602d88c"> 2194</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#a98ba6eb44325507f8d019048b403deee">isKiloamps</a>()</div>
 <div class="line"><a name="l02195"></a><span class="lineno"> 2195</span>&#160;{</div>
 <div class="line"><a name="l02196"></a><span class="lineno"> 2196</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l02197"></a><span class="lineno"> 2197</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l02198"></a><span class="lineno"> 2198</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Current&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l02199"></a><span class="lineno"> 2199</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::KiloampsRatio&gt;::value;</div>
+<div class="line"><a name="l02197"></a><span class="lineno"> 2197</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l02198"></a><span class="lineno"> 2198</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Current&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l02199"></a><span class="lineno"> 2199</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::KiloampsRatio&gt;::value;</div>
 <div class="line"><a name="l02200"></a><span class="lineno"> 2200</span>&#160;}</div>
 <div class="line"><a name="l02201"></a><span class="lineno"> 2201</span>&#160; </div>
 <div class="line"><a name="l02206"></a><span class="lineno"> 2206</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -1463,9 +1463,9 @@ $(function() {
 <div class="line"><a name="l02247"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#af53dcc0ddff68bab6cb8c7f4a91bb33f"> 2247</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#aba9061fdd551168b1f42e8f51ffacfd3">isNanovolts</a>()</div>
 <div class="line"><a name="l02248"></a><span class="lineno"> 2248</span>&#160;{</div>
 <div class="line"><a name="l02249"></a><span class="lineno"> 2249</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l02250"></a><span class="lineno"> 2250</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l02251"></a><span class="lineno"> 2251</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Voltage&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l02252"></a><span class="lineno"> 2252</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::NanovoltsRatio&gt;::value;</div>
+<div class="line"><a name="l02250"></a><span class="lineno"> 2250</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l02251"></a><span class="lineno"> 2251</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Voltage&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l02252"></a><span class="lineno"> 2252</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::NanovoltsRatio&gt;::value;</div>
 <div class="line"><a name="l02253"></a><span class="lineno"> 2253</span>&#160;}</div>
 <div class="line"><a name="l02254"></a><span class="lineno"> 2254</span>&#160; </div>
 <div class="line"><a name="l02259"></a><span class="lineno"> 2259</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -1490,9 +1490,9 @@ $(function() {
 <div class="line"><a name="l02300"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#a8bfc71e3fd6e9920632b132ee55cfd81"> 2300</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#aacd8dbff5cbd05707a5591617461bab5">isMicrovolts</a>()</div>
 <div class="line"><a name="l02301"></a><span class="lineno"> 2301</span>&#160;{</div>
 <div class="line"><a name="l02302"></a><span class="lineno"> 2302</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l02303"></a><span class="lineno"> 2303</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l02304"></a><span class="lineno"> 2304</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Voltage&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l02305"></a><span class="lineno"> 2305</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::MicrovoltsRatio&gt;::value;</div>
+<div class="line"><a name="l02303"></a><span class="lineno"> 2303</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l02304"></a><span class="lineno"> 2304</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Voltage&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l02305"></a><span class="lineno"> 2305</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::MicrovoltsRatio&gt;::value;</div>
 <div class="line"><a name="l02306"></a><span class="lineno"> 2306</span>&#160;}</div>
 <div class="line"><a name="l02307"></a><span class="lineno"> 2307</span>&#160; </div>
 <div class="line"><a name="l02312"></a><span class="lineno"> 2312</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -1517,9 +1517,9 @@ $(function() {
 <div class="line"><a name="l02353"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#afaa0c36c28cbdd56cfad2072ff5d201a"> 2353</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#a44f6c6f5dcea512e87e39786dde08cd6">isMillivolts</a>()</div>
 <div class="line"><a name="l02354"></a><span class="lineno"> 2354</span>&#160;{</div>
 <div class="line"><a name="l02355"></a><span class="lineno"> 2355</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l02356"></a><span class="lineno"> 2356</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l02357"></a><span class="lineno"> 2357</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Voltage&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l02358"></a><span class="lineno"> 2358</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::MillivoltsRatio&gt;::value;</div>
+<div class="line"><a name="l02356"></a><span class="lineno"> 2356</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l02357"></a><span class="lineno"> 2357</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Voltage&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l02358"></a><span class="lineno"> 2358</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::MillivoltsRatio&gt;::value;</div>
 <div class="line"><a name="l02359"></a><span class="lineno"> 2359</span>&#160;}</div>
 <div class="line"><a name="l02360"></a><span class="lineno"> 2360</span>&#160; </div>
 <div class="line"><a name="l02365"></a><span class="lineno"> 2365</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -1544,9 +1544,9 @@ $(function() {
 <div class="line"><a name="l02406"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#a6bce43aabf5bd1bc815bdeea1f8d597d"> 2406</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#acb8b627c592ca7445641efc5c363646b">isVolts</a>()</div>
 <div class="line"><a name="l02407"></a><span class="lineno"> 2407</span>&#160;{</div>
 <div class="line"><a name="l02408"></a><span class="lineno"> 2408</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l02409"></a><span class="lineno"> 2409</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l02410"></a><span class="lineno"> 2410</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Voltage&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l02411"></a><span class="lineno"> 2411</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::VoltsRatio&gt;::value;</div>
+<div class="line"><a name="l02409"></a><span class="lineno"> 2409</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l02410"></a><span class="lineno"> 2410</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Voltage&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l02411"></a><span class="lineno"> 2411</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::VoltsRatio&gt;::value;</div>
 <div class="line"><a name="l02412"></a><span class="lineno"> 2412</span>&#160;}</div>
 <div class="line"><a name="l02413"></a><span class="lineno"> 2413</span>&#160; </div>
 <div class="line"><a name="l02418"></a><span class="lineno"> 2418</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -1571,9 +1571,9 @@ $(function() {
 <div class="line"><a name="l02459"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#a2bd22ed62608f66d9cd4894ef7b56018"> 2459</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#a6f01135f3f31e7670f64e7da09f8c4d9">isKilovolts</a>()</div>
 <div class="line"><a name="l02460"></a><span class="lineno"> 2460</span>&#160;{</div>
 <div class="line"><a name="l02461"></a><span class="lineno"> 2461</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l02462"></a><span class="lineno"> 2462</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l02463"></a><span class="lineno"> 2463</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Voltage&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l02464"></a><span class="lineno"> 2464</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::KilovoltsRatio&gt;::value;</div>
+<div class="line"><a name="l02462"></a><span class="lineno"> 2462</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l02463"></a><span class="lineno"> 2463</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Voltage&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l02464"></a><span class="lineno"> 2464</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::KilovoltsRatio&gt;::value;</div>
 <div class="line"><a name="l02465"></a><span class="lineno"> 2465</span>&#160;}</div>
 <div class="line"><a name="l02466"></a><span class="lineno"> 2466</span>&#160; </div>
 <div class="line"><a name="l02471"></a><span class="lineno"> 2471</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -1598,9 +1598,9 @@ $(function() {
 <div class="line"><a name="l02512"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#a2c40d49c94b0019b05b5b7e408eec0c7"> 2512</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#a0f1ce4aff958f03335ac4efc45942924">isBytes</a>()</div>
 <div class="line"><a name="l02513"></a><span class="lineno"> 2513</span>&#160;{</div>
 <div class="line"><a name="l02514"></a><span class="lineno"> 2514</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l02515"></a><span class="lineno"> 2515</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l02516"></a><span class="lineno"> 2516</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Memory&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l02517"></a><span class="lineno"> 2517</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::BytesRatio&gt;::value;</div>
+<div class="line"><a name="l02515"></a><span class="lineno"> 2515</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l02516"></a><span class="lineno"> 2516</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Memory&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l02517"></a><span class="lineno"> 2517</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::BytesRatio&gt;::value;</div>
 <div class="line"><a name="l02518"></a><span class="lineno"> 2518</span>&#160;}</div>
 <div class="line"><a name="l02519"></a><span class="lineno"> 2519</span>&#160; </div>
 <div class="line"><a name="l02524"></a><span class="lineno"> 2524</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -1625,9 +1625,9 @@ $(function() {
 <div class="line"><a name="l02565"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#aa707a0bb7697e330491369a2e3713003"> 2565</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#aa2a4e1c45c13b2a3540715513fd4bc06">isKilobytes</a>()</div>
 <div class="line"><a name="l02566"></a><span class="lineno"> 2566</span>&#160;{</div>
 <div class="line"><a name="l02567"></a><span class="lineno"> 2567</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l02568"></a><span class="lineno"> 2568</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l02569"></a><span class="lineno"> 2569</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Memory&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l02570"></a><span class="lineno"> 2570</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::KilobytesRatio&gt;::value;</div>
+<div class="line"><a name="l02568"></a><span class="lineno"> 2568</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l02569"></a><span class="lineno"> 2569</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Memory&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l02570"></a><span class="lineno"> 2570</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::KilobytesRatio&gt;::value;</div>
 <div class="line"><a name="l02571"></a><span class="lineno"> 2571</span>&#160;}</div>
 <div class="line"><a name="l02572"></a><span class="lineno"> 2572</span>&#160; </div>
 <div class="line"><a name="l02577"></a><span class="lineno"> 2577</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -1652,9 +1652,9 @@ $(function() {
 <div class="line"><a name="l02618"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#a16f71fdb62e307b50d45a18fba711821"> 2618</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#ad3e60f6753177a9390fc4a96743b1e59">isMegabytes</a>()</div>
 <div class="line"><a name="l02619"></a><span class="lineno"> 2619</span>&#160;{</div>
 <div class="line"><a name="l02620"></a><span class="lineno"> 2620</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l02621"></a><span class="lineno"> 2621</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l02622"></a><span class="lineno"> 2622</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Memory&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l02623"></a><span class="lineno"> 2623</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::MegabytesRatio&gt;::value;</div>
+<div class="line"><a name="l02621"></a><span class="lineno"> 2621</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l02622"></a><span class="lineno"> 2622</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Memory&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l02623"></a><span class="lineno"> 2623</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::MegabytesRatio&gt;::value;</div>
 <div class="line"><a name="l02624"></a><span class="lineno"> 2624</span>&#160;}</div>
 <div class="line"><a name="l02625"></a><span class="lineno"> 2625</span>&#160; </div>
 <div class="line"><a name="l02630"></a><span class="lineno"> 2630</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -1680,9 +1680,9 @@ $(function() {
 <div class="line"><a name="l02672"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#a6a323c94ed6f7074a5dc2f4258175eb7"> 2672</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#aa05652f06c76b76d00238e11a1330282">isGigabytes</a>()</div>
 <div class="line"><a name="l02673"></a><span class="lineno"> 2673</span>&#160;{</div>
 <div class="line"><a name="l02674"></a><span class="lineno"> 2674</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l02675"></a><span class="lineno"> 2675</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l02676"></a><span class="lineno"> 2676</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Memory&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l02677"></a><span class="lineno"> 2677</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::GigabytesRatio&gt;::value;</div>
+<div class="line"><a name="l02675"></a><span class="lineno"> 2675</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l02676"></a><span class="lineno"> 2676</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Memory&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l02677"></a><span class="lineno"> 2677</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::GigabytesRatio&gt;::value;</div>
 <div class="line"><a name="l02678"></a><span class="lineno"> 2678</span>&#160;}</div>
 <div class="line"><a name="l02679"></a><span class="lineno"> 2679</span>&#160; </div>
 <div class="line"><a name="l02684"></a><span class="lineno"> 2684</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -1707,9 +1707,9 @@ $(function() {
 <div class="line"><a name="l02725"></a><span class="lineno"><a class="line" href="namespacecomms_1_1units.html#a504af2d9d285d40d66ac204593b5a3d5"> 2725</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1units.html#a9e3e601226d2b005e332ff5608658cd7">isTerabytes</a>()</div>
 <div class="line"><a name="l02726"></a><span class="lineno"> 2726</span>&#160;{</div>
 <div class="line"><a name="l02727"></a><span class="lineno"> 2727</span>&#160;    <span class="keywordflow">return</span></div>
-<div class="line"><a name="l02728"></a><span class="lineno"> 2728</span>&#160;        TField::ParsedOptions::HasUnits &amp;&amp;</div>
-<div class="line"><a name="l02729"></a><span class="lineno"> 2729</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsType, comms::traits::units::Memory&gt;::value &amp;&amp;</div>
-<div class="line"><a name="l02730"></a><span class="lineno"> 2730</span>&#160;        std::is_same&lt;typename TField::ParsedOptions::UnitsRatio, comms::traits::units::TerabytesRatio&gt;::value;</div>
+<div class="line"><a name="l02728"></a><span class="lineno"> 2728</span>&#160;        TField::hasUnits() &amp;&amp;</div>
+<div class="line"><a name="l02729"></a><span class="lineno"> 2729</span>&#160;        std::is_same&lt;typename TField::UnitsType, comms::traits::units::Memory&gt;::value &amp;&amp;</div>
+<div class="line"><a name="l02730"></a><span class="lineno"> 2730</span>&#160;        std::is_same&lt;typename TField::UnitsRatio, comms::traits::units::TerabytesRatio&gt;::value;</div>
 <div class="line"><a name="l02731"></a><span class="lineno"> 2731</span>&#160;}</div>
 <div class="line"><a name="l02732"></a><span class="lineno"> 2732</span>&#160; </div>
 <div class="line"><a name="l02737"></a><span class="lineno"> 2737</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TField&gt;</div>
@@ -1724,8 +1724,8 @@ $(function() {
 <div class="line"><a name="l02746"></a><span class="lineno"> 2746</span>&#160; </div>
 <div class="line"><a name="l02747"></a><span class="lineno"> 2747</span>&#160;COMMS_MSVC_WARNING_POP</div>
 <div class="ttc" id="aCompileControl_8h_html"><div class="ttname"><a href="CompileControl_8h.html">CompileControl.h</a></div><div class="ttdoc">Contains various compiler related definitions.</div></div>
-<div class="ttc" id="anamespacecomms_1_1option_html_acb0ccfec5b21034551340b3a663497c9"><div class="ttname"><a href="namespacecomms_1_1option.html#acb0ccfec5b21034551340b3a663497c9">comms::option::FieldType</a></div><div class="ttdeci">comms::option::def::FieldType&lt; TMsg &gt; FieldType</div><div class="ttdoc">Same as comms::option::def::FieldType.</div><div class="ttdef"><b>Definition:</b> options.h:1434</div></div>
-<div class="ttc" id="anamespacecomms_1_1option_html_af8fd76238d43170fe2e2dfe514750feb"><div class="ttname"><a href="namespacecomms_1_1option.html#af8fd76238d43170fe2e2dfe514750feb">comms::option::ScalingRatio</a></div><div class="ttdeci">comms::option::def::ScalingRatio&lt; TNum, TDenom &gt; ScalingRatio</div><div class="ttdoc">Same as comms::option::def::ScalingRatio.</div><div class="ttdef"><b>Definition:</b> options.h:1475</div></div>
+<div class="ttc" id="anamespacecomms_1_1option_html_acb0ccfec5b21034551340b3a663497c9"><div class="ttname"><a href="namespacecomms_1_1option.html#acb0ccfec5b21034551340b3a663497c9">comms::option::FieldType</a></div><div class="ttdeci">comms::option::def::FieldType&lt; TMsg &gt; FieldType</div><div class="ttdoc">Same as comms::option::def::FieldType.</div><div class="ttdef"><b>Definition:</b> options.h:1463</div></div>
+<div class="ttc" id="anamespacecomms_1_1option_html_af8fd76238d43170fe2e2dfe514750feb"><div class="ttname"><a href="namespacecomms_1_1option.html#af8fd76238d43170fe2e2dfe514750feb">comms::option::ScalingRatio</a></div><div class="ttdeci">comms::option::def::ScalingRatio&lt; TNum, TDenom &gt; ScalingRatio</div><div class="ttdoc">Same as comms::option::def::ScalingRatio.</div><div class="ttdef"><b>Definition:</b> options.h:1504</div></div>
 <div class="ttc" id="anamespacecomms_1_1units_html_a00d1f619e8bc97f2f686f5913d1a4345"><div class="ttname"><a href="namespacecomms_1_1units.html#a00d1f619e8bc97f2f686f5913d1a4345">comms::units::getNanovolts</a></div><div class="ttdeci">TRet getNanovolts(const TField &amp;field)</div><div class="ttdoc">Retrieve field's value as nanovolts.</div><div class="ttdef"><b>Definition:</b> units.h:2223</div></div>
 <div class="ttc" id="anamespacecomms_1_1units_html_a06449ca748a2ca2a4a9f385d9d9b7d42"><div class="ttname"><a href="namespacecomms_1_1units.html#a06449ca748a2ca2a4a9f385d9d9b7d42">comms::units::getMicrovolts</a></div><div class="ttdeci">TRet getMicrovolts(const TField &amp;field)</div><div class="ttdoc">Retrieve field's value as microvolts.</div><div class="ttdef"><b>Definition:</b> units.h:2276</div></div>
 <div class="ttc" id="anamespacecomms_1_1units_html_a07a367d70e3c9280541184c3079f4218"><div class="ttname"><a href="namespacecomms_1_1units.html#a07a367d70e3c9280541184c3079f4218">comms::units::isKilometersPerSecond</a></div><div class="ttdeci">constexpr bool isKilometersPerSecond(const TField &amp;field)</div><div class="ttdoc">Compile time check whether the field type holds kilometers per second.</div><div class="ttdef"><b>Definition:</b> units.h:1570</div></div>

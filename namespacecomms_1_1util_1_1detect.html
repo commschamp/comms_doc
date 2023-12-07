@@ -88,6 +88,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a3da7b7cbbd357aec2cfe835d4b6d3bfa"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1util_1_1detect.html#a3da7b7cbbd357aec2cfe835d4b6d3bfa">hasClearFunc</a> ()</td></tr>
 <tr class="memdesc:a3da7b7cbbd357aec2cfe835d4b6d3bfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detect whether provided type has <b>clear()</b> member function.  <a href="namespacecomms_1_1util_1_1detect.html#a3da7b7cbbd357aec2cfe835d4b6d3bfa">More...</a><br /></td></tr>
 <tr class="separator:a3da7b7cbbd357aec2cfe835d4b6d3bfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb18ec640afdd4b962d0df92d4e2e5d6"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aeb18ec640afdd4b962d0df92d4e2e5d6"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1util_1_1detect.html#aeb18ec640afdd4b962d0df92d4e2e5d6">hasMaxSizeFunc</a> ()</td></tr>
+<tr class="memdesc:aeb18ec640afdd4b962d0df92d4e2e5d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detect whether provided type has <b>max_size()</b> member function.  <a href="namespacecomms_1_1util_1_1detect.html#aeb18ec640afdd4b962d0df92d4e2e5d6">More...</a><br /></td></tr>
+<tr class="separator:aeb18ec640afdd4b962d0df92d4e2e5d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47424dd7c43b1f53d87de4e81d6ebee2"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a47424dd7c43b1f53d87de4e81d6ebee2"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1util_1_1detect.html#a47424dd7c43b1f53d87de4e81d6ebee2">hasPtrSizeConstructor</a> ()</td></tr>
 <tr class="memdesc:a47424dd7c43b1f53d87de4e81d6ebee2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detect whether provided type has a constructor that receives a pointer + size parameters.  <a href="namespacecomms_1_1util_1_1detect.html#a47424dd7c43b1f53d87de4e81d6ebee2">More...</a><br /></td></tr>
@@ -168,6 +172,36 @@ template&lt;typename T &gt; </div>
 
 <p>Detect whether provided type has <b>clear()</b> member function. </p>
 <div class="fragment"><div class="line">static_assert(comms::util::detect::hasClearFunc&lt;std::string&gt;(), <span class="stringliteral">&quot;std::string is expected to have clear() member function.&quot;</span>);</div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="aeb18ec640afdd4b962d0df92d4e2e5d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb18ec640afdd4b962d0df92d4e2e5d6">&#9670;&nbsp;</a></span>hasMaxSizeFunc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool comms::util::detect::hasMaxSizeFunc </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Detect whether provided type has <b>max_size()</b> member function. </p>
+<div class="fragment"><div class="line">static_assert(comms::util::detect::hasMaxSizeFunc&lt;std::string&gt;(), <span class="stringliteral">&quot;std::string is expected to have max_size() member function.&quot;</span>);</div>
 </div><!-- fragment --> 
 </div>
 </div>

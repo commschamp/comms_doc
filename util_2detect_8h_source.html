@@ -134,11 +134,17 @@ $(function() {
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">return</span> details::IsStdSpan&lt;T&gt;::Value;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;} <span class="comment">// namespace detect</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;} <span class="comment">// namespace util</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;} <span class="comment">// namespace comms</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="namespacecomms_1_1util_1_1detect.html#aeb18ec640afdd4b962d0df92d4e2e5d6">  109</a></span>&#160;constexpr <span class="keywordtype">bool</span> <a class="code" href="namespacecomms_1_1util_1_1detect.html#aeb18ec640afdd4b962d0df92d4e2e5d6">hasMaxSizeFunc</a>()</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;{</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordflow">return</span> details::HasMaxSizeFunc&lt;T&gt;::Value;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;}</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;} <span class="comment">// namespace detect</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;} <span class="comment">// namespace util</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;} <span class="comment">// namespace comms</span></div>
 <div class="ttc" id="anamespacecomms_1_1util_1_1detect_html_a1faab07dcd5bed959bee75a0034cbe25"><div class="ttname"><a href="namespacecomms_1_1util_1_1detect.html#a1faab07dcd5bed959bee75a0034cbe25">comms::util::detect::isStdSpan</a></div><div class="ttdeci">constexpr bool isStdSpan()</div><div class="ttdoc">Detect whether provided type is std::span.</div><div class="ttdef"><b>Definition:</b> detect.h:98</div></div>
 <div class="ttc" id="anamespacecomms_1_1util_1_1detect_html_a2a50acb94af141a618374754ee0fd35b"><div class="ttname"><a href="namespacecomms_1_1util_1_1detect.html#a2a50acb94af141a618374754ee0fd35b">comms::util::detect::hasRemoveSuffixFunc</a></div><div class="ttdeci">constexpr bool hasRemoveSuffixFunc()</div><div class="ttdoc">Detect whether provided type has remove_suffix() member function.</div><div class="ttdef"><b>Definition:</b> detect.h:67</div></div>
 <div class="ttc" id="anamespacecomms_1_1util_1_1detect_html_a2e4bc8c6f76dffebb7deffabff7b291e"><div class="ttname"><a href="namespacecomms_1_1util_1_1detect.html#a2e4bc8c6f76dffebb7deffabff7b291e">comms::util::detect::hasReserveFunc</a></div><div class="ttdeci">constexpr bool hasReserveFunc()</div><div class="ttdoc">Detect whether provided type has reserve() member function.</div><div class="ttdef"><b>Definition:</b> detect.h:42</div></div>
@@ -146,6 +152,7 @@ $(function() {
 <div class="ttc" id="anamespacecomms_1_1util_1_1detect_html_a47424dd7c43b1f53d87de4e81d6ebee2"><div class="ttname"><a href="namespacecomms_1_1util_1_1detect.html#a47424dd7c43b1f53d87de4e81d6ebee2">comms::util::detect::hasPtrSizeConstructor</a></div><div class="ttdeci">constexpr bool hasPtrSizeConstructor()</div><div class="ttdoc">Detect whether provided type has a constructor that receives a pointer + size parameters.</div><div class="ttdef"><b>Definition:</b> detect.h:91</div></div>
 <div class="ttc" id="anamespacecomms_1_1util_1_1detect_html_a8964789a7595cdf8bbe868151a82101a"><div class="ttname"><a href="namespacecomms_1_1util_1_1detect.html#a8964789a7595cdf8bbe868151a82101a">comms::util::detect::hasAssignFunc</a></div><div class="ttdeci">constexpr bool hasAssignFunc()</div><div class="ttdoc">Detect whether provided type has assign() member function which can receive two pointers in its argum...</div><div class="ttdef"><b>Definition:</b> detect.h:79</div></div>
 <div class="ttc" id="anamespacecomms_1_1util_1_1detect_html_ae01cf25aeb761ac6c47aae8283b523a2"><div class="ttname"><a href="namespacecomms_1_1util_1_1detect.html#ae01cf25aeb761ac6c47aae8283b523a2">comms::util::detect::hasResizeFunc</a></div><div class="ttdeci">constexpr bool hasResizeFunc()</div><div class="ttdoc">Detect whether provided type has resize() member function.</div><div class="ttdef"><b>Definition:</b> detect.h:53</div></div>
+<div class="ttc" id="anamespacecomms_1_1util_1_1detect_html_aeb18ec640afdd4b962d0df92d4e2e5d6"><div class="ttname"><a href="namespacecomms_1_1util_1_1detect.html#aeb18ec640afdd4b962d0df92d4e2e5d6">comms::util::detect::hasMaxSizeFunc</a></div><div class="ttdeci">constexpr bool hasMaxSizeFunc()</div><div class="ttdoc">Detect whether provided type has max_size() member function.</div><div class="ttdef"><b>Definition:</b> detect.h:109</div></div>
 <div class="ttc" id="anamespacecomms_html"><div class="ttname"><a href="namespacecomms.html">comms</a></div><div class="ttdoc">Main namespace for all classes / functions of COMMS library.</div></div>
 <div class="ttc" id="autil_2details_2detect_8h_html"><div class="ttname"><a href="util_2details_2detect_8h.html">detect.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

@@ -70,101 +70,100 @@ $(function() {
 <div class="title">ScopeGuard.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<a href="ScopeGuard_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright 2012 - 2023 (C). Alex Robenko. All rights reserved.</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// This Source Code Form is subject to the terms of the Mozilla Public</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// License, v. 2.0. If a copy of the MPL was not distributed with this</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">// file, You can obtain one at http://mozilla.org/MPL/2.0/.</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;type_traits&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacecomms.html">comms</a></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;type_traits&gt;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span>util</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacecomms.html">comms</a></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TFunc&gt;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classcomms_1_1util_1_1ScopeGuard.html">   50</a></span>&#160;<span class="keyword">class </span><a class="code" href="classcomms_1_1util_1_1ScopeGuard.html">ScopeGuard</a></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classcomms_1_1util_1_1ScopeGuard.html#a77ad85cf67b6785e5bde93418baf36e9">   57</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classcomms_1_1util_1_1ScopeGuard.html#a77ad85cf67b6785e5bde93418baf36e9">ScopeGuard</a>(TFunc&amp;&amp; func)</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        : func_(std::forward&lt;TFunc&gt;(func)),</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;          engaged_(true)</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="classcomms_1_1util_1_1ScopeGuard.html#a14347f38efcd74d6c21556845472f38b">   65</a></span>&#160;    <a class="code" href="classcomms_1_1util_1_1ScopeGuard.html#a14347f38efcd74d6c21556845472f38b">ScopeGuard</a>(<span class="keyword">const</span> <a class="code" href="classcomms_1_1util_1_1ScopeGuard.html">ScopeGuard</a>&amp; guard) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">namespace </span>util</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TFunc&gt;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classcomms_1_1util_1_1ScopeGuard.html">   53</a></span>&#160;<span class="keyword">class </span><a class="code" href="classcomms_1_1util_1_1ScopeGuard.html">ScopeGuard</a></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classcomms_1_1util_1_1ScopeGuard.html#a77ad85cf67b6785e5bde93418baf36e9">   60</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classcomms_1_1util_1_1ScopeGuard.html#a77ad85cf67b6785e5bde93418baf36e9">ScopeGuard</a>(TFunc&amp;&amp; func)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        : func_(std::forward&lt;TFunc&gt;(func)),</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;          engaged_(true)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="classcomms_1_1util_1_1ScopeGuard.html#acc45dbaf724f4d8bfa6e7409a9a23c02">   71</a></span>&#160;    <a class="code" href="classcomms_1_1util_1_1ScopeGuard.html#acc45dbaf724f4d8bfa6e7409a9a23c02">ScopeGuard</a>(<a class="code" href="classcomms_1_1util_1_1ScopeGuard.html">ScopeGuard</a>&amp;&amp; guard)</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        : func_(std::move(guard.func_)),</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;          engaged_(std::move(guard.engaged_))</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    {</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        guard.release();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="classcomms_1_1util_1_1ScopeGuard.html#a45f6ca9da2803460fa6021a0159e3081">   82</a></span>&#160;    <a class="code" href="classcomms_1_1util_1_1ScopeGuard.html#a45f6ca9da2803460fa6021a0159e3081">~ScopeGuard</a>() noexcept</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">if</span> (!<a class="code" href="classcomms_1_1util_1_1ScopeGuard.html#a627ca9519cc7c777ebb6935fa946fac1">isReleased</a>()) {</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            func_();</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        }</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="classcomms_1_1util_1_1ScopeGuard.html#a5da6479cdeeecc38a613363acedc016f">   90</a></span>&#160;    <a class="code" href="classcomms_1_1util_1_1ScopeGuard.html">ScopeGuard</a>&amp; <a class="code" href="classcomms_1_1util_1_1ScopeGuard.html#a5da6479cdeeecc38a613363acedc016f">operator=</a>(<span class="keyword">const</span> <a class="code" href="classcomms_1_1util_1_1ScopeGuard.html">ScopeGuard</a>&amp; guard) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="classcomms_1_1util_1_1ScopeGuard.html#a14347f38efcd74d6c21556845472f38b">   68</a></span>&#160;    <a class="code" href="classcomms_1_1util_1_1ScopeGuard.html#a14347f38efcd74d6c21556845472f38b">ScopeGuard</a>(<span class="keyword">const</span> <a class="code" href="classcomms_1_1util_1_1ScopeGuard.html">ScopeGuard</a>&amp; guard) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classcomms_1_1util_1_1ScopeGuard.html#acc45dbaf724f4d8bfa6e7409a9a23c02">   74</a></span>&#160;    <a class="code" href="classcomms_1_1util_1_1ScopeGuard.html#acc45dbaf724f4d8bfa6e7409a9a23c02">ScopeGuard</a>(<a class="code" href="classcomms_1_1util_1_1ScopeGuard.html">ScopeGuard</a>&amp;&amp; guard)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        : func_(std::move(guard.func_)),</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;          engaged_(std::move(guard.engaged_))</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    {</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        guard.release();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classcomms_1_1util_1_1ScopeGuard.html#a45f6ca9da2803460fa6021a0159e3081">   85</a></span>&#160;    <a class="code" href="classcomms_1_1util_1_1ScopeGuard.html#a45f6ca9da2803460fa6021a0159e3081">~ScopeGuard</a>() noexcept</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">if</span> (!<a class="code" href="classcomms_1_1util_1_1ScopeGuard.html#a627ca9519cc7c777ebb6935fa946fac1">isReleased</a>()) {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            func_();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="classcomms_1_1util_1_1ScopeGuard.html#a1a815b810cb2032fd5d2045815106f98">   94</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classcomms_1_1util_1_1ScopeGuard.html#a1a815b810cb2032fd5d2045815106f98">release</a>()</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    {</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        engaged_ = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    }</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="classcomms_1_1util_1_1ScopeGuard.html#a627ca9519cc7c777ebb6935fa946fac1">  101</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classcomms_1_1util_1_1ScopeGuard.html#a627ca9519cc7c777ebb6935fa946fac1">isReleased</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordflow">return</span> !engaged_;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keyword">typename</span> std::remove_reference&lt;TFunc&gt;::type func_;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">bool</span> engaged_;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;};</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TFunctor&gt;</div>
-<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="classcomms_1_1util_1_1ScopeGuard.html#ab28065061c97acdea5eb567b64ed6a89">  127</a></span>&#160;<a class="code" href="classcomms_1_1util_1_1ScopeGuard.html">ScopeGuard&lt;TFunctor&gt;</a> <a class="code" href="classcomms_1_1util_1_1ScopeGuard.html#ab28065061c97acdea5eb567b64ed6a89">makeScopeGuard</a>(TFunctor&amp;&amp; func)</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;{</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classcomms_1_1util_1_1ScopeGuard.html">ScopeGuard&lt;TFunctor&gt;</a>(std::forward&lt;TFunctor&gt;(func));</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;}</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TFunc,</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;          <span class="keyword">typename</span>... TParams&gt;</div>
-<div class="line"><a name="l00155"></a><span class="lineno"><a class="line" href="classcomms_1_1util_1_1ScopeGuard.html#a79869db9aadf7c2f365f6728a7fbb9a2">  155</a></span>&#160;<span class="keyword">auto</span> <a class="code" href="classcomms_1_1util_1_1ScopeGuard.html#a79869db9aadf7c2f365f6728a7fbb9a2">makeScopeGuard</a>(TFunc&amp;&amp; func, TParams... args) -&gt;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;ScopeGuard&lt;decltype(std::bind(std::forward&lt;TFunc&gt;(func),</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                    std::forward&lt;TParams&gt;(args)...))&gt;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;{</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keyword">auto</span> bindObj = std::bind(std::forward&lt;TFunc&gt;(func), std::forward&lt;TParams&gt;(args)...);</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classcomms_1_1util_1_1ScopeGuard.html">ScopeGuard&lt;decltype(bindObj)&gt;</a>(std::move(bindObj));</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;}</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="comment">// Class implementation part</span></div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;}  <span class="comment">// namespace util</span></div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;}  <span class="comment">// namespace comms</span></div>
-<div class="ttc" id="aclasscomms_1_1util_1_1ScopeGuard_html"><div class="ttname"><a href="classcomms_1_1util_1_1ScopeGuard.html">comms::util::ScopeGuard</a></div><div class="ttdoc">Implements Scope Guard Idiom.</div><div class="ttdef"><b>Definition:</b> ScopeGuard.h:51</div></div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="classcomms_1_1util_1_1ScopeGuard.html#a5da6479cdeeecc38a613363acedc016f">   93</a></span>&#160;    <a class="code" href="classcomms_1_1util_1_1ScopeGuard.html">ScopeGuard</a>&amp; <a class="code" href="classcomms_1_1util_1_1ScopeGuard.html#a5da6479cdeeecc38a613363acedc016f">operator=</a>(<span class="keyword">const</span> <a class="code" href="classcomms_1_1util_1_1ScopeGuard.html">ScopeGuard</a>&amp; guard) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="classcomms_1_1util_1_1ScopeGuard.html#a1a815b810cb2032fd5d2045815106f98">   97</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classcomms_1_1util_1_1ScopeGuard.html#a1a815b810cb2032fd5d2045815106f98">release</a>()</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    {</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        engaged_ = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    }</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="classcomms_1_1util_1_1ScopeGuard.html#a627ca9519cc7c777ebb6935fa946fac1">  104</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classcomms_1_1util_1_1ScopeGuard.html#a627ca9519cc7c777ebb6935fa946fac1">isReleased</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">return</span> !engaged_;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    }</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keyword">typename</span> std::remove_reference&lt;TFunc&gt;::type func_;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordtype">bool</span> engaged_;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;};</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TFunctor&gt;</div>
+<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="classcomms_1_1util_1_1ScopeGuard.html#ab28065061c97acdea5eb567b64ed6a89">  130</a></span>&#160;<a class="code" href="classcomms_1_1util_1_1ScopeGuard.html">ScopeGuard&lt;TFunctor&gt;</a> <a class="code" href="classcomms_1_1util_1_1ScopeGuard.html#ab28065061c97acdea5eb567b64ed6a89">makeScopeGuard</a>(TFunctor&amp;&amp; func)</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;{</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classcomms_1_1util_1_1ScopeGuard.html">ScopeGuard&lt;TFunctor&gt;</a>(std::forward&lt;TFunctor&gt;(func));</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;}</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TFunc,</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;          <span class="keyword">typename</span>... TParams&gt;</div>
+<div class="line"><a name="l00158"></a><span class="lineno"><a class="line" href="classcomms_1_1util_1_1ScopeGuard.html#a79869db9aadf7c2f365f6728a7fbb9a2">  158</a></span>&#160;<span class="keyword">auto</span> <a class="code" href="classcomms_1_1util_1_1ScopeGuard.html#a79869db9aadf7c2f365f6728a7fbb9a2">makeScopeGuard</a>(TFunc&amp;&amp; func, TParams... args) -&gt;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;ScopeGuard&lt;decltype(std::bind(std::forward&lt;TFunc&gt;(func),</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                    std::forward&lt;TParams&gt;(args)...))&gt;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;{</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keyword">auto</span> bindObj = std::bind(std::forward&lt;TFunc&gt;(func), std::forward&lt;TParams&gt;(args)...);</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classcomms_1_1util_1_1ScopeGuard.html">ScopeGuard&lt;decltype(bindObj)&gt;</a>(std::move(bindObj));</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;}</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;}  <span class="comment">// namespace util</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;}  <span class="comment">// namespace comms</span></div>
+<div class="ttc" id="aclasscomms_1_1util_1_1ScopeGuard_html"><div class="ttname"><a href="classcomms_1_1util_1_1ScopeGuard.html">comms::util::ScopeGuard</a></div><div class="ttdoc">Implements Scope Guard Idiom.</div><div class="ttdef"><b>Definition:</b> ScopeGuard.h:54</div></div>
 <div class="ttc" id="aclasscomms_1_1util_1_1ScopeGuard_html_a14347f38efcd74d6c21556845472f38b"><div class="ttname"><a href="classcomms_1_1util_1_1ScopeGuard.html#a14347f38efcd74d6c21556845472f38b">comms::util::ScopeGuard::ScopeGuard</a></div><div class="ttdeci">ScopeGuard(const ScopeGuard &amp;guard)=delete</div><div class="ttdoc">No copy is allowed.</div></div>
-<div class="ttc" id="aclasscomms_1_1util_1_1ScopeGuard_html_a1a815b810cb2032fd5d2045815106f98"><div class="ttname"><a href="classcomms_1_1util_1_1ScopeGuard.html#a1a815b810cb2032fd5d2045815106f98">comms::util::ScopeGuard::release</a></div><div class="ttdeci">void release()</div><div class="ttdoc">Release the bound functor.</div><div class="ttdef"><b>Definition:</b> ScopeGuard.h:94</div></div>
-<div class="ttc" id="aclasscomms_1_1util_1_1ScopeGuard_html_a45f6ca9da2803460fa6021a0159e3081"><div class="ttname"><a href="classcomms_1_1util_1_1ScopeGuard.html#a45f6ca9da2803460fa6021a0159e3081">comms::util::ScopeGuard::~ScopeGuard</a></div><div class="ttdeci">~ScopeGuard() noexcept</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition:</b> ScopeGuard.h:82</div></div>
+<div class="ttc" id="aclasscomms_1_1util_1_1ScopeGuard_html_a1a815b810cb2032fd5d2045815106f98"><div class="ttname"><a href="classcomms_1_1util_1_1ScopeGuard.html#a1a815b810cb2032fd5d2045815106f98">comms::util::ScopeGuard::release</a></div><div class="ttdeci">void release()</div><div class="ttdoc">Release the bound functor.</div><div class="ttdef"><b>Definition:</b> ScopeGuard.h:97</div></div>
+<div class="ttc" id="aclasscomms_1_1util_1_1ScopeGuard_html_a45f6ca9da2803460fa6021a0159e3081"><div class="ttname"><a href="classcomms_1_1util_1_1ScopeGuard.html#a45f6ca9da2803460fa6021a0159e3081">comms::util::ScopeGuard::~ScopeGuard</a></div><div class="ttdeci">~ScopeGuard() noexcept</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition:</b> ScopeGuard.h:85</div></div>
 <div class="ttc" id="aclasscomms_1_1util_1_1ScopeGuard_html_a5da6479cdeeecc38a613363acedc016f"><div class="ttname"><a href="classcomms_1_1util_1_1ScopeGuard.html#a5da6479cdeeecc38a613363acedc016f">comms::util::ScopeGuard::operator=</a></div><div class="ttdeci">ScopeGuard &amp; operator=(const ScopeGuard &amp;guard)=delete</div><div class="ttdoc">No copy is allowed.</div></div>
-<div class="ttc" id="aclasscomms_1_1util_1_1ScopeGuard_html_a627ca9519cc7c777ebb6935fa946fac1"><div class="ttname"><a href="classcomms_1_1util_1_1ScopeGuard.html#a627ca9519cc7c777ebb6935fa946fac1">comms::util::ScopeGuard::isReleased</a></div><div class="ttdeci">bool isReleased() const</div><div class="ttdoc">Check whether the functor is released.</div><div class="ttdef"><b>Definition:</b> ScopeGuard.h:101</div></div>
-<div class="ttc" id="aclasscomms_1_1util_1_1ScopeGuard_html_a77ad85cf67b6785e5bde93418baf36e9"><div class="ttname"><a href="classcomms_1_1util_1_1ScopeGuard.html#a77ad85cf67b6785e5bde93418baf36e9">comms::util::ScopeGuard::ScopeGuard</a></div><div class="ttdeci">ScopeGuard(TFunc &amp;&amp;func)</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> ScopeGuard.h:57</div></div>
-<div class="ttc" id="aclasscomms_1_1util_1_1ScopeGuard_html_a79869db9aadf7c2f365f6728a7fbb9a2"><div class="ttname"><a href="classcomms_1_1util_1_1ScopeGuard.html#a79869db9aadf7c2f365f6728a7fbb9a2">comms::util::ScopeGuard::makeScopeGuard</a></div><div class="ttdeci">auto makeScopeGuard(TFunc &amp;&amp;func, TParams... args) -&gt; ScopeGuard&lt; decltype(std::bind(std::forward&lt; TFunc &gt;(func), std::forward&lt; TParams &gt;(args)...))&gt;</div><div class="ttdoc">Create scope guard by binding the provided function and all the arguments.</div><div class="ttdef"><b>Definition:</b> ScopeGuard.h:155</div></div>
-<div class="ttc" id="aclasscomms_1_1util_1_1ScopeGuard_html_ab28065061c97acdea5eb567b64ed6a89"><div class="ttname"><a href="classcomms_1_1util_1_1ScopeGuard.html#ab28065061c97acdea5eb567b64ed6a89">comms::util::ScopeGuard::makeScopeGuard</a></div><div class="ttdeci">ScopeGuard&lt; TFunctor &gt; makeScopeGuard(TFunctor &amp;&amp;func)</div><div class="ttdoc">Create scope guard with provided functor.</div><div class="ttdef"><b>Definition:</b> ScopeGuard.h:127</div></div>
-<div class="ttc" id="aclasscomms_1_1util_1_1ScopeGuard_html_acc45dbaf724f4d8bfa6e7409a9a23c02"><div class="ttname"><a href="classcomms_1_1util_1_1ScopeGuard.html#acc45dbaf724f4d8bfa6e7409a9a23c02">comms::util::ScopeGuard::ScopeGuard</a></div><div class="ttdeci">ScopeGuard(ScopeGuard &amp;&amp;guard)</div><div class="ttdoc">Move constructor.</div><div class="ttdef"><b>Definition:</b> ScopeGuard.h:71</div></div>
+<div class="ttc" id="aclasscomms_1_1util_1_1ScopeGuard_html_a627ca9519cc7c777ebb6935fa946fac1"><div class="ttname"><a href="classcomms_1_1util_1_1ScopeGuard.html#a627ca9519cc7c777ebb6935fa946fac1">comms::util::ScopeGuard::isReleased</a></div><div class="ttdeci">bool isReleased() const</div><div class="ttdoc">Check whether the functor is released.</div><div class="ttdef"><b>Definition:</b> ScopeGuard.h:104</div></div>
+<div class="ttc" id="aclasscomms_1_1util_1_1ScopeGuard_html_a77ad85cf67b6785e5bde93418baf36e9"><div class="ttname"><a href="classcomms_1_1util_1_1ScopeGuard.html#a77ad85cf67b6785e5bde93418baf36e9">comms::util::ScopeGuard::ScopeGuard</a></div><div class="ttdeci">ScopeGuard(TFunc &amp;&amp;func)</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> ScopeGuard.h:60</div></div>
+<div class="ttc" id="aclasscomms_1_1util_1_1ScopeGuard_html_a79869db9aadf7c2f365f6728a7fbb9a2"><div class="ttname"><a href="classcomms_1_1util_1_1ScopeGuard.html#a79869db9aadf7c2f365f6728a7fbb9a2">comms::util::ScopeGuard::makeScopeGuard</a></div><div class="ttdeci">auto makeScopeGuard(TFunc &amp;&amp;func, TParams... args) -&gt; ScopeGuard&lt; decltype(std::bind(std::forward&lt; TFunc &gt;(func), std::forward&lt; TParams &gt;(args)...))&gt;</div><div class="ttdoc">Create scope guard by binding the provided function and all the arguments.</div><div class="ttdef"><b>Definition:</b> ScopeGuard.h:158</div></div>
+<div class="ttc" id="aclasscomms_1_1util_1_1ScopeGuard_html_ab28065061c97acdea5eb567b64ed6a89"><div class="ttname"><a href="classcomms_1_1util_1_1ScopeGuard.html#ab28065061c97acdea5eb567b64ed6a89">comms::util::ScopeGuard::makeScopeGuard</a></div><div class="ttdeci">ScopeGuard&lt; TFunctor &gt; makeScopeGuard(TFunctor &amp;&amp;func)</div><div class="ttdoc">Create scope guard with provided functor.</div><div class="ttdef"><b>Definition:</b> ScopeGuard.h:130</div></div>
+<div class="ttc" id="aclasscomms_1_1util_1_1ScopeGuard_html_acc45dbaf724f4d8bfa6e7409a9a23c02"><div class="ttname"><a href="classcomms_1_1util_1_1ScopeGuard.html#acc45dbaf724f4d8bfa6e7409a9a23c02">comms::util::ScopeGuard::ScopeGuard</a></div><div class="ttdeci">ScopeGuard(ScopeGuard &amp;&amp;guard)</div><div class="ttdoc">Move constructor.</div><div class="ttdef"><b>Definition:</b> ScopeGuard.h:74</div></div>
 <div class="ttc" id="anamespacecomms_html"><div class="ttname"><a href="namespacecomms.html">comms</a></div><div class="ttdoc">Main namespace for all classes / functions of COMMS library.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

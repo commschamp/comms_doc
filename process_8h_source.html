@@ -91,7 +91,7 @@ $(function() {
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="MsgDispatcher_8h.html">comms/MsgDispatcher.h</a>&quot;</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;comms/details/detect.h&quot;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;comms/details/process.h&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;comms/util/ScopeGuard.h&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ScopeGuard_8h.html">comms/util/ScopeGuard.h</a>&quot;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ProtocolLayerBase_8h.html">comms/protocol/ProtocolLayerBase.h</a>&quot;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace  </span><a class="code" href="namespacecomms.html">comms</a></div>
@@ -271,6 +271,7 @@ $(function() {
 <div class="ttc" id="aMessage_8h_html"><div class="ttname"><a href="Message_8h.html">Message.h</a></div><div class="ttdoc">Contains definition of Message object interface and various base classes for custom messages.</div></div>
 <div class="ttc" id="aMsgDispatcher_8h_html"><div class="ttname"><a href="MsgDispatcher_8h.html">MsgDispatcher.h</a></div><div class="ttdoc">Contains definition of MsgDispatcher class which facilitates dispatching of message object to appropr...</div></div>
 <div class="ttc" id="aProtocolLayerBase_8h_html"><div class="ttname"><a href="ProtocolLayerBase_8h.html">ProtocolLayerBase.h</a></div><div class="ttdoc">Contains definition of comms::protocol::ProtocolLayerBase.</div></div>
+<div class="ttc" id="aScopeGuard_8h_html"><div class="ttname"><a href="ScopeGuard_8h.html">ScopeGuard.h</a></div><div class="ttdoc">Contains definition of the &quot;Scope Guard&quot; idiom, see comms::util::ScopeGuard.</div></div>
 <div class="ttc" id="adispatch_8h_html"><div class="ttname"><a href="dispatch_8h.html">dispatch.h</a></div><div class="ttdoc">Contains extra logic to help with dispatching message types and objects.</div></div>
 <div class="ttc" id="aiterator_8h_html"><div class="ttname"><a href="iterator_8h.html">iterator.h</a></div><div class="ttdoc">Provides auxiliary functions for retrieving best type of iterator for read/write operations.</div></div>
 <div class="ttc" id="anamespacecomms_1_1protocol_html_a4dfb5a97bd086a5926c9101f467f8683"><div class="ttname"><a href="namespacecomms_1_1protocol.html#a4dfb5a97bd086a5926c9101f467f8683">comms::protocol::msgId</a></div><div class="ttdeci">details::MsgIdRetriever&lt; TId &gt; msgId(TId &amp;val)</div><div class="ttdoc">Add &quot;message ID&quot; output parameter to protocol stack's (frame's) &quot;read&quot; operation.</div><div class="ttdef"><b>Definition:</b> ProtocolLayerBase.h:1588</div></div>

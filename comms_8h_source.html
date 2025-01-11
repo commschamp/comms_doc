@@ -83,7 +83,7 @@ $(document).ready(function() { init_codefold(0); });
 </div><!--header-->
 <div class="contents">
 <a href="comms_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// Copyright 2014 - 2024 (C). Alex Robenko. All rights reserved.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// Copyright 2014 - 2025 (C). Alex Robenko. All rights reserved.</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// This Source Code Form is subject to the terms of the Mozilla Public</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// License, v. 2.0. If a copy of the MPL was not distributed with this</span></div>
@@ -110,9 +110,10 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;<a class="code" href="MsgDispatcher_8h.html">comms/MsgDispatcher.h</a>&quot;</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &quot;<a class="code" href="GenericMessage_8h.html">comms/GenericMessage.h</a>&quot;</span></div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &quot;<a class="code" href="util_2detect_8h.html">comms/util/detect.h</a>&quot;</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &quot;<a class="code" href="assign_8h.html">comms/util/assign.h</a>&quot;</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#include &quot;<a class="code" href="type__traits_8h.html">comms/util/type_traits.h</a>&quot;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &quot;<a class="code" href="assign_8h.html">comms/util/assign.h</a>&quot;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &quot;<a class="code" href="construct_8h.html">comms/util/construct.h</a>&quot;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#include &quot;<a class="code" href="util_2detect_8h.html">comms/util/detect.h</a>&quot;</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#include &quot;<a class="code" href="type__traits_8h.html">comms/util/type_traits.h</a>&quot;</span></div>
 <div class="ttc" id="aCompileControl_8h_html"><div class="ttname"><a href="CompileControl_8h.html">CompileControl.h</a></div><div class="ttdoc">Contains various compiler related definitions.</div></div>
 <div class="ttc" id="aEmptyHandler_8h_html"><div class="ttname"><a href="EmptyHandler_8h.html">EmptyHandler.h</a></div><div class="ttdoc">Contains definition of comms::EmptyHandler class.</div></div>
 <div class="ttc" id="aGenericHandler_8h_html"><div class="ttname"><a href="GenericHandler_8h.html">GenericHandler.h</a></div><div class="ttdoc">This file contains definition of common handler.</div></div>
@@ -122,6 +123,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="aMsgDispatcher_8h_html"><div class="ttname"><a href="MsgDispatcher_8h.html">MsgDispatcher.h</a></div><div class="ttdoc">Contains definition of MsgDispatcher class which facilitates dispatching of message object to appropr...</div></div>
 <div class="ttc" id="aMsgFactory_8h_html"><div class="ttname"><a href="MsgFactory_8h.html">MsgFactory.h</a></div><div class="ttdoc">Contains definition of comms::MsgFactory class.</div></div>
 <div class="ttc" id="aassign_8h_html"><div class="ttname"><a href="assign_8h.html">assign.h</a></div><div class="ttdoc">Provides helper assign() function to allow easy assignment of values to collections or views.</div></div>
+<div class="ttc" id="aconstruct_8h_html"><div class="ttname"><a href="construct_8h.html">construct.h</a></div><div class="ttdoc">Provides helper construct() function to allow easy construction of various collection types.</div></div>
 <div class="ttc" id="adispatch_8h_html"><div class="ttname"><a href="dispatch_8h.html">dispatch.h</a></div><div class="ttdoc">Contains extra logic to help with dispatching message types and objects.</div></div>
 <div class="ttc" id="afield__cast_8h_html"><div class="ttname"><a href="field__cast_8h.html">field_cast.h</a></div><div class="ttdoc">Contained definition of field_cast() function. Now deprecated, use &quot;comms/cast.h&quot; instead.</div></div>
 <div class="ttc" id="afields_8h_html"><div class="ttname"><a href="fields_8h.html">fields.h</a></div><div class="ttdoc">This file provides all the definitions from comms::field namespace.</div></div>

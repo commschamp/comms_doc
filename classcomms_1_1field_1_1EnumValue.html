@@ -102,25 +102,27 @@ class comms::field::EnumValue&lt; TFieldBase, TEnum, TOptions &gt;</div><p>Enume
 <div class="line"><span class="keyword">using </span>MyFieldBase = <a class="code hl_class" href="classcomms_1_1Field.html">comms::Field&lt;comms::option::def::BigEndian&gt;</a>;</div>
 <div class="line"><span class="keyword">using </span>MyField =<a class="code hl_class" href="classcomms_1_1field_1_1EnumValue.html">comms::field::EnumValue&lt;MyFieldBase, MyEnum&gt;</a>;</div>
 <div class="ttc" id="aclasscomms_1_1Field_html"><div class="ttname"><a href="classcomms_1_1Field.html">comms::Field</a></div><div class="ttdoc">Base class to all the field classes.</div><div class="ttdef"><b>Definition</b> Field.h:33</div></div>
-<div class="ttc" id="aclasscomms_1_1field_1_1EnumValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1EnumValue.html">comms::field::EnumValue</a></div><div class="ttdoc">Enumerator value field.</div><div class="ttdef"><b>Definition</b> EnumValue.h:73</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1EnumValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1EnumValue.html">comms::field::EnumValue</a></div><div class="ttdoc">Enumerator value field.</div><div class="ttdef"><b>Definition</b> EnumValue.h:75</div></div>
 </div><!-- fragment --> The serialised value of the field in the example above will consume 2 bytes, because the underlying type of MyEnum is defined to be std::uint16_t. The value is serialised using big endian notation because base field class receives <a class="el" href="namespacecomms_1_1option_1_1def.html#a606d8afcd788b9c39088709e9be2f546" title="Alias option to Endian specifying Big endian.">comms::option::def::BigEndian</a> option.<br  />
  Supported options are: <ul>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1FixedLength.html">comms::option::def::FixedLength</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1FixedBitLength.html">comms::option::def::FixedBitLength</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1VarLength.html">comms::option::def::VarLength</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1NumValueSerOffset.html">comms::option::def::NumValueSerOffset</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1AvailableLengthLimit.html">comms::option::def::AvailableLengthLimit</a> </li>
 <li><a class="el" href="structcomms_1_1option_1_1def_1_1DefaultValueInitialiser.html">comms::option::def::DefaultValueInitialiser</a> or <a class="el" href="namespacecomms_1_1option_1_1def.html#ae716383045f6638aca961d2d4a1d0605">comms::option::def::DefaultNumValue</a>. </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1ValidNumValueRange.html">comms::option::def::ValidNumValueRange</a>, <a class="el" href="namespacecomms_1_1option_1_1def.html#a8ca4dd158c2eb6e8b58a2640b1e4d04d">comms::option::def::ValidNumValue</a>, <a class="el" href="structcomms_1_1option_1_1def_1_1ValidBigUnsignedNumValueRange.html">comms::option::def::ValidBigUnsignedNumValueRange</a>, <a class="el" href="namespacecomms_1_1option_1_1def.html#a8ac4bdfbfb155ebe1cbe3abcbc2990ac">comms::option::def::ValidBigUnsignedNumValue</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1ValidRangesClear.html">comms::option::def::ValidRangesClear</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1EmptySerialization.html">comms::option::def::EmptySerialization</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1FailOnInvalid.html">comms::option::def::FailOnInvalid</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1FixedBitLength.html">comms::option::def::FixedBitLength</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1FixedLength.html">comms::option::def::FixedLength</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1FixedValue.html">comms::option::def::FixedValue</a> </li>
 <li><a class="el" href="structcomms_1_1option_1_1def_1_1HasCustomRead.html">comms::option::def::HasCustomRead</a> </li>
 <li><a class="el" href="structcomms_1_1option_1_1def_1_1HasCustomRefresh.html">comms::option::def::HasCustomRefresh</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1FailOnInvalid.html">comms::option::def::FailOnInvalid</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1HasName.html">comms::option::def::HasName</a> </li>
 <li><a class="el" href="structcomms_1_1option_1_1def_1_1IgnoreInvalid.html">comms::option::def::IgnoreInvalid</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1EmptySerialization.html">comms::option::def::EmptySerialization</a> </li>
 <li><a class="el" href="structcomms_1_1option_1_1def_1_1InvalidByDefault.html">comms::option::def::InvalidByDefault</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1NumValueSerOffset.html">comms::option::def::NumValueSerOffset</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1ValidNumValueRange.html">comms::option::def::ValidNumValueRange</a>, <a class="el" href="namespacecomms_1_1option_1_1def.html#a8ca4dd158c2eb6e8b58a2640b1e4d04d">comms::option::def::ValidNumValue</a>, <a class="el" href="structcomms_1_1option_1_1def_1_1ValidBigUnsignedNumValueRange.html">comms::option::def::ValidBigUnsignedNumValueRange</a>, <a class="el" href="namespacecomms_1_1option_1_1def.html#a8ac4bdfbfb155ebe1cbe3abcbc2990ac">comms::option::def::ValidBigUnsignedNumValue</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1ValidRangesClear.html">comms::option::def::ValidRangesClear</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1VarLength.html">comms::option::def::VarLength</a> </li>
 <li><a class="el" href="structcomms_1_1option_1_1def_1_1VersionStorage.html">comms::option::def::VersionStorage</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1AvailableLengthLimit.html">comms::option::def::AvailableLengthLimit</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a> </li>
 </ul>
 </td></tr>
   </table>
@@ -262,10 +264,18 @@ static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasF
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasFieldType</b> ()</td></tr>
 <tr class="memdesc:a9747ca8525ea0729287f58beb9e783ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a> option has been used. <br /></td></tr>
 <tr class="separator:a9747ca8525ea0729287f58beb9e783ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d10f62669acff4d58b519f750d46dec" id="r_a4d10f62669acff4d58b519f750d46dec"><td class="memItemLeft" align="right" valign="top"><a id="a4d10f62669acff4d58b519f750d46dec" name="a4d10f62669acff4d58b519f750d46dec"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasFixedValue</b> ()</td></tr>
+<tr class="memdesc:a4d10f62669acff4d58b519f750d46dec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1FixedValue.html">comms::option::def::FixedValue</a> option has been used. <br /></td></tr>
+<tr class="separator:a4d10f62669acff4d58b519f750d46dec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55f9d088c7af76a908798ba31731e810" id="r_a55f9d088c7af76a908798ba31731e810"><td class="memItemLeft" align="right" valign="top"><a id="a55f9d088c7af76a908798ba31731e810" name="a55f9d088c7af76a908798ba31731e810"></a>
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasIgnoreInvalid</b> ()</td></tr>
 <tr class="memdesc:a55f9d088c7af76a908798ba31731e810"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1IgnoreInvalid.html">comms::option::def::IgnoreInvalid</a> option has been used. <br /></td></tr>
 <tr class="separator:a55f9d088c7af76a908798ba31731e810"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addec6e61050ac256151b4be5a97254ee" id="r_addec6e61050ac256151b4be5a97254ee"><td class="memItemLeft" align="right" valign="top"><a id="addec6e61050ac256151b4be5a97254ee" name="addec6e61050ac256151b4be5a97254ee"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasName</b> ()</td></tr>
+<tr class="memdesc:addec6e61050ac256151b4be5a97254ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1HasName.html">comms::option::def::HasName</a> option has been used. <br /></td></tr>
+<tr class="separator:addec6e61050ac256151b4be5a97254ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30fc3c9c549b326e9d950c7104823f61" id="r_a30fc3c9c549b326e9d950c7104823f61"><td class="memItemLeft" align="right" valign="top"><a id="a30fc3c9c549b326e9d950c7104823f61" name="a30fc3c9c549b326e9d950c7104823f61"></a>
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasNonDefaultRefresh</b> ()</td></tr>
 <tr class="memdesc:a30fc3c9c549b326e9d950c7104823f61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time check if this class has non-default refresh functionality. <br /></td></tr>

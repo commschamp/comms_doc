@@ -8,7 +8,8 @@ var searchData=
   ['fixedbitlength_5',['FixedBitLength',['../structcomms_1_1option_1_1def_1_1FixedBitLength.html',1,'comms::option::def']]],
   ['fixedlength_6',['FixedLength',['../structcomms_1_1option_1_1def_1_1FixedLength.html',1,'comms::option::def']]],
   ['fixedsizestorage_7',['FixedSizeStorage',['../structcomms_1_1option_1_1app_1_1FixedSizeStorage.html',1,'comms::option::app']]],
-  ['floatvalue_8',['FloatValue',['../classcomms_1_1field_1_1FloatValue.html',1,'comms::field']]],
-  ['forcedispatch_9',['ForceDispatch',['../structcomms_1_1option_1_1app_1_1ForceDispatch.html',1,'comms::option::app']]],
-  ['frequency_10',['Frequency',['../structcomms_1_1traits_1_1units_1_1Frequency.html',1,'comms::traits::units']]]
+  ['fixedvalue_8',['FixedValue',['../structcomms_1_1option_1_1def_1_1FixedValue.html',1,'comms::option::def']]],
+  ['floatvalue_9',['FloatValue',['../classcomms_1_1field_1_1FloatValue.html',1,'comms::field']]],
+  ['forcedispatch_10',['ForceDispatch',['../structcomms_1_1option_1_1app_1_1ForceDispatch.html',1,'comms::option::app']]],
+  ['frequency_11',['Frequency',['../structcomms_1_1traits_1_1units_1_1Frequency.html',1,'comms::traits::units']]]
 ];

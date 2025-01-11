@@ -96,27 +96,30 @@ class comms::field::IntValue&lt; TFieldBase, T, TOptions &gt;</div><p><a class="
     <tr><td class="paramname">TOptions</td><td>Zero or more options that modify/refine default behaviour of the field. If no option is provided The field's value is serialised as is. <div class="fragment"><div class="line"><span class="keyword">using </span>MyFieldBase = <a class="code hl_class" href="classcomms_1_1Field.html">comms::Field&lt;comms::option::def::BigEndian&gt;</a>;</div>
 <div class="line"><span class="keyword">using </span>MyField =<a class="code hl_class" href="classcomms_1_1field_1_1IntValue.html">comms::field::IntValue&lt;MyFieldBase, std::uint16_t&gt;</a>;</div>
 <div class="ttc" id="aclasscomms_1_1Field_html"><div class="ttname"><a href="classcomms_1_1Field.html">comms::Field</a></div><div class="ttdoc">Base class to all the field classes.</div><div class="ttdef"><b>Definition</b> Field.h:33</div></div>
-<div class="ttc" id="aclasscomms_1_1field_1_1IntValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1IntValue.html">comms::field::IntValue</a></div><div class="ttdoc">Field that represent integral value.</div><div class="ttdef"><b>Definition</b> IntValue.h:72</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1IntValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1IntValue.html">comms::field::IntValue</a></div><div class="ttdoc">Field that represent integral value.</div><div class="ttdef"><b>Definition</b> IntValue.h:75</div></div>
 </div><!-- fragment --> In the example above it will consume 2 bytes (because sizeof(std::uint16_t) == 2) and will be serialised using big endian notation.<br  />
  Supported options are: <ul>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1FixedLength.html">comms::option::def::FixedLength</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1FixedBitLength.html">comms::option::def::FixedBitLength</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1VarLength.html">comms::option::def::VarLength</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1NumValueSerOffset.html">comms::option::def::NumValueSerOffset</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1AvailableLengthLimit.html">comms::option::def::AvailableLengthLimit</a> </li>
 <li><a class="el" href="structcomms_1_1option_1_1def_1_1DefaultValueInitialiser.html">comms::option::def::DefaultValueInitialiser</a> or <a class="el" href="namespacecomms_1_1option_1_1def.html#ae716383045f6638aca961d2d4a1d0605">comms::option::def::DefaultNumValue</a>. </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1ValidNumValueRange.html">comms::option::def::ValidNumValueRange</a>, <a class="el" href="namespacecomms_1_1option_1_1def.html#a8ca4dd158c2eb6e8b58a2640b1e4d04d">comms::option::def::ValidNumValue</a>, <a class="el" href="structcomms_1_1option_1_1def_1_1ValidBigUnsignedNumValueRange.html">comms::option::def::ValidBigUnsignedNumValueRange</a>, <a class="el" href="namespacecomms_1_1option_1_1def.html#a8ac4bdfbfb155ebe1cbe3abcbc2990ac">comms::option::def::ValidBigUnsignedNumValue</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1ValidRangesClear.html">comms::option::def::ValidRangesClear</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1EmptySerialization.html" title="Force field not to be serialized during read/write operations.">comms::option::def::EmptySerialization</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1DisplayOffset.html">comms::option::def::DisplayOffset</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1FailOnInvalid.html">comms::option::def::FailOnInvalid</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1FixedBitLength.html">comms::option::def::FixedBitLength</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1FixedLength.html">comms::option::def::FixedLength</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1FixedValue.html">comms::option::def::FixedValue</a> </li>
 <li><a class="el" href="structcomms_1_1option_1_1def_1_1HasCustomRead.html">comms::option::def::HasCustomRead</a> </li>
 <li><a class="el" href="structcomms_1_1option_1_1def_1_1HasCustomRefresh.html">comms::option::def::HasCustomRefresh</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1FailOnInvalid.html">comms::option::def::FailOnInvalid</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1HasName.html">comms::option::def::HasName</a> </li>
 <li><a class="el" href="structcomms_1_1option_1_1def_1_1IgnoreInvalid.html">comms::option::def::IgnoreInvalid</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1InvalidByDefault.html">comms::option::def::InvalidByDefault</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1NumValueSerOffset.html">comms::option::def::NumValueSerOffset</a> </li>
 <li><a class="el" href="structcomms_1_1option_1_1def_1_1ScalingRatio.html">comms::option::def::ScalingRatio</a> </li>
 <li><b><a class="el" href="structcomms_1_1option_1_1def_1_1Units.html" title="Options to specify units of the field.">comms::option::def::Units</a>*</b> - all variants of value units, see <a class="el" href="page_field_tutorial.html#sec_field_tutorial_int_value_units">Value Units</a> for details. </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1EmptySerialization.html" title="Force field not to be serialized during read/write operations.">comms::option::def::EmptySerialization</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1InvalidByDefault.html">comms::option::def::InvalidByDefault</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1ValidNumValueRange.html">comms::option::def::ValidNumValueRange</a>, <a class="el" href="namespacecomms_1_1option_1_1def.html#a8ca4dd158c2eb6e8b58a2640b1e4d04d">comms::option::def::ValidNumValue</a>, <a class="el" href="structcomms_1_1option_1_1def_1_1ValidBigUnsignedNumValueRange.html">comms::option::def::ValidBigUnsignedNumValueRange</a>, <a class="el" href="namespacecomms_1_1option_1_1def.html#a8ac4bdfbfb155ebe1cbe3abcbc2990ac">comms::option::def::ValidBigUnsignedNumValue</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1ValidRangesClear.html">comms::option::def::ValidRangesClear</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1VarLength.html">comms::option::def::VarLength</a> </li>
 <li><a class="el" href="structcomms_1_1option_1_1def_1_1VersionStorage.html">comms::option::def::VersionStorage</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1AvailableLengthLimit.html">comms::option::def::AvailableLengthLimit</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a> </li>
 </ul>
 </td></tr>
   </table>
@@ -191,6 +194,9 @@ Public Member Functions</h2></td></tr>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>canWrite</b> () const</td></tr>
 <tr class="memdesc:af892da8856fd8345767d184eac9c7efe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check of whether the field has a consistent value for writing. <br /></td></tr>
 <tr class="separator:af892da8856fd8345767d184eac9c7efe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a203cfdf597d32256974c54c42dbb4636" id="r_a203cfdf597d32256974c54c42dbb4636"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcomms_1_1field_1_1IntValue.html#a0a72f169069219478bd2c6bce26e8809">ValueType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1IntValue.html#a203cfdf597d32256974c54c42dbb4636">getDisplayValue</a> () const</td></tr>
+<tr class="memdesc:a203cfdf597d32256974c54c42dbb4636"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get display value.  <br /></td></tr>
+<tr class="separator:a203cfdf597d32256974c54c42dbb4636"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4eead40b90c126cabd5e735eca8ada18" id="r_a4eead40b90c126cabd5e735eca8ada18"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1IntValue.html#a4eead40b90c126cabd5e735eca8ada18">getForcedLength</a> () const</td></tr>
 <tr class="memdesc:a4eead40b90c126cabd5e735eca8ada18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get forced serialization length.  <br /></td></tr>
 <tr class="separator:a4eead40b90c126cabd5e735eca8ada18"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -227,6 +233,10 @@ template&lt;typename TRet &gt; </td></tr>
 <tr class="memitem:ac9df062e8d26ea69c95de90c66e13576"><td class="memTemplItemLeft" align="right" valign="top">constexpr TRet&#160;</td><td class="memTemplItemRight" valign="bottom"><b>scaleAs</b> () const</td></tr>
 <tr class="memdesc:ac9df062e8d26ea69c95de90c66e13576"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="classcomms_1_1field_1_1IntValue.html#aab70162b392a06982b66c9417a7f8ea7" title="Scales value according to ratio specified in provided comms::option::def::ScalingRatio option.">getScaled()</a> <br /></td></tr>
 <tr class="separator:ac9df062e8d26ea69c95de90c66e13576"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a5db25ed386280b3185b1a9ea5bea2c" id="r_a4a5db25ed386280b3185b1a9ea5bea2c"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
+<tr class="memitem:a4a5db25ed386280b3185b1a9ea5bea2c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1IntValue.html#a4a5db25ed386280b3185b1a9ea5bea2c">setDisplayValue</a> (U &amp;&amp;val)</td></tr>
+<tr class="memdesc:a4a5db25ed386280b3185b1a9ea5bea2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set display value.  <br /></td></tr>
+<tr class="separator:a4a5db25ed386280b3185b1a9ea5bea2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab30032a17c1f8eee9f742e68403085fa" id="r_ab30032a17c1f8eee9f742e68403085fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1field_1_1IntValue.html#ab30032a17c1f8eee9f742e68403085fa">setForcedLength</a> (int len)</td></tr>
 <tr class="memdesc:ab30032a17c1f8eee9f742e68403085fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Force serialization length of the field.  <br /></td></tr>
 <tr class="separator:ab30032a17c1f8eee9f742e68403085fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -267,6 +277,10 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a07c7bd49761eeb71e159d49818cd09f0" id="r_a07c7bd49761eeb71e159d49818cd09f0"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1Field.html#a07c7bd49761eeb71e159d49818cd09f0">canWrite</a> ()</td></tr>
 <tr class="memdesc:a07c7bd49761eeb71e159d49818cd09f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default check of whether the field has a consistent value for writing.  <br /></td></tr>
 <tr class="separator:a07c7bd49761eeb71e159d49818cd09f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56340698e22d759f0374a31384a17de8" id="r_a56340698e22d759f0374a31384a17de8"><td class="memItemLeft" align="right" valign="top"><a id="a56340698e22d759f0374a31384a17de8" name="a56340698e22d759f0374a31384a17de8"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasDisplayOffset</b> ()</td></tr>
+<tr class="memdesc:a56340698e22d759f0374a31384a17de8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1DisplayOffset.html">comms::option::def::DisplayOffset</a> option has been used. <br /></td></tr>
+<tr class="separator:a56340698e22d759f0374a31384a17de8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9075125aa328707c778669214d266d81" id="r_a9075125aa328707c778669214d266d81"><td class="memItemLeft" align="right" valign="top"><a id="a9075125aa328707c778669214d266d81" name="a9075125aa328707c778669214d266d81"></a>
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasEmptySerialization</b> ()</td></tr>
 <tr class="memdesc:a9075125aa328707c778669214d266d81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1EmptySerialization.html">comms::option::def::EmptySerialization</a> option has been used. <br /></td></tr>
@@ -279,10 +293,18 @@ static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasF
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasFieldType</b> ()</td></tr>
 <tr class="memdesc:a15cecdc4359eaf503a4445026af12b7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a> option has been used. <br /></td></tr>
 <tr class="separator:a15cecdc4359eaf503a4445026af12b7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b27c71b2dedf13057f7087cedc6a77a" id="r_a8b27c71b2dedf13057f7087cedc6a77a"><td class="memItemLeft" align="right" valign="top"><a id="a8b27c71b2dedf13057f7087cedc6a77a" name="a8b27c71b2dedf13057f7087cedc6a77a"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasFixedValue</b> ()</td></tr>
+<tr class="memdesc:a8b27c71b2dedf13057f7087cedc6a77a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1FixedValue.html">comms::option::def::FixedValue</a> option has been used. <br /></td></tr>
+<tr class="separator:a8b27c71b2dedf13057f7087cedc6a77a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53710800fe1bd767d5766b028823ddcd" id="r_a53710800fe1bd767d5766b028823ddcd"><td class="memItemLeft" align="right" valign="top"><a id="a53710800fe1bd767d5766b028823ddcd" name="a53710800fe1bd767d5766b028823ddcd"></a>
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasIgnoreInvalid</b> ()</td></tr>
 <tr class="memdesc:a53710800fe1bd767d5766b028823ddcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1IgnoreInvalid.html">comms::option::def::IgnoreInvalid</a> option has been used. <br /></td></tr>
 <tr class="separator:a53710800fe1bd767d5766b028823ddcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa590d6b2ca9a4d772b590632989130b9" id="r_aa590d6b2ca9a4d772b590632989130b9"><td class="memItemLeft" align="right" valign="top"><a id="aa590d6b2ca9a4d772b590632989130b9" name="aa590d6b2ca9a4d772b590632989130b9"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasName</b> ()</td></tr>
+<tr class="memdesc:aa590d6b2ca9a4d772b590632989130b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1HasName.html">comms::option::def::HasName</a> option has been used. <br /></td></tr>
+<tr class="separator:aa590d6b2ca9a4d772b590632989130b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad212c9320134974f3c77e3406f8d0a86" id="r_ad212c9320134974f3c77e3406f8d0a86"><td class="memItemLeft" align="right" valign="top"><a id="ad212c9320134974f3c77e3406f8d0a86" name="ad212c9320134974f3c77e3406f8d0a86"></a>
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasNonDefaultRefresh</b> ()</td></tr>
 <tr class="memdesc:ad212c9320134974f3c77e3406f8d0a86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time check if this class has non-default refresh functionality. <br /></td></tr>
@@ -534,6 +556,28 @@ template&lt;typename... TOptions&gt; </div>
 
 <p>Default check of whether the field has a consistent value for writing. </p>
 <dl class="section return"><dt>Returns</dt><dd>Always <b>true</b>. </dd></dl>
+
+</div>
+</div>
+<a id="a203cfdf597d32256974c54c42dbb4636" name="a203cfdf597d32256974c54c42dbb4636"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a203cfdf597d32256974c54c42dbb4636">&#9670;&#160;</a></span>getDisplayValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TFieldBase , typename T , typename... TOptions&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classcomms_1_1field_1_1IntValue.html#a0a72f169069219478bd2c6bce26e8809">ValueType</a> <a class="el" href="classcomms_1_1field_1_1IntValue.html">comms::field::IntValue</a>&lt; TFieldBase, T, TOptions &gt;::getDisplayValue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get display value. </p>
+<p>Retrieving value by taking into account the display offset provided by the <a class="el" href="structcomms_1_1option_1_1def_1_1DisplayOffset.html">comms::option::def::DisplayOffset</a> option if such was used. </p>
 
 </div>
 </div>
@@ -927,6 +971,31 @@ template&lt;typename TFieldBase , typename T , typename... TOptions&gt; </div>
 
 <p>Refresh the field's value. </p>
 <dl class="section return"><dt>Returns</dt><dd><b>true</b> if the value has been updated, <b>false</b> otherwise </dd></dl>
+
+</div>
+</div>
+<a id="a4a5db25ed386280b3185b1a9ea5bea2c" name="a4a5db25ed386280b3185b1a9ea5bea2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a5db25ed386280b3185b1a9ea5bea2c">&#9670;&#160;</a></span>setDisplayValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TFieldBase , typename T , typename... TOptions&gt; </div>
+<div class="memtemplate">
+template&lt;typename U &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classcomms_1_1field_1_1IntValue.html">comms::field::IntValue</a>&lt; TFieldBase, T, TOptions &gt;::setDisplayValue </td>
+          <td>(</td>
+          <td class="paramtype">U &amp;&amp;&#160;</td>
+          <td class="paramname"><em>val</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set display value. </p>
+<p>Updating inner value by taking into account the display offset provided by the <a class="el" href="structcomms_1_1option_1_1def_1_1DisplayOffset.html">comms::option::def::DisplayOffset</a> option if such was used. </p>
 
 </div>
 </div>

@@ -97,13 +97,15 @@ class comms::field::Bundle&lt; TFieldBase, TMembers, TOptions &gt;</div><p>Bundl
     <tr><td class="paramname">TOptions</td><td>Zero or more options that modify/refine default behaviour of the field.<br  />
  Supported options are: <ul>
 <li><a class="el" href="structcomms_1_1option_1_1def_1_1DefaultValueInitialiser.html">comms::option::def::DefaultValueInitialiser</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1RemLengthMemberField.html">comms::option::def::RemLengthMemberField</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1EmptySerialization.html">comms::option::def::EmptySerialization</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1FixedValue.html">comms::option::def::FixedValue</a> </li>
 <li><a class="el" href="structcomms_1_1option_1_1def_1_1HasCustomRead.html">comms::option::def::HasCustomRead</a> </li>
 <li><a class="el" href="structcomms_1_1option_1_1def_1_1HasCustomRefresh.html">comms::option::def::HasCustomRefresh</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1EmptySerialization.html">comms::option::def::EmptySerialization</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1VersionStorage.html">comms::option::def::VersionStorage</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1HasVersionDependentMembers.html">comms::option::def::HasVersionDependentMembers</a></li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1HasName.html">comms::option::def::HasName</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1HasVersionDependentMembers.html">comms::option::def::HasVersionDependentMembers</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1RemLengthMemberField.html">comms::option::def::RemLengthMemberField</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1VersionStorage.html">comms::option::def::VersionStorage</a></li>
 </ul>
 </td></tr>
   </table>
@@ -309,10 +311,18 @@ static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasF
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasFieldType</b> ()</td></tr>
 <tr class="memdesc:afcda30b6a9db2f6ed82b743016b63cad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a> option has been used. <br /></td></tr>
 <tr class="separator:afcda30b6a9db2f6ed82b743016b63cad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae85ced8e9c0923e7e1a7ced6bd037087" id="r_ae85ced8e9c0923e7e1a7ced6bd037087"><td class="memItemLeft" align="right" valign="top"><a id="ae85ced8e9c0923e7e1a7ced6bd037087" name="ae85ced8e9c0923e7e1a7ced6bd037087"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasFixedValue</b> ()</td></tr>
+<tr class="memdesc:ae85ced8e9c0923e7e1a7ced6bd037087"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1FixedValue.html">comms::option::def::FixedValue</a> option has been used. <br /></td></tr>
+<tr class="separator:ae85ced8e9c0923e7e1a7ced6bd037087"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f78e03b2766a5f97c69d7c0f226bc58" id="r_a8f78e03b2766a5f97c69d7c0f226bc58"><td class="memItemLeft" align="right" valign="top"><a id="a8f78e03b2766a5f97c69d7c0f226bc58" name="a8f78e03b2766a5f97c69d7c0f226bc58"></a>
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasIgnoreInvalid</b> ()</td></tr>
 <tr class="memdesc:a8f78e03b2766a5f97c69d7c0f226bc58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1IgnoreInvalid.html">comms::option::def::IgnoreInvalid</a> option has been used. <br /></td></tr>
 <tr class="separator:a8f78e03b2766a5f97c69d7c0f226bc58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc884ec64840cfa234cd3682891deaba" id="r_abc884ec64840cfa234cd3682891deaba"><td class="memItemLeft" align="right" valign="top"><a id="abc884ec64840cfa234cd3682891deaba" name="abc884ec64840cfa234cd3682891deaba"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasName</b> ()</td></tr>
+<tr class="memdesc:abc884ec64840cfa234cd3682891deaba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1HasName.html">comms::option::def::HasName</a> option has been used. <br /></td></tr>
+<tr class="separator:abc884ec64840cfa234cd3682891deaba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1769512965ac9bb261d6e5defd122c08" id="r_a1769512965ac9bb261d6e5defd122c08"><td class="memItemLeft" align="right" valign="top"><a id="a1769512965ac9bb261d6e5defd122c08" name="a1769512965ac9bb261d6e5defd122c08"></a>
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasNonDefaultRefresh</b> ()</td></tr>
 <tr class="memdesc:a1769512965ac9bb261d6e5defd122c08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time check if this class has non-default refresh functionality. <br /></td></tr>

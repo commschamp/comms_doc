@@ -177,16 +177,17 @@ Defining Message Interface Class</h1>
 <div class="line">{</div>
 <div class="line">    </div>
 <div class="line"><span class="keyword">class </span>Message : <span class="keyword">public</span> <a class="code hl_class" href="classcomms_1_1Message.html">comms::Message</a></div>
+<div class="line">{</div>
 <div class="line">    <span class="comment">// comms::Field class with the same endian option. </span></div>
 <div class="line">    <span class="comment">// Can (and should) be provided as a base class to all the</span></div>
 <div class="line">    <span class="comment">// fields.</span></div>
-<div class="line">    typedef <a class="code hl_class" href="classcomms_1_1Field.html">comms::Field</a>&lt;...<span class="comment">/* Same endian option*/</span>&gt; Field;</div>
+<div class="line">    <span class="keyword">typedef</span> <a class="code hl_class" href="classcomms_1_1Field.html">comms::Field</a>&lt;...<span class="comment">/* Same endian option*/</span>&gt; Field;</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Type of the ID, same as the one passed with comms::option::def::MsgIdType</span></div>
-<div class="line">    typedef MsgId MsgIdType;</div>
+<div class="line">    <span class="keyword">typedef</span> MsgId MsgIdType;</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Type of the ID, when it is passed as a parameter and/or returned from the function:</span></div>
-<div class="line">    typedef MsgId MsgIdParamType;</div>
+<div class="line">    <span class="keyword">typedef</span> MsgId MsgIdParamType;</div>
 <div class="line"> </div>
 <div class="line">};</div>
 <div class="line"> </div>
@@ -216,21 +217,19 @@ Polymorphic Retrieval of Message ID</h2>
 <div class="line">        <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1IdInfoInterface.html">comms::option::app::IdInfoInterface</a>,</div>
 <div class="line">        ...</div>
 <div class="line">    &gt;;</div>
-<div class="ttc" id="astructcomms_1_1option_1_1app_1_1IdInfoInterface_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1IdInfoInterface.html">comms::option::app::IdInfoInterface</a></div><div class="ttdoc">Option used to add getId() function into Message interface.</div><div class="ttdef"><b>Definition</b> options.h:1266</div></div>
+<div class="ttc" id="astructcomms_1_1option_1_1app_1_1IdInfoInterface_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1IdInfoInterface.html">comms::option::app::IdInfoInterface</a></div><div class="ttdoc">Option used to add getId() function into Message interface.</div><div class="ttdef"><b>Definition</b> options.h:1275</div></div>
 </div><!-- fragment --><p> It adds the following functions: </p><div class="fragment"><div class="line"><span class="keyword">class </span>MyMessage</div>
 <div class="line">{</div>
 <div class="line"><span class="keyword">public</span>:</div>
 <div class="line">    <span class="comment">// API function to retrieve ID of the function</span></div>
-<div class="line">    MsgIdParamType <a class="code hl_function" href="classcomms_1_1Message.html#aaac9fd890f4efb1263179c3799d52098">getId</a>()<span class="keyword"> const</span></div>
+<div class="line">    MsgIdParamType getId()<span class="keyword"> const</span></div>
 <div class="line"><span class="keyword">    </span>{</div>
-<div class="line">        <span class="keywordflow">return</span> <a class="code hl_function" href="classcomms_1_1Message.html#aa8e70f9849dc35cc25018207d556b691">getIdImpl</a>();</div>
+<div class="line">        <span class="keywordflow">return</span> getIdImpl();</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">protected</span>:</div>
-<div class="line">    <span class="keyword">virtual</span> MsgIdParamType <a class="code hl_function" href="classcomms_1_1Message.html#aa8e70f9849dc35cc25018207d556b691">getIdImpl</a>() <span class="keyword">const</span> = 0; <span class="comment">// Automatically implemented in the actual message class</span></div>
+<div class="line">    <span class="keyword">virtual</span> MsgIdParamType getIdImpl() <span class="keyword">const</span> = 0; <span class="comment">// Automatically implemented in the actual message class</span></div>
 <div class="line">}</div>
-<div class="ttc" id="aclasscomms_1_1Message_html_aa8e70f9849dc35cc25018207d556b691"><div class="ttname"><a href="classcomms_1_1Message.html#aa8e70f9849dc35cc25018207d556b691">comms::Message::getIdImpl</a></div><div class="ttdeci">virtual MsgIdParamType getIdImpl() const =0</div><div class="ttdoc">Pure virtual function used to retrieve ID of the message.</div></div>
-<div class="ttc" id="aclasscomms_1_1Message_html_aaac9fd890f4efb1263179c3799d52098"><div class="ttname"><a href="classcomms_1_1Message.html#aaac9fd890f4efb1263179c3799d52098">comms::Message::getId</a></div><div class="ttdeci">MsgIdParamType getId() const</div><div class="ttdoc">Retrieve ID of the message.</div></div>
 </div><!-- fragment --><p> The usage of <a class="el" href="structcomms_1_1option_1_1app_1_1IdInfoInterface.html">comms::option::app::IdInfoInterface</a> without <a class="el" href="structcomms_1_1option_1_1def_1_1MsgIdType.html">comms::option::def::MsgIdType</a> will be ignored, and <b>getId()</b> as well as <b>getIdImpl()</b> member functions won't be created.</p>
 <p>The <a class="el" href="classcomms_1_1Message.html">comms::Message</a> interface class defines <a class="el" href="classcomms_1_1Message.html#aa00be33cb01b7e9cdee9ecebfa54c171">comms::Message::hasGetId()</a> static constexpr member function, which may be used at compile time to determine whether the <a class="el" href="structcomms_1_1option_1_1app_1_1IdInfoInterface.html">comms::option::app::IdInfoInterface</a> option has been used, i.e. the message interface class defines mentioned earlier functions.</p>
 <h2><a class="anchor" id="page_use_prot_interface_read"></a>
@@ -241,30 +240,27 @@ Polymorphic Read of Payload (Deserialisation)</h2>
 <div class="line">        <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1ReadIterator.html">comms::option::app::ReadIterator&lt;const std::uint8_t*&gt;</a>,</div>
 <div class="line">        ...</div>
 <div class="line">    &gt;;</div>
-<div class="ttc" id="astructcomms_1_1option_1_1app_1_1ReadIterator_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1ReadIterator.html">comms::option::app::ReadIterator</a></div><div class="ttdoc">Option used to specify type of iterator used for reading.</div><div class="ttdef"><b>Definition</b> options.h:1256</div></div>
+<div class="ttc" id="astructcomms_1_1option_1_1app_1_1ReadIterator_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1ReadIterator.html">comms::option::app::ReadIterator</a></div><div class="ttdoc">Option used to specify type of iterator used for reading.</div><div class="ttdef"><b>Definition</b> options.h:1265</div></div>
 </div><!-- fragment --><p> As the result the interface class defines the following types and functions: </p><div class="fragment"><div class="line"><span class="keyword">class </span>MyMessage</div>
 <div class="line">{</div>
 <div class="line"><span class="keyword">public</span>:</div>
 <div class="line">    <span class="comment">// Type of the the iterator used for reading, the same as provided with</span></div>
 <div class="line">    <span class="comment">// comms::option::app::ReadIterator option.</span></div>
-<div class="line">    <span class="keyword">typedef</span> ... <a class="code hl_typedef" href="classcomms_1_1Message.html#a463c7edb3734bffca6c41b9cee3d3f0a">ReadIterator</a>;</div>
+<div class="line">    <span class="keyword">typedef</span> ... ReadIterator;</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// API function to perform read</span></div>
-<div class="line">    <a class="code hl_enumeration" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> <a class="code hl_function" href="classcomms_1_1Message.html#a77396db2ec7a29de4bf335af49e1d760">read</a>(ReadIterator&amp; iter, std::size_t len)</div>
+<div class="line">    <a class="code hl_enumeration" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> read(ReadIterator&amp; iter, std::size_t len)</div>
 <div class="line">    {</div>
-<div class="line">        <span class="keywordflow">return</span> <a class="code hl_function" href="classcomms_1_1Message.html#a8679fd222f23e632097defc811aefbd6">readImpl</a>(iter, len);</div>
+<div class="line">        <span class="keywordflow">return</span> readImpl(iter, len);</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">protected</span>:</div>
 <div class="line">    <span class="comment">// Expected to be overriden in the derived class.</span></div>
-<div class="line">    <span class="keyword">virtual</span> <a class="code hl_enumeration" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> <a class="code hl_function" href="classcomms_1_1Message.html#a8679fd222f23e632097defc811aefbd6">readImpl</a>(ReadIterator&amp; iter, std::size_t len) </div>
+<div class="line">    <span class="keyword">virtual</span> <a class="code hl_enumeration" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> readImpl(ReadIterator&amp; iter, std::size_t len) </div>
 <div class="line">    {</div>
 <div class="line">        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a9ed2d871602556951e39f3cebd08d6cb">comms::ErrorStatus::NotSupported</a>;</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aclasscomms_1_1Message_html_a463c7edb3734bffca6c41b9cee3d3f0a"><div class="ttname"><a href="classcomms_1_1Message.html#a463c7edb3734bffca6c41b9cee3d3f0a">comms::Message::ReadIterator</a></div><div class="ttdeci">TypeProvidedWithOption ReadIterator</div><div class="ttdoc">Type of the iterator used for reading message contents from sequence of bytes stored somewhere.</div><div class="ttdef"><b>Definition</b> Message.h:230</div></div>
-<div class="ttc" id="aclasscomms_1_1Message_html_a77396db2ec7a29de4bf335af49e1d760"><div class="ttname"><a href="classcomms_1_1Message.html#a77396db2ec7a29de4bf335af49e1d760">comms::Message::read</a></div><div class="ttdeci">ErrorStatus read(ReadIterator &amp;iter, std::size_t size)</div><div class="ttdoc">Read message contents using provided iterator.</div></div>
-<div class="ttc" id="aclasscomms_1_1Message_html_a8679fd222f23e632097defc811aefbd6"><div class="ttname"><a href="classcomms_1_1Message.html#a8679fd222f23e632097defc811aefbd6">comms::Message::readImpl</a></div><div class="ttdeci">virtual comms::ErrorStatus readImpl(ReadIterator &amp;iter, std::size_t size)</div><div class="ttdoc">Virtual function used to implement read operation.</div></div>
 <div class="ttc" id="anamespacecomms_html_a0a259a03d68bce98b4a129fb34aaa2e1"><div class="ttname"><a href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a></div><div class="ttdeci">ErrorStatus</div><div class="ttdoc">Error statuses reported by the Communication module.</div><div class="ttdef"><b>Definition</b> ErrorStatus.h:17</div></div>
 <div class="ttc" id="anamespacecomms_html_a0a259a03d68bce98b4a129fb34aaa2e1a9ed2d871602556951e39f3cebd08d6cb"><div class="ttname"><a href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a9ed2d871602556951e39f3cebd08d6cb">comms::ErrorStatus::NotSupported</a></div><div class="ttdeci">@ NotSupported</div><div class="ttdoc">The operation is not supported.</div></div>
 </div><!-- fragment --><p> Please <b>note</b>, that COMMS library doesn't impose any restrictions on how the input data is collected and stored. It is a responsibility of the <b>caller</b> to allocate and maintain the input buffer, while providing only an iterator for read operation. <br  />
@@ -292,7 +288,7 @@ Polymorphic Write of Payload (Serialisation)</h2>
 <div class="line">        <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1WriteIterator.html">comms::option::app::WriteIterator&lt;std::back_insert_iterator&lt;std::vector&lt;std::uint8_t&gt;</a> &gt; &gt;,</div>
 <div class="line">        ...</div>
 <div class="line">    &gt;;</div>
-<div class="ttc" id="astructcomms_1_1option_1_1app_1_1WriteIterator_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1WriteIterator.html">comms::option::app::WriteIterator</a></div><div class="ttdoc">Option used to specify type of iterator used for writing.</div><div class="ttdef"><b>Definition</b> options.h:1262</div></div>
+<div class="ttc" id="astructcomms_1_1option_1_1app_1_1WriteIterator_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1WriteIterator.html">comms::option::app::WriteIterator</a></div><div class="ttdoc">Option used to specify type of iterator used for writing.</div><div class="ttdef"><b>Definition</b> options.h:1271</div></div>
 </div><!-- fragment --><p> As the result the interface class defines the following types and functions: </p><div class="fragment"><div class="line"><span class="keyword">class </span>MyMessage</div>
 <div class="line">{</div>
 <div class="line"><span class="keyword">public</span>:</div>
@@ -324,7 +320,7 @@ Polymorphic Serialisation Length Retrieval</h2>
 <div class="line">        <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1LengthInfoInterface.html">comms::option::app::LengthInfoInterface</a>,</div>
 <div class="line">        ...</div>
 <div class="line">    &gt;;</div>
-<div class="ttc" id="astructcomms_1_1option_1_1app_1_1LengthInfoInterface_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1LengthInfoInterface.html">comms::option::app::LengthInfoInterface</a></div><div class="ttdoc">Option used to add length() function into Message interface.</div><div class="ttdef"><b>Definition</b> options.h:1274</div></div>
+<div class="ttc" id="astructcomms_1_1option_1_1app_1_1LengthInfoInterface_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1LengthInfoInterface.html">comms::option::app::LengthInfoInterface</a></div><div class="ttdoc">Option used to add length() function into Message interface.</div><div class="ttdef"><b>Definition</b> options.h:1283</div></div>
 </div><!-- fragment --><p> This option adds the following functions to the interface definition: </p><div class="fragment"><div class="line"><span class="keyword">class </span>MyMessage</div>
 <div class="line">{</div>
 <div class="line"><span class="keyword">public</span>:</div>
@@ -346,7 +342,7 @@ Polymorphic Validity Check</h2>
 <div class="line">        <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1ValidCheckInterface.html">comms::option::app::ValidCheckInterface</a>,</div>
 <div class="line">        ...</div>
 <div class="line">    &gt;;</div>
-<div class="ttc" id="astructcomms_1_1option_1_1app_1_1ValidCheckInterface_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1ValidCheckInterface.html">comms::option::app::ValidCheckInterface</a></div><div class="ttdoc">Option used to add valid() function into Message interface.</div><div class="ttdef"><b>Definition</b> options.h:1270</div></div>
+<div class="ttc" id="astructcomms_1_1option_1_1app_1_1ValidCheckInterface_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1ValidCheckInterface.html">comms::option::app::ValidCheckInterface</a></div><div class="ttdoc">Option used to add valid() function into Message interface.</div><div class="ttdef"><b>Definition</b> options.h:1279</div></div>
 </div><!-- fragment --><p> This option adds the following functions to the interface definition: </p><div class="fragment"><div class="line"><span class="keyword">class </span>MyMessage</div>
 <div class="line">{</div>
 <div class="line"><span class="keyword">public</span>:</div>
@@ -375,7 +371,7 @@ Polymorphic Dispatch Message for Handling</h2>
 <div class="line">        <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1Handler.html">comms::option::app::Handler&lt;MyHandler&gt;</a>,</div>
 <div class="line">        ...</div>
 <div class="line">    &gt;;</div>
-<div class="ttc" id="astructcomms_1_1option_1_1app_1_1Handler_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1Handler.html">comms::option::app::Handler</a></div><div class="ttdoc">Option used to specify type of the message handler.</div><div class="ttdef"><b>Definition</b> options.h:1288</div></div>
+<div class="ttc" id="astructcomms_1_1option_1_1app_1_1Handler_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1Handler.html">comms::option::app::Handler</a></div><div class="ttdoc">Option used to specify type of the message handler.</div><div class="ttdef"><b>Definition</b> options.h:1297</div></div>
 </div><!-- fragment --><p> When this option is used the <b>MyMessage</b> will define the following interface types and functions: </p><div class="fragment"><div class="line"><span class="keyword">class </span>MyMessage</div>
 <div class="line">{</div>
 <div class="line"><span class="keyword">public</span>:</div>
@@ -406,7 +402,7 @@ Keeping Message Contents in a Consistent State</h2>
 <div class="line">        <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1RefreshInterface.html">comms::option::app::RefreshInterface</a>,</div>
 <div class="line">        ...</div>
 <div class="line">    &gt;;</div>
-<div class="ttc" id="astructcomms_1_1option_1_1app_1_1RefreshInterface_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1RefreshInterface.html">comms::option::app::RefreshInterface</a></div><div class="ttdoc">Option used to add refresh() function into Message interface.</div><div class="ttdef"><b>Definition</b> options.h:1278</div></div>
+<div class="ttc" id="astructcomms_1_1option_1_1app_1_1RefreshInterface_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1RefreshInterface.html">comms::option::app::RefreshInterface</a></div><div class="ttdoc">Option used to add refresh() function into Message interface.</div><div class="ttdef"><b>Definition</b> options.h:1287</div></div>
 </div><!-- fragment --><p> This option adds the following functions to the interface definition: </p><div class="fragment"><div class="line"><span class="keyword">class </span>MyMessage</div>
 <div class="line">{</div>
 <div class="line"><span class="keyword">public</span>:</div>
@@ -433,7 +429,7 @@ Polymorphic Message Name Retrieval</h2>
 <div class="line">        <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1NameInterface.html">comms::option::app::NameInterface</a>,</div>
 <div class="line">        ...</div>
 <div class="line">    &gt;;</div>
-<div class="ttc" id="astructcomms_1_1option_1_1app_1_1NameInterface_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1NameInterface.html">comms::option::app::NameInterface</a></div><div class="ttdoc">Option used to add name() function into Message interface.</div><div class="ttdef"><b>Definition</b> options.h:1282</div></div>
+<div class="ttc" id="astructcomms_1_1option_1_1app_1_1NameInterface_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1NameInterface.html">comms::option::app::NameInterface</a></div><div class="ttdoc">Option used to add name() function into Message interface.</div><div class="ttdef"><b>Definition</b> options.h:1291</div></div>
 </div><!-- fragment --><p> This option adds the following functions to the interface definition: </p><div class="fragment"><div class="line"><span class="keyword">class </span>MyMessage</div>
 <div class="line">{</div>
 <div class="line"><span class="keyword">public</span>:</div>
@@ -455,7 +451,7 @@ Virtual Destructor</h2>
 <div class="line">        ...,</div>
 <div class="line">        <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1NoVirtualDestructor.html">comms::option::app::NoVirtualDestructor</a></div>
 <div class="line">    &gt;;</div>
-<div class="ttc" id="astructcomms_1_1option_1_1app_1_1NoVirtualDestructor_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1NoVirtualDestructor.html">comms::option::app::NoVirtualDestructor</a></div><div class="ttdoc">Force the destructor of comms::Message class to be non-virtual, even if there are other virtual funct...</div><div class="ttdef"><b>Definition</b> options.h:1377</div></div>
+<div class="ttc" id="astructcomms_1_1option_1_1app_1_1NoVirtualDestructor_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1NoVirtualDestructor.html">comms::option::app::NoVirtualDestructor</a></div><div class="ttdoc">Force the destructor of comms::Message class to be non-virtual, even if there are other virtual funct...</div><div class="ttdef"><b>Definition</b> options.h:1386</div></div>
 </div><!-- fragment --> </li>
 <li>If the definition of the common interface class doesn't have any virtual function, but still requires an ability to be polymorphically deleted, i.e. must have virtual destructor, just inherit from <b>my_protocol::Message</b> and define the destructor as virtual. <div class="fragment"><div class="line"><span class="keyword">class </span>MyMessage : <span class="keyword">public</span> </div>
 <div class="line">    my_protocol::Message&lt;&gt;</div>
@@ -706,14 +702,14 @@ Message Fields</h1>
 <div class="line"><span class="keyword">private</span>:</div>
 <div class="line">    <a class="code hl_typedef" href="classcomms_1_1field_1_1IntValue.html#a0a72f169069219478bd2c6bce26e8809">ValueType</a> m_value;</div>
 <div class="line">}</div>
-<div class="ttc" id="aclasscomms_1_1field_1_1IntValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1IntValue.html">comms::field::IntValue</a></div><div class="ttdoc">Field that represent integral value.</div><div class="ttdef"><b>Definition</b> IntValue.h:72</div></div>
-<div class="ttc" id="aclasscomms_1_1field_1_1IntValue_html_a0a72f169069219478bd2c6bce26e8809"><div class="ttname"><a href="classcomms_1_1field_1_1IntValue.html#a0a72f169069219478bd2c6bce26e8809">comms::field::IntValue::ValueType</a></div><div class="ttdeci">typename BaseImpl::ValueType ValueType</div><div class="ttdoc">Type of underlying integral value.</div><div class="ttdef"><b>Definition</b> IntValue.h:93</div></div>
-<div class="ttc" id="aclasscomms_1_1field_1_1IntValue_html_a4591523e8f580ce0e34b6c50a15e1f84"><div class="ttname"><a href="classcomms_1_1field_1_1IntValue.html#a4591523e8f580ce0e34b6c50a15e1f84">comms::field::IntValue::valid</a></div><div class="ttdeci">bool valid() const</div><div class="ttdoc">Check validity of the field value.</div><div class="ttdef"><b>Definition</b> IntValue.h:287</div></div>
-<div class="ttc" id="aclasscomms_1_1field_1_1IntValue_html_a822ea1aa868e545c08f258183d0e389b"><div class="ttname"><a href="classcomms_1_1field_1_1IntValue.html#a822ea1aa868e545c08f258183d0e389b">comms::field::IntValue::length</a></div><div class="ttdeci">constexpr std::size_t length() const</div><div class="ttdoc">Get length required to serialise the current field value.</div><div class="ttdef"><b>Definition</b> IntValue.h:267</div></div>
-<div class="ttc" id="aclasscomms_1_1field_1_1IntValue_html_ab258d5bbd1e5ed5dc1a2840e24d09781"><div class="ttname"><a href="classcomms_1_1field_1_1IntValue.html#ab258d5bbd1e5ed5dc1a2840e24d09781">comms::field::IntValue::read</a></div><div class="ttdeci">ErrorStatus read(TIter &amp;iter, std::size_t size)</div><div class="ttdoc">Read field value from input data sequence.</div><div class="ttdef"><b>Definition</b> IntValue.h:305</div></div>
-<div class="ttc" id="aclasscomms_1_1field_1_1IntValue_html_acde94491d8bec35eebd751d8e598224f"><div class="ttname"><a href="classcomms_1_1field_1_1IntValue.html#acde94491d8bec35eebd751d8e598224f">comms::field::IntValue::write</a></div><div class="ttdeci">ErrorStatus write(TIter &amp;iter, std::size_t size) const</div><div class="ttdoc">Write current field value to output data sequence.</div><div class="ttdef"><b>Definition</b> IntValue.h:340</div></div>
-<div class="ttc" id="aclasscomms_1_1field_1_1IntValue_html_adc93a7e96a76f949112c650ce73316ac"><div class="ttname"><a href="classcomms_1_1field_1_1IntValue.html#adc93a7e96a76f949112c650ce73316ac">comms::field::IntValue::value</a></div><div class="ttdeci">const ValueType &amp; value() const</div><div class="ttdoc">Get access to integral value storage.</div><div class="ttdef"><b>Definition</b> IntValue.h:227</div></div>
-<div class="ttc" id="aclasscomms_1_1field_1_1IntValue_html_aed219921ab7ccd3876c4cda32b53fc29"><div class="ttname"><a href="classcomms_1_1field_1_1IntValue.html#aed219921ab7ccd3876c4cda32b53fc29">comms::field::IntValue::refresh</a></div><div class="ttdeci">bool refresh()</div><div class="ttdoc">Refresh the field's value.</div><div class="ttdef"><b>Definition</b> IntValue.h:294</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1IntValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1IntValue.html">comms::field::IntValue</a></div><div class="ttdoc">Field that represent integral value.</div><div class="ttdef"><b>Definition</b> IntValue.h:75</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1IntValue_html_a0a72f169069219478bd2c6bce26e8809"><div class="ttname"><a href="classcomms_1_1field_1_1IntValue.html#a0a72f169069219478bd2c6bce26e8809">comms::field::IntValue::ValueType</a></div><div class="ttdeci">typename BaseImpl::ValueType ValueType</div><div class="ttdoc">Type of underlying integral value.</div><div class="ttdef"><b>Definition</b> IntValue.h:96</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1IntValue_html_a4591523e8f580ce0e34b6c50a15e1f84"><div class="ttname"><a href="classcomms_1_1field_1_1IntValue.html#a4591523e8f580ce0e34b6c50a15e1f84">comms::field::IntValue::valid</a></div><div class="ttdeci">bool valid() const</div><div class="ttdoc">Check validity of the field value.</div><div class="ttdef"><b>Definition</b> IntValue.h:328</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1IntValue_html_a822ea1aa868e545c08f258183d0e389b"><div class="ttname"><a href="classcomms_1_1field_1_1IntValue.html#a822ea1aa868e545c08f258183d0e389b">comms::field::IntValue::length</a></div><div class="ttdeci">constexpr std::size_t length() const</div><div class="ttdoc">Get length required to serialise the current field value.</div><div class="ttdef"><b>Definition</b> IntValue.h:308</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1IntValue_html_ab258d5bbd1e5ed5dc1a2840e24d09781"><div class="ttname"><a href="classcomms_1_1field_1_1IntValue.html#ab258d5bbd1e5ed5dc1a2840e24d09781">comms::field::IntValue::read</a></div><div class="ttdeci">ErrorStatus read(TIter &amp;iter, std::size_t size)</div><div class="ttdoc">Read field value from input data sequence.</div><div class="ttdef"><b>Definition</b> IntValue.h:346</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1IntValue_html_acde94491d8bec35eebd751d8e598224f"><div class="ttname"><a href="classcomms_1_1field_1_1IntValue.html#acde94491d8bec35eebd751d8e598224f">comms::field::IntValue::write</a></div><div class="ttdeci">ErrorStatus write(TIter &amp;iter, std::size_t size) const</div><div class="ttdoc">Write current field value to output data sequence.</div><div class="ttdef"><b>Definition</b> IntValue.h:381</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1IntValue_html_adc93a7e96a76f949112c650ce73316ac"><div class="ttname"><a href="classcomms_1_1field_1_1IntValue.html#adc93a7e96a76f949112c650ce73316ac">comms::field::IntValue::value</a></div><div class="ttdeci">const ValueType &amp; value() const</div><div class="ttdoc">Get access to integral value storage.</div><div class="ttdef"><b>Definition</b> IntValue.h:251</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1IntValue_html_aed219921ab7ccd3876c4cda32b53fc29"><div class="ttname"><a href="classcomms_1_1field_1_1IntValue.html#aed219921ab7ccd3876c4cda32b53fc29">comms::field::IntValue::refresh</a></div><div class="ttdeci">bool refresh()</div><div class="ttdoc">Refresh the field's value.</div><div class="ttdef"><b>Definition</b> IntValue.h:335</div></div>
 </div><!-- fragment --><p> The main things to note are that every field definition class: </p><ul>
 <li>receives its base class as the first template parameter. It is expected to be a variant of <a class="el" href="classcomms_1_1Field.html">comms::Field</a> with <a class="el" href="namespacecomms_1_1option_1_1def.html#a606d8afcd788b9c39088709e9be2f546">comms::option::def::BigEndian</a> or <a class="el" href="namespacecomms_1_1option_1_1def.html#af84304efc306dc824db55e16a92f016d">comms::option::def::LittleEndian</a> option to specify the serialisation endian. It may be inner <b>Field</b> type of <b>MyMessage</b> interface class defined earlier (<b>MyMessage::Field</b> - documented as <a class="el" href="classcomms_1_1Message.html#a4cd3705f965f28c601858aced3f16c48">comms::Message::Field</a>) </li>
 <li>exhibits some default behaviour which can be modified by passing various options from <a class="el" href="namespacecomms_1_1option_1_1app.html">comms::option::app</a> and/or <a class="el" href="namespacecomms_1_1option_1_1def.html" title="Namespace that contains all the options used to define protocol.">comms::option::def</a> namespaces as additional template parameters. The options that define how field is serialised are expected to be used as part of protocol definition. The protocol definition is also expected to allow passing extra options that are relevant to application environment and/or behaviour (such as modifying the default storage type). </li>
@@ -824,7 +820,7 @@ Enum Value Fields</h2>
 <div class="line">SomeEnumField field;</div>
 <div class="line">assert(field.value() == SomeEnumVal::Val3); <span class="comment">// initialised by default to Val3;</span></div>
 <div class="line">field.value() = SomeEnumVal::Val2;</div>
-<div class="ttc" id="aclasscomms_1_1field_1_1EnumValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1EnumValue.html">comms::field::EnumValue</a></div><div class="ttdoc">Enumerator value field.</div><div class="ttdef"><b>Definition</b> EnumValue.h:73</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1EnumValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1EnumValue.html">comms::field::EnumValue</a></div><div class="ttdoc">Enumerator value field.</div><div class="ttdef"><b>Definition</b> EnumValue.h:75</div></div>
 <div class="ttc" id="astructcomms_1_1option_1_1def_1_1ValidNumValueRange_html"><div class="ttname"><a href="structcomms_1_1option_1_1def_1_1ValidNumValueRange.html">comms::option::def::ValidNumValueRange</a></div><div class="ttdoc">Provide range of valid numeric values.</div><div class="ttdef"><b>Definition</b> options.h:956</div></div>
 </div><!-- fragment --><p> Note, that underlying type of the enum dictates default serialisation length.</p>
 <h2><a class="anchor" id="page_use_prot_fields_bitmask_value"></a>
@@ -838,7 +834,7 @@ Bitmask Value Fields</h2>
 <div class="line">{</div>
 <div class="line">    ...</div>
 <div class="line">};</div>
-<div class="ttc" id="aclasscomms_1_1field_1_1BitmaskValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1BitmaskValue.html">comms::field::BitmaskValue</a></div><div class="ttdoc">Bitmask value field.</div><div class="ttdef"><b>Definition</b> BitmaskValue.h:103</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1BitmaskValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1BitmaskValue.html">comms::field::BitmaskValue</a></div><div class="ttdoc">Bitmask value field.</div><div class="ttdef"><b>Definition</b> BitmaskValue.h:105</div></div>
 </div><!-- fragment --><p> The field definition will use <a class="el" href="structcomms_1_1option_1_1def_1_1FixedLength.html">comms::option::def::FixedLength</a> option in order to specify its serialisation length. The inner <b>ValueType</b> type will be calculated automatically and defined as one of the unsigned types: <b>std::uint8_t</b>, <b>std::uint16_t</b>, <b>std::uint32_t</b>, or <b>std::uint64_t</b>. The usage of <a class="el" href="namespacecomms_1_1option_1_1def.html#ab250f5104df4cfe83741d63e6db70505">comms::option::def::BitmaskReservedBits</a> option will mark certain bits as "reserved". It influences only validity check functionality (see <a class="el" href="classcomms_1_1Field.html#abbc7d5f9c7a7167869590974d46edf5d">comms::field::BitmaskValue::valid()</a>). If any of the reserved bits doesn't have an expected value, the call to <b>valid()</b> member function will return <b>false</b>.</p>
 <p>The bitmask field definition is also expected to use COMMS_BITMASK_BITS() and COMMS_BITMASK_BITS_ACCESS() macros to provide names for the bits and generate convenience access function. If bit names are sequential, i.e. start from bit <b>0</b>, and go up without any holes in the middle, then single COMMS_BITMASK_BITS_SEQ() macro can be used instead achieving the same effect. </p><div class="fragment"><div class="line"><span class="keyword">struct </span>MyBitmask : <span class="keyword">public</span></div>
 <div class="line">    <a class="code hl_class" href="classcomms_1_1field_1_1BitmaskValue.html">comms::field::BitmaskValue</a>&lt;</div>
@@ -850,8 +846,8 @@ Bitmask Value Fields</h2>
 <div class="line">    <a class="code hl_define" href="classcomms_1_1field_1_1BitmaskValue.html#ad73b3130afa08a1155ac8b7e7ad915ee">COMMS_BITMASK_BITS</a>(first, third=2, fourth, fifth, sixth, seventh, eighth);</div>
 <div class="line">    <a class="code hl_define" href="classcomms_1_1field_1_1BitmaskValue.html#a0649d4ce913efb2b067ed2f33fdbce8b">COMMS_BITMASK_BITS_ACCESS</a>(first, third, fourth, fifth, sixth, seventh, eighth);</div>
 <div class="line">}</div>
-<div class="ttc" id="aclasscomms_1_1field_1_1BitmaskValue_html_a0649d4ce913efb2b067ed2f33fdbce8b"><div class="ttname"><a href="classcomms_1_1field_1_1BitmaskValue.html#a0649d4ce913efb2b067ed2f33fdbce8b">comms::field::BitmaskValue::COMMS_BITMASK_BITS_ACCESS</a></div><div class="ttdeci">#define COMMS_BITMASK_BITS_ACCESS(...)</div><div class="ttdoc">Generate access functions for bits in comms::field::BitmaskValue field.</div><div class="ttdef"><b>Definition</b> BitmaskValue.h:684</div></div>
-<div class="ttc" id="aclasscomms_1_1field_1_1BitmaskValue_html_ad73b3130afa08a1155ac8b7e7ad915ee"><div class="ttname"><a href="classcomms_1_1field_1_1BitmaskValue.html#ad73b3130afa08a1155ac8b7e7ad915ee">comms::field::BitmaskValue::COMMS_BITMASK_BITS</a></div><div class="ttdeci">#define COMMS_BITMASK_BITS(...)</div><div class="ttdoc">Provide names for bits in comms::field::BitmaskValue field.</div><div class="ttdef"><b>Definition</b> BitmaskValue.h:590</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1BitmaskValue_html_a0649d4ce913efb2b067ed2f33fdbce8b"><div class="ttname"><a href="classcomms_1_1field_1_1BitmaskValue.html#a0649d4ce913efb2b067ed2f33fdbce8b">comms::field::BitmaskValue::COMMS_BITMASK_BITS_ACCESS</a></div><div class="ttdeci">#define COMMS_BITMASK_BITS_ACCESS(...)</div><div class="ttdoc">Generate access functions for bits in comms::field::BitmaskValue field.</div><div class="ttdef"><b>Definition</b> BitmaskValue.h:700</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1BitmaskValue_html_ad73b3130afa08a1155ac8b7e7ad915ee"><div class="ttname"><a href="classcomms_1_1field_1_1BitmaskValue.html#ad73b3130afa08a1155ac8b7e7ad915ee">comms::field::BitmaskValue::COMMS_BITMASK_BITS</a></div><div class="ttdeci">#define COMMS_BITMASK_BITS(...)</div><div class="ttdoc">Provide names for bits in comms::field::BitmaskValue field.</div><div class="ttdef"><b>Definition</b> BitmaskValue.h:606</div></div>
 </div><!-- fragment --><p> is equivalent to defining: </p><div class="fragment"><div class="line"><span class="keyword">struct </span>MyBitmask : <span class="keyword">public</span></div>
 <div class="line">    <a class="code hl_class" href="classcomms_1_1field_1_1BitmaskValue.html">comms::field::BitmaskValue</a>&lt;</div>
 <div class="line">        MyFieldBase, </div>
@@ -879,8 +875,8 @@ Bitmask Value Fields</h2>
 <div class="line">    <span class="keywordtype">void</span> setBitValue_fourth(<span class="keywordtype">bool</span> val) { ... }</div>
 <div class="line">    ...</div>
 <div class="line">}</div>
-<div class="ttc" id="aclasscomms_1_1field_1_1BitmaskValue_html_a3ba03ea117a584dafb99e27e47ee8819"><div class="ttname"><a href="classcomms_1_1field_1_1BitmaskValue.html#a3ba03ea117a584dafb99e27e47ee8819">comms::field::BitmaskValue::getBitValue</a></div><div class="ttdeci">bool getBitValue(unsigned bitNum) const</div><div class="ttdoc">Get bit value.</div><div class="ttdef"><b>Definition</b> BitmaskValue.h:349</div></div>
-<div class="ttc" id="aclasscomms_1_1field_1_1BitmaskValue_html_a7ae5a5fde24cc9498e34e087b8f571ea"><div class="ttname"><a href="classcomms_1_1field_1_1BitmaskValue.html#a7ae5a5fde24cc9498e34e087b8f571ea">comms::field::BitmaskValue::setBitValue</a></div><div class="ttdeci">void setBitValue(unsigned bitNum, bool val)</div><div class="ttdoc">Set bit value.</div><div class="ttdef"><b>Definition</b> BitmaskValue.h:356</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1BitmaskValue_html_a3ba03ea117a584dafb99e27e47ee8819"><div class="ttname"><a href="classcomms_1_1field_1_1BitmaskValue.html#a3ba03ea117a584dafb99e27e47ee8819">comms::field::BitmaskValue::getBitValue</a></div><div class="ttdeci">bool getBitValue(unsigned bitNum) const</div><div class="ttdoc">Get bit value.</div><div class="ttdef"><b>Definition</b> BitmaskValue.h:365</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1BitmaskValue_html_a7ae5a5fde24cc9498e34e087b8f571ea"><div class="ttname"><a href="classcomms_1_1field_1_1BitmaskValue.html#a7ae5a5fde24cc9498e34e087b8f571ea">comms::field::BitmaskValue::setBitValue</a></div><div class="ttdeci">void setBitValue(unsigned bitNum, bool val)</div><div class="ttdoc">Set bit value.</div><div class="ttdef"><b>Definition</b> BitmaskValue.h:372</div></div>
 </div><!-- fragment --><p> The generated convenience access functions use existing <a class="el" href="classcomms_1_1field_1_1BitmaskValue.html#a3ba03ea117a584dafb99e27e47ee8819">comms::field::BitmaskValue::getBitValue()</a> and <a class="el" href="classcomms_1_1field_1_1BitmaskValue.html#a7ae5a5fde24cc9498e34e087b8f571ea">comms::field::BitmaskValue::setBitValue()</a> member functions.</p>
 <p>It is also possible to set multiple bits at the same time by accessing the stored value directly </p><div class="fragment"><div class="line">MyBitmask field;</div>
 <div class="line">field.value() = 0x81; <span class="comment">// Setting first and eighth bits</span></div>
@@ -957,8 +953,8 @@ Bitfield Fields</h2>
 <div class="line"><span class="keyword">public</span>:</div>
 <div class="line">    <a class="code hl_define" href="Field_8h.html#af74198f06b52d3f58c92e795b2ff7129">COMMS_FIELD_MEMBERS_NAMES</a>(baud, parity, stopBits, flowControl, reserved);</div>
 <div class="line">}</div>
-<div class="ttc" id="aField_8h_html_af74198f06b52d3f58c92e795b2ff7129"><div class="ttname"><a href="Field_8h.html#af74198f06b52d3f58c92e795b2ff7129">COMMS_FIELD_MEMBERS_NAMES</a></div><div class="ttdeci">#define COMMS_FIELD_MEMBERS_NAMES(...)</div><div class="ttdoc">Provide names for member fields of composite fields, such as comms::field::Bundle or comms::field::Bi...</div><div class="ttdef"><b>Definition</b> Field.h:380</div></div>
-<div class="ttc" id="aclasscomms_1_1field_1_1Bitfield_html"><div class="ttname"><a href="classcomms_1_1field_1_1Bitfield.html">comms::field::Bitfield</a></div><div class="ttdoc">Bitfield field.</div><div class="ttdef"><b>Definition</b> Bitfield.h:98</div></div>
+<div class="ttc" id="aField_8h_html_af74198f06b52d3f58c92e795b2ff7129"><div class="ttname"><a href="Field_8h.html#af74198f06b52d3f58c92e795b2ff7129">COMMS_FIELD_MEMBERS_NAMES</a></div><div class="ttdeci">#define COMMS_FIELD_MEMBERS_NAMES(...)</div><div class="ttdoc">Provide names for member fields of composite fields, such as comms::field::Bundle or comms::field::Bi...</div><div class="ttdef"><b>Definition</b> Field.h:387</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1Bitfield_html"><div class="ttname"><a href="classcomms_1_1field_1_1Bitfield.html">comms::field::Bitfield</a></div><div class="ttdoc">Bitfield field.</div><div class="ttdef"><b>Definition</b> Bitfield.h:101</div></div>
 </div><!-- fragment --><p> All the member fields of the <a class="el" href="classcomms_1_1field_1_1Bitfield.html">comms::field::Bitfield</a> are stored internally as <b>std::tuple</b>, as the result the inner <b>ValueType</b> of such field is <b>std::tuple</b> of all member fields and call to <a class="el" href="classcomms_1_1field_1_1Bitfield.html#aaa249e76b0e7727f3f1c4f15e8c624d3">comms::field::Bitfield::value()</a> member function will give an access to it.</p>
 <p>The field definition is expected to use <a class="el" href="Field_8h.html#af74198f06b52d3f58c92e795b2ff7129">COMMS_FIELD_MEMBERS_NAMES()</a> macro, which will generate <b>FieldIdx</b> enum as well as convenience access member functions. The code becomes equivalent to: </p><div class="fragment"><div class="line"><span class="keyword">struct </span>SerialConfigField : <span class="keyword">public</span> </div>
 <div class="line">    <a class="code hl_class" href="classcomms_1_1field_1_1Bitfield.html">comms::field::Bitfield</a>&lt;</div>
@@ -1008,7 +1004,7 @@ Bitfield Fields</h2>
 <div class="line"> </div>
 <div class="line">    ... <span class="comment">// and so on for all other member fields</span></div>
 <div class="line">}</div>
-<div class="ttc" id="aclasscomms_1_1field_1_1Bitfield_html_a082e9e589b1bdd2a0bba8e86e828466d"><div class="ttname"><a href="classcomms_1_1field_1_1Bitfield.html#a082e9e589b1bdd2a0bba8e86e828466d">comms::field::Bitfield::value</a></div><div class="ttdeci">const ValueType &amp; value() const</div><div class="ttdoc">Get access to the stored tuple of fields.</div><div class="ttdef"><b>Definition</b> Bitfield.h:194</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1Bitfield_html_a082e9e589b1bdd2a0bba8e86e828466d"><div class="ttname"><a href="classcomms_1_1field_1_1Bitfield.html#a082e9e589b1bdd2a0bba8e86e828466d">comms::field::Bitfield::value</a></div><div class="ttdeci">const ValueType &amp; value() const</div><div class="ttdoc">Get access to the stored tuple of fields.</div><div class="ttdef"><b>Definition</b> Bitfield.h:211</div></div>
 </div><!-- fragment --><p> Accessing the member field value in such setup, such as "baud" may look like this: </p><div class="fragment"><div class="line">SerialConfigField configField;</div>
 <div class="line">configField.field_baud().value() = Baud::Val_115200;</div>
 </div><!-- fragment --><h2><a class="anchor" id="page_use_prot_fields_bundle"></a>
@@ -1036,7 +1032,7 @@ Bundle Fields</h2>
 <div class="line"><span class="keyword">public</span>:</div>
 <div class="line">    <a class="code hl_define" href="Field_8h.html#af74198f06b52d3f58c92e795b2ff7129">COMMS_FIELD_MEMBERS_NAMES</a>(member1, member2, member3);</div>
 <div class="line">};</div>
-<div class="ttc" id="aclasscomms_1_1field_1_1Bundle_html"><div class="ttname"><a href="classcomms_1_1field_1_1Bundle.html">comms::field::Bundle</a></div><div class="ttdoc">Bundles multiple fields into a single field.</div><div class="ttdef"><b>Definition</b> Bundle.h:61</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1Bundle_html"><div class="ttname"><a href="classcomms_1_1field_1_1Bundle.html">comms::field::Bundle</a></div><div class="ttdoc">Bundles multiple fields into a single field.</div><div class="ttdef"><b>Definition</b> Bundle.h:63</div></div>
 </div><!-- fragment --><p> Just like with <a class="el" href="page_use_prot.html#page_use_prot_fields_bitfield">Bitfield Fields</a>, the inner <b>ValueType</b> type of such field is a <b>std::tuple</b> of member fields, and usage of <a class="el" href="Field_8h.html#af74198f06b52d3f58c92e795b2ff7129">COMMS_FIELD_MEMBERS_NAMES()</a> has exactly the same effect, i.e. generates inner <b>FieldIdx</b> enum and convenience access member functions: </p><div class="fragment"><div class="line"><span class="keyword">struct </span>MyBundle : <span class="keyword">public</span></div>
 <div class="line">    <a class="code hl_class" href="classcomms_1_1field_1_1Bundle.html">comms::field::Bundle</a>&lt;</div>
 <div class="line">        MyFieldBase,</div>
@@ -1075,7 +1071,7 @@ Bundle Fields</h2>
 <div class="line"> </div>
 <div class="line">    ...</div>
 <div class="line">};</div>
-<div class="ttc" id="aclasscomms_1_1field_1_1Bundle_html_a007c913abd4d659dbe6667e1ee802736"><div class="ttname"><a href="classcomms_1_1field_1_1Bundle.html#a007c913abd4d659dbe6667e1ee802736">comms::field::Bundle::value</a></div><div class="ttdeci">ValueType &amp; value()</div><div class="ttdoc">Get access to the stored tuple of fields.</div><div class="ttdef"><b>Definition</b> Bundle.h:148</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1Bundle_html_a007c913abd4d659dbe6667e1ee802736"><div class="ttname"><a href="classcomms_1_1field_1_1Bundle.html#a007c913abd4d659dbe6667e1ee802736">comms::field::Bundle::value</a></div><div class="ttdeci">ValueType &amp; value()</div><div class="ttdoc">Get access to the stored tuple of fields.</div><div class="ttdef"><b>Definition</b> Bundle.h:164</div></div>
 </div><!-- fragment --><h2><a class="anchor" id="page_use_prot_fields_array_list"></a>
 Array List Fields</h2>
 <p>Some communication protocols may define messages that transmit sequence of similar fields and/or raw data buffers. To make it easier to handle, the <b>COMMS</b> library provides <a class="el" href="classcomms_1_1field_1_1ArrayList.html" title="Field that represents a sequential collection of fields.">comms::field::ArrayList</a> field which provide a required interface to properly handle such sequences of data. It supports a sequence of raw bytes </p><div class="fragment"><div class="line"><span class="keyword">using </span>MySimpleList = </div>
@@ -1083,7 +1079,7 @@ Array List Fields</h2>
 <div class="line">        MyFieldBase,</div>
 <div class="line">        std::uint8_t <span class="comment">// raw byte type as second template parameter</span></div>
 <div class="line">    &gt;;</div>
-<div class="ttc" id="aclasscomms_1_1field_1_1ArrayList_html"><div class="ttname"><a href="classcomms_1_1field_1_1ArrayList.html">comms::field::ArrayList</a></div><div class="ttdoc">Field that represents a sequential collection of fields.</div><div class="ttdef"><b>Definition</b> ArrayList.h:192</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1ArrayList_html"><div class="ttname"><a href="classcomms_1_1field_1_1ArrayList.html">comms::field::ArrayList</a></div><div class="ttdoc">Field that represents a sequential collection of fields.</div><div class="ttdef"><b>Definition</b> ArrayList.h:195</div></div>
 </div><!-- fragment --><p> as well as using sequence of any fields defined in <a class="el" href="namespacecomms_1_1field.html" title="Namespace that contains definitions of all message fields.">comms::field</a> namespace </p><div class="fragment"><div class="line"><span class="keyword">using </span>MyComplexList = </div>
 <div class="line">    <a class="code hl_class" href="classcomms_1_1field_1_1ArrayList.html">comms::field::ArrayList</a>&lt;</div>
 <div class="line">        MyFieldBase,</div>
@@ -1108,7 +1104,7 @@ Array List Fields</h2>
 </div><!-- fragment --><h2><a class="anchor" id="page_use_prot_fields_string"></a>
 String Fields</h2>
 <p>Many protocols have to transfer strings. They are defined using <a class="el" href="classcomms_1_1field_1_1String.html">comms::field::String</a> field. </p><div class="fragment"><div class="line"><span class="keyword">using </span>MyString = <a class="code hl_class" href="classcomms_1_1field_1_1String.html">comms::field::String&lt;MyFieldBase&gt;</a>;</div>
-<div class="ttc" id="aclasscomms_1_1field_1_1String_html"><div class="ttname"><a href="classcomms_1_1field_1_1String.html">comms::field::String</a></div><div class="ttdoc">Field that represents a string.</div><div class="ttdef"><b>Definition</b> String.h:159</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1String_html"><div class="ttname"><a href="classcomms_1_1field_1_1String.html">comms::field::String</a></div><div class="ttdoc">Field that represents a string.</div><div class="ttdef"><b>Definition</b> String.h:161</div></div>
 </div><!-- fragment --><p> It is very similar to <a class="el" href="classcomms_1_1field_1_1ArrayList.html" title="Field that represents a sequential collection of fields.">comms::field::ArrayList</a> it terms of value storage, read/write operations, and supported options. By default the value is stored as <a href="http://en.cppreference.com/w/cpp/string/basic_string">std::string</a>. </p><div class="fragment"><div class="line">MyString myStr;</div>
 <div class="line"><span class="keyword">auto</span>&amp; myStrStorage = myStr.value(); <span class="comment">// Reference to std::string.</span></div>
 </div><!-- fragment --><p> However, there are options that can modify this default behaviour. The protocol definition classes are expected to provide a way to pass extra application specific options to the string field definition. It is explained in more details in <a class="el" href="page_use_prot.html#page_use_prot_fields_customisation">Application Specific Customisation of Fields</a> section below.</p>
@@ -1129,7 +1125,7 @@ Optional Fields</h2>
 <div class="line">    <a class="code hl_class" href="classcomms_1_1field_1_1Optional.html">comms::field::Optional</a>&lt;</div>
 <div class="line">        <a class="code hl_class" href="classcomms_1_1field_1_1IntValue.html">comms::field::IntValue&lt;MyFieldBase, std::int32_t&gt;</a></div>
 <div class="line">    &gt;;</div>
-<div class="ttc" id="aclasscomms_1_1field_1_1Optional_html"><div class="ttname"><a href="classcomms_1_1field_1_1Optional.html">comms::field::Optional</a></div><div class="ttdoc">Adaptor class to any other field, that makes the field optional.</div><div class="ttdef"><b>Definition</b> Optional.h:45</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1Optional_html"><div class="ttname"><a href="classcomms_1_1field_1_1Optional.html">comms::field::Optional</a></div><div class="ttdoc">Adaptor class to any other field, that makes the field optional.</div><div class="ttdef"><b>Definition</b> Optional.h:47</div></div>
 </div><!-- fragment --><p> The default mode of such field is "tentative", which means read if there is data available in the input buffer, and write if there is enough space in the output buffer. </p><div class="fragment"><div class="line">OptField field;</div>
 <div class="line">assert(field.isTentative());</div>
 </div><!-- fragment --><p> The default mode can be changed using <a class="el" href="namespacecomms_1_1option_1_1def.html#adcd3a25551f74636157bfff761d4e39f">comms::option::def::ExistsByDefault</a> or <a class="el" href="namespacecomms_1_1option_1_1def.html#a6ec725d747184d01b7afe266f53740de">comms::option::def::MissingByDefault</a> options. For example </p><div class="fragment"><div class="line"><span class="keyword">using </span>ExistingOptField = </div>
@@ -1228,8 +1224,8 @@ Variant Fields</h2>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Definition of properties list</span></div>
 <div class="line"><span class="keyword">using </span>PropertiesList = <a class="code hl_class" href="classcomms_1_1field_1_1ArrayList.html">comms::field::ArrayList&lt;MyFieldBase, MyVariant&gt;</a>;</div>
-<div class="ttc" id="aclasscomms_1_1field_1_1Variant_html"><div class="ttname"><a href="classcomms_1_1field_1_1Variant.html">comms::field::Variant</a></div><div class="ttdoc">Defines a &quot;variant&quot; field, that can contain any of the provided ones.</div><div class="ttdef"><b>Definition</b> Variant.h:79</div></div>
-<div class="ttc" id="aclasscomms_1_1field_1_1Variant_html_a7b12d7388ea81343e0c77a92264c8931"><div class="ttname"><a href="classcomms_1_1field_1_1Variant.html#a7b12d7388ea81343e0c77a92264c8931">comms::field::Variant::COMMS_VARIANT_MEMBERS_NAMES</a></div><div class="ttdeci">#define COMMS_VARIANT_MEMBERS_NAMES(...)</div><div class="ttdoc">Provide names for member fields of comms::field::Variant field.</div><div class="ttdef"><b>Definition</b> Variant.h:929</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1Variant_html"><div class="ttname"><a href="classcomms_1_1field_1_1Variant.html">comms::field::Variant</a></div><div class="ttdoc">Defines a &quot;variant&quot; field, that can contain any of the provided ones.</div><div class="ttdef"><b>Definition</b> Variant.h:81</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1Variant_html_a7b12d7388ea81343e0c77a92264c8931"><div class="ttname"><a href="classcomms_1_1field_1_1Variant.html#a7b12d7388ea81343e0c77a92264c8931">comms::field::Variant::COMMS_VARIANT_MEMBERS_NAMES</a></div><div class="ttdeci">#define COMMS_VARIANT_MEMBERS_NAMES(...)</div><div class="ttdoc">Provide names for member fields of comms::field::Variant field.</div><div class="ttdef"><b>Definition</b> Variant.h:945</div></div>
 <div class="ttc" id="astructcomms_1_1option_1_1def_1_1FailOnInvalid_html"><div class="ttname"><a href="structcomms_1_1option_1_1def_1_1FailOnInvalid.html">comms::option::def::FailOnInvalid</a></div><div class="ttdoc">Option that forces field's read operation to fail if invalid value is received.</div><div class="ttdef"><b>Definition</b> options.h:674</div></div>
 <div class="ttc" id="astructcomms_1_1option_1_1def_1_1SequenceSizeFieldPrefix_html"><div class="ttname"><a href="structcomms_1_1option_1_1def_1_1SequenceSizeFieldPrefix.html">comms::option::def::SequenceSizeFieldPrefix</a></div><div class="ttdoc">Option that modifies the default behaviour of collection fields to prepend the serialised data with n...</div><div class="ttdef"><b>Definition</b> options.h:438</div></div>
 </div><!-- fragment --><p> <b>IMPORTANT:</b> The <a class="el" href="classcomms_1_1field_1_1Variant.html">comms::field::Variant</a> field uses uninitialized implementation dependent storage area able to be initialized and hold any of the provided member field types (but only one at a time). The inner <a class="el" href="classcomms_1_1field_1_1Variant.html#adc09c38e7f2d71ac5d5e98d9780a58c7">ValueType</a> type contains definition of the used storage type and <a class="el" href="classcomms_1_1field_1_1Variant.html#aa09bb3a9de48f83e8542b1ebc72077fc">value()</a> member function which returns reference to the used storage area. These type and function should <b>NOT</b> be used directly. Instead, the protocol definition is expected to use COMMS_VARIANT_MEMBERS_NAMES() macro, which generates appropriate access and conversion wrapper functions around <a class="el" href="classcomms_1_1field_1_1Variant.html#aaaea531f68d242a30f285afd5e666928">comms::field::Variant::initField()</a> and <a class="el" href="classcomms_1_1field_1_1Variant.html#a1eb83a0af181ca6e0a9e0d99eff31e13">comms::field::Variant::accessField()</a>.</p>
@@ -1477,7 +1473,7 @@ Application Specific Customisation of Fields</h2>
 <div class="line">    };</div>
 <div class="line">};</div>
 <div class="line">} <span class="comment">// my_protocol</span></div>
-<div class="ttc" id="astructcomms_1_1option_1_1app_1_1EmptyOption_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a></div><div class="ttdoc">No-op option, doesn't have any effect.</div><div class="ttdef"><b>Definition</b> options.h:1250</div></div>
+<div class="ttc" id="astructcomms_1_1option_1_1app_1_1EmptyOption_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a></div><div class="ttdoc">No-op option, doesn't have any effect.</div><div class="ttdef"><b>Definition</b> options.h:1259</div></div>
 </div><!-- fragment --><p> The application is expected to provide its own options describing struct / class if needed. The easiest way is to extend provided <b>DefaultOptions</b> and override selected types. For example </p><div class="fragment"><div class="line"><span class="keyword">struct </span>MyOptions : <span class="keyword">public</span> my_protocol::DefaultOptions</div>
 <div class="line">{</div>
 <div class="line">    <span class="keyword">struct </span>message : <span class="keyword">public</span> my_protocol::DefaultOptions::message</div>
@@ -1488,7 +1484,7 @@ Application Specific Customisation of Fields</h2>
 <div class="line">        };</div>
 <div class="line">    };</div>
 <div class="line">};</div>
-<div class="ttc" id="astructcomms_1_1option_1_1app_1_1FixedSizeStorage_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1FixedSizeStorage.html">comms::option::app::FixedSizeStorage</a></div><div class="ttdoc">Option that forces usage of embedded uninitialised data area instead of dynamic memory allocation.</div><div class="ttdef"><b>Definition</b> options.h:1346</div></div>
+<div class="ttc" id="astructcomms_1_1option_1_1app_1_1FixedSizeStorage_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1FixedSizeStorage.html">comms::option::app::FixedSizeStorage</a></div><div class="ttdoc">Option that forces usage of embedded uninitialised data area instead of dynamic memory allocation.</div><div class="ttdef"><b>Definition</b> options.h:1355</div></div>
 </div><!-- fragment --><p> The definition of the message(s) may look like this: </p><div class="fragment"><div class="line"><span class="keyword">using </span>MyMessage1 = my_protocol::Message1&lt;MyMessage, MyOptions&gt;;</div>
 </div><!-- fragment --><p> If there is a need to pass more than one extra option to a field, these options can be bundled together is <b>std::tuple</b>. </p><div class="fragment"><div class="line"><span class="keyword">struct </span>MyOptions : <span class="keyword">public</span> my_protocol::DefaultOptions</div>
 <div class="line">{</div>
@@ -1521,7 +1517,7 @@ Customisation for Lists and Strings</h3>
 <div class="line">        };</div>
 <div class="line">    };</div>
 <div class="line">};</div>
-<div class="ttc" id="astructcomms_1_1option_1_1app_1_1OrigDataView_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1OrigDataView.html">comms::option::app::OrigDataView</a></div><div class="ttdoc">Use &quot;view&quot; on original raw data instead of copying it.</div><div class="ttdef"><b>Definition</b> options.h:1399</div></div>
+<div class="ttc" id="astructcomms_1_1option_1_1app_1_1OrigDataView_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1OrigDataView.html">comms::option::app::OrigDataView</a></div><div class="ttdoc">Use &quot;view&quot; on original raw data instead of copying it.</div><div class="ttdef"><b>Definition</b> options.h:1408</div></div>
 </div><!-- fragment --><p>If default standard <b>std::vector</b> / <b>std::string</b> or all the provided by the <b>COMMS</b> library storage type are not good enough, it is possible to specify custom storage type using <a class="el" href="structcomms_1_1option_1_1app_1_1CustomStorageType.html">comms::option::app::CustomStorageType</a> option. For example: </p><div class="fragment"><div class="line"><span class="keyword">struct </span>MyOptions : <span class="keyword">public</span> my_protocol::DefaultOptions</div>
 <div class="line">{</div>
 <div class="line">    <span class="keyword">struct </span>message : <span class="keyword">public</span> my_protocol::DefaultOptions::message</div>
@@ -1535,7 +1531,7 @@ Customisation for Lists and Strings</h3>
 <div class="line">        };</div>
 <div class="line">    };</div>
 <div class="line">};</div>
-<div class="ttc" id="astructcomms_1_1option_1_1app_1_1CustomStorageType_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1CustomStorageType.html">comms::option::app::CustomStorageType</a></div><div class="ttdoc">Set custom storage type for fields like comms::field::String or comms::field::ArrayList.</div><div class="ttdef"><b>Definition</b> options.h:1363</div></div>
+<div class="ttc" id="astructcomms_1_1option_1_1app_1_1CustomStorageType_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1CustomStorageType.html">comms::option::app::CustomStorageType</a></div><div class="ttdoc">Set custom storage type for fields like comms::field::String or comms::field::ArrayList.</div><div class="ttdef"><b>Definition</b> options.h:1372</div></div>
 </div><!-- fragment --><h3><a class="anchor" id="page_use_prot_fields_customisation_other"></a>
 Customisation for Other Fields</h3>
 <p>While allowing extra customisation for fields like <b>list</b> or <b>string</b> is a <b>"must have"</b> feature of the protocol definition, it may also allow additional customisation of other fields as well. For example, let's assume that <b>field1</b> of previously mentioned <b>Message1</b> is a numeric field, that defined the following way: </p><div class="fragment"><div class="line"><span class="preprocessor">#pragma once</span></div>
@@ -1649,11 +1645,10 @@ Transport Framing</h1>
 <div class="line"><span class="keyword">template</span> &lt;</div>
 <div class="line">    <span class="keyword">typename</span> TMessage, <span class="comment">// common interface class defined by the application</span></div>
 <div class="line">    <span class="keyword">typename</span> TInputMessages = AllMessages&lt;TMessage&gt;, <span class="comment">// Input messages that need to be recognised</span></div>
-<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a>, <span class="comment">// Extra options for comms::protocol::MsgIdLayer</span></div>
-<div class="line">    <span class="keyword">typename</span> TPayloadOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for payload storage</span></div>
+<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for comms::protocol::MsgIdLayer</span></div>
 <div class="line">&gt;</div>
 <div class="line"><span class="keyword">struct </span>ProtocolStack : <span class="keyword">public</span> </div>
-<div class="line">    MySyncPrefix&lt;TMessage, TInputMessages, TAllocationOptions, TPayloadOptions&gt; </div>
+<div class="line">    MySyncPrefix&lt;TMessage, TInputMessages, TAllocationOptions&gt; </div>
 <div class="line">{</div>
 <div class="line">    COMMS_PROTOCOL_LAYERS_ACCESS(...);</div>
 <div class="line">};</div>
@@ -1662,9 +1657,8 @@ Transport Framing</h1>
 </div><!-- fragment --><p> The first template parameter (<b>TMessage</b>) is common message interface class described earlier in <a class="el" href="page_use_prot.html#page_use_prot_interface">Defining Message Interface Class</a> section.</p>
 <p>The second template parameter (<b>TInputMessages</b>) is <b>std::tuple</b> of input messages that <b>read</b> operation is expected to recognise. The message classes must be sorted by the ascending order of message IDs. The protocol definition is also expected to define <b>AllMessages</b> tuple which lists all the protocol messages, which can be used as reference.</p>
 <p>The third template parameter (<b>TAllocationOptions</b>) is extra option(s) (bundled in <b>std::tuple</b> if more than one) to be passed to <a class="el" href="classcomms_1_1protocol_1_1MsgIdLayer.html">comms::protocol::MsgIdLayer</a> class which is responsible for message allocation. By default the message object is dynamically allocated, it is possible to modify such behaviour by using <a class="el" href="structcomms_1_1option_1_1app_1_1InPlaceAllocation.html">comms::option::app::InPlaceAllocation</a> option. It will be explained in more details further below.</p>
-<p>The fourth template parameter (<b>TPayloadOptions</b>) is irrelevant in most cases. It has a meaning only when transport wrapping values are cached for further analysis. It will also be explained in more details further below.</p>
 <p><b>NOTE</b>, that <b>ProtocolStack</b> definition is actually an alias to one of the classes from <a class="el" href="namespacecomms_1_1protocol.html">comms::protocol</a> namespace. To get a detailed information on available public API please reference to one of them, for example <a class="el" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html">comms::protocol::SyncPrefixLayer</a>.</p>
-<p>It may also happen, that the extra options (<b>TAllocationOptions</b> and <b>TPayloadOptions</b>) are defined inside the recommended <b>DefaultOptions</b> structure and be passed to the layers definitions themselves. Such approach is undertaken by the <b>commsdsl2comms</b> code generator application from the <a href="https://github.com/commschamp/commsdsl">commsdsl</a> project. </p><div class="fragment"><div class="line"><span class="keyword">namespace </span>my_protocol</div>
+<p>It may also happen, that the extra options (<b>TAllocationOptions</b>) are defined inside the recommended <b>DefaultOptions</b> structure and be passed to the layers definitions themselves. Such approach is undertaken by the <b>commsdsl2comms</b> code generator application from the <a href="https://github.com/commschamp/commsdsl">commsdsl</a> project. </p><div class="fragment"><div class="line"><span class="keyword">namespace </span>my_protocol</div>
 <div class="line">{</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">struct </span>DefaultOptions</div>
@@ -1755,7 +1749,7 @@ Using Generic Message</h2>
 <div class="line">        <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1SupportGenericMessage.html">comms::option::app::SupportGenericMessage&lt;MyGenericMessage&gt;</a></div>
 <div class="line">    &gt;;</div>
 <div class="ttc" id="aclasscomms_1_1GenericMessage_html"><div class="ttname"><a href="classcomms_1_1GenericMessage.html">comms::GenericMessage</a></div><div class="ttdoc">Generic Message.</div><div class="ttdef"><b>Definition</b> GenericMessage.h:76</div></div>
-<div class="ttc" id="astructcomms_1_1option_1_1app_1_1SupportGenericMessage_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1SupportGenericMessage.html">comms::option::app::SupportGenericMessage</a></div><div class="ttdoc">Option used to allow comms::GenericMessage generation inside comms::MsgFactory and/or comms::protocol...</div><div class="ttdef"><b>Definition</b> options.h:1330</div></div>
+<div class="ttc" id="astructcomms_1_1option_1_1app_1_1SupportGenericMessage_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1SupportGenericMessage.html">comms::option::app::SupportGenericMessage</a></div><div class="ttdoc">Option used to allow comms::GenericMessage generation inside comms::MsgFactory and/or comms::protocol...</div><div class="ttdef"><b>Definition</b> options.h:1339</div></div>
 </div><!-- fragment --><p> <b>NOTE</b>, that <a class="el" href="classcomms_1_1GenericMessage.html">comms::GenericMessage</a> has only single field, which is a list of raw data (<a class="el" href="classcomms_1_1field_1_1ArrayList.html">comms::field::ArrayList</a>). The <b>read</b> operation of such field will result in copying the data from input buffer to internal storage of this field. The <a class="el" href="classcomms_1_1GenericMessage.html">comms::GenericMessage</a> class has also other template parameters (except common message interface class). The second template parameter is option(s) that are going to be passed to this <a class="el" href="classcomms_1_1field_1_1ArrayList.html" title="Field that represents a sequential collection of fields.">comms::field::ArrayList</a> field. If allocated message is <b>not</b> going to outlive input buffer, than it may make sense to pass <a class="el" href="structcomms_1_1option_1_1app_1_1OrigDataView.html">comms::option::app::OrigDataView</a> as second template parameter to <a class="el" href="classcomms_1_1GenericMessage.html">comms::GenericMessage</a>. </p><div class="fragment"><div class="line"><span class="keyword">using </span>MyGenericMessage = <a class="code hl_class" href="classcomms_1_1GenericMessage.html">comms::GenericMessage&lt;MyMessage, comms::option::app::OrigDataView&gt;</a>;</div>
 </div><!-- fragment --><p>Also <b>note</b>, that it is possible to combine usage of <a class="el" href="structcomms_1_1option_1_1app_1_1InPlaceAllocation.html">comms::option::app::InPlaceAllocation</a> and <a class="el" href="structcomms_1_1option_1_1app_1_1SupportGenericMessage.html">comms::option::app::SupportGenericMessage</a> as the third template parameter to <b>ProtocolStack</b> type definition using <b>std::tuple</b> bundling. </p><div class="fragment"><div class="line"><span class="keyword">using </span>ProtStack = </div>
 <div class="line">    my_protocol::ProtocolStack&lt;</div>
@@ -1766,7 +1760,7 @@ Using Generic Message</h2>
 <div class="line">            <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1SupportGenericMessage.html">comms::option::app::SupportGenericMessage&lt;MyGenericMessage&gt;</a></div>
 <div class="line">        &gt;</div>
 <div class="line">    &gt;;</div>
-<div class="ttc" id="astructcomms_1_1option_1_1app_1_1InPlaceAllocation_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1InPlaceAllocation.html">comms::option::app::InPlaceAllocation</a></div><div class="ttdoc">Option that forces &quot;in place&quot; allocation with placement &quot;new&quot; for initialisation, instead of usage of...</div><div class="ttdef"><b>Definition</b> options.h:1323</div></div>
+<div class="ttc" id="astructcomms_1_1option_1_1app_1_1InPlaceAllocation_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1InPlaceAllocation.html">comms::option::app::InPlaceAllocation</a></div><div class="ttdoc">Option that forces &quot;in place&quot; allocation with placement &quot;new&quot; for initialisation, instead of usage of...</div><div class="ttdef"><b>Definition</b> options.h:1332</div></div>
 </div><!-- fragment --><h2><a class="anchor" id="page_use_prot_transport_write"></a>
 Writing Transport Framing and Message Payload</h2>
 <p>The easiest way to implement write functionality is to use the ability of the message object to perform polymorphic write. </p><div class="fragment"><div class="line">ProtStack protStack; <span class="comment">// Protocol stack defined in one of previous sections</span></div>
@@ -1818,18 +1812,17 @@ Access to Processed Stack Fields</h2>
 <p>All the examples above do not store the read/written transport fields anywhere. In most cases it is not needed. However, if need arises they can be cached during the read/write operations and accessed later. The <b>ProtocolStack</b> also defines <b>AllFields</b> type which is <b>std::tuple</b> of all the fields used by all the layer classes. <br  />
 Also, the <b>ProtocolStack</b> defines <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#ad22a30d6baba8a074f419fe710b809d5">readFieldsCached()</a> and <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#af0877d7cedb580508e91ecfb7353227d">writeFieldsCached()</a> member functions which are substitutes to normal <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a60d0ea06c68e5b885bf651d7a7b14d1a">read()</a> and <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a6799fbfb090ea3a612d3757a0d28fd06">write()</a>. The first parameter to these functions is reference to the <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#ac9c47bcb2d5407fb4679cff923b1f86a">AllFields</a> bundle object. </p><div class="fragment"><div class="line">ProtStack::AllFields fields;</div>
 <div class="line"><span class="keyword">auto</span> es = protStack.readFieldsCached(fields, msgPtr, readIter, bufSize);</div>
-</div><!-- fragment --><p> The layer class that is responsible to read/write payload data (see <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>) uses <a class="el" href="classcomms_1_1field_1_1ArrayList.html">comms::field::ArrayList</a> to define a field that will store the payload when "caching" operations are performed. That's where the fourth template parameter (<b>TPayloadOptions</b>) to <b>ProtocolStack</b> definition comes in play. In case the the input / output buffer outlives the <b>AllFields</b> object, consider passing <a class="el" href="structcomms_1_1option_1_1app_1_1OrigDataView.html">comms::option::app::OrigDataView</a> option as the fourth template parameter to <b>ProtocolStack</b> definition, which will pass it to to the field containing the message payload raw data. Otherwise, the payload part from the read / written buffer will also be copied to storage area of the cached payload field.</p>
+</div><!-- fragment --><p> The layer class that is responsible to read/write payload data (see <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>) uses <a class="el" href="classcomms_1_1field_1_1ArrayList.html">comms::field::ArrayList</a> to define a field that will store the payload when "caching" operations are performed. In case the the input / output buffer outlives the <b>AllFields</b> object, consider passing <a class="el" href="structcomms_1_1option_1_1app_1_1OrigDataView.html">comms::option::app::OrigDataView</a> option as the fourth template parameter to <b>ProtocolStack</b> definition, which will pass it to to the field containing the message payload raw data. Otherwise, the payload part from the read / written buffer will also be copied to storage area of the cached payload field.</p>
 <p>As was mentioned earlier, the protocol stack is defined using so called <b>layer</b> classes (defined in <a class="el" href="namespacecomms_1_1protocol.html">comms::protocol</a> namespace) by wrapping one another. Access to the appropriate layer may be obtained using a sequence of calls to <b>nextLayer()</b> member functions (see <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a94b66bf54cf3ffa37058ff618bdcf163">comms::protocol::ProtocolLayerBase::nextLayer()</a>). Alternatively, the protocol stack definition is also expected to use COMMS_PROTOCOL_LAYERS_ACCESS() macro to generate a convenience access functions. For example </p><div class="fragment"><div class="line"><span class="keyword">namespace </span>my_protocol</div>
 <div class="line">{</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;</div>
 <div class="line">    <span class="keyword">typename</span> TMessage, <span class="comment">// common interface class defined by the application</span></div>
 <div class="line">    <span class="keyword">typename</span> TInputMessages = AllMessages&lt;TMessage&gt;, <span class="comment">// Input messages that need to be recognised</span></div>
-<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a>, <span class="comment">// Extra options for MsgIdLayer</span></div>
-<div class="line">    <span class="keyword">typename</span> TPayloadOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for payload storage</span></div>
+<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for MsgIdLayer</span></div>
 <div class="line">&gt;</div>
 <div class="line"><span class="keyword">struct </span>ProtocolStack : <span class="keyword">public</span> </div>
-<div class="line">    MySyncPrefix&lt;TMessage, TInputMessages, TAllocationOptions, TPayloadOptions&gt; </div>
+<div class="line">    MySyncPrefix&lt;TMessage, TInputMessages, TAllocationOptions&gt; </div>
 <div class="line">{</div>
 <div class="line">    COMMS_PROTOCOL_LAYERS_ACCESS(payload, <span class="keywordtype">id</span>, size, checksum, sync);</div>
 <div class="line">};</div>
@@ -1838,11 +1831,10 @@ Also, the <b>ProtocolStack</b> defines <a class="el" href="classcomms_1_1protoco
 </div><!-- fragment --><p> The provided names are used in generation of access member functions with <b>layer_</b> prefix. The code above is equivalent to having the following member functions defined. </p><div class="fragment"><div class="line"><span class="keyword">template</span> &lt;</div>
 <div class="line">    <span class="keyword">typename</span> TMessage, <span class="comment">// common interface class defined by the application</span></div>
 <div class="line">    <span class="keyword">typename</span> TInputMessages = AllMessages&lt;TMessage&gt;, <span class="comment">// Input messages that need to be recognised</span></div>
-<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a>, <span class="comment">// Extra options for MsgIdLayer</span></div>
-<div class="line">    <span class="keyword">typename</span> TPayloadOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for payload storage</span></div>
+<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for MsgIdLayer</span></div>
 <div class="line">&gt;</div>
 <div class="line"><span class="keyword">struct </span>ProtocolStack : <span class="keyword">public</span> </div>
-<div class="line">    MySyncPrefix&lt;TMessage, TInputMessages, TAllocationOptions, TPayloadOptions&gt; </div>
+<div class="line">    MySyncPrefix&lt;TMessage, TInputMessages, TAllocationOptions&gt; </div>
 <div class="line">{</div>
 <div class="line">    <span class="comment">// Access to PAYLOAD layer</span></div>
 <div class="line">    <span class="keyword">decltype</span>(<span class="keyword">auto</span>) layer_payload();</div>
@@ -2185,11 +2177,10 @@ Pseudo Transport Values</h1>
 <div class="line"><span class="keyword">template</span> &lt;</div>
 <div class="line">    <span class="keyword">typename</span> TMessage, <span class="comment">// common interface class defined by the application</span></div>
 <div class="line">    <span class="keyword">typename</span> TInputMessages = AllMessages&lt;TMessage&gt;, <span class="comment">// Input messages that need to be recognised</span></div>
-<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a>, <span class="comment">// Extra options for MsgIdLayer</span></div>
-<div class="line">    <span class="keyword">typename</span> TPayloadOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for payload storage</span></div>
+<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for MsgIdLayer</span></div>
 <div class="line">&gt;</div>
 <div class="line"><span class="keyword">struct </span>ProtocolStack : <span class="keyword">public</span> </div>
-<div class="line">    MySizePrefix&lt;TMessage, TInputMessages, TAllocationOptions, TPayloadOptions&gt; </div>
+<div class="line">    MySizePrefix&lt;TMessage, TInputMessages, TAllocationOptions&gt; </div>
 <div class="line">{</div>
 <div class="line">    COMMS_PROTOCOL_LAYERS_ACCESS(payload, version, <span class="keywordtype">id</span>, size);</div>
 <div class="line">};</div>
@@ -2273,8 +2264,8 @@ Application Specific Customisation of Messages</h1>
 <div class="line"> </div>
 <div class="line"><span class="keyword">using </span>MyMessage1 = my_protocol::Message1&lt;MyMessage, MyOptions&gt;;</div>
 <div class="line"><span class="keyword">using </span>MyMessage2 = my_protocol::Message2&lt;MyMessage, MyOptions&gt;;</div>
-<div class="ttc" id="astructcomms_1_1option_1_1app_1_1NoReadImpl_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1NoReadImpl.html">comms::option::app::NoReadImpl</a></div><div class="ttdoc">Option that inhibits implementation of comms::MessageBase::readImpl() regardless of other availabilit...</div><div class="ttdef"><b>Definition</b> options.h:1298</div></div>
-<div class="ttc" id="astructcomms_1_1option_1_1app_1_1NoWriteImpl_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1NoWriteImpl.html">comms::option::app::NoWriteImpl</a></div><div class="ttdoc">Option that inhibits implementation of comms::MessageBase::writeImpl() regardless of other availabili...</div><div class="ttdef"><b>Definition</b> options.h:1303</div></div>
+<div class="ttc" id="astructcomms_1_1option_1_1app_1_1NoReadImpl_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1NoReadImpl.html">comms::option::app::NoReadImpl</a></div><div class="ttdoc">Option that inhibits implementation of comms::MessageBase::readImpl() regardless of other availabilit...</div><div class="ttdef"><b>Definition</b> options.h:1307</div></div>
+<div class="ttc" id="astructcomms_1_1option_1_1app_1_1NoWriteImpl_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1NoWriteImpl.html">comms::option::app::NoWriteImpl</a></div><div class="ttdoc">Option that inhibits implementation of comms::MessageBase::writeImpl() regardless of other availabili...</div><div class="ttdef"><b>Definition</b> options.h:1312</div></div>
 </div><!-- fragment --><h1><a class="anchor" id="page_use_prot_msg_extension"></a>
 Message Interface Extension</h1>
 <p>Sometimes the public interface of the messages, generated by the <b>COMMS</b> library out of available options passed to <a class="el" href="classcomms_1_1Message.html">comms::Message</a>, may be insufficient for some applications and its interface needs to be extended with custom member functions. It is easy to achieve by just implementing required function in common message interface class </p><div class="fragment"><div class="line"><span class="keyword">class </span>MyMessage : <span class="keyword">public</span> my_protocol::Message&lt;...&gt;</div>

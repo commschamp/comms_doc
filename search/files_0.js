@@ -6,6 +6,5 @@ var searchData=
   ['arraylist_2eh_3',['ArrayList.h',['../ArrayList_8h.html',1,'']]],
   ['arrayview_2eh_4',['ArrayView.h',['../ArrayView_8h.html',1,'']]],
   ['assert_2eh_5',['Assert.h',['../Assert_8h.html',1,'']]],
-  ['assign_2eh_6',['assign.h',['../assign_8h.html',1,'']]],
-  ['assignhelper_2eh_7',['AssignHelper.h',['../AssignHelper_8h.html',1,'']]]
+  ['assign_2eh_6',['assign.h',['../assign_8h.html',1,'']]]
 ];

@@ -111,9 +111,11 @@ Introduction</h1>
 <h1><a class="anchor" id="page_prot_stack_tutorial_payload"></a>
 PAYLOAD Layer</h1>
 <p>The top layer, that is responsible to read/write the payload of the message is called <b>PAYLOAD</b>. It is implemented by <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html" title="Message data layer.">comms::protocol::MsgDataLayer</a> class in the COMMS library. </p><div class="fragment"><div class="line"><span class="keyword">using </span>MyMsgData = <a class="code hl_class" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer&lt;&gt;</a>;</div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1MsgDataLayer_html"><div class="ttname"><a href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a></div><div class="ttdoc">Message data layer.</div><div class="ttdef"><b>Definition</b> MsgDataLayer.h:42</div></div>
-</div><!-- fragment --><p> <b>NOTE</b>, that <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a> receives a template parameter. In the normal operation, when transport frame fields are not stored anywhere, it is never used. However, there is way to perform <b>read</b> operation while caching transport fields (by using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ad27c6b31381727bc765daf1e36d98029">readFieldsCached()</a>) The payload field is defined to be <a class="el" href="classcomms_1_1field_1_1ArrayList.html">comms::field::ArrayList</a> of raw data (see <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ac674e4c28bc8e154ee1801cc39de7f58">comms::protocol::MsgDataLayer::Field</a>). It would be wise to provide a way to supply extra options to choose storage type for this field, when defining protocol stack. As the result the definition becomes: </p><div class="fragment"><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> TPayloadOptions = comms::option::app::EmptyOption&gt;</div>
-<div class="line"><span class="keyword">using </span>MyMsgData = <a class="code hl_class" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer&lt;TPayloadOptions&gt;</a>;</div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1MsgDataLayer_html"><div class="ttname"><a href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a></div><div class="ttdoc">Message data layer.</div><div class="ttdef"><b>Definition</b> MsgDataLayer.h:41</div></div>
+</div><!-- fragment --><p> <b>NOTE</b>, that <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a> receives a template parameter of the extending options. In the normal operation, when transport frame fields are not stored anywhere, it is never used. However, there is way to perform <b>read</b> operation while caching transport fields (by using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a0d8560c3f1c69ec77b46fe7c06801557">readFieldsCached()</a>) The default payload field is defined to be <b><a class="el" href="classcomms_1_1field_1_1ArrayList.html" title="Field that represents a sequential collection of fields.">comms::field::ArrayList</a></b> of raw data (see <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a0f2d836155784a48f4b9f0f0e8a5036a">comms::protocol::MsgDataLayer::Field</a>). It is possible to override the default definition of some other variant of the <b><a class="el" href="classcomms_1_1field_1_1ArrayList.html" title="Field that represents a sequential collection of fields.">comms::field::ArrayList</a></b>: </p><div class="fragment"><div class="line"><span class="keyword">using </span>CustomDataField = <a class="code hl_class" href="classcomms_1_1field_1_1ArrayList.html">comms::field::ArrayList</a>&lt;...&gt;;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">using </span>MyMsgData = <a class="code hl_class" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer&lt;comms::option::def::FieldType&lt;CustomDataField&gt;</a>&gt;;</div>
+<div class="ttc" id="aclasscomms_1_1field_1_1ArrayList_html"><div class="ttname"><a href="classcomms_1_1field_1_1ArrayList.html">comms::field::ArrayList</a></div><div class="ttdoc">Field that represents a sequential collection of fields.</div><div class="ttdef"><b>Definition</b> ArrayList.h:195</div></div>
 </div><!-- fragment --><h1><a class="anchor" id="page_prot_stack_tutorial_id"></a>
 ID Layer</h1>
 <p>The <b>ID</b> layer is responsible to process the ID of the message and based on this ID, create proper message object. The COMMS library implements this functionality in <a class="el" href="classcomms_1_1protocol_1_1MsgIdLayer.html" title="Protocol layer that uses uses message ID field as a prefix to all the subsequent data written by othe...">comms::protocol::MsgIdLayer</a> class. It receives <b>at least</b> four template parameters. The first one is a type of the field that can be used to read/write the ID information. The <a class="el" href="page_define_prot.html#page_define_prot_interface">Common Interface Class</a> section described <b>my_protocol::MsgId</b> enum type used to define message IDs, it can be reused to define a field responsible to read / write message ID value </p><div class="fragment"><div class="line"><span class="keyword">namespace </span>my_protocol</div>
@@ -131,7 +133,7 @@ ID Layer</h1>
 <div class="line"> </div>
 <div class="line">} <span class="comment">// namespace my_protocol</span></div>
 <div class="ttc" id="aclasscomms_1_1Field_html"><div class="ttname"><a href="classcomms_1_1Field.html">comms::Field</a></div><div class="ttdoc">Base class to all the field classes.</div><div class="ttdef"><b>Definition</b> Field.h:33</div></div>
-<div class="ttc" id="aclasscomms_1_1field_1_1EnumValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1EnumValue.html">comms::field::EnumValue</a></div><div class="ttdoc">Enumerator value field.</div><div class="ttdef"><b>Definition</b> EnumValue.h:73</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1EnumValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1EnumValue.html">comms::field::EnumValue</a></div><div class="ttdoc">Enumerator value field.</div><div class="ttdef"><b>Definition</b> EnumValue.h:75</div></div>
 </div><!-- fragment --><p> <b>NOTE</b>, that underlying enum type is defined to be <b>std::uint8_t</b>, which will result in 1 byte serialisation length.</p>
 <p>The second parameter is common interface class for all <b>input</b> messages that need to be recognised during <b>read</b> operation. This type will be defined by the application and is expected to be an alias (typedef) or extending class to <b>my_protocol::Message</b> (described in <a class="el" href="page_define_prot.html#page_define_prot_interface">Common Interface Class</a>)</p>
 <p>The third parameter is all the types of all the custom messages, that need to be recognised in <b>read</b> operation, bundled in std::tuple. </p><div class="fragment"><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMessage&gt;</div>
@@ -145,18 +147,16 @@ ID Layer</h1>
 </div><!-- fragment --><p> <b>NOTE</b>, that the interface class (<b>TMessage</b>) passed as the second parameter is expected to be the common base class for all the messages passed as third one.</p>
 <p>The fourth template parameter is the upper layer it needs to wrap: </p><div class="fragment"><div class="line"><span class="keyword">template</span> &lt;</div>
 <div class="line">    <span class="keyword">typename</span> TMessage, <span class="comment">// common interface class defined by the application</span></div>
-<div class="line">    <span class="keyword">typename</span> TInputMessages = AllMessages&lt;TMessage&gt;, <span class="comment">// Input messages that need to be recognised</span></div>
-<div class="line">    <span class="keyword">typename</span> TPayloadOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for payload storage</span></div>
+<div class="line">    <span class="keyword">typename</span> TInputMessages = AllMessages&lt;TMessage&gt; <span class="comment">// Input messages that need to be recognised</span></div>
 <div class="line">&gt;</div>
 <div class="line"><span class="keyword">using </span>MyMsgId = </div>
 <div class="line">    <a class="code hl_class" href="classcomms_1_1protocol_1_1MsgIdLayer.html">comms::protocol::MsgIdLayer</a>&lt;</div>
 <div class="line">        MsgIdField, </div>
 <div class="line">        TMessage, </div>
 <div class="line">        TInputMessages, </div>
-<div class="line">        MyMsgData&lt;TPayloadOptions&gt;</div>
+<div class="line">        MyMsgData&lt;&gt;</div>
 <div class="line">    &gt;;</div>
 <div class="ttc" id="aclasscomms_1_1protocol_1_1MsgIdLayer_html"><div class="ttname"><a href="classcomms_1_1protocol_1_1MsgIdLayer.html">comms::protocol::MsgIdLayer</a></div><div class="ttdoc">Protocol layer that uses uses message ID field as a prefix to all the subsequent data written by othe...</div><div class="ttdef"><b>Definition</b> MsgIdLayer.h:80</div></div>
-<div class="ttc" id="astructcomms_1_1option_1_1app_1_1EmptyOption_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a></div><div class="ttdoc">No-op option, doesn't have any effect.</div><div class="ttdef"><b>Definition</b> options.h:1250</div></div>
 </div><!-- fragment --><p> <b>NOTE</b>, that all the input messages are passed as a template parameter with a default value (bundling all the available messages). It will give an opportunity to the application to use only messages it needs.</p>
 <p>Also <b>note</b>, input messages in the bundle (<b>TInputMessages</b>) are expected to be defined in order of their numeric IDs. It is allowed to have separate message classes to report the same numeric ID. However, the <b>read</b> operation will try to read all the messages with the found ID one by one <b>in order</b> of their definition until success is reported.</p>
 <p>The <a class="el" href="classcomms_1_1protocol_1_1MsgIdLayer.html" title="Protocol layer that uses uses message ID field as a prefix to all the subsequent data written by othe...">comms::protocol::MsgIdLayer</a> defines <a class="el" href="classcomms_1_1protocol_1_1MsgIdLayer.html#a3444598e8ae44eaa5b09f11b694a1670">MsgPtr</a> internal type, which is smart pointer (<b>std::unique_ptr</b>) to the input message interface class (<b>TMessage</b>) provided as second template parameter.</p>
@@ -164,17 +164,17 @@ ID Layer</h1>
 <p>The <a class="el" href="classcomms_1_1protocol_1_1MsgIdLayer.html" title="Protocol layer that uses uses message ID field as a prefix to all the subsequent data written by othe...">comms::protocol::MsgIdLayer</a> can also be used in <b>bare metal</b> systems, that do NOT use dynamic memory allocation. In order to prevent this layer from using dynamic memory allocation, the <a class="el" href="structcomms_1_1option_1_1app_1_1InPlaceAllocation.html">comms::option::app::InPlaceAllocation</a> option needs to be passed as fifth template parameter to the <a class="el" href="classcomms_1_1protocol_1_1MsgIdLayer.html" title="Protocol layer that uses uses message ID field as a prefix to all the subsequent data written by othe...">comms::protocol::MsgIdLayer</a> class. However, an ability to use this option needs to be provided to the application itself only if needed. In order to achive that additional template parameter needs to be used. </p><div class="fragment"><div class="line"><span class="keyword">template</span> &lt;</div>
 <div class="line">    <span class="keyword">typename</span> TMessage, <span class="comment">// common interface class defined by the application</span></div>
 <div class="line">    <span class="keyword">typename</span> TInputMessages = AllMessages&lt;TMessage&gt;, <span class="comment">// Input messages that need to be recognised</span></div>
-<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a>, <span class="comment">// Extra options for MsgIdLayer</span></div>
-<div class="line">    <span class="keyword">typename</span> TPayloadOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for payload storage</span></div>
+<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for MsgIdLayer</span></div>
 <div class="line">&gt;</div>
 <div class="line"><span class="keyword">using </span>MyMsgId = </div>
 <div class="line">    <a class="code hl_class" href="classcomms_1_1protocol_1_1MsgIdLayer.html">comms::protocol::MsgIdLayer</a>&lt;</div>
 <div class="line">        MsgIdField, </div>
 <div class="line">        TMessage, </div>
 <div class="line">        TInputMessages, </div>
-<div class="line">        MyMsgData&lt;TPayloadOptions&gt;,</div>
+<div class="line">        MyMsgData&lt;&gt;,</div>
 <div class="line">        TAllocationOptions</div>
 <div class="line">    &gt;;</div>
+<div class="ttc" id="astructcomms_1_1option_1_1app_1_1EmptyOption_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a></div><div class="ttdoc">No-op option, doesn't have any effect.</div><div class="ttdef"><b>Definition</b> options.h:1259</div></div>
 </div><!-- fragment --><p> In this case, the <a class="el" href="classcomms_1_1protocol_1_1MsgIdLayer.html" title="Protocol layer that uses uses message ID field as a prefix to all the subsequent data written by othe...">comms::protocol::MsgIdLayer</a> will statically allocate internal buffer in its private data members, big enough to hold any message object of any type listed in <b>AllMessages</b> bundle. It means that only one message object can be allocated and used at a time, i.e. the previous object must be deleted prior to new one being allocated. <br  />
 Also, the <a class="el" href="classcomms_1_1protocol_1_1MsgIdLayer.html#a3444598e8ae44eaa5b09f11b694a1670">MsgPtr</a> will still be a variant of <b>std::unique_ptr</b>, but with custom deleter (defined by COMMS library itself), which will make sure the proper destruction of the message object and release of the internal buffer for next allocation. In case new allocation is attempted when internal buffer is NOT released, the new message will NOT be allocated and read operation will fail with <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a37b538d9e3266acd66229ede1dcceb70">comms::ErrorStatus::MsgAllocFailure</a> error.</p>
 <p>By default, if the received data contains unknown message ID (the message type is not in <b>AllMessages</b> bundle), the <b>read</b> operation returns <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1aa3715f4b800299cfe6c930f0dd998aab">comms::ErrorStatus::InvalidMsgId</a> and no message object is allocated. However, there are <b>bridge</b> / <b>gateway</b> / <b>firewall</b> type of applications which are interested to decode only limited number of messages, but still forward the received data (sometimes changing the transport wrapping) without actually decoding the contents. In this case the default behaviour cannot be used. The <b>COMMS</b> library provides <a class="el" href="classcomms_1_1GenericMessage.html">comms::GenericMessage</a> message definition which has a single variable length data field (defined using <a class="el" href="classcomms_1_1field_1_1ArrayList.html">comms::field::ArrayList</a> class). The <a class="el" href="classcomms_1_1protocol_1_1MsgIdLayer.html">comms::protocol::MsgIdLayer</a> may also receive <a class="el" href="structcomms_1_1option_1_1app_1_1SupportGenericMessage.html">comms::option::app::SupportGenericMessage</a> option specifying type of the GenericMessage. In this case, if the appropriate message type hasn't been found in <b>AllMessages</b> bundle, the appropriate <a class="el" href="classcomms_1_1GenericMessage.html">comms::GenericMessage</a> object will be created instead. However, just like with <a class="el" href="structcomms_1_1option_1_1app_1_1InPlaceAllocation.html">comms::option::app::InPlaceAllocation</a>, this option should be used by the application if needed.</p>
@@ -183,8 +183,8 @@ Also, the <a class="el" href="classcomms_1_1protocol_1_1MsgIdLayer.html#a3444598
 <div class="line">        <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1SupportGenericMessage.html">comms::option::app::SupportGenericMessage&lt;comms::GenericMessage&lt;MyInterfaceMessage&gt;</a> &gt;,</div>
 <div class="line">        <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1InPlaceAllocation.html">comms::option::app::InPlaceAllocation</a></div>
 <div class="line">    &gt;;</div>
-<div class="ttc" id="astructcomms_1_1option_1_1app_1_1InPlaceAllocation_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1InPlaceAllocation.html">comms::option::app::InPlaceAllocation</a></div><div class="ttdoc">Option that forces &quot;in place&quot; allocation with placement &quot;new&quot; for initialisation, instead of usage of...</div><div class="ttdef"><b>Definition</b> options.h:1323</div></div>
-<div class="ttc" id="astructcomms_1_1option_1_1app_1_1SupportGenericMessage_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1SupportGenericMessage.html">comms::option::app::SupportGenericMessage</a></div><div class="ttdoc">Option used to allow comms::GenericMessage generation inside comms::MsgFactory and/or comms::protocol...</div><div class="ttdef"><b>Definition</b> options.h:1330</div></div>
+<div class="ttc" id="astructcomms_1_1option_1_1app_1_1InPlaceAllocation_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1InPlaceAllocation.html">comms::option::app::InPlaceAllocation</a></div><div class="ttdoc">Option that forces &quot;in place&quot; allocation with placement &quot;new&quot; for initialisation, instead of usage of...</div><div class="ttdef"><b>Definition</b> options.h:1332</div></div>
+<div class="ttc" id="astructcomms_1_1option_1_1app_1_1SupportGenericMessage_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1SupportGenericMessage.html">comms::option::app::SupportGenericMessage</a></div><div class="ttdoc">Option used to allow comms::GenericMessage generation inside comms::MsgFactory and/or comms::protocol...</div><div class="ttdef"><b>Definition</b> options.h:1339</div></div>
 </div><!-- fragment --><p> When constructed, the <a class="el" href="classcomms_1_1protocol_1_1MsgIdLayer.html" title="Protocol layer that uses uses message ID field as a prefix to all the subsequent data written by othe...">comms::protocol::MsgIdLayer</a> creates an array of statically allocated factory methods, which are responsible to allocate right message objects. This array is used as a map of message ID to the factory method. The COMMS library contains inner logic that analyses a tuple of all <b>input</b> message types provided to <a class="el" href="classcomms_1_1protocol_1_1MsgIdLayer.html">comms::protocol::MsgIdLayer</a>. If the IDs of the messages are sequential ones starting from a low number such as 0 or 1, and the highest ID value do not significantly exceed the total number of message types in the tuple, then the one-to-one mapping is generated, i.e. to access the right factory method is just accessing the right cell in the mapping array (O(1) time complexity). In all other cases the factory methods are compacted together and binary search is executed to get appropriate factory method having the numeric message ID value (O(log(n))).</p>
 <p><b>NOTE</b>, that <a class="el" href="classcomms_1_1protocol_1_1MsgIdLayer.html" title="Protocol layer that uses uses message ID field as a prefix to all the subsequent data written by othe...">comms::protocol::MsgIdLayer</a> doesn't use any dynamic memory allocation to store internal factory methods, that create proper message object given the ID of the message, which makes it possible and safe to use in bare-metal environment without any HEAP.</p>
 <p>It may happen that <b><a class="el" href="classcomms_1_1protocol_1_1MsgIdLayer.html" title="Protocol layer that uses uses message ID field as a prefix to all the subsequent data written by othe...">comms::protocol::MsgIdLayer</a></b> class as-is is not really suitable for implementing message identification and creation of message object when implementing custom protocol. It is possible to implement a new custom layer (see <a class="el" href="page_prot_stack_tutorial.html#page_prot_stack_tutorial_new_layers">Implementing New Layers</a> section below) with the required functionality. However, it is recommended to use <a class="el" href="classcomms_1_1MsgFactory.html">comms::MsgFactory</a> object internally. It will help in creation the proper message object once the ID value is known.</p>
@@ -203,17 +203,16 @@ SIZE Layer</h1>
 <div class="line"><span class="keyword">template</span> &lt;</div>
 <div class="line">    <span class="keyword">typename</span> TMessage, <span class="comment">// common interface class defined by the application</span></div>
 <div class="line">    <span class="keyword">typename</span> TInputMessages = AllMessages&lt;TMessage&gt;, <span class="comment">// Input messages that need to be recognised</span></div>
-<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a>, <span class="comment">// Extra options for MsgIdLayer</span></div>
-<div class="line">    <span class="keyword">typename</span> TPayloadOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for payload storage</span></div>
+<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for MsgIdLayer</span></div>
 <div class="line">&gt;</div>
 <div class="line"><span class="keyword">using </span>MyMsgSize = </div>
 <div class="line">    <a class="code hl_class" href="classcomms_1_1protocol_1_1MsgSizeLayer.html">comms::protocol::MsgSizeLayer</a>&lt;</div>
 <div class="line">        RemSizeField, </div>
-<div class="line">        MyMsgId&lt;TMessage, TInputMessages, TAllocationOptions, TPayloadOptions&gt; </div>
+<div class="line">        MyMsgId&lt;TMessage, TInputMessages, TAllocationOptions&gt; </div>
 <div class="line">    &gt;;</div>
 <div class="line"> </div>
 <div class="line">} <span class="comment">// namespace my_protocol</span></div>
-<div class="ttc" id="aclasscomms_1_1field_1_1IntValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1IntValue.html">comms::field::IntValue</a></div><div class="ttdoc">Field that represent integral value.</div><div class="ttdef"><b>Definition</b> IntValue.h:72</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1IntValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1IntValue.html">comms::field::IntValue</a></div><div class="ttdoc">Field that represent integral value.</div><div class="ttdef"><b>Definition</b> IntValue.h:75</div></div>
 <div class="ttc" id="aclasscomms_1_1protocol_1_1MsgSizeLayer_html"><div class="ttname"><a href="classcomms_1_1protocol_1_1MsgSizeLayer.html">comms::protocol::MsgSizeLayer</a></div><div class="ttdoc">Protocol layer that uses size field as a prefix to all the subsequent data written by other (next) la...</div><div class="ttdef"><b>Definition</b> MsgSizeLayer.h:75</div></div>
 <div class="ttc" id="astructcomms_1_1option_1_1def_1_1NumValueSerOffset_html"><div class="ttname"><a href="structcomms_1_1option_1_1def_1_1NumValueSerOffset.html">comms::option::def::NumValueSerOffset</a></div><div class="ttdoc">Option to specify numeric value serialisation offset.</div><div class="ttdef"><b>Definition</b> options.h:378</div></div>
 </div><!-- fragment --><p> The <a class="el" href="classcomms_1_1protocol_1_1MsgSizeLayer.html">comms::protocol::MsgSizeLayer</a> receives <b>at least</b> two template parameters. The first one is the definition of the <b>field</b> (see <a class="el" href="page_field_tutorial.html">Fields Definition Tutorial</a> for details) that is responsible to read/write the remaining length information. The second template parameter is an upper layer that is being wrapped. The third template parameter is optional default behaviour modification options.<br  />
@@ -228,14 +227,13 @@ CHECKSUM Layer</h1>
 <div class="line"><span class="keyword">template</span> &lt;</div>
 <div class="line">    <span class="keyword">typename</span> TMessage, <span class="comment">// common interface class defined by the application</span></div>
 <div class="line">    <span class="keyword">typename</span> TInputMessages = AllMessages&lt;TMessage&gt;, <span class="comment">// Input messages that need to be recognised</span></div>
-<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a>, <span class="comment">// Extra options for MsgIdLayer</span></div>
-<div class="line">    <span class="keyword">typename</span> TPayloadOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for payload storage</span></div>
+<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for MsgIdLayer</span></div>
 <div class="line">&gt;</div>
 <div class="line"><span class="keyword">using </span>MyChecksum =</div>
 <div class="line">    <a class="code hl_class" href="classcomms_1_1protocol_1_1ChecksumLayer.html">comms::protocol::ChecksumLayer</a>&lt;</div>
 <div class="line">        ChecksumField,</div>
 <div class="line">        <a class="code hl_class" href="classcomms_1_1protocol_1_1checksum_1_1Crc.html">comms::protocol::checksum::Crc_CCITT</a></div>
-<div class="line">        MyMsgSize&lt;TMessage, TInputMessages, TAllocationOptions, TPayloadOptions&gt;</div>
+<div class="line">        MyMsgSize&lt;TMessage, TInputMessages, TAllocationOptions&gt;</div>
 <div class="line">    &gt;;</div>
 <div class="line"> </div>
 <div class="line">} <span class="comment">// my_protocol</span></div>
@@ -249,16 +247,17 @@ CHECKSUM Layer</h1>
 <div class="line"><span class="keyword">template</span> &lt;</div>
 <div class="line">    <span class="keyword">typename</span> TMessage, <span class="comment">// common interface class defined by the application</span></div>
 <div class="line">    <span class="keyword">typename</span> TInputMessages = AllMessages&lt;TMessage&gt;, <span class="comment">// Input messages that need to be recognised</span></div>
-<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a>, <span class="comment">// Extra options for MsgIdLayer</span></div>
-<div class="line">    <span class="keyword">typename</span> TPayloadOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for payload storage</span></div>
+<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for MsgIdLayer</span></div>
 <div class="line">&gt;</div>
 <div class="line"><span class="keyword">using </span>MyChecksum =</div>
 <div class="line">    <a class="code hl_class" href="classcomms_1_1protocol_1_1ChecksumLayer.html">comms::protocol::ChecksumLayer</a>&lt;</div>
 <div class="line">        ChecksumField,</div>
 <div class="line">        <a class="code hl_class" href="classcomms_1_1protocol_1_1checksum_1_1Crc.html">comms::protocol::checksum::Crc_CCITT</a></div>
-<div class="line">        MyMsgSize&lt;TMessage, TInputMessages, TAllocationOptions, TPayloadOptions&gt;,</div>
+<div class="line">        MyMsgSize&lt;TMessage, TInputMessages, TAllocationOptions&gt;,</div>
 <div class="line">        <a class="code hl_struct" href="structcomms_1_1option_1_1def_1_1ChecksumLayerVerifyBeforeRead.html">comms::option::def::ChecksumLayerVerifyBeforeRead</a></div>
 <div class="line">    &gt;;</div>
+<div class="line"> </div>
+<div class="line">} <span class="comment">// namespace my_protocol</span></div>
 <div class="ttc" id="astructcomms_1_1option_1_1def_1_1ChecksumLayerVerifyBeforeRead_html"><div class="ttname"><a href="structcomms_1_1option_1_1def_1_1ChecksumLayerVerifyBeforeRead.html">comms::option::def::ChecksumLayerVerifyBeforeRead</a></div><div class="ttdoc">Force comms::protocol::ChecksumLayer and comms::protocol::ChecksumPrefixLayer, to verify checksum pri...</div><div class="ttdef"><b>Definition</b> options.h:1082</div></div>
 </div><!-- fragment --><h1><a class="anchor" id="page_prot_stack_tutorial_sync"></a>
 SYNC Layer</h1>
@@ -277,17 +276,16 @@ SYNC Layer</h1>
 <div class="line"><span class="keyword">template</span> &lt;</div>
 <div class="line">    <span class="keyword">typename</span> TMessage, <span class="comment">// common interface class defined by the application</span></div>
 <div class="line">    <span class="keyword">typename</span> TInputMessages = AllMessages&lt;TMessage&gt;, <span class="comment">// Input messages that need to be recognised</span></div>
-<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a>, <span class="comment">// Extra options for MsgIdLayer</span></div>
-<div class="line">    <span class="keyword">typename</span> TPayloadOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for payload storage</span></div>
+<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for MsgIdLayer</span></div>
 <div class="line">&gt;</div>
 <div class="line"><span class="keyword">using </span>MySyncPrefix = </div>
 <div class="line">    <a class="code hl_class" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html">comms::protocol::SyncPrefixLayer</a>&lt;</div>
 <div class="line">        SyncField, </div>
-<div class="line">        MyChecksum&lt;TMessage, TInputMessages, TAllocationOptions, TPayloadOptions&gt; </div>
+<div class="line">        MyChecksum&lt;TMessage, TInputMessages, TAllocationOptions&gt; </div>
 <div class="line">    &gt;;</div>
 <div class="line"> </div>
 <div class="line">} <span class="comment">// namespace my_protocol</span></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1SyncPrefixLayer_html"><div class="ttname"><a href="classcomms_1_1protocol_1_1SyncPrefixLayer.html">comms::protocol::SyncPrefixLayer</a></div><div class="ttdoc">Protocol layer that uses &quot;sync&quot; field as a prefix to all the subsequent data written by other (next) ...</div><div class="ttdef"><b>Definition</b> SyncPrefixLayer.h:52</div></div>
+<div class="ttc" id="aclasscomms_1_1protocol_1_1SyncPrefixLayer_html"><div class="ttname"><a href="classcomms_1_1protocol_1_1SyncPrefixLayer.html">comms::protocol::SyncPrefixLayer</a></div><div class="ttdoc">Protocol layer that uses &quot;sync&quot; field as a prefix to all the subsequent data written by other (next) ...</div><div class="ttdef"><b>Definition</b> SyncPrefixLayer.h:54</div></div>
 <div class="ttc" id="astructcomms_1_1option_1_1def_1_1DefaultValueInitialiser_html"><div class="ttname"><a href="structcomms_1_1option_1_1def_1_1DefaultValueInitialiser.html">comms::option::def::DefaultValueInitialiser</a></div><div class="ttdoc">Option that specifies default initialisation class.</div><div class="ttdef"><b>Definition</b> options.h:616</div></div>
 <div class="ttc" id="astructcomms_1_1option_1_1def_1_1FailOnInvalid_html"><div class="ttname"><a href="structcomms_1_1option_1_1def_1_1FailOnInvalid.html">comms::option::def::FailOnInvalid</a></div><div class="ttdoc">Option that forces field's read operation to fail if invalid value is received.</div><div class="ttdef"><b>Definition</b> options.h:674</div></div>
 <div class="ttc" id="astructcomms_1_1option_1_1def_1_1ValidNumValueRange_html"><div class="ttname"><a href="structcomms_1_1option_1_1def_1_1ValidNumValueRange.html">comms::option::def::ValidNumValueRange</a></div><div class="ttdoc">Provide range of valid numeric values.</div><div class="ttdef"><b>Definition</b> options.h:956</div></div>
@@ -305,37 +303,31 @@ Extra Transport Values</h1>
 <div class="line"><span class="comment">// Field describing protocol version.</span></div>
 <div class="line"><span class="keyword">using </span>MyVersionField = <a class="code hl_class" href="classcomms_1_1field_1_1IntValue.html">comms::field::IntValue&lt;MyFieldBase, std::uint16_t&gt;</a>;</div>
 <div class="line"> </div>
-<div class="line"><span class="comment">// Payload control layer</span></div>
-<div class="line"><span class="keyword">template</span> &lt;</div>
-<div class="line">    <span class="keyword">typename</span> TPayloadOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for payload storage</span></div>
-<div class="line">&gt;</div>
-<div class="line"><span class="keyword">using </span>MyMsgData = <a class="code hl_class" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer&lt;TPayloadOptions&gt;</a>;</div>
+<div class="line"><span class="keyword">using </span>MyMsgData = <a class="code hl_class" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer&lt;&gt;</a>;</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Version control layer</span></div>
 <div class="line"><span class="keyword">template</span> &lt;</div>
-<div class="line">    <span class="keyword">typename</span> TMessage, <span class="comment">// common interface class defined by the application</span></div>
-<div class="line">    <span class="keyword">typename</span> TPayloadOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for payload storage</span></div>
+<div class="line">    <span class="keyword">typename</span> TMessage <span class="comment">// common interface class defined by the application</span></div>
 <div class="line">&gt;</div>
 <div class="line"><span class="keyword">using </span>MyVersion = </div>
 <div class="line">    <a class="code hl_class" href="classcomms_1_1protocol_1_1TransportValueLayer.html">comms::protocol::TransportValueLayer</a>&lt;</div>
 <div class="line">        MyVersionField, </div>
 <div class="line">        TMessage::TransportFieldIdx_version, </div>
-<div class="line">        MyMsgData&lt;TPayloadOptions&gt;</div>
+<div class="line">        MyMsgData&lt;&gt;</div>
 <div class="line">    &gt;;</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Id handling layer</span></div>
 <div class="line"><span class="keyword">template</span> &lt;</div>
 <div class="line">    <span class="keyword">typename</span> TMessage, <span class="comment">// common interface class defined by the application</span></div>
 <div class="line">    <span class="keyword">typename</span> TInputMessages = AllMessages&lt;TMessage&gt;, <span class="comment">// Input messages that need to be recognised</span></div>
-<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a>, <span class="comment">// Extra options for MsgIdLayer</span></div>
-<div class="line">    <span class="keyword">typename</span> TPayloadOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for payload storage</span></div>
+<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for MsgIdLayer</span></div>
 <div class="line">&gt;</div>
 <div class="line"><span class="keyword">using </span>MyMsgId = </div>
 <div class="line">    <a class="code hl_class" href="classcomms_1_1protocol_1_1MsgIdLayer.html">comms::protocol::MsgIdLayer</a>&lt;</div>
 <div class="line">        MsgIdField, </div>
 <div class="line">        TMessage, </div>
 <div class="line">        TInputMessages, </div>
-<div class="line">        MyVersion&lt;TMessage, TPayloadOptions&gt;,</div>
+<div class="line">        MyVersion&lt;TMessage&gt;,</div>
 <div class="line">        TAllocationOptions</div>
 <div class="line">    &gt;;</div>
 <div class="line"> </div>
@@ -343,13 +335,12 @@ Extra Transport Values</h1>
 <div class="line"><span class="keyword">template</span> &lt;</div>
 <div class="line">    <span class="keyword">typename</span> TMessage, <span class="comment">// common interface class defined by the application</span></div>
 <div class="line">    <span class="keyword">typename</span> TInputMessages = AllMessages&lt;TMessage&gt;, <span class="comment">// Input messages that need to be recognised</span></div>
-<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a>, <span class="comment">// Extra options for MsgIdLayer</span></div>
-<div class="line">    <span class="keyword">typename</span> TPayloadOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for payload storage</span></div>
+<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for MsgIdLayer</span></div>
 <div class="line">&gt;</div>
 <div class="line"><span class="keyword">using </span>MyMsgSize = </div>
 <div class="line">    <a class="code hl_class" href="classcomms_1_1protocol_1_1MsgSizeLayer.html">comms::protocol::MsgSizeLayer</a>&lt;</div>
 <div class="line">        RemSizeField, </div>
-<div class="line">        MyMsgId&lt;TMessage, TInputMessages, TAllocationOptions, TPayloadOptions&gt; </div>
+<div class="line">        MyMsgId&lt;TMessage, TInputMessages, TAllocationOptions&gt; </div>
 <div class="line">    &gt;;</div>
 <div class="ttc" id="aclasscomms_1_1protocol_1_1TransportValueLayer_html"><div class="ttname"><a href="classcomms_1_1protocol_1_1TransportValueLayer.html">comms::protocol::TransportValueLayer</a></div><div class="ttdoc">Protocol layer that reads a value from transport wrapping and reassigns it to appropriate &quot;extra tran...</div><div class="ttdef"><b>Definition</b> TransportValueLayer.h:79</div></div>
 </div><!-- fragment --><p> <b>NOTE</b>, that in the example above <b>VERSION</b> layer follows <b>ID</b>. In this case the message object is already created by the <b>ID</b> layer when <b>VERSION</b> one performs its read operation. The latter may update the version information inside the created message object. However, there may be cases when extra transport value precedes ID layer: </p><div class="fragment"><div class="line">SIZE | VERSION | ID | PAYLOAD</div>
@@ -359,14 +350,13 @@ Extra Transport Values</h1>
 Pseudo Transport Values</h1>
 <p>Some protocols may report one of the values (such as protocol version) in one of the messages used to establish connection. After that, the reported value may have influence on how other message contents are being read. Handling such case is very similar to <a class="el" href="page_prot_stack_tutorial.html#page_prot_stack_tutorial_transport_value">Extra Transport Values</a>. The only difference is passing <a class="el" href="structcomms_1_1option_1_1def_1_1PseudoValue.html">comms::option::def::PseudoValue</a> option to <a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html">comms::protocol::TransportValueLayer</a> layer class. It will cause the transport value not actually being (de)serialised during <b>read</b> / <b>write</b> operations. The pseudo field value is going to be stored as private member of <a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html">comms::protocol::TransportValueLayer</a> and can be accessed (and updated) using <a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html#a01bf02c6075be829b53785c8fc019798">pseudoField()</a> member function(s). During the <b>read</b> operation the <a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html" title="Protocol layer that reads a value from transport wrapping and reassigns it to appropriate &quot;extra tran...">comms::protocol::TransportValueLayer</a> behaves as if the value stored in this field was actually read. </p><div class="fragment"><div class="line"><span class="comment">// Version control layer</span></div>
 <div class="line"><span class="keyword">template</span> &lt;</div>
-<div class="line">    <span class="keyword">typename</span> TMessage, <span class="comment">// common interface class defined by the application</span></div>
-<div class="line">    <span class="keyword">typename</span> TPayloadOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for payload storage</span></div>
+<div class="line">    <span class="keyword">typename</span> TMessage <span class="comment">// common interface class defined by the application</span></div>
 <div class="line">&gt;</div>
 <div class="line"><span class="keyword">using </span>MyVersion = </div>
 <div class="line">    <a class="code hl_class" href="classcomms_1_1protocol_1_1TransportValueLayer.html">comms::protocol::TransportValueLayer</a>&lt;</div>
 <div class="line">        MyVersionField, </div>
 <div class="line">        TMessage::TransportFieldIdx_version, </div>
-<div class="line">        MyMsgData&lt;TPayloadOptions&gt;,</div>
+<div class="line">        MyMsgData&lt;&gt;,</div>
 <div class="line">        <a class="code hl_struct" href="structcomms_1_1option_1_1def_1_1PseudoValue.html">comms::option::def::PseudoValue</a></div>
 <div class="line">    &gt;;</div>
 <div class="ttc" id="astructcomms_1_1option_1_1def_1_1PseudoValue_html"><div class="ttname"><a href="structcomms_1_1option_1_1def_1_1PseudoValue.html">comms::option::def::PseudoValue</a></div><div class="ttdoc">Option for comms::protocol::TransportValueLayer to mark that the handled field is a &quot;pseudo&quot; one,...</div><div class="ttdef"><b>Definition</b> options.h:1152</div></div>
@@ -378,29 +368,26 @@ Layers Summary</h1>
 <p>The outermost (or bottom) layer defines a full <b>protocol stack</b>. It should be typedef-ed or extended to avoid any confusion: </p><div class="fragment"><div class="line"><span class="keyword">template</span> &lt;</div>
 <div class="line">    <span class="keyword">typename</span> TMessage, <span class="comment">// common interface class defined by the application</span></div>
 <div class="line">    <span class="keyword">typename</span> TInputMessages = AllMessages&lt;TMessage&gt;, <span class="comment">// Input messages that need to be recognised</span></div>
-<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a>, <span class="comment">// Extra options for MsgIdLayer</span></div>
-<div class="line">    <span class="keyword">typename</span> TPayloadOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for payload storage</span></div>
+<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for MsgIdLayer</span></div>
 <div class="line">&gt;</div>
-<div class="line"><span class="keyword">using </span>ProtocolStack = MySyncPrefix&lt;TMessage, TInputMessages, TAllocationOptions, TPayloadOptions&gt; ;</div>
+<div class="line"><span class="keyword">using </span>ProtocolStack = MySyncPrefix&lt;TMessage, TInputMessages, TAllocationOptions&gt; ;</div>
 </div><!-- fragment --><p> Every protocol layer provides an ability to access the next one using <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a94b66bf54cf3ffa37058ff618bdcf163">nextLayer()</a> member function. It is strongly recommended to generate convenience access functions using COMMS_PROTOCOL_LAYERS_ACCESS() macro. </p><div class="fragment"><div class="line"><span class="keyword">template</span> &lt;</div>
 <div class="line">    <span class="keyword">typename</span> TMessage, <span class="comment">// common interface class defined by the application</span></div>
 <div class="line">    <span class="keyword">typename</span> TInputMessages = AllMessages&lt;TMessage&gt;, <span class="comment">// Input messages that need to be recognised</span></div>
-<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a>, <span class="comment">// Extra options for MsgIdLayer</span></div>
-<div class="line">    <span class="keyword">typename</span> TPayloadOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for payload storage</span></div>
+<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for MsgIdLayer</span></div>
 <div class="line">&gt;</div>
 <div class="line"><span class="keyword">struct </span>ProtocolStack : <span class="keyword">public</span> </div>
-<div class="line">    MySyncPrefix&lt;TMessage, TInputMessages, TAllocationOptions, TPayloadOptions&gt; </div>
+<div class="line">    MySyncPrefix&lt;TMessage, TInputMessages, TAllocationOptions&gt; </div>
 <div class="line">{</div>
 <div class="line">    COMMS_PROTOCOL_LAYERS_ACCESS(payload, <span class="keywordtype">id</span>, size, checksum, sync);</div>
 <div class="line">};</div>
 </div><!-- fragment --><p> It is equivalent to having the following member function being defined: </p><div class="fragment"><div class="line"><span class="keyword">template</span> &lt;</div>
 <div class="line">    <span class="keyword">typename</span> TMessage, <span class="comment">// common interface class defined by the application</span></div>
 <div class="line">    <span class="keyword">typename</span> TInputMessages = AllMessages&lt;TMessage&gt;, <span class="comment">// Input messages that need to be recognised</span></div>
-<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a>, <span class="comment">// Extra options for MsgIdLayer</span></div>
-<div class="line">    <span class="keyword">typename</span> TPayloadOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for payload storage</span></div>
+<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for MsgIdLayer</span></div>
 <div class="line">&gt;</div>
 <div class="line"><span class="keyword">struct </span>ProtocolStack : <span class="keyword">public</span> </div>
-<div class="line">    MySyncPrefix&lt;TMessage, TInputMessages, TAllocationOptions, TPayloadOptions&gt; </div>
+<div class="line">    MySyncPrefix&lt;TMessage, TInputMessages, TAllocationOptions&gt; </div>
 <div class="line">{</div>
 <div class="line">    <span class="comment">// Access to PAYLOAD layer</span></div>
 <div class="line">    <span class="keyword">decltype</span>(<span class="keyword">auto</span>) layer_payload();</div>
@@ -439,24 +426,22 @@ Layers Summary</h1>
 <p><b style="color:red">WARNING:</b> Some compilers, such as <b>clang</b> or earlier versions of <b>gcc</b> (v4.9 and earlier) may have problems compiling the COMMS_PROTOCOL_LAYERS_ACCESS() macro even though it contains valid C++11 code. If the compilation failure happens there is a need to define inner <b>Base</b> type which specifies exact type of the protocol stack base class. </p><div class="fragment"><div class="line"><span class="keyword">template</span> &lt;</div>
 <div class="line">    <span class="keyword">typename</span> TMessage, <span class="comment">// common interface class defined by the application</span></div>
 <div class="line">    <span class="keyword">typename</span> TInputMessages = AllMessages&lt;TMessage&gt;, <span class="comment">// Input messages that need to be recognised</span></div>
-<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a>, <span class="comment">// Extra options for MsgIdLayer</span></div>
-<div class="line">    <span class="keyword">typename</span> TPayloadOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for payload storage</span></div>
+<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for MsgIdLayer</span></div>
 <div class="line">&gt;</div>
 <div class="line"><span class="keyword">class </span>ProtocolStack : <span class="keyword">public</span> </div>
-<div class="line">    MySyncPrefix&lt;TMessage, TInputMessages, TAllocationOptions, TPayloadOptions&gt; </div>
+<div class="line">    MySyncPrefix&lt;TMessage, TInputMessages, TAllocationOptions&gt; </div>
 <div class="line">{</div>
-<div class="line">    <span class="keyword">using </span>Base = MySyncPrefix&lt;TMessage, TInputMessages, TAllocationOptions, TPayloadOptions&gt;;</div>
+<div class="line">    <span class="keyword">using </span>Base = MySyncPrefix&lt;TMessage, TInputMessages, TAllocationOptions&gt;;</div>
 <div class="line"><span class="keyword">public</span>:</div>
 <div class="line">    COMMS_PROTOCOL_LAYERS_ACCESS(payload, <span class="keywordtype">id</span>, size, checksum, sync);</div>
 <div class="line">};</div>
 </div><!-- fragment --><p> <b>NOTE</b>, that <b>COMMS</b> library also defines <b>COMMS_MUST_DEFINE_BASE</b> in case the base class definition is needed (going to be used). If the developed application is going to be multi-platform and compiled with various compilers (some of which may warn about unused private type) it is possible to use the defined symbol to add / remove the definition of the <b>Base</b> member type. </p><div class="fragment"><div class="line"><span class="keyword">template</span> &lt;</div>
 <div class="line">    <span class="keyword">typename</span> TMessage, <span class="comment">// common interface class defined by the application</span></div>
 <div class="line">    <span class="keyword">typename</span> TInputMessages = AllMessages&lt;TMessage&gt;, <span class="comment">// Input messages that need to be recognised</span></div>
-<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a>, <span class="comment">// Extra options for MsgIdLayer</span></div>
-<div class="line">    <span class="keyword">typename</span> TPayloadOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for payload storage</span></div>
+<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for MsgIdLayer</span></div>
 <div class="line">&gt;</div>
 <div class="line"><span class="keyword">class </span>ProtocolStack : <span class="keyword">public</span> </div>
-<div class="line">    MySyncPrefix&lt;TMessage, TInputMessages, TAllocationOptions, TPayloadOptions&gt; </div>
+<div class="line">    MySyncPrefix&lt;TMessage, TInputMessages, TAllocationOptions&gt; </div>
 <div class="line">{</div>
 <div class="line"><span class="preprocessor">#ifdef COMMS_MUST_DEFINE_BASE</span></div>
 <div class="line">    <span class="keyword">using </span>Base = ...</div>
@@ -467,25 +452,23 @@ Layers Summary</h1>
 </div><!-- fragment --><p> Since <b>v5.2</b> the COMMS library defines COMMS_PROTOCOL_LAYERS_NAMES() and COMMS_PROTOCOL_LAYERS_NAMES_OUTER() macros they are similar to the COMMS_PROTOCOL_LAYERS_NAMES() and COMMS_PROTOCOL_LAYERS_NAMES_OUTER() respectively, but also provide aliases to the layer types. However usage of these macros requires inner <b>Base</b> type definition of the base class: </p><div class="fragment"><div class="line"><span class="keyword">template</span> &lt;</div>
 <div class="line">    <span class="keyword">typename</span> TMessage, <span class="comment">// common interface class defined by the application</span></div>
 <div class="line">    <span class="keyword">typename</span> TInputMessages = AllMessages&lt;TMessage&gt;, <span class="comment">// Input messages that need to be recognised</span></div>
-<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a>, <span class="comment">// Extra options for MsgIdLayer</span></div>
-<div class="line">    <span class="keyword">typename</span> TPayloadOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for payload storage</span></div>
+<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for MsgIdLayer</span></div>
 <div class="line">&gt;</div>
 <div class="line"><span class="keyword">class </span>ProtocolStack : <span class="keyword">public</span></div>
-<div class="line">    MySyncPrefix&lt;TMessage, TInputMessages, TAllocationOptions, TPayloadOptions&gt;</div>
+<div class="line">    MySyncPrefix&lt;TMessage, TInputMessages, TAllocationOptions&gt;</div>
 <div class="line">{</div>
 <div class="line">    <span class="comment">// Base type definition is a requirement</span></div>
-<div class="line">    <span class="keyword">using </span>Base = MySyncPrefix&lt;TMessage, TInputMessages, TAllocationOptions, TPayloadOptions&gt;</div>
+<div class="line">    <span class="keyword">using </span>Base = MySyncPrefix&lt;TMessage, TInputMessages, TAllocationOptions&gt;</div>
 <div class="line"><span class="keyword">public</span>:</div>
 <div class="line">    COMMS_PROTOCOL_LAYERS_NAMES(payload, <span class="keywordtype">id</span>, size, checksum, sync);</div>
 <div class="line">};</div>
 </div><!-- fragment --><p> It is equivalent to having the following types and member function being defined: </p><div class="fragment"><div class="line"><span class="keyword">template</span> &lt;</div>
 <div class="line">    <span class="keyword">typename</span> TMessage, <span class="comment">// common interface class defined by the application</span></div>
 <div class="line">    <span class="keyword">typename</span> TInputMessages = AllMessages&lt;TMessage&gt;, <span class="comment">// Input messages that need to be recognised</span></div>
-<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a>, <span class="comment">// Extra options for MsgIdLayer</span></div>
-<div class="line">    <span class="keyword">typename</span> TPayloadOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for payload storage</span></div>
+<div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for MsgIdLayer</span></div>
 <div class="line">&gt;</div>
 <div class="line"><span class="keyword">struct </span>ProtocolStack : <span class="keyword">public</span></div>
-<div class="line">    MySyncPrefix&lt;TMessage, TInputMessages, TAllocationOptions, TPayloadOptions&gt;</div>
+<div class="line">    MySyncPrefix&lt;TMessage, TInputMessages, TAllocationOptions&gt;</div>
 <div class="line">{</div>
 <div class="line">    <span class="keyword">using </span>Layer_payload = ...;</div>
 <div class="line">    <span class="keyword">decltype</span>(<span class="keyword">auto</span>) layer_payload();</div>

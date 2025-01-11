@@ -115,9 +115,9 @@ class comms::field::Bitfield&lt; TFieldBase, TMembers, TOptions &gt;</div><p><a 
 <div class="line">        &gt;</div>
 <div class="line">    &gt;;</div>
 <div class="ttc" id="aclasscomms_1_1Field_html"><div class="ttname"><a href="classcomms_1_1Field.html">comms::Field</a></div><div class="ttdoc">Base class to all the field classes.</div><div class="ttdef"><b>Definition</b> Field.h:33</div></div>
-<div class="ttc" id="aclasscomms_1_1field_1_1Bitfield_html"><div class="ttname"><a href="classcomms_1_1field_1_1Bitfield.html">comms::field::Bitfield</a></div><div class="ttdoc">Bitfield field.</div><div class="ttdef"><b>Definition</b> Bitfield.h:98</div></div>
-<div class="ttc" id="aclasscomms_1_1field_1_1EnumValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1EnumValue.html">comms::field::EnumValue</a></div><div class="ttdoc">Enumerator value field.</div><div class="ttdef"><b>Definition</b> EnumValue.h:73</div></div>
-<div class="ttc" id="aclasscomms_1_1field_1_1IntValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1IntValue.html">comms::field::IntValue</a></div><div class="ttdoc">Field that represent integral value.</div><div class="ttdef"><b>Definition</b> IntValue.h:72</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1Bitfield_html"><div class="ttname"><a href="classcomms_1_1field_1_1Bitfield.html">comms::field::Bitfield</a></div><div class="ttdoc">Bitfield field.</div><div class="ttdef"><b>Definition</b> Bitfield.h:101</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1EnumValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1EnumValue.html">comms::field::EnumValue</a></div><div class="ttdoc">Enumerator value field.</div><div class="ttdef"><b>Definition</b> EnumValue.h:75</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1IntValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1IntValue.html">comms::field::IntValue</a></div><div class="ttdoc">Field that represent integral value.</div><div class="ttdef"><b>Definition</b> IntValue.h:75</div></div>
 <div class="ttc" id="astructcomms_1_1option_1_1def_1_1FixedBitLength_html"><div class="ttname"><a href="structcomms_1_1option_1_1def_1_1FixedBitLength.html">comms::option::def::FixedBitLength</a></div><div class="ttdoc">Option used to specify number of bits that is used for field serialisation when a field is a member o...</div><div class="ttdef"><b>Definition</b> options.h:310</div></div>
 </div><!-- fragment --><p> Note, that bitfield members fields specify their length in bits using <a class="el" href="structcomms_1_1option_1_1def_1_1FixedBitLength.html">comms::option::def::FixedBitLength</a> option. Also note, that all bitfield member's lengths in bits combined create a round number of bytes, i.e all the bits must sum up to 8, 16, 24, 32, ... bits.</p>
 <p>Refer to <a class="el" href="page_field_tutorial.html#sec_field_tutorial_bitfield">Bitfield Fields</a> for tutorial and usage examples. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
@@ -126,12 +126,14 @@ class comms::field::Bitfield&lt; TFieldBase, TMembers, TOptions &gt;</div><p><a 
     <tr><td class="paramname">TMembers</td><td>All member fields bundled together in <a href="http://en.cppreference.com/w/cpp/utility/tuple">std::tuple</a>. </td></tr>
     <tr><td class="paramname">TOptions</td><td>Zero or more options that modify/refine default behaviour of the field.<br  />
  Supported options are: <ul>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1EmptySerialization.html">comms::option::def::EmptySerialization</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1FixedValue.html">comms::option::def::FixedValue</a> </li>
 <li><a class="el" href="structcomms_1_1option_1_1def_1_1HasCustomRead.html">comms::option::def::HasCustomRead</a> </li>
 <li><a class="el" href="structcomms_1_1option_1_1def_1_1HasCustomRefresh.html">comms::option::def::HasCustomRefresh</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1EmptySerialization.html">comms::option::def::EmptySerialization</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1VersionStorage.html">comms::option::def::VersionStorage</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1HasName.html">comms::option::def::HasName</a> </li>
 <li><a class="el" href="structcomms_1_1option_1_1def_1_1HasVersionDependentMembers.html">comms::option::def::HasVersionDependentMembers</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1VersionStorage.html">comms::option::def::VersionStorage</a> </li>
 </ul>
 </td></tr>
   </table>
@@ -264,10 +266,18 @@ static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasF
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasFieldType</b> ()</td></tr>
 <tr class="memdesc:a736b146ec8816f2daddbc439a4987579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a> option has been used. <br /></td></tr>
 <tr class="separator:a736b146ec8816f2daddbc439a4987579"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1670ac6df644a3d1a21623bfa1c135e0" id="r_a1670ac6df644a3d1a21623bfa1c135e0"><td class="memItemLeft" align="right" valign="top"><a id="a1670ac6df644a3d1a21623bfa1c135e0" name="a1670ac6df644a3d1a21623bfa1c135e0"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasFixedValue</b> ()</td></tr>
+<tr class="memdesc:a1670ac6df644a3d1a21623bfa1c135e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1FixedValue.html">comms::option::def::FixedValue</a> option has been used. <br /></td></tr>
+<tr class="separator:a1670ac6df644a3d1a21623bfa1c135e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7066761a3e91633596bd0dc95b9b89ae" id="r_a7066761a3e91633596bd0dc95b9b89ae"><td class="memItemLeft" align="right" valign="top"><a id="a7066761a3e91633596bd0dc95b9b89ae" name="a7066761a3e91633596bd0dc95b9b89ae"></a>
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasIgnoreInvalid</b> ()</td></tr>
 <tr class="memdesc:a7066761a3e91633596bd0dc95b9b89ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1IgnoreInvalid.html">comms::option::def::IgnoreInvalid</a> option has been used. <br /></td></tr>
 <tr class="separator:a7066761a3e91633596bd0dc95b9b89ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb540df96b57ab0de8518a9da9eeabe2" id="r_afb540df96b57ab0de8518a9da9eeabe2"><td class="memItemLeft" align="right" valign="top"><a id="afb540df96b57ab0de8518a9da9eeabe2" name="afb540df96b57ab0de8518a9da9eeabe2"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasName</b> ()</td></tr>
+<tr class="memdesc:afb540df96b57ab0de8518a9da9eeabe2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1HasName.html">comms::option::def::HasName</a> option has been used. <br /></td></tr>
+<tr class="separator:afb540df96b57ab0de8518a9da9eeabe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3bc2018965cc36bd2d178afc269cb39" id="r_af3bc2018965cc36bd2d178afc269cb39"><td class="memItemLeft" align="right" valign="top"><a id="af3bc2018965cc36bd2d178afc269cb39" name="af3bc2018965cc36bd2d178afc269cb39"></a>
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasNonDefaultRefresh</b> ()</td></tr>
 <tr class="memdesc:af3bc2018965cc36bd2d178afc269cb39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time check if this class has non-default refresh functionality. <br /></td></tr>

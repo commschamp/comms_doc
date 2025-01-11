@@ -112,31 +112,33 @@ class comms::field::ArrayList&lt; TFieldBase, TElement, TOptions &gt;</div><p><a
 <div class="line">        &gt;</div>
 <div class="line">    &gt;;</div>
 <div class="ttc" id="aclasscomms_1_1Field_html"><div class="ttname"><a href="classcomms_1_1Field.html">comms::Field</a></div><div class="ttdoc">Base class to all the field classes.</div><div class="ttdef"><b>Definition</b> Field.h:33</div></div>
-<div class="ttc" id="aclasscomms_1_1field_1_1ArrayList_html"><div class="ttname"><a href="classcomms_1_1field_1_1ArrayList.html">comms::field::ArrayList</a></div><div class="ttdoc">Field that represents a sequential collection of fields.</div><div class="ttdef"><b>Definition</b> ArrayList.h:192</div></div>
-<div class="ttc" id="aclasscomms_1_1field_1_1IntValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1IntValue.html">comms::field::IntValue</a></div><div class="ttdoc">Field that represent integral value.</div><div class="ttdef"><b>Definition</b> IntValue.h:72</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1ArrayList_html"><div class="ttname"><a href="classcomms_1_1field_1_1ArrayList.html">comms::field::ArrayList</a></div><div class="ttdoc">Field that represents a sequential collection of fields.</div><div class="ttdef"><b>Definition</b> ArrayList.h:195</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1IntValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1IntValue.html">comms::field::IntValue</a></div><div class="ttdoc">Field that represent integral value.</div><div class="ttdef"><b>Definition</b> IntValue.h:75</div></div>
 </div><!-- fragment --> </td></tr>
     <tr><td class="paramname">TOptions</td><td>Zero or more options that modify/refine default behaviour of the field.<br  />
  Supported options are: <ul>
-<li><a class="el" href="structcomms_1_1option_1_1app_1_1FixedSizeStorage.html">comms::option::app::FixedSizeStorage</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1app_1_1CustomStorageType.html">comms::option::app::CustomStorageType</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1app_1_1OrigDataView.html">comms::option::app::OrigDataView</a> (valid only if TElement is integral type of 1 byte size. </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1SequenceSizeFieldPrefix.html">comms::option::def::SequenceSizeFieldPrefix</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1SequenceSerLengthFieldPrefix.html">comms::option::def::SequenceSerLengthFieldPrefix</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1SequenceElemSerLengthFieldPrefix.html">comms::option::def::SequenceElemSerLengthFieldPrefix</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1SequenceElemFixedSerLengthFieldPrefix.html">comms::option::def::SequenceElemFixedSerLengthFieldPrefix</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1SequenceSizeForcingEnabled.html">comms::option::def::SequenceSizeForcingEnabled</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1SequenceLengthForcingEnabled.html">comms::option::def::SequenceLengthForcingEnabled</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1SequenceFixedSize.html">comms::option::def::SequenceFixedSize</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1SequenceTerminationFieldSuffix.html">comms::option::def::SequenceTerminationFieldSuffix</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1SequenceTrailingFieldSuffix.html">comms::option::def::SequenceTrailingFieldSuffix</a> </li>
 <li><a class="el" href="structcomms_1_1option_1_1def_1_1DefaultValueInitialiser.html">comms::option::def::DefaultValueInitialiser</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1EmptySerialization.html">comms::option::def::EmptySerialization</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1FailOnInvalid.html">comms::option::def::FailOnInvalid</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1FixedValue.html">comms::option::def::FixedValue</a> </li>
 <li><a class="el" href="structcomms_1_1option_1_1def_1_1HasCustomRead.html">comms::option::def::HasCustomRead</a> </li>
 <li><a class="el" href="structcomms_1_1option_1_1def_1_1HasCustomRefresh.html">comms::option::def::HasCustomRefresh</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1FailOnInvalid.html">comms::option::def::FailOnInvalid</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1HasName.html">comms::option::def::HasName</a> </li>
 <li><a class="el" href="structcomms_1_1option_1_1def_1_1IgnoreInvalid.html">comms::option::def::IgnoreInvalid</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1EmptySerialization.html">comms::option::def::EmptySerialization</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1SequenceElemFixedSerLengthFieldPrefix.html">comms::option::def::SequenceElemFixedSerLengthFieldPrefix</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1SequenceElemSerLengthFieldPrefix.html">comms::option::def::SequenceElemSerLengthFieldPrefix</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1SequenceFixedSize.html">comms::option::def::SequenceFixedSize</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1SequenceLengthForcingEnabled.html">comms::option::def::SequenceLengthForcingEnabled</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1SequenceSerLengthFieldPrefix.html">comms::option::def::SequenceSerLengthFieldPrefix</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1SequenceSizeFieldPrefix.html">comms::option::def::SequenceSizeFieldPrefix</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1SequenceSizeForcingEnabled.html">comms::option::def::SequenceSizeForcingEnabled</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1SequenceTerminationFieldSuffix.html">comms::option::def::SequenceTerminationFieldSuffix</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1SequenceTrailingFieldSuffix.html">comms::option::def::SequenceTrailingFieldSuffix</a> </li>
 <li><a class="el" href="structcomms_1_1option_1_1def_1_1VersionStorage.html">comms::option::def::VersionStorage</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1app_1_1CustomStorageType.html">comms::option::app::CustomStorageType</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1app_1_1FixedSizeStorage.html">comms::option::app::FixedSizeStorage</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1app_1_1OrigDataView.html">comms::option::app::OrigDataView</a> (valid only if TElement is integral type of 1 byte size. </li>
 </ul>
 </td></tr>
   </table>
@@ -345,10 +347,18 @@ static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasF
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasFixedSize</b> ()</td></tr>
 <tr class="memdesc:a10c53e3bee6c0ce2f7985d0fb718872b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1SequenceFixedSize.html">comms::option::def::SequenceFixedSize</a> option has been used. <br /></td></tr>
 <tr class="separator:a10c53e3bee6c0ce2f7985d0fb718872b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f929f709348f045eee12caea5251a62" id="r_a5f929f709348f045eee12caea5251a62"><td class="memItemLeft" align="right" valign="top"><a id="a5f929f709348f045eee12caea5251a62" name="a5f929f709348f045eee12caea5251a62"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasFixedValue</b> ()</td></tr>
+<tr class="memdesc:a5f929f709348f045eee12caea5251a62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1FixedValue.html">comms::option::def::FixedValue</a> option has been used. <br /></td></tr>
+<tr class="separator:a5f929f709348f045eee12caea5251a62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac28815c3000ef5566107fd251051d45c" id="r_ac28815c3000ef5566107fd251051d45c"><td class="memItemLeft" align="right" valign="top"><a id="ac28815c3000ef5566107fd251051d45c" name="ac28815c3000ef5566107fd251051d45c"></a>
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasIgnoreInvalid</b> ()</td></tr>
 <tr class="memdesc:ac28815c3000ef5566107fd251051d45c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1IgnoreInvalid.html">comms::option::def::IgnoreInvalid</a> option has been used. <br /></td></tr>
 <tr class="separator:ac28815c3000ef5566107fd251051d45c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42ebb2ab4b16a30c958a4aafbadaff9c" id="r_a42ebb2ab4b16a30c958a4aafbadaff9c"><td class="memItemLeft" align="right" valign="top"><a id="a42ebb2ab4b16a30c958a4aafbadaff9c" name="a42ebb2ab4b16a30c958a4aafbadaff9c"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasName</b> ()</td></tr>
+<tr class="memdesc:a42ebb2ab4b16a30c958a4aafbadaff9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1HasName.html">comms::option::def::HasName</a> option has been used. <br /></td></tr>
+<tr class="separator:a42ebb2ab4b16a30c958a4aafbadaff9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae61ce81157dd782b86f202ba46862651" id="r_ae61ce81157dd782b86f202ba46862651"><td class="memItemLeft" align="right" valign="top"><a id="ae61ce81157dd782b86f202ba46862651" name="ae61ce81157dd782b86f202ba46862651"></a>
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasNonDefaultRefresh</b> ()</td></tr>
 <tr class="memdesc:ae61ce81157dd782b86f202ba46862651"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time check if this class has non-default refresh functionality. <br /></td></tr>

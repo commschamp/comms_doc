@@ -95,12 +95,14 @@ class comms::field::Optional&lt; TField, TOptions &gt;</div><p>Adaptor class to 
     <tr><td class="paramname">TOptions</td><td>Zero or more options that modify/refine default behaviour of the field.<br  />
  Supported options are: <ul>
 <li><a class="el" href="structcomms_1_1option_1_1def_1_1DefaultValueInitialiser.html">comms::option::def::DefaultValueInitialiser</a>, <a class="el" href="namespacecomms_1_1option_1_1def.html#ad1cfde1700238bbeb3f0ba8fcb08fcb6">comms::option::def::DefaultOptionalMode</a>, <a class="el" href="namespacecomms_1_1option_1_1def.html#aaf119633392577f474999574ab220015">comms::option::def::OptionalMissingByDefault</a>, or <a class="el" href="namespacecomms_1_1option_1_1def.html#a42d0ec5e94c9505be074fb6c80c0f9c0">comms::option::def::OptionalExistsByDefault</a>. </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1FixedValue.html">comms::option::def::FixedValue</a> </li>
 <li><a class="el" href="structcomms_1_1option_1_1def_1_1HasCustomRead.html">comms::option::def::HasCustomRead</a> </li>
 <li><a class="el" href="structcomms_1_1option_1_1def_1_1HasCustomRefresh.html">comms::option::def::HasCustomRefresh</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1VersionStorage.html">comms::option::def::VersionStorage</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a> </li>
-<li><a class="el" href="structcomms_1_1option_1_1def_1_1MissingOnReadFail.html">comms::option::def::MissingOnReadFail</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1HasName.html">comms::option::def::HasName</a> </li>
 <li><a class="el" href="structcomms_1_1option_1_1def_1_1MissingOnInvalid.html">comms::option::def::MissingOnInvalid</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1MissingOnReadFail.html">comms::option::def::MissingOnReadFail</a> </li>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1VersionStorage.html">comms::option::def::VersionStorage</a> </li>
 </ul>
 </td></tr>
   </table>
@@ -282,10 +284,18 @@ static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasF
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasFieldType</b> ()</td></tr>
 <tr class="memdesc:a81a4c3a2723a84f6fa5ff20459f5e14f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a> option has been used. <br /></td></tr>
 <tr class="separator:a81a4c3a2723a84f6fa5ff20459f5e14f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb15511d21ae7faba210764818f4105d" id="r_abb15511d21ae7faba210764818f4105d"><td class="memItemLeft" align="right" valign="top"><a id="abb15511d21ae7faba210764818f4105d" name="abb15511d21ae7faba210764818f4105d"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasFixedValue</b> ()</td></tr>
+<tr class="memdesc:abb15511d21ae7faba210764818f4105d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1FixedValue.html">comms::option::def::FixedValue</a> option has been used. <br /></td></tr>
+<tr class="separator:abb15511d21ae7faba210764818f4105d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6284a7d90ba97c8998434f2f9774e0e" id="r_aa6284a7d90ba97c8998434f2f9774e0e"><td class="memItemLeft" align="right" valign="top"><a id="aa6284a7d90ba97c8998434f2f9774e0e" name="aa6284a7d90ba97c8998434f2f9774e0e"></a>
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasIgnoreInvalid</b> ()</td></tr>
 <tr class="memdesc:aa6284a7d90ba97c8998434f2f9774e0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1IgnoreInvalid.html">comms::option::def::IgnoreInvalid</a> option has been used. <br /></td></tr>
 <tr class="separator:aa6284a7d90ba97c8998434f2f9774e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0083915d0e123a01034a71d08f0d6da" id="r_ab0083915d0e123a01034a71d08f0d6da"><td class="memItemLeft" align="right" valign="top"><a id="ab0083915d0e123a01034a71d08f0d6da" name="ab0083915d0e123a01034a71d08f0d6da"></a>
+static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasName</b> ()</td></tr>
+<tr class="memdesc:ab0083915d0e123a01034a71d08f0d6da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time inquiry of whether <a class="el" href="structcomms_1_1option_1_1def_1_1HasName.html">comms::option::def::HasName</a> option has been used. <br /></td></tr>
+<tr class="separator:ab0083915d0e123a01034a71d08f0d6da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7dfe0a4dfa87e5bc4f3f50a6bf25bf7" id="r_ab7dfe0a4dfa87e5bc4f3f50a6bf25bf7"><td class="memItemLeft" align="right" valign="top"><a id="ab7dfe0a4dfa87e5bc4f3f50a6bf25bf7" name="ab7dfe0a4dfa87e5bc4f3f50a6bf25bf7"></a>
 static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasNonDefaultRefresh</b> ()</td></tr>
 <tr class="memdesc:ab7dfe0a4dfa87e5bc4f3f50a6bf25bf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time check if this class has non-default refresh functionality. <br /></td></tr>
@@ -569,7 +579,7 @@ template&lt;typename TField , typename... TOptions&gt; </div>
 
 <p>Check whether mode is equivalent to Mode::Exists. </p>
 <p>Convenience wrapper for <a class="el" href="classcomms_1_1field_1_1Optional.html#abc65d90c7314385f08cb7e5983bb33d1" title="Get current optional mode.">getMode()</a>, equivalent to </p><div class="fragment"><div class="line"><span class="keywordflow">return</span> <a class="code hl_function" href="classcomms_1_1field_1_1Optional.html#abc65d90c7314385f08cb7e5983bb33d1">getMode</a>() == Mode::Exists; </div>
-<div class="ttc" id="aclasscomms_1_1field_1_1Optional_html_abc65d90c7314385f08cb7e5983bb33d1"><div class="ttname"><a href="classcomms_1_1field_1_1Optional.html#abc65d90c7314385f08cb7e5983bb33d1">comms::field::Optional::getMode</a></div><div class="ttdeci">Mode getMode() const</div><div class="ttdoc">Get current optional mode.</div><div class="ttdef"><b>Definition</b> Optional.h:224</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1Optional_html_abc65d90c7314385f08cb7e5983bb33d1"><div class="ttname"><a href="classcomms_1_1field_1_1Optional.html#abc65d90c7314385f08cb7e5983bb33d1">comms::field::Optional::getMode</a></div><div class="ttdeci">Mode getMode() const</div><div class="ttdoc">Get current optional mode.</div><div class="ttdef"><b>Definition</b> Optional.h:240</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -994,7 +1004,7 @@ template&lt;typename TField , typename... TOptions&gt; </div>
 
 <p>Set mode to Mode::Exists. </p>
 <p>Convenience wrapper for <a class="el" href="classcomms_1_1field_1_1Optional.html#ac5ff5ab63489493dce7aa1e6a49a1e0b" title="Get optional mode.">setMode()</a>, equivalent to </p><div class="fragment"><div class="line"><a class="code hl_function" href="classcomms_1_1field_1_1Optional.html#ac5ff5ab63489493dce7aa1e6a49a1e0b">setMode</a>(Mode::Exists); </div>
-<div class="ttc" id="aclasscomms_1_1field_1_1Optional_html_ac5ff5ab63489493dce7aa1e6a49a1e0b"><div class="ttname"><a href="classcomms_1_1field_1_1Optional.html#ac5ff5ab63489493dce7aa1e6a49a1e0b">comms::field::Optional::setMode</a></div><div class="ttdeci">void setMode(Mode val)</div><div class="ttdoc">Get optional mode.</div><div class="ttdef"><b>Definition</b> Optional.h:230</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1Optional_html_ac5ff5ab63489493dce7aa1e6a49a1e0b"><div class="ttname"><a href="classcomms_1_1field_1_1Optional.html#ac5ff5ab63489493dce7aa1e6a49a1e0b">comms::field::Optional::setMode</a></div><div class="ttdeci">void setMode(Mode val)</div><div class="ttdoc">Get optional mode.</div><div class="ttdef"><b>Definition</b> Optional.h:246</div></div>
 </div><!-- fragment --> 
 </div>
 </div>

@@ -152,6 +152,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a8b2699905fdbe18d691e4cf30619c7cc"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1util.html#a8b2699905fdbe18d691e4cf30619c7cc">assign</a> (T &amp;obj, TIter from, TIter to)</td></tr>
 <tr class="memdesc:a8b2699905fdbe18d691e4cf30619c7cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns a new value to provided object.  <br /></td></tr>
 <tr class="separator:a8b2699905fdbe18d691e4cf30619c7cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a952b358edab6e71d648980ce7f1a915c" id="r_a952b358edab6e71d648980ce7f1a915c"><td class="memTemplParams" colspan="2">template&lt;typename T , typename TIter &gt; </td></tr>
+<tr class="memitem:a952b358edab6e71d648980ce7f1a915c"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1util.html#a952b358edab6e71d648980ce7f1a915c">construct</a> (TIter from, TIter to)</td></tr>
+<tr class="memdesc:a952b358edab6e71d648980ce7f1a915c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct collection objects given two range iterators.  <br /></td></tr>
+<tr class="separator:a952b358edab6e71d648980ce7f1a915c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf59ca5a23253d6a0acb92d9eed7520a" id="r_acf59ca5a23253d6a0acb92d9eed7520a"><td class="memTemplParams" colspan="2">template&lt;typename TType &gt; </td></tr>
 <tr class="memitem:acf59ca5a23253d6a0acb92d9eed7520a"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1util.html#acf59ca5a23253d6a0acb92d9eed7520a">isTuple</a> ()</td></tr>
 <tr class="memdesc:acf59ca5a23253d6a0acb92d9eed7520a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether provided type is a variant of <a href="http://en.cppreference.com/w/cpp/utility/tuple">std::tuple</a>.  <br /></td></tr>
@@ -368,6 +372,45 @@ template&lt;typename T , typename TIter &gt; </div>
 <div class="ttc" id="anamespacecomms_html"><div class="ttname"><a href="namespacecomms.html">comms</a></div><div class="ttdoc">Main namespace for all classes / functions of COMMS library.</div></div>
 <div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdoc">STL namespace.</div></div>
 </div><!-- fragment --> 
+</div>
+</div>
+<a id="a952b358edab6e71d648980ce7f1a915c" name="a952b358edab6e71d648980ce7f1a915c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a952b358edab6e71d648980ce7f1a915c">&#9670;&#160;</a></span>construct()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename TIter &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T comms::util::construct </td>
+          <td>(</td>
+          <td class="paramtype">TIter&#160;</td>
+          <td class="paramname"><em>from</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TIter&#160;</td>
+          <td class="paramname"><em>to</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construct collection objects given two range iterators. </p>
+<p>The function selects proper constructor of the selected type </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">from</td><td>Iterator to the first element of the range </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">to</td><td>Iterator to one behind the last element of the range. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="acf59ca5a23253d6a0acb92d9eed7520a" name="acf59ca5a23253d6a0acb92d9eed7520a"></a>

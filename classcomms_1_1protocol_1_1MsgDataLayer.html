@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>COMMS: comms::protocol::MsgDataLayer&lt; TExtraOpts &gt; Class Template Reference</title>
+<title>COMMS: comms::protocol::MsgDataLayer&lt; TOptions &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -81,147 +81,150 @@ $(function() {
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="#related">Related Symbols</a> &#124;
 <a href="classcomms_1_1protocol_1_1MsgDataLayer-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">comms::protocol::MsgDataLayer&lt; TExtraOpts &gt; Class Template Reference</div></div>
+  <div class="headertitle"><div class="title">comms::protocol::MsgDataLayer&lt; TOptions &gt; Class Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &quot;<a class="el" href="MsgDataLayer_8h_source.html">comms/protocol/MsgDataLayer.h</a>&quot;</code></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename... TExtraOpts&gt;<br />
-class comms::protocol::MsgDataLayer&lt; TExtraOpts &gt;</div><p><a class="el" href="classcomms_1_1Message.html" title="Main interface class for all the messages.">Message</a> data layer. </p>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename... TOptions&gt;<br />
+class comms::protocol::MsgDataLayer&lt; TOptions &gt;</div><p><a class="el" href="classcomms_1_1Message.html" title="Main interface class for all the messages.">Message</a> data layer. </p>
 <p>Must always be the last layer in protocol stack. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">TExtraOpts</td><td>Extra options to inner <a class="el" href="classcomms_1_1Field.html">Field</a> type which is defined to be <a class="el" href="classcomms_1_1field_1_1ArrayList.html">comms::field::ArrayList</a>. This field is used only in <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7d76d495ae96c078a9408d0d491f326a">AllFields</a> type and <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ad27c6b31381727bc765daf1e36d98029">readFieldsCached()</a> member function. </td></tr>
+    <tr><td class="paramname">TOptions</td><td>Default functionality extension options. Supported options are: <ul>
+<li><a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a> - Use this option to override default field type. </li>
+</ul>
+</td></tr>
   </table>
   </dd>
 </dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a7d76d495ae96c078a9408d0d491f326a" id="r_a7d76d495ae96c078a9408d0d491f326a"><td class="memItemLeft" align="right" valign="top"><a id="a7d76d495ae96c078a9408d0d491f326a" name="a7d76d495ae96c078a9408d0d491f326a"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>AllFields</b> = std::tuple&lt; <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ac674e4c28bc8e154ee1801cc39de7f58">Field</a> &gt;</td></tr>
-<tr class="memdesc:a7d76d495ae96c078a9408d0d491f326a"><td class="mdescLeft">&#160;</td><td class="mdescRight">All fields of the remaining transport layers, contains only <a class="el" href="classcomms_1_1Field.html">Field</a>. <br /></td></tr>
-<tr class="separator:a7d76d495ae96c078a9408d0d491f326a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63f49bdd6ad0146b12b4599a5bd4cfd5" id="r_a63f49bdd6ad0146b12b4599a5bd4cfd5"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a63f49bdd6ad0146b12b4599a5bd4cfd5">AllMessages</a> = void</td></tr>
-<tr class="memdesc:a63f49bdd6ad0146b12b4599a5bd4cfd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default value of AllMessages type.  <br /></td></tr>
-<tr class="separator:a63f49bdd6ad0146b12b4599a5bd4cfd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac674e4c28bc8e154ee1801cc39de7f58" id="r_ac674e4c28bc8e154ee1801cc39de7f58"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ac674e4c28bc8e154ee1801cc39de7f58">Field</a> = <a class="el" href="classcomms_1_1field_1_1ArrayList.html">comms::field::ArrayList</a>&lt; <a class="el" href="classcomms_1_1Field.html">comms::Field</a>&lt; <a class="el" href="namespacecomms_1_1option_1_1def.html#a606d8afcd788b9c39088709e9be2f546">comms::option::def::BigEndian</a> &gt;, std::uint8_t, TExtraOpts... &gt;</td></tr>
-<tr class="memdesc:ac674e4c28bc8e154ee1801cc39de7f58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raw data field type.  <br /></td></tr>
-<tr class="separator:ac674e4c28bc8e154ee1801cc39de7f58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6bd41c9b9eb7feae69742582ea930fef" id="r_a6bd41c9b9eb7feae69742582ea930fef"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a6bd41c9b9eb7feae69742582ea930fef">MsgFactory</a> = void</td></tr>
-<tr class="memdesc:a6bd41c9b9eb7feae69742582ea930fef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default value of <a class="el" href="classcomms_1_1MsgFactory.html" title="Message factory class.">MsgFactory</a> type.  <br /></td></tr>
-<tr class="separator:a6bd41c9b9eb7feae69742582ea930fef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0ececa7e06ca2a03e582e8f06f13f65" id="r_ab0ececa7e06ca2a03e582e8f06f13f65"><td class="memItemLeft" align="right" valign="top"><a id="ab0ececa7e06ca2a03e582e8f06f13f65" name="ab0ececa7e06ca2a03e582e8f06f13f65"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>ThisLayer</b> = <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">MsgDataLayer</a>&lt; TExtraOpts... &gt;</td></tr>
-<tr class="memdesc:ab0ececa7e06ca2a03e582e8f06f13f65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of this layer. <br /></td></tr>
-<tr class="separator:ab0ececa7e06ca2a03e582e8f06f13f65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9aff9a7d47ea8372811d7bad7cb4288b" id="r_a9aff9a7d47ea8372811d7bad7cb4288b"><td class="memItemLeft" align="right" valign="top"><a id="a9aff9a7d47ea8372811d7bad7cb4288b" name="a9aff9a7d47ea8372811d7bad7cb4288b"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>AllFields</b> = std::tuple&lt; <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a0f2d836155784a48f4b9f0f0e8a5036a">Field</a> &gt;</td></tr>
+<tr class="memdesc:a9aff9a7d47ea8372811d7bad7cb4288b"><td class="mdescLeft">&#160;</td><td class="mdescRight">All fields of the remaining transport layers, contains only <a class="el" href="classcomms_1_1Field.html">Field</a>. <br /></td></tr>
+<tr class="separator:a9aff9a7d47ea8372811d7bad7cb4288b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1488faba9beab35af54171d006ec2996" id="r_a1488faba9beab35af54171d006ec2996"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a1488faba9beab35af54171d006ec2996">AllMessages</a> = void</td></tr>
+<tr class="memdesc:a1488faba9beab35af54171d006ec2996"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default value of AllMessages type.  <br /></td></tr>
+<tr class="separator:a1488faba9beab35af54171d006ec2996"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f2d836155784a48f4b9f0f0e8a5036a" id="r_a0f2d836155784a48f4b9f0f0e8a5036a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a0f2d836155784a48f4b9f0f0e8a5036a">Field</a> = typename ParsedOptionsInternal::FieldType</td></tr>
+<tr class="memdesc:a0f2d836155784a48f4b9f0f0e8a5036a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raw data field type.  <br /></td></tr>
+<tr class="separator:a0f2d836155784a48f4b9f0f0e8a5036a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c201903a80ee2cff1dd5137cbeb5bcf" id="r_a9c201903a80ee2cff1dd5137cbeb5bcf"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a9c201903a80ee2cff1dd5137cbeb5bcf">MsgFactory</a> = void</td></tr>
+<tr class="memdesc:a9c201903a80ee2cff1dd5137cbeb5bcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default value of <a class="el" href="classcomms_1_1MsgFactory.html" title="Message factory class.">MsgFactory</a> type.  <br /></td></tr>
+<tr class="separator:a9c201903a80ee2cff1dd5137cbeb5bcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54ebe3487d68ed59bde5ecce190740f3" id="r_a54ebe3487d68ed59bde5ecce190740f3"><td class="memItemLeft" align="right" valign="top"><a id="a54ebe3487d68ed59bde5ecce190740f3" name="a54ebe3487d68ed59bde5ecce190740f3"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ThisLayer</b> = <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">MsgDataLayer</a>&lt; TOptions... &gt;</td></tr>
+<tr class="memdesc:a54ebe3487d68ed59bde5ecce190740f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of this layer. <br /></td></tr>
+<tr class="separator:a54ebe3487d68ed59bde5ecce190740f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9bfb0502a53619fc450f6e174e775976" id="r_a9bfb0502a53619fc450f6e174e775976"><td class="memItemLeft" align="right" valign="top"><a id="a9bfb0502a53619fc450f6e174e775976" name="a9bfb0502a53619fc450f6e174e775976"></a>
+<tr class="memitem:a8d184f112f0dd2c71a4e196321ca213f" id="r_a8d184f112f0dd2c71a4e196321ca213f"><td class="memItemLeft" align="right" valign="top"><a id="a8d184f112f0dd2c71a4e196321ca213f" name="a8d184f112f0dd2c71a4e196321ca213f"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>MsgDataLayer</b> ()=default</td></tr>
-<tr class="memdesc:a9bfb0502a53619fc450f6e174e775976"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. <br /></td></tr>
-<tr class="separator:a9bfb0502a53619fc450f6e174e775976"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af66c41851f607f15e460a4804099b167" id="r_af66c41851f607f15e460a4804099b167"><td class="memItemLeft" align="right" valign="top"><a id="af66c41851f607f15e460a4804099b167" name="af66c41851f607f15e460a4804099b167"></a>
+<tr class="memdesc:a8d184f112f0dd2c71a4e196321ca213f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. <br /></td></tr>
+<tr class="separator:a8d184f112f0dd2c71a4e196321ca213f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34769d06bb0e8b885a6c32e2ec383990" id="r_a34769d06bb0e8b885a6c32e2ec383990"><td class="memItemLeft" align="right" valign="top"><a id="a34769d06bb0e8b885a6c32e2ec383990" name="a34769d06bb0e8b885a6c32e2ec383990"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>MsgDataLayer</b> (const <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">MsgDataLayer</a> &amp;)=default</td></tr>
-<tr class="memdesc:af66c41851f607f15e460a4804099b167"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor. <br /></td></tr>
-<tr class="separator:af66c41851f607f15e460a4804099b167"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a426a3ceea52d179ad5a5fde27f76191d" id="r_a426a3ceea52d179ad5a5fde27f76191d"><td class="memItemLeft" align="right" valign="top"><a id="a426a3ceea52d179ad5a5fde27f76191d" name="a426a3ceea52d179ad5a5fde27f76191d"></a>
+<tr class="memdesc:a34769d06bb0e8b885a6c32e2ec383990"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor. <br /></td></tr>
+<tr class="separator:a34769d06bb0e8b885a6c32e2ec383990"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf0e30c33b811eed883cd1fbd5148a04" id="r_acf0e30c33b811eed883cd1fbd5148a04"><td class="memItemLeft" align="right" valign="top"><a id="acf0e30c33b811eed883cd1fbd5148a04" name="acf0e30c33b811eed883cd1fbd5148a04"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>MsgDataLayer</b> (<a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">MsgDataLayer</a> &amp;&amp;)=default</td></tr>
-<tr class="memdesc:a426a3ceea52d179ad5a5fde27f76191d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor. <br /></td></tr>
-<tr class="separator:a426a3ceea52d179ad5a5fde27f76191d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2e02a2b105548981f6802bf72b38f90" id="r_af2e02a2b105548981f6802bf72b38f90"><td class="memItemLeft" align="right" valign="top"><a id="af2e02a2b105548981f6802bf72b38f90" name="af2e02a2b105548981f6802bf72b38f90"></a>
+<tr class="memdesc:acf0e30c33b811eed883cd1fbd5148a04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor. <br /></td></tr>
+<tr class="separator:acf0e30c33b811eed883cd1fbd5148a04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a84a4b986cbcb35d1204f111e365901" id="r_a7a84a4b986cbcb35d1204f111e365901"><td class="memItemLeft" align="right" valign="top"><a id="a7a84a4b986cbcb35d1204f111e365901" name="a7a84a4b986cbcb35d1204f111e365901"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>~MsgDataLayer</b> () noexcept=default</td></tr>
-<tr class="memdesc:af2e02a2b105548981f6802bf72b38f90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br /></td></tr>
-<tr class="separator:af2e02a2b105548981f6802bf72b38f90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d4591ba07157e7dc7551f9071a450ed" id="r_a5d4591ba07157e7dc7551f9071a450ed"><td class="memItemLeft" align="right" valign="top"><a id="a5d4591ba07157e7dc7551f9071a450ed" name="a5d4591ba07157e7dc7551f9071a450ed"></a>
+<tr class="memdesc:a7a84a4b986cbcb35d1204f111e365901"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br /></td></tr>
+<tr class="separator:a7a84a4b986cbcb35d1204f111e365901"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3767d11f69f3eec4e3b699899ddb93a2" id="r_a3767d11f69f3eec4e3b699899ddb93a2"><td class="memItemLeft" align="right" valign="top"><a id="a3767d11f69f3eec4e3b699899ddb93a2" name="a3767d11f69f3eec4e3b699899ddb93a2"></a>
 <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">MsgDataLayer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">MsgDataLayer</a> &amp;)=default</td></tr>
-<tr class="memdesc:a5d4591ba07157e7dc7551f9071a450ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment operator. <br /></td></tr>
-<tr class="separator:a5d4591ba07157e7dc7551f9071a450ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5e096823f972376a9389b32054b3148" id="r_af5e096823f972376a9389b32054b3148"><td class="memItemLeft" align="right" valign="top"><a id="af5e096823f972376a9389b32054b3148" name="af5e096823f972376a9389b32054b3148"></a>
+<tr class="memdesc:a3767d11f69f3eec4e3b699899ddb93a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment operator. <br /></td></tr>
+<tr class="separator:a3767d11f69f3eec4e3b699899ddb93a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33bd60032872f1dbab174ca55ba8610f" id="r_a33bd60032872f1dbab174ca55ba8610f"><td class="memItemLeft" align="right" valign="top"><a id="a33bd60032872f1dbab174ca55ba8610f" name="a33bd60032872f1dbab174ca55ba8610f"></a>
 <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">MsgDataLayer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">MsgDataLayer</a> &amp;&amp;)=default</td></tr>
-<tr class="memdesc:af5e096823f972376a9389b32054b3148"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment operator. <br /></td></tr>
-<tr class="separator:af5e096823f972376a9389b32054b3148"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b6e08816604448ef584e76fd4b92139" id="r_a3b6e08816604448ef584e76fd4b92139"><td class="memItemLeft" align="right" valign="top"><a id="a3b6e08816604448ef584e76fd4b92139" name="a3b6e08816604448ef584e76fd4b92139"></a>
-<a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ab0ececa7e06ca2a03e582e8f06f13f65">ThisLayer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>thisLayer</b> ()</td></tr>
-<tr class="memdesc:a3b6e08816604448ef584e76fd4b92139"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get access to this layer object. <br /></td></tr>
-<tr class="separator:a3b6e08816604448ef584e76fd4b92139"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6336684a712922a317a847473908123d" id="r_a6336684a712922a317a847473908123d"><td class="memItemLeft" align="right" valign="top"><a id="a6336684a712922a317a847473908123d" name="a6336684a712922a317a847473908123d"></a>
-const <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ab0ececa7e06ca2a03e582e8f06f13f65">ThisLayer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>thisLayer</b> () const</td></tr>
-<tr class="memdesc:a6336684a712922a317a847473908123d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get "const" access to this layer object. <br /></td></tr>
-<tr class="separator:a6336684a712922a317a847473908123d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:a33bd60032872f1dbab174ca55ba8610f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment operator. <br /></td></tr>
+<tr class="separator:a33bd60032872f1dbab174ca55ba8610f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ca85a650bfc8e513be737fd1c4c8d60" id="r_a7ca85a650bfc8e513be737fd1c4c8d60"><td class="memItemLeft" align="right" valign="top"><a id="a7ca85a650bfc8e513be737fd1c4c8d60" name="a7ca85a650bfc8e513be737fd1c4c8d60"></a>
+<a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a54ebe3487d68ed59bde5ecce190740f3">ThisLayer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>thisLayer</b> ()</td></tr>
+<tr class="memdesc:a7ca85a650bfc8e513be737fd1c4c8d60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get access to this layer object. <br /></td></tr>
+<tr class="separator:a7ca85a650bfc8e513be737fd1c4c8d60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a666f9f7cbdac1410d2d18cdad21e6c79" id="r_a666f9f7cbdac1410d2d18cdad21e6c79"><td class="memItemLeft" align="right" valign="top"><a id="a666f9f7cbdac1410d2d18cdad21e6c79" name="a666f9f7cbdac1410d2d18cdad21e6c79"></a>
+const <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a54ebe3487d68ed59bde5ecce190740f3">ThisLayer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>thisLayer</b> () const</td></tr>
+<tr class="memdesc:a666f9f7cbdac1410d2d18cdad21e6c79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get "const" access to this layer object. <br /></td></tr>
+<tr class="separator:a666f9f7cbdac1410d2d18cdad21e6c79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a163721a80842fdab9c4c0123511e097b" id="r_a163721a80842fdab9c4c0123511e097b"><td class="memTemplParams" colspan="2">template&lt;typename TAllFields &gt; </td></tr>
-<tr class="memitem:a163721a80842fdab9c4c0123511e097b"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a163721a80842fdab9c4c0123511e097b">accessCachedField</a> (TAllFields &amp;allFields) -&gt; decltype(std::get&lt; std::tuple_size&lt; typename std::decay&lt; TAllFields &gt;::type &gt;::value - std::tuple_size&lt; <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7d76d495ae96c078a9408d0d491f326a">AllFields</a> &gt;::value &gt;(allFields))</td></tr>
-<tr class="memdesc:a163721a80842fdab9c4c0123511e097b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access appropriate field from "cached" bundle of all the protocol stack fields.  <br /></td></tr>
-<tr class="separator:a163721a80842fdab9c4c0123511e097b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83162e9666fc6368e319bb576542947a" id="r_a83162e9666fc6368e319bb576542947a"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a83162e9666fc6368e319bb576542947a">canSplitRead</a> ()</td></tr>
-<tr class="memdesc:a83162e9666fc6368e319bb576542947a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time check whether split read "until" and "from" data layer is allowed.  <br /></td></tr>
-<tr class="separator:a83162e9666fc6368e319bb576542947a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9b051620c429925bc12c1795e0eae23" id="r_ae9b051620c429925bc12c1795e0eae23"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ae9b051620c429925bc12c1795e0eae23">length</a> ()</td></tr>
-<tr class="memdesc:ae9b051620c429925bc12c1795e0eae23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get remaining length of wrapping transport information.  <br /></td></tr>
-<tr class="separator:ae9b051620c429925bc12c1795e0eae23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d1b174ed2fc28c2f53e5909cd51e868" id="r_a4d1b174ed2fc28c2f53e5909cd51e868"><td class="memTemplParams" colspan="2">template&lt;typename TMsg &gt; </td></tr>
-<tr class="memitem:a4d1b174ed2fc28c2f53e5909cd51e868"><td class="memTemplItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a4d1b174ed2fc28c2f53e5909cd51e868">length</a> (const TMsg &amp;msg)</td></tr>
-<tr class="memdesc:a4d1b174ed2fc28c2f53e5909cd51e868"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get remaining length of wrapping transport information + length of the provided message.  <br /></td></tr>
-<tr class="separator:a4d1b174ed2fc28c2f53e5909cd51e868"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7838982855848f595212549ba8c4ed87" id="r_a7838982855848f595212549ba8c4ed87"><td class="memTemplParams" colspan="2">template&lt;typename TMsg , typename TIter , typename... TExtraValues&gt; </td></tr>
-<tr class="memitem:a7838982855848f595212549ba8c4ed87"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7838982855848f595212549ba8c4ed87">read</a> (TMsg &amp;msg, TIter &amp;iter, std::size_t size, TExtraValues... extraValues)</td></tr>
-<tr class="memdesc:a7838982855848f595212549ba8c4ed87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the message contents.  <br /></td></tr>
-<tr class="separator:a7838982855848f595212549ba8c4ed87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad27c6b31381727bc765daf1e36d98029" id="r_ad27c6b31381727bc765daf1e36d98029"><td class="memTemplParams" colspan="2">template&lt;typename TAllFields , typename TMsg , typename TIter , typename... TExtraValues&gt; </td></tr>
-<tr class="memitem:ad27c6b31381727bc765daf1e36d98029"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ad27c6b31381727bc765daf1e36d98029">readFieldsCached</a> (TAllFields &amp;allFields, TMsg &amp;msg, TIter &amp;iter, std::size_t size, TExtraValues... extraValues)</td></tr>
-<tr class="memdesc:ad27c6b31381727bc765daf1e36d98029"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the message contents while caching the read transport information fields.  <br /></td></tr>
-<tr class="separator:ad27c6b31381727bc765daf1e36d98029"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3065aec8e78c1c251118a93542f8610d" id="r_a3065aec8e78c1c251118a93542f8610d"><td class="memTemplParams" colspan="2">template&lt;typename TMsg , typename TIter , typename... TExtraValues&gt; </td></tr>
-<tr class="memitem:a3065aec8e78c1c251118a93542f8610d"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a3065aec8e78c1c251118a93542f8610d">readFromData</a> (TMsg &amp;msg, TIter &amp;iter, std::size_t size, TExtraValues... extraValues)</td></tr>
-<tr class="memdesc:a3065aec8e78c1c251118a93542f8610d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7838982855848f595212549ba8c4ed87">read()</a>.  <br /></td></tr>
-<tr class="separator:a3065aec8e78c1c251118a93542f8610d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27c2bd52392e9d14555c4711bee9cc3e" id="r_a27c2bd52392e9d14555c4711bee9cc3e"><td class="memTemplParams" colspan="2">template&lt;typename TAllFields , typename TMsg , typename TIter , typename... TExtraValues&gt; </td></tr>
-<tr class="memitem:a27c2bd52392e9d14555c4711bee9cc3e"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a27c2bd52392e9d14555c4711bee9cc3e">readFromDataFeildsCached</a> (TAllFields &amp;allFields, TMsg &amp;msg, TIter &amp;iter, std::size_t size, TExtraValues... extraValues)</td></tr>
-<tr class="memdesc:a27c2bd52392e9d14555c4711bee9cc3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ad27c6b31381727bc765daf1e36d98029">readFieldsCached()</a>.  <br /></td></tr>
-<tr class="separator:a27c2bd52392e9d14555c4711bee9cc3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a997c59bfed61d55ab3d8105866a08f38" id="r_a997c59bfed61d55ab3d8105866a08f38"><td class="memTemplParams" colspan="2">template&lt;typename TMsg , typename TIter , typename... TExtraValues&gt; </td></tr>
-<tr class="memitem:a997c59bfed61d55ab3d8105866a08f38"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a997c59bfed61d55ab3d8105866a08f38">readUntilData</a> (TMsg &amp;msg, TIter &amp;iter, std::size_t size, TExtraValues...)</td></tr>
-<tr class="memdesc:a997c59bfed61d55ab3d8105866a08f38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read transport fields until data layer.  <br /></td></tr>
-<tr class="separator:a997c59bfed61d55ab3d8105866a08f38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae45d58655196689af98b797ac080a8a1" id="r_ae45d58655196689af98b797ac080a8a1"><td class="memTemplParams" colspan="2">template&lt;typename TAllFields , typename TMsg , typename TIter , typename... TExtraValues&gt; </td></tr>
-<tr class="memitem:ae45d58655196689af98b797ac080a8a1"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ae45d58655196689af98b797ac080a8a1">readUntilDataFieldsCached</a> (TAllFields &amp;allFields, TMsg &amp;msg, TIter &amp;iter, std::size_t size, TExtraValues...)</td></tr>
-<tr class="memdesc:ae45d58655196689af98b797ac080a8a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read transport fields with caching until data layer.  <br /></td></tr>
-<tr class="separator:ae45d58655196689af98b797ac080a8a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace01cbbe59b714cc85660f7ddf473fa5" id="r_ace01cbbe59b714cc85660f7ddf473fa5"><td class="memTemplParams" colspan="2">template&lt;typename TMsg , typename TIter &gt; </td></tr>
-<tr class="memitem:ace01cbbe59b714cc85660f7ddf473fa5"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ace01cbbe59b714cc85660f7ddf473fa5">update</a> (const TMsg &amp;msg, TIter &amp;iter, std::size_t size)</td></tr>
-<tr class="memdesc:ace01cbbe59b714cc85660f7ddf473fa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update recently written (using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a935db3ebfbe34f8e7f586f79d26b48ed" title="Write the message contents.">write()</a>) message contents data.  <br /></td></tr>
-<tr class="separator:ace01cbbe59b714cc85660f7ddf473fa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01cb43cba733e7823d92488c6de9dbb5" id="r_a01cb43cba733e7823d92488c6de9dbb5"><td class="memTemplParams" colspan="2">template&lt;typename TIter &gt; </td></tr>
-<tr class="memitem:a01cb43cba733e7823d92488c6de9dbb5"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a01cb43cba733e7823d92488c6de9dbb5">update</a> (TIter &amp;iter, std::size_t size)</td></tr>
-<tr class="memdesc:a01cb43cba733e7823d92488c6de9dbb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update recently written (using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a935db3ebfbe34f8e7f586f79d26b48ed" title="Write the message contents.">write()</a>) message contents data.  <br /></td></tr>
-<tr class="separator:a01cb43cba733e7823d92488c6de9dbb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e6b3f04f7c7f4825f83bbd3f166e8f6" id="r_a5e6b3f04f7c7f4825f83bbd3f166e8f6"><td class="memTemplParams" colspan="2">template&lt;typename TAllFields , typename TMsg , typename TIter &gt; </td></tr>
-<tr class="memitem:a5e6b3f04f7c7f4825f83bbd3f166e8f6"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a5e6b3f04f7c7f4825f83bbd3f166e8f6">updateFieldsCached</a> (TAllFields &amp;allFields, const TMsg &amp;msg, TIter &amp;iter, std::size_t size)</td></tr>
-<tr class="memdesc:a5e6b3f04f7c7f4825f83bbd3f166e8f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update recently written (using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ade1b09931e8153a8b2a6a34f5ec580e6" title="Write the message contents while caching the written transport information fields.">writeFieldsCached()</a>) message data as well as cached transport information fields.  <br /></td></tr>
-<tr class="separator:a5e6b3f04f7c7f4825f83bbd3f166e8f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5cfb5158062ac054561486107c1731e" id="r_ad5cfb5158062ac054561486107c1731e"><td class="memTemplParams" colspan="2">template&lt;typename TAllFields , typename TIter &gt; </td></tr>
-<tr class="memitem:ad5cfb5158062ac054561486107c1731e"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ad5cfb5158062ac054561486107c1731e">updateFieldsCached</a> (TAllFields &amp;allFields, TIter &amp;iter, std::size_t size)</td></tr>
-<tr class="memdesc:ad5cfb5158062ac054561486107c1731e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update recently written (using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ade1b09931e8153a8b2a6a34f5ec580e6" title="Write the message contents while caching the written transport information fields.">writeFieldsCached()</a>) message data as well as cached transport information fields.  <br /></td></tr>
-<tr class="separator:ad5cfb5158062ac054561486107c1731e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a935db3ebfbe34f8e7f586f79d26b48ed" id="r_a935db3ebfbe34f8e7f586f79d26b48ed"><td class="memTemplParams" colspan="2">template&lt;typename TMsg , typename TIter &gt; </td></tr>
-<tr class="memitem:a935db3ebfbe34f8e7f586f79d26b48ed"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a935db3ebfbe34f8e7f586f79d26b48ed">write</a> (const TMsg &amp;msg, TIter &amp;iter, std::size_t size)</td></tr>
-<tr class="memdesc:a935db3ebfbe34f8e7f586f79d26b48ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the message contents.  <br /></td></tr>
-<tr class="separator:a935db3ebfbe34f8e7f586f79d26b48ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade1b09931e8153a8b2a6a34f5ec580e6" id="r_ade1b09931e8153a8b2a6a34f5ec580e6"><td class="memTemplParams" colspan="2">template&lt;typename TAllFields , typename TMsg , typename TIter &gt; </td></tr>
-<tr class="memitem:ade1b09931e8153a8b2a6a34f5ec580e6"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ade1b09931e8153a8b2a6a34f5ec580e6">writeFieldsCached</a> (TAllFields &amp;allFields, const TMsg &amp;msg, TIter &amp;iter, std::size_t size)</td></tr>
-<tr class="memdesc:ade1b09931e8153a8b2a6a34f5ec580e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the message contents while caching the written transport information fields.  <br /></td></tr>
-<tr class="separator:ade1b09931e8153a8b2a6a34f5ec580e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9cd0f6201219028ca78296cf5bcccf7" id="r_ab9cd0f6201219028ca78296cf5bcccf7"><td class="memTemplParams" colspan="2">template&lt;typename TAllFields &gt; </td></tr>
+<tr class="memitem:ab9cd0f6201219028ca78296cf5bcccf7"><td class="memTemplItemLeft" align="right" valign="top">static auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ab9cd0f6201219028ca78296cf5bcccf7">accessCachedField</a> (TAllFields &amp;allFields) -&gt; decltype(std::get&lt; std::tuple_size&lt; typename std::decay&lt; TAllFields &gt;::type &gt;::value - std::tuple_size&lt; <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a9aff9a7d47ea8372811d7bad7cb4288b">AllFields</a> &gt;::value &gt;(allFields))</td></tr>
+<tr class="memdesc:ab9cd0f6201219028ca78296cf5bcccf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access appropriate field from "cached" bundle of all the protocol stack fields.  <br /></td></tr>
+<tr class="separator:ab9cd0f6201219028ca78296cf5bcccf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a903225ef5ab344820ddc14d2d33af321" id="r_a903225ef5ab344820ddc14d2d33af321"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a903225ef5ab344820ddc14d2d33af321">canSplitRead</a> ()</td></tr>
+<tr class="memdesc:a903225ef5ab344820ddc14d2d33af321"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile time check whether split read "until" and "from" data layer is allowed.  <br /></td></tr>
+<tr class="separator:a903225ef5ab344820ddc14d2d33af321"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f15f7d07c7011099eb04024d6f975ea" id="r_a7f15f7d07c7011099eb04024d6f975ea"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7f15f7d07c7011099eb04024d6f975ea">length</a> ()</td></tr>
+<tr class="memdesc:a7f15f7d07c7011099eb04024d6f975ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get remaining length of wrapping transport information.  <br /></td></tr>
+<tr class="separator:a7f15f7d07c7011099eb04024d6f975ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0332f5762998244855d39be47c9c9689" id="r_a0332f5762998244855d39be47c9c9689"><td class="memTemplParams" colspan="2">template&lt;typename TMsg &gt; </td></tr>
+<tr class="memitem:a0332f5762998244855d39be47c9c9689"><td class="memTemplItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a0332f5762998244855d39be47c9c9689">length</a> (const TMsg &amp;msg)</td></tr>
+<tr class="memdesc:a0332f5762998244855d39be47c9c9689"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get remaining length of wrapping transport information + length of the provided message.  <br /></td></tr>
+<tr class="separator:a0332f5762998244855d39be47c9c9689"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8628b30f6f9619505cdb8d54ba1b7810" id="r_a8628b30f6f9619505cdb8d54ba1b7810"><td class="memTemplParams" colspan="2">template&lt;typename TMsg , typename TIter , typename... TExtraValues&gt; </td></tr>
+<tr class="memitem:a8628b30f6f9619505cdb8d54ba1b7810"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a8628b30f6f9619505cdb8d54ba1b7810">read</a> (TMsg &amp;msg, TIter &amp;iter, std::size_t size, TExtraValues... extraValues)</td></tr>
+<tr class="memdesc:a8628b30f6f9619505cdb8d54ba1b7810"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the message contents.  <br /></td></tr>
+<tr class="separator:a8628b30f6f9619505cdb8d54ba1b7810"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d8560c3f1c69ec77b46fe7c06801557" id="r_a0d8560c3f1c69ec77b46fe7c06801557"><td class="memTemplParams" colspan="2">template&lt;typename TAllFields , typename TMsg , typename TIter , typename... TExtraValues&gt; </td></tr>
+<tr class="memitem:a0d8560c3f1c69ec77b46fe7c06801557"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a0d8560c3f1c69ec77b46fe7c06801557">readFieldsCached</a> (TAllFields &amp;allFields, TMsg &amp;msg, TIter &amp;iter, std::size_t size, TExtraValues... extraValues)</td></tr>
+<tr class="memdesc:a0d8560c3f1c69ec77b46fe7c06801557"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the message contents while caching the read transport information fields.  <br /></td></tr>
+<tr class="separator:a0d8560c3f1c69ec77b46fe7c06801557"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a735567d5457a7a973dfcc3938972a932" id="r_a735567d5457a7a973dfcc3938972a932"><td class="memTemplParams" colspan="2">template&lt;typename TMsg , typename TIter , typename... TExtraValues&gt; </td></tr>
+<tr class="memitem:a735567d5457a7a973dfcc3938972a932"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a735567d5457a7a973dfcc3938972a932">readFromData</a> (TMsg &amp;msg, TIter &amp;iter, std::size_t size, TExtraValues... extraValues)</td></tr>
+<tr class="memdesc:a735567d5457a7a973dfcc3938972a932"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a8628b30f6f9619505cdb8d54ba1b7810">read()</a>.  <br /></td></tr>
+<tr class="separator:a735567d5457a7a973dfcc3938972a932"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adaa7eb362a5c801260ad393e78a3eb96" id="r_adaa7eb362a5c801260ad393e78a3eb96"><td class="memTemplParams" colspan="2">template&lt;typename TAllFields , typename TMsg , typename TIter , typename... TExtraValues&gt; </td></tr>
+<tr class="memitem:adaa7eb362a5c801260ad393e78a3eb96"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#adaa7eb362a5c801260ad393e78a3eb96">readFromDataFeildsCached</a> (TAllFields &amp;allFields, TMsg &amp;msg, TIter &amp;iter, std::size_t size, TExtraValues... extraValues)</td></tr>
+<tr class="memdesc:adaa7eb362a5c801260ad393e78a3eb96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a0d8560c3f1c69ec77b46fe7c06801557">readFieldsCached()</a>.  <br /></td></tr>
+<tr class="separator:adaa7eb362a5c801260ad393e78a3eb96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f1c7fe61c09fcd2ddbad076a61f2c79" id="r_a8f1c7fe61c09fcd2ddbad076a61f2c79"><td class="memTemplParams" colspan="2">template&lt;typename TMsg , typename TIter , typename... TExtraValues&gt; </td></tr>
+<tr class="memitem:a8f1c7fe61c09fcd2ddbad076a61f2c79"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a8f1c7fe61c09fcd2ddbad076a61f2c79">readUntilData</a> (TMsg &amp;msg, TIter &amp;iter, std::size_t size, TExtraValues...)</td></tr>
+<tr class="memdesc:a8f1c7fe61c09fcd2ddbad076a61f2c79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read transport fields until data layer.  <br /></td></tr>
+<tr class="separator:a8f1c7fe61c09fcd2ddbad076a61f2c79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68f6544c795522387b8b92c3c3cc4ade" id="r_a68f6544c795522387b8b92c3c3cc4ade"><td class="memTemplParams" colspan="2">template&lt;typename TAllFields , typename TMsg , typename TIter , typename... TExtraValues&gt; </td></tr>
+<tr class="memitem:a68f6544c795522387b8b92c3c3cc4ade"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a68f6544c795522387b8b92c3c3cc4ade">readUntilDataFieldsCached</a> (TAllFields &amp;allFields, TMsg &amp;msg, TIter &amp;iter, std::size_t size, TExtraValues...)</td></tr>
+<tr class="memdesc:a68f6544c795522387b8b92c3c3cc4ade"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read transport fields with caching until data layer.  <br /></td></tr>
+<tr class="separator:a68f6544c795522387b8b92c3c3cc4ade"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04c39f4456cff7b386b88580ba691559" id="r_a04c39f4456cff7b386b88580ba691559"><td class="memTemplParams" colspan="2">template&lt;typename TMsg , typename TIter &gt; </td></tr>
+<tr class="memitem:a04c39f4456cff7b386b88580ba691559"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a04c39f4456cff7b386b88580ba691559">update</a> (const TMsg &amp;msg, TIter &amp;iter, std::size_t size)</td></tr>
+<tr class="memdesc:a04c39f4456cff7b386b88580ba691559"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update recently written (using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7c0e6d5cd07fe0b27f96a2c654ce4da3" title="Write the message contents.">write()</a>) message contents data.  <br /></td></tr>
+<tr class="separator:a04c39f4456cff7b386b88580ba691559"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dc41a1746b75f637fb46bd7671d4b70" id="r_a7dc41a1746b75f637fb46bd7671d4b70"><td class="memTemplParams" colspan="2">template&lt;typename TIter &gt; </td></tr>
+<tr class="memitem:a7dc41a1746b75f637fb46bd7671d4b70"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7dc41a1746b75f637fb46bd7671d4b70">update</a> (TIter &amp;iter, std::size_t size)</td></tr>
+<tr class="memdesc:a7dc41a1746b75f637fb46bd7671d4b70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update recently written (using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7c0e6d5cd07fe0b27f96a2c654ce4da3" title="Write the message contents.">write()</a>) message contents data.  <br /></td></tr>
+<tr class="separator:a7dc41a1746b75f637fb46bd7671d4b70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a2c1488401f12f86cb29f007bcb9263" id="r_a2a2c1488401f12f86cb29f007bcb9263"><td class="memTemplParams" colspan="2">template&lt;typename TAllFields , typename TMsg , typename TIter &gt; </td></tr>
+<tr class="memitem:a2a2c1488401f12f86cb29f007bcb9263"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a2a2c1488401f12f86cb29f007bcb9263">updateFieldsCached</a> (TAllFields &amp;allFields, const TMsg &amp;msg, TIter &amp;iter, std::size_t size)</td></tr>
+<tr class="memdesc:a2a2c1488401f12f86cb29f007bcb9263"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update recently written (using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a29e48d9ccaa0f66d5717d3c9b3041cfe" title="Write the message contents while caching the written transport information fields.">writeFieldsCached()</a>) message data as well as cached transport information fields.  <br /></td></tr>
+<tr class="separator:a2a2c1488401f12f86cb29f007bcb9263"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52ae33b10684b5155284af174555fe88" id="r_a52ae33b10684b5155284af174555fe88"><td class="memTemplParams" colspan="2">template&lt;typename TAllFields , typename TIter &gt; </td></tr>
+<tr class="memitem:a52ae33b10684b5155284af174555fe88"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a52ae33b10684b5155284af174555fe88">updateFieldsCached</a> (TAllFields &amp;allFields, TIter &amp;iter, std::size_t size)</td></tr>
+<tr class="memdesc:a52ae33b10684b5155284af174555fe88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update recently written (using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a29e48d9ccaa0f66d5717d3c9b3041cfe" title="Write the message contents while caching the written transport information fields.">writeFieldsCached()</a>) message data as well as cached transport information fields.  <br /></td></tr>
+<tr class="separator:a52ae33b10684b5155284af174555fe88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c0e6d5cd07fe0b27f96a2c654ce4da3" id="r_a7c0e6d5cd07fe0b27f96a2c654ce4da3"><td class="memTemplParams" colspan="2">template&lt;typename TMsg , typename TIter &gt; </td></tr>
+<tr class="memitem:a7c0e6d5cd07fe0b27f96a2c654ce4da3"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7c0e6d5cd07fe0b27f96a2c654ce4da3">write</a> (const TMsg &amp;msg, TIter &amp;iter, std::size_t size)</td></tr>
+<tr class="memdesc:a7c0e6d5cd07fe0b27f96a2c654ce4da3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the message contents.  <br /></td></tr>
+<tr class="separator:a7c0e6d5cd07fe0b27f96a2c654ce4da3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29e48d9ccaa0f66d5717d3c9b3041cfe" id="r_a29e48d9ccaa0f66d5717d3c9b3041cfe"><td class="memTemplParams" colspan="2">template&lt;typename TAllFields , typename TMsg , typename TIter &gt; </td></tr>
+<tr class="memitem:a29e48d9ccaa0f66d5717d3c9b3041cfe"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a29e48d9ccaa0f66d5717d3c9b3041cfe">writeFieldsCached</a> (TAllFields &amp;allFields, const TMsg &amp;msg, TIter &amp;iter, std::size_t size)</td></tr>
+<tr class="memdesc:a29e48d9ccaa0f66d5717d3c9b3041cfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the message contents while caching the written transport information fields.  <br /></td></tr>
+<tr class="separator:a29e48d9ccaa0f66d5717d3c9b3041cfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a664828f8dbdf6656f5dee0d7de06df59" id="r_a664828f8dbdf6656f5dee0d7de06df59"><td class="memItemLeft" align="right" valign="top"><a id="a664828f8dbdf6656f5dee0d7de06df59" name="a664828f8dbdf6656f5dee0d7de06df59"></a>
+<tr class="memitem:a396df1d22e533b92836ff12648b52448" id="r_a396df1d22e533b92836ff12648b52448"><td class="memItemLeft" align="right" valign="top"><a id="a396df1d22e533b92836ff12648b52448" name="a396df1d22e533b92836ff12648b52448"></a>
 static const std::size_t&#160;</td><td class="memItemRight" valign="bottom"><b>NumOfLayers</b> = 1</td></tr>
-<tr class="memdesc:a664828f8dbdf6656f5dee0d7de06df59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Static constant indicating amount of transport layers used. <br /></td></tr>
-<tr class="separator:a664828f8dbdf6656f5dee0d7de06df59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:a396df1d22e533b92836ff12648b52448"><td class="mdescLeft">&#160;</td><td class="mdescRight">Static constant indicating amount of transport layers used. <br /></td></tr>
+<tr class="separator:a396df1d22e533b92836ff12648b52448"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="related" name="related"></a>
 Related Symbols</h2></td></tr>
@@ -234,16 +237,16 @@ template&lt;typename T &gt; </td></tr>
 <tr class="separator:a0c2ec1d318a03050c9a3c0a61b787f64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a63f49bdd6ad0146b12b4599a5bd4cfd5" name="a63f49bdd6ad0146b12b4599a5bd4cfd5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a63f49bdd6ad0146b12b4599a5bd4cfd5">&#9670;&#160;</a></span>AllMessages</h2>
+<a id="a1488faba9beab35af54171d006ec2996" name="a1488faba9beab35af54171d006ec2996"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1488faba9beab35af54171d006ec2996">&#9670;&#160;</a></span>AllMessages</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename... TExtraOpts&gt; </div>
+template&lt;typename... TOptions&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TExtraOpts &gt;::AllMessages =  void</td>
+          <td class="memname">using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TOptions &gt;::AllMessages =  void</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -253,35 +256,35 @@ template&lt;typename... TExtraOpts&gt; </div>
 
 </div>
 </div>
-<a id="ac674e4c28bc8e154ee1801cc39de7f58" name="ac674e4c28bc8e154ee1801cc39de7f58"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac674e4c28bc8e154ee1801cc39de7f58">&#9670;&#160;</a></span>Field</h2>
+<a id="a0f2d836155784a48f4b9f0f0e8a5036a" name="a0f2d836155784a48f4b9f0f0e8a5036a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f2d836155784a48f4b9f0f0e8a5036a">&#9670;&#160;</a></span>Field</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename... TExtraOpts&gt; </div>
+template&lt;typename... TOptions&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TExtraOpts &gt;::Field =  <a class="el" href="classcomms_1_1field_1_1ArrayList.html">comms::field::ArrayList</a>&lt; <a class="el" href="classcomms_1_1Field.html">comms::Field</a>&lt;<a class="el" href="namespacecomms_1_1option_1_1def.html#a606d8afcd788b9c39088709e9be2f546">comms::option::def::BigEndian</a>&gt;, std::uint8_t, TExtraOpts... &gt;</td>
+          <td class="memname">using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TOptions &gt;::Field =  typename ParsedOptionsInternal::FieldType</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Raw data field type. </p>
-<p>This field is used only in <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7d76d495ae96c078a9408d0d491f326a">AllFields</a> field and <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ad27c6b31381727bc765daf1e36d98029">readFieldsCached()</a> member function. </p>
+<p>This field is used only in <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a9aff9a7d47ea8372811d7bad7cb4288b">AllFields</a> field and <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a0d8560c3f1c69ec77b46fe7c06801557">readFieldsCached()</a> member function. If not specified using <a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a> option then a variant of <b><a class="el" href="classcomms_1_1field_1_1ArrayList.html" title="Field that represents a sequential collection of fields.">comms::field::ArrayList</a></b> for <b>std::uint8_t</b> is used. </p>
 
 </div>
 </div>
-<a id="a6bd41c9b9eb7feae69742582ea930fef" name="a6bd41c9b9eb7feae69742582ea930fef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6bd41c9b9eb7feae69742582ea930fef">&#9670;&#160;</a></span>MsgFactory</h2>
+<a id="a9c201903a80ee2cff1dd5137cbeb5bcf" name="a9c201903a80ee2cff1dd5137cbeb5bcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c201903a80ee2cff1dd5137cbeb5bcf">&#9670;&#160;</a></span>MsgFactory</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename... TExtraOpts&gt; </div>
+template&lt;typename... TOptions&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TExtraOpts &gt;::MsgFactory =  void</td>
+          <td class="memname">using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TOptions &gt;::MsgFactory =  void</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -292,13 +295,13 @@ template&lt;typename... TExtraOpts&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a163721a80842fdab9c4c0123511e097b" name="a163721a80842fdab9c4c0123511e097b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a163721a80842fdab9c4c0123511e097b">&#9670;&#160;</a></span>accessCachedField()</h2>
+<a id="ab9cd0f6201219028ca78296cf5bcccf7" name="ab9cd0f6201219028ca78296cf5bcccf7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9cd0f6201219028ca78296cf5bcccf7">&#9670;&#160;</a></span>accessCachedField()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename... TExtraOpts&gt; </div>
+template&lt;typename... TOptions&gt; </div>
 <div class="memtemplate">
 template&lt;typename TAllFields &gt; </div>
 <table class="mlabels">
@@ -306,11 +309,11 @@ template&lt;typename TAllFields &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static auto <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TExtraOpts &gt;::accessCachedField </td>
+          <td class="memname">static auto <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TOptions &gt;::accessCachedField </td>
           <td>(</td>
           <td class="paramtype">TAllFields &amp;&#160;</td>
           <td class="paramname"><em>allFields</em></td><td>)</td>
-          <td> -&gt; decltype(std::get&lt;std::tuple_size&lt;typename std::decay&lt;TAllFields&gt;::type&gt;::value - std::tuple_size&lt;<a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7d76d495ae96c078a9408d0d491f326a">AllFields</a>&gt;::value&gt;(allFields))
+          <td> -&gt; decltype(std::get&lt;std::tuple_size&lt;typename std::decay&lt;TAllFields&gt;::type&gt;::value - std::tuple_size&lt;<a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a9aff9a7d47ea8372811d7bad7cb4288b">AllFields</a>&gt;::value&gt;(allFields))
     </td>
         </tr>
       </table>
@@ -332,19 +335,19 @@ template&lt;typename TAllFields &gt; </div>
 
 </div>
 </div>
-<a id="a83162e9666fc6368e319bb576542947a" name="a83162e9666fc6368e319bb576542947a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a83162e9666fc6368e319bb576542947a">&#9670;&#160;</a></span>canSplitRead()</h2>
+<a id="a903225ef5ab344820ddc14d2d33af321" name="a903225ef5ab344820ddc14d2d33af321"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a903225ef5ab344820ddc14d2d33af321">&#9670;&#160;</a></span>canSplitRead()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename... TExtraOpts&gt; </div>
+template&lt;typename... TOptions&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static constexpr bool <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TExtraOpts &gt;::canSplitRead </td>
+          <td class="memname">static constexpr bool <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TOptions &gt;::canSplitRead </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -362,19 +365,19 @@ template&lt;typename... TExtraOpts&gt; </div>
 
 </div>
 </div>
-<a id="ae9b051620c429925bc12c1795e0eae23" name="ae9b051620c429925bc12c1795e0eae23"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9b051620c429925bc12c1795e0eae23">&#9670;&#160;</a></span>length() <span class="overload">[1/2]</span></h2>
+<a id="a7f15f7d07c7011099eb04024d6f975ea" name="a7f15f7d07c7011099eb04024d6f975ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f15f7d07c7011099eb04024d6f975ea">&#9670;&#160;</a></span>length() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename... TExtraOpts&gt; </div>
+template&lt;typename... TOptions&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static constexpr std::size_t <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TExtraOpts &gt;::length </td>
+          <td class="memname">static constexpr std::size_t <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TOptions &gt;::length </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -392,13 +395,13 @@ template&lt;typename... TExtraOpts&gt; </div>
 
 </div>
 </div>
-<a id="a4d1b174ed2fc28c2f53e5909cd51e868" name="a4d1b174ed2fc28c2f53e5909cd51e868"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d1b174ed2fc28c2f53e5909cd51e868">&#9670;&#160;</a></span>length() <span class="overload">[2/2]</span></h2>
+<a id="a0332f5762998244855d39be47c9c9689" name="a0332f5762998244855d39be47c9c9689"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0332f5762998244855d39be47c9c9689">&#9670;&#160;</a></span>length() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename... TExtraOpts&gt; </div>
+template&lt;typename... TOptions&gt; </div>
 <div class="memtemplate">
 template&lt;typename TMsg &gt; </div>
 <table class="mlabels">
@@ -406,7 +409,7 @@ template&lt;typename TMsg &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static constexpr std::size_t <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TExtraOpts &gt;::length </td>
+          <td class="memname">static constexpr std::size_t <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TOptions &gt;::length </td>
           <td>(</td>
           <td class="paramtype">const TMsg &amp;&#160;</td>
           <td class="paramname"><em>msg</em></td><td>)</td>
@@ -421,7 +424,7 @@ template&lt;typename TMsg &gt; </div>
 </div><div class="memdoc">
 
 <p>Get remaining length of wrapping transport information + length of the provided message. </p>
-<p>This function usually gets called when there is a need to identify the size of the buffer required to write provided message wrapped in the transport information. This function is very similar to <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ae9b051620c429925bc12c1795e0eae23" title="Get remaining length of wrapping transport information.">length()</a>, but adds also length of the message. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This function usually gets called when there is a need to identify the size of the buffer required to write provided message wrapped in the transport information. This function is very similar to <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7f15f7d07c7011099eb04024d6f975ea" title="Get remaining length of wrapping transport information.">length()</a>, but adds also length of the message. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">msg</td><td><a class="el" href="classcomms_1_1Message.html" title="Main interface class for all the messages.">Message</a> </td></tr>
   </table>
@@ -431,13 +434,13 @@ template&lt;typename TMsg &gt; </div>
 
 </div>
 </div>
-<a id="a7838982855848f595212549ba8c4ed87" name="a7838982855848f595212549ba8c4ed87"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7838982855848f595212549ba8c4ed87">&#9670;&#160;</a></span>read()</h2>
+<a id="a8628b30f6f9619505cdb8d54ba1b7810" name="a8628b30f6f9619505cdb8d54ba1b7810"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8628b30f6f9619505cdb8d54ba1b7810">&#9670;&#160;</a></span>read()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename... TExtraOpts&gt; </div>
+template&lt;typename... TOptions&gt; </div>
 <div class="memtemplate">
 template&lt;typename TMsg , typename TIter , typename... TExtraValues&gt; </div>
 <table class="mlabels">
@@ -445,7 +448,7 @@ template&lt;typename TMsg , typename TIter , typename... TExtraValues&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TExtraOpts &gt;::read </td>
+          <td class="memname">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TOptions &gt;::read </td>
           <td>(</td>
           <td class="paramtype">TMsg &amp;&#160;</td>
           <td class="paramname"><em>msg</em>, </td>
@@ -482,7 +485,7 @@ template&lt;typename TMsg , typename TIter , typename... TExtraValues&gt; </div>
 </div><div class="memdoc">
 
 <p>Read the message contents. </p>
-<p>Calls the <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7838982855848f595212549ba8c4ed87" title="Read the message contents.">read()</a> member function of the message object. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+<p>Calls the <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a8628b30f6f9619505cdb8d54ba1b7810" title="Read the message contents.">read()</a> member function of the message object. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">TMsg</td><td>Type of the <b>msg</b> parameter. </td></tr>
     <tr><td class="paramname">TIter</td><td>Type of iterator used for reading. </td></tr>
@@ -510,13 +513,13 @@ template&lt;typename TMsg , typename TIter , typename... TExtraValues&gt; </div>
 
 </div>
 </div>
-<a id="ad27c6b31381727bc765daf1e36d98029" name="ad27c6b31381727bc765daf1e36d98029"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad27c6b31381727bc765daf1e36d98029">&#9670;&#160;</a></span>readFieldsCached()</h2>
+<a id="a0d8560c3f1c69ec77b46fe7c06801557" name="a0d8560c3f1c69ec77b46fe7c06801557"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d8560c3f1c69ec77b46fe7c06801557">&#9670;&#160;</a></span>readFieldsCached()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename... TExtraOpts&gt; </div>
+template&lt;typename... TOptions&gt; </div>
 <div class="memtemplate">
 template&lt;typename TAllFields , typename TMsg , typename TIter , typename... TExtraValues&gt; </div>
 <table class="mlabels">
@@ -524,7 +527,7 @@ template&lt;typename TAllFields , typename TMsg , typename TIter , typename... T
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TExtraOpts &gt;::readFieldsCached </td>
+          <td class="memname">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TOptions &gt;::readFieldsCached </td>
           <td>(</td>
           <td class="paramtype">TAllFields &amp;&#160;</td>
           <td class="paramname"><em>allFields</em>, </td>
@@ -567,10 +570,10 @@ template&lt;typename TAllFields , typename TMsg , typename TIter , typename... T
 </div><div class="memdoc">
 
 <p>Read the message contents while caching the read transport information fields. </p>
-<p>Very similar to <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7838982855848f595212549ba8c4ed87" title="Read the message contents.">read()</a> member function, but adds "allFields" parameter to store raw data of the message. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+<p>Very similar to <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a8628b30f6f9619505cdb8d54ba1b7810" title="Read the message contents.">read()</a> member function, but adds "allFields" parameter to store raw data of the message. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">TIdx</td><td>Index of the data field in TAllFields, expected to be last element in the tuple. </td></tr>
-    <tr><td class="paramname">TAllFields</td><td>std::tuple of all the transport fields, must be <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7d76d495ae96c078a9408d0d491f326a">AllFields</a> type defined in the last layer class that defines protocol stack. </td></tr>
+    <tr><td class="paramname">TAllFields</td><td>std::tuple of all the transport fields, must be <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a9aff9a7d47ea8372811d7bad7cb4288b">AllFields</a> type defined in the last layer class that defines protocol stack. </td></tr>
     <tr><td class="paramname">TMsg</td><td>Type of the <b>msg</b> parameter </td></tr>
     <tr><td class="paramname">TIter</td><td>Type of iterator used for reading. </td></tr>
   </table>
@@ -578,7 +581,7 @@ template&lt;typename TAllFields , typename TMsg , typename TIter , typename... T
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">allFields</td><td>Reference to the std::tuple object that wraps all transport fields (<a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7d76d495ae96c078a9408d0d491f326a">AllFields</a> type of the last protocol layer class). </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">allFields</td><td>Reference to the std::tuple object that wraps all transport fields (<a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a9aff9a7d47ea8372811d7bad7cb4288b">AllFields</a> type of the last protocol layer class). </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">msg</td><td>Reference to the smart pointer holding message object or to the message object itself. </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">iter</td><td>Iterator used for reading. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>Number of bytes available for reading. </td></tr>
@@ -596,13 +599,13 @@ template&lt;typename TAllFields , typename TMsg , typename TIter , typename... T
 
 </div>
 </div>
-<a id="a3065aec8e78c1c251118a93542f8610d" name="a3065aec8e78c1c251118a93542f8610d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3065aec8e78c1c251118a93542f8610d">&#9670;&#160;</a></span>readFromData()</h2>
+<a id="a735567d5457a7a973dfcc3938972a932" name="a735567d5457a7a973dfcc3938972a932"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a735567d5457a7a973dfcc3938972a932">&#9670;&#160;</a></span>readFromData()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename... TExtraOpts&gt; </div>
+template&lt;typename... TOptions&gt; </div>
 <div class="memtemplate">
 template&lt;typename TMsg , typename TIter , typename... TExtraValues&gt; </div>
 <table class="mlabels">
@@ -610,7 +613,7 @@ template&lt;typename TMsg , typename TIter , typename... TExtraValues&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TExtraOpts &gt;::readFromData </td>
+          <td class="memname">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TOptions &gt;::readFromData </td>
           <td>(</td>
           <td class="paramtype">TMsg &amp;&#160;</td>
           <td class="paramname"><em>msg</em>, </td>
@@ -646,18 +649,18 @@ template&lt;typename TMsg , typename TIter , typename... TExtraValues&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Same as <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7838982855848f595212549ba8c4ed87">read()</a>. </p>
-<p>Expected to be called by the privous layers to properly finalise read operation after the call to <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a997c59bfed61d55ab3d8105866a08f38">readUntilData()</a>; </p><dl class="section return"><dt>Returns</dt><dd><a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">comms::ErrorStatus::Success</a>; </dd></dl>
+<p>Same as <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a8628b30f6f9619505cdb8d54ba1b7810">read()</a>. </p>
+<p>Expected to be called by the privous layers to properly finalise read operation after the call to <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a8f1c7fe61c09fcd2ddbad076a61f2c79">readUntilData()</a>; </p><dl class="section return"><dt>Returns</dt><dd><a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">comms::ErrorStatus::Success</a>; </dd></dl>
 
 </div>
 </div>
-<a id="a27c2bd52392e9d14555c4711bee9cc3e" name="a27c2bd52392e9d14555c4711bee9cc3e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a27c2bd52392e9d14555c4711bee9cc3e">&#9670;&#160;</a></span>readFromDataFeildsCached()</h2>
+<a id="adaa7eb362a5c801260ad393e78a3eb96" name="adaa7eb362a5c801260ad393e78a3eb96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adaa7eb362a5c801260ad393e78a3eb96">&#9670;&#160;</a></span>readFromDataFeildsCached()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename... TExtraOpts&gt; </div>
+template&lt;typename... TOptions&gt; </div>
 <div class="memtemplate">
 template&lt;typename TAllFields , typename TMsg , typename TIter , typename... TExtraValues&gt; </div>
 <table class="mlabels">
@@ -665,7 +668,7 @@ template&lt;typename TAllFields , typename TMsg , typename TIter , typename... T
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TExtraOpts &gt;::readFromDataFeildsCached </td>
+          <td class="memname">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TOptions &gt;::readFromDataFeildsCached </td>
           <td>(</td>
           <td class="paramtype">TAllFields &amp;&#160;</td>
           <td class="paramname"><em>allFields</em>, </td>
@@ -707,18 +710,18 @@ template&lt;typename TAllFields , typename TMsg , typename TIter , typename... T
 </table>
 </div><div class="memdoc">
 
-<p>Same as <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ad27c6b31381727bc765daf1e36d98029">readFieldsCached()</a>. </p>
-<p>Expected to be called by the privous layers to properly finalise read operation after the call to <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ae45d58655196689af98b797ac080a8a1">readUntilDataFieldsCached()</a>; </p><dl class="section return"><dt>Returns</dt><dd><a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">comms::ErrorStatus::Success</a>; </dd></dl>
+<p>Same as <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a0d8560c3f1c69ec77b46fe7c06801557">readFieldsCached()</a>. </p>
+<p>Expected to be called by the privous layers to properly finalise read operation after the call to <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a68f6544c795522387b8b92c3c3cc4ade">readUntilDataFieldsCached()</a>; </p><dl class="section return"><dt>Returns</dt><dd><a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">comms::ErrorStatus::Success</a>; </dd></dl>
 
 </div>
 </div>
-<a id="a997c59bfed61d55ab3d8105866a08f38" name="a997c59bfed61d55ab3d8105866a08f38"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a997c59bfed61d55ab3d8105866a08f38">&#9670;&#160;</a></span>readUntilData()</h2>
+<a id="a8f1c7fe61c09fcd2ddbad076a61f2c79" name="a8f1c7fe61c09fcd2ddbad076a61f2c79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f1c7fe61c09fcd2ddbad076a61f2c79">&#9670;&#160;</a></span>readUntilData()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename... TExtraOpts&gt; </div>
+template&lt;typename... TOptions&gt; </div>
 <div class="memtemplate">
 template&lt;typename TMsg , typename TIter , typename... TExtraValues&gt; </div>
 <table class="mlabels">
@@ -726,7 +729,7 @@ template&lt;typename TMsg , typename TIter , typename... TExtraValues&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TExtraOpts &gt;::readUntilData </td>
+          <td class="memname">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TOptions &gt;::readUntilData </td>
           <td>(</td>
           <td class="paramtype">TMsg &amp;&#160;</td>
           <td class="paramname"><em>msg</em>, </td>
@@ -767,13 +770,13 @@ template&lt;typename TMsg , typename TIter , typename... TExtraValues&gt; </div>
 
 </div>
 </div>
-<a id="ae45d58655196689af98b797ac080a8a1" name="ae45d58655196689af98b797ac080a8a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae45d58655196689af98b797ac080a8a1">&#9670;&#160;</a></span>readUntilDataFieldsCached()</h2>
+<a id="a68f6544c795522387b8b92c3c3cc4ade" name="a68f6544c795522387b8b92c3c3cc4ade"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68f6544c795522387b8b92c3c3cc4ade">&#9670;&#160;</a></span>readUntilDataFieldsCached()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename... TExtraOpts&gt; </div>
+template&lt;typename... TOptions&gt; </div>
 <div class="memtemplate">
 template&lt;typename TAllFields , typename TMsg , typename TIter , typename... TExtraValues&gt; </div>
 <table class="mlabels">
@@ -781,7 +784,7 @@ template&lt;typename TAllFields , typename TMsg , typename TIter , typename... T
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TExtraOpts &gt;::readUntilDataFieldsCached </td>
+          <td class="memname">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TOptions &gt;::readUntilDataFieldsCached </td>
           <td>(</td>
           <td class="paramtype">TAllFields &amp;&#160;</td>
           <td class="paramname"><em>allFields</em>, </td>
@@ -828,13 +831,13 @@ template&lt;typename TAllFields , typename TMsg , typename TIter , typename... T
 
 </div>
 </div>
-<a id="ace01cbbe59b714cc85660f7ddf473fa5" name="ace01cbbe59b714cc85660f7ddf473fa5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace01cbbe59b714cc85660f7ddf473fa5">&#9670;&#160;</a></span>update() <span class="overload">[1/2]</span></h2>
+<a id="a04c39f4456cff7b386b88580ba691559" name="a04c39f4456cff7b386b88580ba691559"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04c39f4456cff7b386b88580ba691559">&#9670;&#160;</a></span>update() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename... TExtraOpts&gt; </div>
+template&lt;typename... TOptions&gt; </div>
 <div class="memtemplate">
 template&lt;typename TMsg , typename TIter &gt; </div>
 <table class="mlabels">
@@ -842,7 +845,7 @@ template&lt;typename TMsg , typename TIter &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TExtraOpts &gt;::update </td>
+          <td class="memname">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TOptions &gt;::update </td>
           <td>(</td>
           <td class="paramtype">const TMsg &amp;&#160;</td>
           <td class="paramname"><em>msg</em>, </td>
@@ -872,12 +875,12 @@ template&lt;typename TMsg , typename TIter &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Update recently written (using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a935db3ebfbe34f8e7f586f79d26b48ed" title="Write the message contents.">write()</a>) message contents data. </p>
-<p>Same as other <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a01cb43cba733e7823d92488c6de9dbb5">update()</a>, but with extra message parameter/ </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Update recently written (using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7c0e6d5cd07fe0b27f96a2c654ce4da3" title="Write the message contents.">write()</a>) message contents data. </p>
+<p>Same as other <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7dc41a1746b75f637fb46bd7671d4b70">update()</a>, but with extra message parameter/ </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">msg</td><td>Reference to recently writtem message object. </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">iter</td><td>Any random access iterator. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>Number of bytes that have been written using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a935db3ebfbe34f8e7f586f79d26b48ed" title="Write the message contents.">write()</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>Number of bytes that have been written using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7c0e6d5cd07fe0b27f96a2c654ce4da3" title="Write the message contents.">write()</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -885,13 +888,13 @@ template&lt;typename TMsg , typename TIter &gt; </div>
 
 </div>
 </div>
-<a id="a01cb43cba733e7823d92488c6de9dbb5" name="a01cb43cba733e7823d92488c6de9dbb5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01cb43cba733e7823d92488c6de9dbb5">&#9670;&#160;</a></span>update() <span class="overload">[2/2]</span></h2>
+<a id="a7dc41a1746b75f637fb46bd7671d4b70" name="a7dc41a1746b75f637fb46bd7671d4b70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dc41a1746b75f637fb46bd7671d4b70">&#9670;&#160;</a></span>update() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename... TExtraOpts&gt; </div>
+template&lt;typename... TOptions&gt; </div>
 <div class="memtemplate">
 template&lt;typename TIter &gt; </div>
 <table class="mlabels">
@@ -899,7 +902,7 @@ template&lt;typename TIter &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TExtraOpts &gt;::update </td>
+          <td class="memname">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TOptions &gt;::update </td>
           <td>(</td>
           <td class="paramtype">TIter &amp;&#160;</td>
           <td class="paramname"><em>iter</em>, </td>
@@ -923,11 +926,11 @@ template&lt;typename TIter &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Update recently written (using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a935db3ebfbe34f8e7f586f79d26b48ed" title="Write the message contents.">write()</a>) message contents data. </p>
-<p>Sometimes, when NON random access iterator is used for writing (for example std::back_insert_iterator), some transport data cannot be properly written. In this case, <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a935db3ebfbe34f8e7f586f79d26b48ed" title="Write the message contents.">write()</a> function will return <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a618c95bafa9a5e5ab723e10573f3365d">comms::ErrorStatus::UpdateRequired</a>. When such status is returned it is necessary to call <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a01cb43cba733e7823d92488c6de9dbb5" title="Update recently written (using write()) message contents data.">update()</a> with random access iterator on the written buffer to update written dummy information with proper values. This function in this layer does nothing, just advances the iterator by "size". </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Update recently written (using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7c0e6d5cd07fe0b27f96a2c654ce4da3" title="Write the message contents.">write()</a>) message contents data. </p>
+<p>Sometimes, when NON random access iterator is used for writing (for example std::back_insert_iterator), some transport data cannot be properly written. In this case, <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7c0e6d5cd07fe0b27f96a2c654ce4da3" title="Write the message contents.">write()</a> function will return <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a618c95bafa9a5e5ab723e10573f3365d">comms::ErrorStatus::UpdateRequired</a>. When such status is returned it is necessary to call <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7dc41a1746b75f637fb46bd7671d4b70" title="Update recently written (using write()) message contents data.">update()</a> with random access iterator on the written buffer to update written dummy information with proper values. This function in this layer does nothing, just advances the iterator by "size". </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">iter</td><td>Any random access iterator. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>Number of bytes that have been written using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a935db3ebfbe34f8e7f586f79d26b48ed" title="Write the message contents.">write()</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>Number of bytes that have been written using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7c0e6d5cd07fe0b27f96a2c654ce4da3" title="Write the message contents.">write()</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -935,13 +938,13 @@ template&lt;typename TIter &gt; </div>
 
 </div>
 </div>
-<a id="a5e6b3f04f7c7f4825f83bbd3f166e8f6" name="a5e6b3f04f7c7f4825f83bbd3f166e8f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5e6b3f04f7c7f4825f83bbd3f166e8f6">&#9670;&#160;</a></span>updateFieldsCached() <span class="overload">[1/2]</span></h2>
+<a id="a2a2c1488401f12f86cb29f007bcb9263" name="a2a2c1488401f12f86cb29f007bcb9263"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a2c1488401f12f86cb29f007bcb9263">&#9670;&#160;</a></span>updateFieldsCached() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename... TExtraOpts&gt; </div>
+template&lt;typename... TOptions&gt; </div>
 <div class="memtemplate">
 template&lt;typename TAllFields , typename TMsg , typename TIter &gt; </div>
 <table class="mlabels">
@@ -949,7 +952,7 @@ template&lt;typename TAllFields , typename TMsg , typename TIter &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TExtraOpts &gt;::updateFieldsCached </td>
+          <td class="memname">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TOptions &gt;::updateFieldsCached </td>
           <td>(</td>
           <td class="paramtype">TAllFields &amp;&#160;</td>
           <td class="paramname"><em>allFields</em>, </td>
@@ -985,10 +988,10 @@ template&lt;typename TAllFields , typename TMsg , typename TIter &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Update recently written (using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ade1b09931e8153a8b2a6a34f5ec580e6" title="Write the message contents while caching the written transport information fields.">writeFieldsCached()</a>) message data as well as cached transport information fields. </p>
-<p>Very similar to other <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ad5cfb5158062ac054561486107c1731e">updateFieldsCached()</a> member function, but adds "msg" parameter to reference message object if needed. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+<p>Update recently written (using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a29e48d9ccaa0f66d5717d3c9b3041cfe" title="Write the message contents while caching the written transport information fields.">writeFieldsCached()</a>) message data as well as cached transport information fields. </p>
+<p>Very similar to other <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a52ae33b10684b5155284af174555fe88">updateFieldsCached()</a> member function, but adds "msg" parameter to reference message object if needed. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">TAllFields</td><td>std::tuple of all the transport fields, must be <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7d76d495ae96c078a9408d0d491f326a">AllFields</a> type defined in the last layer class that defines protocol stack. </td></tr>
+    <tr><td class="paramname">TAllFields</td><td>std::tuple of all the transport fields, must be <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a9aff9a7d47ea8372811d7bad7cb4288b">AllFields</a> type defined in the last layer class that defines protocol stack. </td></tr>
     <tr><td class="paramname">TMsg</td><td>Type of <b>msg</b> parameter. </td></tr>
     <tr><td class="paramname">TIter</td><td>Type of the random access iterator. </td></tr>
   </table>
@@ -996,10 +999,10 @@ template&lt;typename TAllFields , typename TMsg , typename TIter &gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">allFields</td><td>Reference to the std::tuple object that wraps all transport fields (<a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7d76d495ae96c078a9408d0d491f326a">AllFields</a> type of the last protocol layer class). </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">allFields</td><td>Reference to the std::tuple object that wraps all transport fields (<a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a9aff9a7d47ea8372811d7bad7cb4288b">AllFields</a> type of the last protocol layer class). </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">msg</td><td>Reference to recently written message object. </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">iter</td><td>Random access iterator to the written data. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>Number of bytes that have been written using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ade1b09931e8153a8b2a6a34f5ec580e6" title="Write the message contents while caching the written transport information fields.">writeFieldsCached()</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>Number of bytes that have been written using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a29e48d9ccaa0f66d5717d3c9b3041cfe" title="Write the message contents while caching the written transport information fields.">writeFieldsCached()</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1007,13 +1010,13 @@ template&lt;typename TAllFields , typename TMsg , typename TIter &gt; </div>
 
 </div>
 </div>
-<a id="ad5cfb5158062ac054561486107c1731e" name="ad5cfb5158062ac054561486107c1731e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad5cfb5158062ac054561486107c1731e">&#9670;&#160;</a></span>updateFieldsCached() <span class="overload">[2/2]</span></h2>
+<a id="a52ae33b10684b5155284af174555fe88" name="a52ae33b10684b5155284af174555fe88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52ae33b10684b5155284af174555fe88">&#9670;&#160;</a></span>updateFieldsCached() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename... TExtraOpts&gt; </div>
+template&lt;typename... TOptions&gt; </div>
 <div class="memtemplate">
 template&lt;typename TAllFields , typename TIter &gt; </div>
 <table class="mlabels">
@@ -1021,7 +1024,7 @@ template&lt;typename TAllFields , typename TIter &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TExtraOpts &gt;::updateFieldsCached </td>
+          <td class="memname">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TOptions &gt;::updateFieldsCached </td>
           <td>(</td>
           <td class="paramtype">TAllFields &amp;&#160;</td>
           <td class="paramname"><em>allFields</em>, </td>
@@ -1051,19 +1054,19 @@ template&lt;typename TAllFields , typename TIter &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Update recently written (using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ade1b09931e8153a8b2a6a34f5ec580e6" title="Write the message contents while caching the written transport information fields.">writeFieldsCached()</a>) message data as well as cached transport information fields. </p>
-<p>Very similar to <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a01cb43cba733e7823d92488c6de9dbb5" title="Update recently written (using write()) message contents data.">update()</a> member function, but adds "allFields" parameter to store raw data of the message. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+<p>Update recently written (using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a29e48d9ccaa0f66d5717d3c9b3041cfe" title="Write the message contents while caching the written transport information fields.">writeFieldsCached()</a>) message data as well as cached transport information fields. </p>
+<p>Very similar to <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7dc41a1746b75f637fb46bd7671d4b70" title="Update recently written (using write()) message contents data.">update()</a> member function, but adds "allFields" parameter to store raw data of the message. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">TAllFields</td><td>std::tuple of all the transport fields, must be <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7d76d495ae96c078a9408d0d491f326a">AllFields</a> type defined in the last layer class that defines protocol stack. </td></tr>
+    <tr><td class="paramname">TAllFields</td><td>std::tuple of all the transport fields, must be <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a9aff9a7d47ea8372811d7bad7cb4288b">AllFields</a> type defined in the last layer class that defines protocol stack. </td></tr>
     <tr><td class="paramname">TIter</td><td>Type of the random access iterator. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">allFields</td><td>Reference to the std::tuple object that wraps all transport fields (<a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7d76d495ae96c078a9408d0d491f326a">AllFields</a> type of the last protocol layer class). </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">allFields</td><td>Reference to the std::tuple object that wraps all transport fields (<a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a9aff9a7d47ea8372811d7bad7cb4288b">AllFields</a> type of the last protocol layer class). </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">iter</td><td>Random access iterator to the written data. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>Number of bytes that have been written using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#ade1b09931e8153a8b2a6a34f5ec580e6" title="Write the message contents while caching the written transport information fields.">writeFieldsCached()</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>Number of bytes that have been written using <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a29e48d9ccaa0f66d5717d3c9b3041cfe" title="Write the message contents while caching the written transport information fields.">writeFieldsCached()</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1071,13 +1074,13 @@ template&lt;typename TAllFields , typename TIter &gt; </div>
 
 </div>
 </div>
-<a id="a935db3ebfbe34f8e7f586f79d26b48ed" name="a935db3ebfbe34f8e7f586f79d26b48ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a935db3ebfbe34f8e7f586f79d26b48ed">&#9670;&#160;</a></span>write()</h2>
+<a id="a7c0e6d5cd07fe0b27f96a2c654ce4da3" name="a7c0e6d5cd07fe0b27f96a2c654ce4da3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c0e6d5cd07fe0b27f96a2c654ce4da3">&#9670;&#160;</a></span>write()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename... TExtraOpts&gt; </div>
+template&lt;typename... TOptions&gt; </div>
 <div class="memtemplate">
 template&lt;typename TMsg , typename TIter &gt; </div>
 <table class="mlabels">
@@ -1085,7 +1088,7 @@ template&lt;typename TMsg , typename TIter &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TExtraOpts &gt;::write </td>
+          <td class="memname">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TOptions &gt;::write </td>
           <td>(</td>
           <td class="paramtype">const TMsg &amp;&#160;</td>
           <td class="paramname"><em>msg</em>, </td>
@@ -1116,7 +1119,7 @@ template&lt;typename TMsg , typename TIter &gt; </div>
 </div><div class="memdoc">
 
 <p>Write the message contents. </p>
-<p>The way the message contents are written is determined by the type of the message. If TMsg type is recognised to be actual message inheriting from <a class="el" href="classcomms_1_1MessageBase.html" title="Base class for all the custom protocol messages.">comms::MessageBase</a> with its fields provided using <a class="el" href="structcomms_1_1option_1_1def_1_1FieldsImpl.html">comms::option::def::FieldsImpl</a> option, the function calls <b>doWrite</b> non-virtual function defined by <a class="el" href="classcomms_1_1MessageBase.html" title="Base class for all the custom protocol messages.">comms::MessageBase</a> (see <a class="el" href="classcomms_1_1MessageBase.html#a79e5ec00e39ff64c5f9208813f270468" title="Default implementation of write functionality.">comms::MessageBase::doWrite</a>) or redefined by the actual message itself. Otherwise, TMsg type is expected to be the used interface which allows polymorphic write functionality. It must define <b><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a935db3ebfbe34f8e7f586f79d26b48ed" title="Write the message contents.">write()</a></b> member function which will be called. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+<p>The way the message contents are written is determined by the type of the message. If TMsg type is recognised to be actual message inheriting from <a class="el" href="classcomms_1_1MessageBase.html" title="Base class for all the custom protocol messages.">comms::MessageBase</a> with its fields provided using <a class="el" href="structcomms_1_1option_1_1def_1_1FieldsImpl.html">comms::option::def::FieldsImpl</a> option, the function calls <b>doWrite</b> non-virtual function defined by <a class="el" href="classcomms_1_1MessageBase.html" title="Base class for all the custom protocol messages.">comms::MessageBase</a> (see <a class="el" href="classcomms_1_1MessageBase.html#a79e5ec00e39ff64c5f9208813f270468" title="Default implementation of write functionality.">comms::MessageBase::doWrite</a>) or redefined by the actual message itself. Otherwise, TMsg type is expected to be the used interface which allows polymorphic write functionality. It must define <b><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7c0e6d5cd07fe0b27f96a2c654ce4da3" title="Write the message contents.">write()</a></b> member function which will be called. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">TMsg</td><td>Type of the message. </td></tr>
     <tr><td class="paramname">TIter</td><td>Type of the iterator used for writing. </td></tr>
@@ -1135,13 +1138,13 @@ template&lt;typename TMsg , typename TIter &gt; </div>
 
 </div>
 </div>
-<a id="ade1b09931e8153a8b2a6a34f5ec580e6" name="ade1b09931e8153a8b2a6a34f5ec580e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ade1b09931e8153a8b2a6a34f5ec580e6">&#9670;&#160;</a></span>writeFieldsCached()</h2>
+<a id="a29e48d9ccaa0f66d5717d3c9b3041cfe" name="a29e48d9ccaa0f66d5717d3c9b3041cfe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29e48d9ccaa0f66d5717d3c9b3041cfe">&#9670;&#160;</a></span>writeFieldsCached()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename... TExtraOpts&gt; </div>
+template&lt;typename... TOptions&gt; </div>
 <div class="memtemplate">
 template&lt;typename TAllFields , typename TMsg , typename TIter &gt; </div>
 <table class="mlabels">
@@ -1149,7 +1152,7 @@ template&lt;typename TAllFields , typename TMsg , typename TIter &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TExtraOpts &gt;::writeFieldsCached </td>
+          <td class="memname">static <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">comms::protocol::MsgDataLayer</a>&lt; TOptions &gt;::writeFieldsCached </td>
           <td>(</td>
           <td class="paramtype">TAllFields &amp;&#160;</td>
           <td class="paramname"><em>allFields</em>, </td>
@@ -1186,9 +1189,9 @@ template&lt;typename TAllFields , typename TMsg , typename TIter &gt; </div>
 </div><div class="memdoc">
 
 <p>Write the message contents while caching the written transport information fields. </p>
-<p>Very similar to <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a935db3ebfbe34f8e7f586f79d26b48ed" title="Write the message contents.">write()</a> member function, but adds "allFields" parameter to store raw data of the message. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+<p>Very similar to <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7c0e6d5cd07fe0b27f96a2c654ce4da3" title="Write the message contents.">write()</a> member function, but adds "allFields" parameter to store raw data of the message. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">TAllFields</td><td>std::tuple of all the transport fields, must be <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7d76d495ae96c078a9408d0d491f326a">AllFields</a> type defined in the last layer class that defines protocol stack. </td></tr>
+    <tr><td class="paramname">TAllFields</td><td>std::tuple of all the transport fields, must be <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a9aff9a7d47ea8372811d7bad7cb4288b">AllFields</a> type defined in the last layer class that defines protocol stack. </td></tr>
     <tr><td class="paramname">TMsg</td><td>Type of the message. </td></tr>
     <tr><td class="paramname">TIter</td><td>Type of the iterator used for writing. </td></tr>
   </table>
@@ -1196,7 +1199,7 @@ template&lt;typename TAllFields , typename TMsg , typename TIter &gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">allFields</td><td>Reference to the std::tuple object that wraps all transport fields (<a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a7d76d495ae96c078a9408d0d491f326a">AllFields</a> type of the last protocol layer class). </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">allFields</td><td>Reference to the std::tuple object that wraps all transport fields (<a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html#a9aff9a7d47ea8372811d7bad7cb4288b">AllFields</a> type of the last protocol layer class). </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">msg</td><td>Reference to the message object that is being written, </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">iter</td><td>Iterator used for writing. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>Max number of bytes that can be written. </td></tr>

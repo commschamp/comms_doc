@@ -18,5 +18,6 @@ var searchData=
   ['sizefieldprefix_15',['sizefieldprefix',['../classcomms_1_1field_1_1String.html#ad71d73236fe0dff52e2fd11d02496dd3',1,'comms::field::String::SizeFieldPrefix'],['../classcomms_1_1field_1_1ArrayList.html#a8f342e8225cf41b961c5f594c4dfdf60',1,'comms::field::ArrayList::SizeFieldPrefix']]],
   ['sizetype_16',['sizetype',['../classcomms_1_1util_1_1StringView.html#a9a6fefe796b49bc3d0523921846342e2',1,'comms::util::StringView::SizeType'],['../classcomms_1_1util_1_1ArrayView.html#ab29fa93d7924f9386726f8f4d74d0e38',1,'comms::util::ArrayView::SizeType']]],
   ['staticnumidimpl_17',['StaticNumIdImpl',['../namespacecomms_1_1option.html#a0e19955969651bddc7f15fccca6bb0ee',1,'comms::option']]],
-  ['supportgenericmessage_18',['SupportGenericMessage',['../namespacecomms_1_1option.html#a0e4955bf8c2932a47cfd4dedd0c6a3f8',1,'comms::option']]]
+  ['supportgenericmessage_18',['SupportGenericMessage',['../namespacecomms_1_1option.html#a0e4955bf8c2932a47cfd4dedd0c6a3f8',1,'comms::option']]],
+  ['syncprefixlayer_19',['SyncPrefixLayer',['../namespacecomms_1_1protocol.html#a6962a5b695448b796e01d7cdde851ae8',1,'comms::protocol']]]
 ];

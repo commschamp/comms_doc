@@ -135,7 +135,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">constexpr</span> std::size_t length()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keywordflow">return</span> trailField_.length() + BaseImpl::length();</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keywordflow">return</span> m_trailField.length() + BaseImpl::length();</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    }</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> std::size_t minLength()</div>
@@ -150,7 +150,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordtype">bool</span> valid()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keywordflow">return</span> trailField_.valid() &amp;&amp; BaseImpl::valid();</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keywordflow">return</span> m_trailField.valid() &amp;&amp; BaseImpl::valid();</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    }</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TIter&gt;</div>
@@ -161,7 +161,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            <span class="keywordflow">return</span> es;</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        }</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keywordflow">return</span> trailField_.read(iter, len - BaseImpl::length());</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keywordflow">return</span> m_trailField.read(iter, len - BaseImpl::length());</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    }</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> hasReadNoStatus()</div>
@@ -175,24 +175,24 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TIter&gt;</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <a class="code hl_enumeration" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a> write(TIter&amp; iter, std::size_t len)<span class="keyword"> const</span></div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keyword">auto</span> trailLen = trailField_.length();</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keyword">auto</span> trailLen = m_trailField.length();</div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <span class="keyword">auto</span> es = BaseImpl::write(iter, len - trailLen);</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="keywordflow">if</span> (es != <a class="code hl_enumvalue" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">comms::ErrorStatus::Success</a>) {</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            <span class="keywordflow">return</span> es;</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        }</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="keywordflow">return</span> trailField_.write(iter, trailLen);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="keywordflow">return</span> m_trailField.write(iter, trailLen);</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    }</div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TIter&gt;</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordtype">void</span> writeNoStatus(TIter&amp; iter)<span class="keyword"> const</span></div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="keyword">    </span>{</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        BaseImpl::writeNoStatus(iter);</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        trailField_.writeNoStatus(iter);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        m_trailField.writeNoStatus(iter);</div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    }</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    TrailField trailField_;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    TrailField m_trailField;</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>};</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>}  <span class="comment">// namespace adapter</span></div>
@@ -206,7 +206,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
 <div class="ttc" id="aAssert_8h_html"><div class="ttname"><a href="Assert_8h.html">Assert.h</a></div><div class="ttdoc">This file contains classes required for generic custom assertion functionality.</div></div>
 <div class="ttc" id="aErrorStatus_8h_html"><div class="ttname"><a href="ErrorStatus_8h.html">ErrorStatus.h</a></div><div class="ttdoc">This file contain definition of error statuses used by comms module.</div></div>
-<div class="ttc" id="anamespacecomms_1_1option_html_a01a04b39a419f4cb5f30f1a5680744a5"><div class="ttname"><a href="namespacecomms_1_1option.html#a01a04b39a419f4cb5f30f1a5680744a5">comms::option::SequenceTrailingFieldSuffix</a></div><div class="ttdeci">comms::option::def::SequenceTrailingFieldSuffix&lt; TField &gt; SequenceTrailingFieldSuffix</div><div class="ttdoc">Same as comms::option::def::SequenceTrailingFieldSuffix.</div><div class="ttdef"><b>Definition</b> options.h:1540</div></div>
+<div class="ttc" id="anamespacecomms_1_1option_html_a01a04b39a419f4cb5f30f1a5680744a5"><div class="ttname"><a href="namespacecomms_1_1option.html#a01a04b39a419f4cb5f30f1a5680744a5">comms::option::SequenceTrailingFieldSuffix</a></div><div class="ttdeci">comms::option::def::SequenceTrailingFieldSuffix&lt; TField &gt; SequenceTrailingFieldSuffix</div><div class="ttdoc">Same as comms::option::def::SequenceTrailingFieldSuffix.</div><div class="ttdef"><b>Definition</b> options.h:1577</div></div>
 <div class="ttc" id="anamespacecomms_html"><div class="ttname"><a href="namespacecomms.html">comms</a></div><div class="ttdoc">Main namespace for all classes / functions of COMMS library.</div></div>
 <div class="ttc" id="anamespacecomms_html_a0a259a03d68bce98b4a129fb34aaa2e1"><div class="ttname"><a href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a></div><div class="ttdeci">ErrorStatus</div><div class="ttdoc">Error statuses reported by the Communication module.</div><div class="ttdef"><b>Definition</b> ErrorStatus.h:17</div></div>
 <div class="ttc" id="anamespacecomms_html_a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38"><div class="ttname"><a href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">comms::ErrorStatus::Success</a></div><div class="ttdeci">@ Success</div><div class="ttdoc">Used to indicate successful outcome of the operation.</div></div>

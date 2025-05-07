@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>COMMS: Defining Custom Checksum Protocol Stack Layer</title>
+<title>COMMS: Defining Custom Checksum Frame Layer</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -70,12 +70,12 @@ $(function() {
 
 </div><!-- top -->
 <div><div class="header">
-  <div class="headertitle"><div class="title">Defining Custom Checksum Protocol Stack Layer</div></div>
+  <div class="headertitle"><div class="title">Defining Custom Checksum Frame Layer</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>The <b>COMMS</b> library provides default <a class="el" href="classcomms_1_1protocol_1_1ChecksumLayer.html">comms::protocol::ChecksumLayer</a> and <a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html">comms::protocol::ChecksumPrefixLayer</a> protocol stack layer to handle transport framing checksum. However, they may be insufficient (or incorrect) for some particular use cases. For example the protocol may support multiple checksum algorithms usage of which is determined at runtime. The <a class="el" href="page_prot_stack_tutorial.html#page_prot_stack_tutorial_new_layers">Implementing New Layers</a> section of the <a class="el" href="page_prot_stack_tutorial.html">Protocol Stack Definition Tutorial</a> page explains how to define new (custom) protocol layer.</p>
-<p>However, since <b>v3.2</b> COMMS library provides an ability to extend the existing definition of <a class="el" href="classcomms_1_1protocol_1_1ChecksumLayer.html">comms::protocol::ChecksumLayer</a> as well as <a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html">comms::protocol::ChecksumPrefixLayer</a> and customize some bits and pieces. Let's implement the mentioned above example of supporting multiple checksum algorithms.</p>
-<p>This tutorial page focuses on the customization of <a class="el" href="classcomms_1_1protocol_1_1ChecksumLayer.html">comms::protocol::ChecksumLayer</a>, but all the listed customization points are also applicable to <a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html">comms::protocol::ChecksumPrefixLayer</a>.</p>
+<div class="textblock"><p>The <b>COMMS</b> library provides default <a class="el" href="classcomms_1_1frame_1_1ChecksumLayer.html">comms::frame::ChecksumLayer</a> and <a class="el" href="classcomms_1_1frame_1_1ChecksumPrefixLayer.html">comms::frame::ChecksumPrefixLayer</a> frame layer to handle transport framing checksum. However, they may be insufficient (or incorrect) for some particular use cases. For example the protocol may support multiple checksum algorithms usage of which is determined at runtime. The <a class="el" href="page_frame_tutorial.html#page_frame_tutorial_new_layers">Implementing New Layers</a> section of the <a class="el" href="page_frame_tutorial.html">Frame Definition Tutorial</a> page explains how to define new (custom) protocol layer.</p>
+<p>However, since <b>v3.2</b> COMMS library provides an ability to extend the existing definition of <a class="el" href="classcomms_1_1frame_1_1ChecksumLayer.html">comms::frame::ChecksumLayer</a> as well as <a class="el" href="classcomms_1_1frame_1_1ChecksumPrefixLayer.html">comms::frame::ChecksumPrefixLayer</a> and customize some bits and pieces. Let's implement the mentioned above example of supporting multiple checksum algorithms.</p>
+<p>This tutorial page focuses on the customization of <a class="el" href="classcomms_1_1frame_1_1ChecksumLayer.html">comms::frame::ChecksumLayer</a>, but all the listed customization points are also applicable to <a class="el" href="classcomms_1_1frame_1_1ChecksumPrefixLayer.html">comms::frame::ChecksumPrefixLayer</a>.</p>
 <p>For this example the protocol framing is defined to be </p><div class="fragment"><div class="line">SIZE | ID | CHECKSUM_TYPE | PAYLOAD | CHECKSUM</div>
 </div><!-- fragment --><p>First of all let's define the <a class="el" href="page_define_prot.html#page_define_prot_interface">Common Interface Class</a>, which holds the checksum type information as data member of every message object. </p><div class="fragment"><div class="line"><span class="keyword">namespace </span>my_prot</div>
 <div class="line">{</div>
@@ -130,11 +130,11 @@ $(function() {
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line">} <span class="comment">// namespace my_prot</span></div>
-<div class="ttc" id="aclasscomms_1_1Message_html"><div class="ttname"><a href="classcomms_1_1Message.html">comms::Message</a></div><div class="ttdoc">Main interface class for all the messages.</div><div class="ttdef"><b>Definition</b> Message.h:80</div></div>
+<div class="ttc" id="aclasscomms_1_1Message_html"><div class="ttname"><a href="classcomms_1_1Message.html">comms::Message</a></div><div class="ttdoc">Main interface class for all the messages.</div><div class="ttdef"><b>Definition</b> Message.h:79</div></div>
 <div class="ttc" id="aclasscomms_1_1field_1_1EnumValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1EnumValue.html">comms::field::EnumValue</a></div><div class="ttdoc">Enumerator value field.</div><div class="ttdef"><b>Definition</b> EnumValue.h:75</div></div>
 </div><!-- fragment --><p> Just to refresh the reader's memory: the usage of COMMS_MSG_TRANSPORT_FIELDS_NAMES() macro for the interface definition will generate <b>transportField_checksumType()</b> convenience member function to access the stored checksum type field.</p>
-<p>When implementing the transport framing (protocol stack) the handling of <code>CHECKSUM_TYPE</code> can be done using regular <a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html">comms::protocol::TransportValueLayer</a> (see <a class="el" href="page_prot_stack_tutorial.html#page_prot_stack_tutorial_transport_value">Extra Transport Values</a>).</p>
-<p>Now it's time to actually extend the provided definition of the <a class="el" href="classcomms_1_1protocol_1_1ChecksumLayer.html">comms::protocol::ChecksumLayer</a> and support usage of multiple checksum algorithms. </p><div class="fragment"><div class="line"><span class="keyword">namespace </span>my_prot</div>
+<p>When implementing the transport framing the handling of <code>CHECKSUM_TYPE</code> can be done using regular <a class="el" href="classcomms_1_1frame_1_1TransportValueLayer.html">comms::frame::TransportValueLayer</a> (see <a class="el" href="page_frame_tutorial.html#page_frame_tutorial_transport_value">Extra Transport Values</a>).</p>
+<p>Now it's time to actually extend the provided definition of the <a class="el" href="classcomms_1_1frame_1_1ChecksumLayer.html">comms::frame::ChecksumLayer</a> and support usage of multiple checksum algorithms. </p><div class="fragment"><div class="line"><span class="keyword">namespace </span>my_prot</div>
 <div class="line">{</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Field to contain all possible checksums</span></div>
@@ -142,17 +142,17 @@ $(function() {
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> TNextLayer&gt;</div>
 <div class="line"><span class="keyword">class </span>MyChecksumLayer : <span class="keyword">public</span></div>
-<div class="line">    <a class="code hl_class" href="classcomms_1_1protocol_1_1ChecksumLayer.html">comms::protocol::ChecksumLayer</a>&lt;</div>
+<div class="line">    <a class="code hl_class" href="classcomms_1_1frame_1_1ChecksumLayer.html">comms::frame::ChecksumLayer</a>&lt;</div>
 <div class="line">        ChecksumField,   </div>
-<div class="line">        comms::protocol::checksum::Crc_32, <span class="comment">// Not really important for this example, </span></div>
+<div class="line">        comms::frame::checksum::Crc_32, <span class="comment">// Not really important for this example, </span></div>
 <div class="line">                                           <span class="comment">// but template parameter type needs to be populated</span></div>
-<div class="line">        TNextLayer,          <span class="comment">// Next layer in the protocol stack</span></div>
+<div class="line">        TNextLayer,          <span class="comment">// Next layer in the frame</span></div>
 <div class="line">        comms::option::def::ExtendingClass&lt;MyChecksumLayer&lt;TNextLayer&gt; &gt;</div>
-<div class="line">                             <span class="comment">// Make the comms::protocol::ChecksumLayer aware of it being extended</span></div>
+<div class="line">                             <span class="comment">// Make the comms::frame::ChecksumLayer aware of it being extended</span></div>
 <div class="line">    &gt;</div>
 <div class="line">{</div>
 <div class="line">    <span class="comment">// Repeat definition of the base class</span></div>
-<div class="line">    <span class="keyword">using </span>Base = <a class="code hl_class" href="classcomms_1_1protocol_1_1ChecksumLayer.html">comms::protocol::ChecksumLayer</a>&lt;...&gt;;</div>
+<div class="line">    <span class="keyword">using </span>Base = <a class="code hl_class" href="classcomms_1_1frame_1_1ChecksumLayer.html">comms::frame::ChecksumLayer</a>&lt;...&gt;;</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">public</span>:</div>
 <div class="line">    <span class="comment">// Repeat types defined in the base class (not visible by default)</span></div>
@@ -170,17 +170,17 @@ $(function() {
 <div class="line">        checksumValid = <span class="keyword">true</span>;</div>
 <div class="line">        <span class="keyword">auto</span> checksumType = msgPtr-&gt;transportField_checksumType().value();</div>
 <div class="line">        <span class="keywordflow">if</span> (checksumType == ChecksumTypeVal::Sum8) {</div>
-<div class="line">            <span class="keyword">using </span>Calc = <a class="code hl_class" href="classcomms_1_1protocol_1_1checksum_1_1BasicSum.html">comms::protocol::checksum::BasicSum&lt;std::uint8_t&gt;</a>;</div>
+<div class="line">            <span class="keyword">using </span>Calc = <a class="code hl_class" href="classcomms_1_1frame_1_1checksum_1_1BasicSum.html">comms::frame::checksum::BasicSum&lt;std::uint8_t&gt;</a>;</div>
 <div class="line">            <span class="keywordflow">return</span> Calc()(iter, len);</div>
 <div class="line">        }</div>
 <div class="line">    </div>
 <div class="line">        <span class="keywordflow">if</span> (checksumType == ChecksumType::Crc16) {</div>
-<div class="line">            <span class="keyword">using </span>Calc = <a class="code hl_typedef" href="namespacecomms_1_1protocol_1_1checksum.html#a40866f16d03791ddeebafa2b2287f101">comms::protocol::checksum::Crc_16</a>;</div>
+<div class="line">            <span class="keyword">using </span>Calc = <a class="code hl_typedef" href="namespacecomms_1_1frame_1_1checksum.html#ae8e68695bc0a4cf2cde46cca4520ab91">comms::frame::checksum::Crc_16</a>;</div>
 <div class="line">            <span class="keywordflow">return</span> Calc()(iter, len);</div>
 <div class="line">        }        </div>
 <div class="line">    </div>
 <div class="line">        <span class="keywordflow">if</span> (checksumType == ChecksumType::Crc32) {</div>
-<div class="line">            <span class="keyword">using </span>Calc = <a class="code hl_typedef" href="namespacecomms_1_1protocol_1_1checksum.html#a3877d2bb529ba93830246551bee656fb">comms::protocol::checksum::Crc_32</a>;</div>
+<div class="line">            <span class="keyword">using </span>Calc = <a class="code hl_typedef" href="namespacecomms_1_1frame_1_1checksum.html#af25193336557bede76b349e3adf0cebb">comms::frame::checksum::Crc_32</a>;</div>
 <div class="line">            <span class="keywordflow">return</span> Calc()(iter, len);</div>
 <div class="line">        }        </div>
 <div class="line">    </div>
@@ -289,38 +289,38 @@ $(function() {
 <div class="ttc" id="aAssert_8h_html_a941aec86290602caa61d86b671aea550"><div class="ttname"><a href="Assert_8h.html#a941aec86290602caa61d86b671aea550">COMMS_ASSERT</a></div><div class="ttdeci">#define COMMS_ASSERT(expr)</div><div class="ttdoc">Generic assert macro.</div><div class="ttdef"><b>Definition</b> Assert.h:170</div></div>
 <div class="ttc" id="aclasscomms_1_1field_1_1IntValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1IntValue.html">comms::field::IntValue</a></div><div class="ttdoc">Field that represent integral value.</div><div class="ttdef"><b>Definition</b> IntValue.h:75</div></div>
 <div class="ttc" id="aclasscomms_1_1field_1_1IntValue_html_ab258d5bbd1e5ed5dc1a2840e24d09781"><div class="ttname"><a href="classcomms_1_1field_1_1IntValue.html#ab258d5bbd1e5ed5dc1a2840e24d09781">comms::field::IntValue::read</a></div><div class="ttdeci">ErrorStatus read(TIter &amp;iter, std::size_t size)</div><div class="ttdoc">Read field value from input data sequence.</div><div class="ttdef"><b>Definition</b> IntValue.h:346</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1ChecksumLayer_html"><div class="ttname"><a href="classcomms_1_1protocol_1_1ChecksumLayer.html">comms::protocol::ChecksumLayer</a></div><div class="ttdoc">Protocol layer that is responsible to calculate checksum on the data written by all the wrapped inter...</div><div class="ttdef"><b>Definition</b> ChecksumLayer.h:73</div></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1checksum_1_1BasicSum_html"><div class="ttname"><a href="classcomms_1_1protocol_1_1checksum_1_1BasicSum.html">comms::protocol::checksum::BasicSum</a></div><div class="ttdoc">Summary of all bytes checksum calculator.</div><div class="ttdef"><b>Definition</b> BasicSum.h:32</div></div>
-<div class="ttc" id="anamespacecomms_1_1protocol_1_1checksum_html_a3877d2bb529ba93830246551bee656fb"><div class="ttname"><a href="namespacecomms_1_1protocol_1_1checksum.html#a3877d2bb529ba93830246551bee656fb">comms::protocol::checksum::Crc_32</a></div><div class="ttdeci">Crc&lt; std::uint32_t, 0x04c11db7, 0xffffffff, 0xffffffff, true, true &gt; Crc_32</div><div class="ttdoc">Alias to Crc checksum calculator for standard CRC-32.</div><div class="ttdef"><b>Definition</b> Crc.h:399</div></div>
-<div class="ttc" id="anamespacecomms_1_1protocol_1_1checksum_html_a40866f16d03791ddeebafa2b2287f101"><div class="ttname"><a href="namespacecomms_1_1protocol_1_1checksum.html#a40866f16d03791ddeebafa2b2287f101">comms::protocol::checksum::Crc_16</a></div><div class="ttdeci">Crc&lt; std::uint16_t, 0x8005, 0, 0, true, true &gt; Crc_16</div><div class="ttdoc">Alias to Crc checksum calculator for standard CRC-16.</div><div class="ttdef"><b>Definition</b> Crc.h:389</div></div>
+<div class="ttc" id="aclasscomms_1_1frame_1_1ChecksumLayer_html"><div class="ttname"><a href="classcomms_1_1frame_1_1ChecksumLayer.html">comms::frame::ChecksumLayer</a></div><div class="ttdoc">Protocol layer that is responsible to calculate checksum on the data written by all the wrapped inter...</div><div class="ttdef"><b>Definition</b> ChecksumLayer.h:64</div></div>
+<div class="ttc" id="aclasscomms_1_1frame_1_1checksum_1_1BasicSum_html"><div class="ttname"><a href="classcomms_1_1frame_1_1checksum_1_1BasicSum.html">comms::frame::checksum::BasicSum</a></div><div class="ttdoc">Summary of all bytes checksum calculator.</div><div class="ttdef"><b>Definition</b> BasicSum.h:32</div></div>
+<div class="ttc" id="anamespacecomms_1_1frame_1_1checksum_html_ae8e68695bc0a4cf2cde46cca4520ab91"><div class="ttname"><a href="namespacecomms_1_1frame_1_1checksum.html#ae8e68695bc0a4cf2cde46cca4520ab91">comms::frame::checksum::Crc_16</a></div><div class="ttdeci">Crc&lt; std::uint16_t, 0x8005, 0, 0, true, true &gt; Crc_16</div><div class="ttdoc">Alias to Crc checksum calculator for standard CRC-16.</div><div class="ttdef"><b>Definition</b> Crc.h:391</div></div>
+<div class="ttc" id="anamespacecomms_1_1frame_1_1checksum_html_af25193336557bede76b349e3adf0cebb"><div class="ttname"><a href="namespacecomms_1_1frame_1_1checksum.html#af25193336557bede76b349e3adf0cebb">comms::frame::checksum::Crc_32</a></div><div class="ttdeci">Crc&lt; std::uint32_t, 0x04c11db7, 0xffffffff, 0xffffffff, true, true &gt; Crc_32</div><div class="ttdoc">Alias to Crc checksum calculator for standard CRC-32.</div><div class="ttdef"><b>Definition</b> Crc.h:401</div></div>
 <div class="ttc" id="anamespacecomms_html_a0a259a03d68bce98b4a129fb34aaa2e1"><div class="ttname"><a href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">comms::ErrorStatus</a></div><div class="ttdeci">ErrorStatus</div><div class="ttdoc">Error statuses reported by the Communication module.</div><div class="ttdef"><b>Definition</b> ErrorStatus.h:17</div></div>
 <div class="ttc" id="anamespacecomms_html_a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38"><div class="ttname"><a href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">comms::ErrorStatus::Success</a></div><div class="ttdeci">@ Success</div><div class="ttdoc">Used to indicate successful outcome of the operation.</div></div>
 <div class="ttc" id="anamespacecomms_html_a0a259a03d68bce98b4a129fb34aaa2e1aca3da8f495e4e628912a7798655da6c2"><div class="ttname"><a href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1aca3da8f495e4e628912a7798655da6c2">comms::ErrorStatus::ProtocolError</a></div><div class="ttdeci">@ ProtocolError</div></div>
-</div><!-- fragment --><p> The <a class="el" href="classcomms_1_1protocol_1_1ChecksumLayer.html">comms::protocol::ChecksumLayer</a> doesn't have any virtual functions and as the result not able to provide any polymorphic behavior. In order to be able to extend its default functionality there is a need to use <a href="https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern">Curiously Recurring Template Pattern</a>. It is done by passing <a class="el" href="structcomms_1_1option_1_1def_1_1ExtendingClass.html">comms::option::def::ExtendingClass</a> extension option with the type of the layer class being defined to the <a class="el" href="classcomms_1_1protocol_1_1ChecksumLayer.html">comms::protocol::ChecksumLayer</a>.</p>
+</div><!-- fragment --><p> The <a class="el" href="classcomms_1_1frame_1_1ChecksumLayer.html">comms::frame::ChecksumLayer</a> doesn't have any virtual functions and as the result not able to provide any polymorphic behavior. In order to be able to extend its default functionality there is a need to use <a href="https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern">Curiously Recurring Template Pattern</a>. It is done by passing <a class="el" href="structcomms_1_1option_1_1def_1_1ExtendingClass.html">comms::option::def::ExtendingClass</a> extension option with the type of the layer class being defined to the <a class="el" href="classcomms_1_1frame_1_1ChecksumLayer.html">comms::frame::ChecksumLayer</a>.</p>
 <p>The extending class can customize the default behavior by overriding the listed below functions. They do not necessarily need to be <b>static</b>, accessing inner private state of the layer object is also acceptable. </p><ul>
-<li><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a7050fb0df8e4efc8cc3e35214436fe55">doReadField()</a> - Member function that is invoked to read field's value. </li>
-<li><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a2a7d913a4c2d569ce9c0842b9e16a0cb">doWriteField()</a> - Member function that is invoked to write field's value. </li>
-<li><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a8e86bd01b3f9a678e22ec65251d98d07">doFieldLength()</a> - Member function that is invoked to calculate serialization length of the field. </li>
-<li><a class="el" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a19057f47fb139a102819ef3635dde158">calculateChecksum()</a> - Member function that is responsible to calculate a checksum on provided range. </li>
-<li><a class="el" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a54b3ac3ac17cd2cc75abd9083099f8dc">getChecksumFromField()</a> - Retrieve value of the checksum from the field. </li>
-<li><a class="el" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a71694d6ba3b64ed362f869993b4230f6">prepareFieldForWrite()</a> - Assign the calculated checksum value to the field's value.</li>
+<li><a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html#ac4c4e7ddfbadca13b1fb358dfce0c25a">doReadField()</a> - Member function that is invoked to read field's value. </li>
+<li><a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html#a7022da54d93eb0dcaca71c525e899a3c">doWriteField()</a> - Member function that is invoked to write field's value. </li>
+<li><a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html#a20fcccc4a966bdfb70110ba0007c6b15">doFieldLength()</a> - Member function that is invoked to calculate serialization length of the field. </li>
+<li><a class="el" href="classcomms_1_1frame_1_1ChecksumLayer.html#a2d4eaab6127013a0bb862f7339a14772">calculateChecksum()</a> - Member function that is responsible to calculate a checksum on provided range. </li>
+<li><a class="el" href="classcomms_1_1frame_1_1ChecksumLayer.html#a4a7ab6589ef487e4cacdcaf5e3b5084c">getChecksumFromField()</a> - Retrieve value of the checksum from the field. </li>
+<li><a class="el" href="classcomms_1_1frame_1_1ChecksumLayer.html#a2e71fade449c4b780816b9ea89ad3b7c">prepareFieldForWrite()</a> - Assign the calculated checksum value to the field's value.</li>
 </ul>
-<p>The newly defined custom protocol stack layer can be used instead of <a class="el" href="classcomms_1_1protocol_1_1ChecksumLayer.html">comms::protocol::ChecksumLayer</a> when defining <a class="el" href="page_prot_stack_tutorial.html">protocol stack</a> (framing) of the protocol. For example: </p><div class="fragment"><div class="line"><span class="keyword">namespace </span>my_prot</div>
+<p>The newly defined custom frame layer can be used instead of <a class="el" href="classcomms_1_1frame_1_1ChecksumLayer.html">comms::frame::ChecksumLayer</a> when defining <a class="el" href="page_frame_tutorial.html">framing</a> of the protocol. For example: </p><div class="fragment"><div class="line"><span class="keyword">namespace </span>my_prot</div>
 <div class="line">{</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMessage, <span class="keyword">typename</span> TAllMessages&gt;</div>
 <div class="line"><span class="keyword">struct </span>Frame1 : <span class="keyword">public</span> </div>
 <div class="line">    MyChecksumLayer&lt;                                     <span class="comment">// CHECKSUM</span></div>
-<div class="line">        comms::protocol::MsgSizeLayer&lt;                   <span class="comment">// SIZE</span></div>
+<div class="line">        comms::frame::MsgSizeLayer&lt;                   <span class="comment">// SIZE</span></div>
 <div class="line">            common::field::IntValue&lt;FieldBase, std::uint16_t&gt;,</div>
-<div class="line">            comms::protocol::MsgIdLayer&lt;                 <span class="comment">// ID</span></div>
+<div class="line">            comms::frame::MsgIdLayer&lt;                 <span class="comment">// ID</span></div>
 <div class="line">                comms::feild::EnumValue&lt;FieldBase, MsgId&gt;,</div>
 <div class="line">                TMessage,</div>
 <div class="line">                TAllMessages,</div>
 <div class="line">                comms::field::TransportValueLayer&lt;       <span class="comment">// CHECKSUM_TYPE</span></div>
 <div class="line">                    ChecksumType,</div>
 <div class="line">                    Message::TransportFieldIdx_checksumType,</div>
-<div class="line">                    comms::protocol::MsgDataLayer&lt;&gt;      <span class="comment">// PAYLOAD</span></div>
+<div class="line">                    comms::frame::MsgDataLayer&lt;&gt;      <span class="comment">// PAYLOAD</span></div>
 <div class="line">                &gt;</div>
 <div class="line">            &gt;</div>
 <div class="line">        &gt;</div>

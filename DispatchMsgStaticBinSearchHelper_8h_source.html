@@ -91,14 +91,14 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;type_traits&gt;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="Message_8h.html">comms/Message.h</a>&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="MessageBase_8h.html">comms/MessageBase.h</a>&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;comms/details/tag.h&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="message__check_8h.html">comms/details/message_check.h</a>&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="type__traits_8h.html">comms/util/type_traits.h</a>&quot;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;DispatchMsgHelperType.h&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;comms/details/DispatchMsgHelperType.h&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="message__check_8h.html">comms/details/message_check.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;comms/details/tag.h&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="Message_8h.html">comms/Message.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="MessageBase_8h.html">comms/MessageBase.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="type__traits_8h.html">comms/util/type_traits.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;type_traits&gt;</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacecomms.html">comms</a></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
@@ -1188,9 +1188,9 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="aMessageBase_8h_html"><div class="ttname"><a href="MessageBase_8h.html">MessageBase.h</a></div><div class="ttdoc">Provides common base class for the custom messages with default implementation.</div></div>
 <div class="ttc" id="aMessage_8h_html"><div class="ttname"><a href="Message_8h.html">Message.h</a></div><div class="ttdoc">Contains definition of Message object interface and various base classes for custom messages.</div></div>
 <div class="ttc" id="amessage__check_8h_html"><div class="ttname"><a href="message__check_8h.html">message_check.h</a></div></div>
-<div class="ttc" id="anamespacecomms_1_1option_html_a8aa44dd95c714cfcb604ea4e8c446cef"><div class="ttname"><a href="namespacecomms_1_1option.html#a8aa44dd95c714cfcb604ea4e8c446cef">comms::option::MsgType</a></div><div class="ttdeci">comms::option::def::MsgType&lt; TMsg &gt; MsgType</div><div class="ttdoc">Same as comms::option::def::MsgType.</div><div class="ttdef"><b>Definition</b> options.h:1468</div></div>
+<div class="ttc" id="anamespacecomms_1_1option_html_a8aa44dd95c714cfcb604ea4e8c446cef"><div class="ttname"><a href="namespacecomms_1_1option.html#a8aa44dd95c714cfcb604ea4e8c446cef">comms::option::MsgType</a></div><div class="ttdeci">comms::option::def::MsgType&lt; TMsg &gt; MsgType</div><div class="ttdoc">Same as comms::option::def::MsgType.</div><div class="ttdef"><b>Definition</b> options.h:1487</div></div>
 <div class="ttc" id="anamespacecomms_html"><div class="ttname"><a href="namespacecomms.html">comms</a></div><div class="ttdoc">Main namespace for all classes / functions of COMMS library.</div></div>
-<div class="ttc" id="astructcomms_1_1util_1_1Conditional_html"><div class="ttname"><a href="structcomms_1_1util_1_1Conditional.html">comms::util::Conditional</a></div><div class="ttdoc">Replacement to std::conditional.</div><div class="ttdef"><b>Definition</b> type_traits.h:28</div></div>
+<div class="ttc" id="astructcomms_1_1util_1_1Conditional_html"><div class="ttname"><a href="structcomms_1_1util_1_1Conditional.html">comms::util::Conditional</a></div><div class="ttdoc">Replacement to std::conditional.</div><div class="ttdef"><b>Definition</b> type_traits.h:29</div></div>
 <div class="ttc" id="atype__traits_8h_html"><div class="ttname"><a href="type__traits_8h.html">type_traits.h</a></div><div class="ttdoc">Replacement to some types from standard type_traits.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

@@ -107,7 +107,7 @@ Headers and Libraries</h1>
 <p>COMMS is a headers only library without any object files to link against. In order to include the whole functionality of the library please use single include statement: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="comms_8h.html">comms/comms.h</a>&quot;</span></div>
 <div class="ttc" id="acomms_8h_html"><div class="ttname"><a href="comms_8h.html">comms.h</a></div><div class="ttdoc">Aggregates all the includes of the COMMS library interface.</div></div>
 </div><!-- fragment --><p>If the protocol grows and the compilation takes a significant amount of time, more fine-grained include statements may be used: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="fields_8h.html">comms/fields.h</a>&quot;</span> <span class="comment">// Provides all definitions from comms::field namespace</span></div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="protocols_8h.html">comms/protocols.h</a>&quot;</span> <span class="comment">// Provides all definitions from comms::protocol namespace</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="frames_8h.html">comms/frames.h</a>&quot;</span> <span class="comment">// Provides all definitions from comms::frame namespace</span></div>
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="units_8h.html">comms/units.h</a>&quot;</span> <span class="comment">// Provides all definitions from comms::units namespace</span></div>
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="Message_8h.html">comms/Message.h</a>&quot;</span> <span class="comment">// Definition of comms::Message class to define interface</span></div>
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="MessageBase_8h.html">comms/MessageBase.h</a>&quot;</span> <span class="comment">// Definition of comms::MessageBase class to define message impl</span></div>
@@ -118,7 +118,7 @@ Headers and Libraries</h1>
 <div class="ttc" id="aMessage_8h_html"><div class="ttname"><a href="Message_8h.html">Message.h</a></div><div class="ttdoc">Contains definition of Message object interface and various base classes for custom messages.</div></div>
 <div class="ttc" id="aMsgFactory_8h_html"><div class="ttname"><a href="MsgFactory_8h.html">MsgFactory.h</a></div><div class="ttdoc">Contains definition of comms::MsgFactory class.</div></div>
 <div class="ttc" id="afields_8h_html"><div class="ttname"><a href="fields_8h.html">fields.h</a></div><div class="ttdoc">This file provides all the definitions from comms::field namespace.</div></div>
-<div class="ttc" id="aprotocols_8h_html"><div class="ttname"><a href="protocols_8h.html">protocols.h</a></div><div class="ttdoc">This file provides all the definitions from comms::protocol namespace.</div></div>
+<div class="ttc" id="aframes_8h_html"><div class="ttname"><a href="frames_8h.html">frames.h</a></div><div class="ttdoc">This file provides all the definitions from comms::frame namespace.</div></div>
 <div class="ttc" id="aunits_8h_html"><div class="ttname"><a href="units_8h.html">units.h</a></div><div class="ttdoc">This file contains all the functions required for proper units conversion.</div></div>
 </div><!-- fragment --><h1><a class="anchor" id="page_define_prot_conditions"></a>
 Checking pre- and post- Conditions</h1>
@@ -157,7 +157,7 @@ Common Interface Class</h1>
 <div class="line">    &gt;;</div>
 <div class="line"> </div>
 <div class="line">} <span class="comment">// namespace my_protocol</span></div>
-<div class="ttc" id="aclasscomms_1_1Message_html"><div class="ttname"><a href="classcomms_1_1Message.html">comms::Message</a></div><div class="ttdoc">Main interface class for all the messages.</div><div class="ttdef"><b>Definition</b> Message.h:80</div></div>
+<div class="ttc" id="aclasscomms_1_1Message_html"><div class="ttname"><a href="classcomms_1_1Message.html">comms::Message</a></div><div class="ttdoc">Main interface class for all the messages.</div><div class="ttdef"><b>Definition</b> Message.h:79</div></div>
 <div class="ttc" id="anamespacecomms_1_1option_1_1def_html_a606d8afcd788b9c39088709e9be2f546"><div class="ttname"><a href="namespacecomms_1_1option_1_1def.html#a606d8afcd788b9c39088709e9be2f546">comms::option::def::BigEndian</a></div><div class="ttdeci">Endian&lt; comms::traits::endian::Big &gt; BigEndian</div><div class="ttdoc">Alias option to Endian specifying Big endian.</div><div class="ttdef"><b>Definition</b> options.h:177</div></div>
 <div class="ttc" id="astructcomms_1_1option_1_1def_1_1MsgIdType_html"><div class="ttname"><a href="structcomms_1_1option_1_1def_1_1MsgIdType.html">comms::option::def::MsgIdType</a></div><div class="ttdoc">Option used to specify type of the ID.</div><div class="ttdef"><b>Definition</b> options.h:187</div></div>
 </div><!-- fragment --><p> The application, that is going to use protocol definition later, will use extra options to specify polymorphic behaviour it needs.</p>
@@ -187,7 +187,7 @@ Extra Transport Values</h2>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line">} <span class="comment">// namespace my_protocol</span></div>
-</div><!-- fragment --><p> <b>HOWEVER</b>, it will require implementation of a custom protocol transport layer (See <a class="el" href="page_prot_stack_tutorial.html#page_prot_stack_tutorial_new_layers">Implementing New Layers</a>) that read the required values and re-assign them to the message object using appropriate API function. The COMMS library has a built-in way to automate such assignments (see <a class="el" href="page_prot_stack_tutorial.html#page_prot_stack_tutorial_transport_value">Extra Transport Values</a> section in <a class="el" href="page_prot_stack_tutorial.html">Protocol Stack Definition Tutorial</a>). In order to support usage of <a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html">comms::protocol::TransportValueLayer</a> the message interface class must define "extra transport fields".</p>
+</div><!-- fragment --><p> <b>HOWEVER</b>, it will require implementation of a custom protocol transport layer (See <a class="el" href="page_frame_tutorial.html#page_frame_tutorial_new_layers">Implementing New Layers</a>) that read the required values and re-assign them to the message object using appropriate API function. The COMMS library has a built-in way to automate such assignments (see <a class="el" href="page_frame_tutorial.html#page_frame_tutorial_transport_value">Extra Transport Values</a> section in <a class="el" href="page_frame_tutorial.html">Frame Definition Tutorial</a>). In order to support usage of <a class="el" href="classcomms_1_1frame_1_1TransportValueLayer.html">comms::frame::TransportValueLayer</a> the message interface class must define "extra transport fields".</p>
 <p>First, such extra transport field(s) must be defined using a field abstraction (see <a class="el" href="page_field_tutorial.html">Fields Definition Tutorial</a>) and bundled in <b>std::tuple:</b> </p><div class="fragment"><div class="line"><span class="keyword">namespace </span>my_protocol</div>
 <div class="line">{</div>
 <div class="line"> </div>
@@ -282,7 +282,7 @@ Extra Transport Values</h2>
 <div class="line"><span class="keyword">public</span>:</div>
 <div class="line">    <a class="code hl_define" href="classcomms_1_1Message.html#a00912bb201d47afbb0c3e51fff95b338">COMMS_MSG_TRANSPORT_FIELDS_NAMES</a>(version, flags)</div>
 <div class="line">};</div>
-<div class="ttc" id="aclasscomms_1_1Message_html_a00912bb201d47afbb0c3e51fff95b338"><div class="ttname"><a href="classcomms_1_1Message.html#a00912bb201d47afbb0c3e51fff95b338">comms::Message::COMMS_MSG_TRANSPORT_FIELDS_NAMES</a></div><div class="ttdeci">#define COMMS_MSG_TRANSPORT_FIELDS_NAMES(...)</div><div class="ttdoc">Provide names for extra transport fields.</div><div class="ttdef"><b>Definition</b> Message.h:716</div></div>
+<div class="ttc" id="aclasscomms_1_1Message_html_a00912bb201d47afbb0c3e51fff95b338"><div class="ttname"><a href="classcomms_1_1Message.html#a00912bb201d47afbb0c3e51fff95b338">comms::Message::COMMS_MSG_TRANSPORT_FIELDS_NAMES</a></div><div class="ttdeci">#define COMMS_MSG_TRANSPORT_FIELDS_NAMES(...)</div><div class="ttdoc">Provide names for extra transport fields.</div><div class="ttdef"><b>Definition</b> Message.h:715</div></div>
 </div><!-- fragment --><p> <b>NOTE</b> requirement to (re)define base class as inner <b>Base</b> type. It is needed to be able to access <a class="el" href="classcomms_1_1Message.html#a1a7c7b92d38774a038fbdedb3e0f99cc">TransportFields</a> type defined by the <a class="el" href="classcomms_1_1Message.html">comms::Message</a>.</p>
 <p>Using such macro is equivalent to manually defining the following public interface: </p><div class="fragment"><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span>... TOptions&gt;</div>
 <div class="line"><span class="keyword">class </span>Message : <span class="keyword">public</span></div>
@@ -340,7 +340,7 @@ Extra Transport Values</h2>
 <div class="line"><span class="keyword">public</span>:</div>
 <div class="line">    <a class="code hl_define" href="classcomms_1_1Message.html#ada784673f02d483a88fcf0c451cb72bd">COMMS_MSG_TRANSPORT_FIELDS_ACCESS</a>(version, flags)</div>
 <div class="line">};</div>
-<div class="ttc" id="aclasscomms_1_1Message_html_ada784673f02d483a88fcf0c451cb72bd"><div class="ttname"><a href="classcomms_1_1Message.html#ada784673f02d483a88fcf0c451cb72bd">comms::Message::COMMS_MSG_TRANSPORT_FIELDS_ACCESS</a></div><div class="ttdeci">#define COMMS_MSG_TRANSPORT_FIELDS_ACCESS(...)</div><div class="ttdoc">Add convenience access enum and functions to extra transport fields.</div><div class="ttdef"><b>Definition</b> Message.h:575</div></div>
+<div class="ttc" id="aclasscomms_1_1Message_html_ada784673f02d483a88fcf0c451cb72bd"><div class="ttname"><a href="classcomms_1_1Message.html#ada784673f02d483a88fcf0c451cb72bd">comms::Message::COMMS_MSG_TRANSPORT_FIELDS_ACCESS</a></div><div class="ttdeci">#define COMMS_MSG_TRANSPORT_FIELDS_ACCESS(...)</div><div class="ttdoc">Add convenience access enum and functions to extra transport fields.</div><div class="ttdef"><b>Definition</b> Message.h:574</div></div>
 </div><!-- fragment --><p> In fact COMMS_MSG_TRANSPORT_FIELDS_NAMES() is implemented as the wrapper around COMMS_MSG_TRANSPORT_FIELDS_ACCESS().</p>
 <h2><a class="anchor" id="page_define_prot_interface_version"></a>
 Version in Extra Transport Values</h2>
@@ -444,10 +444,6 @@ Message Implementation Class</h1>
 <div class="line">{</div>
 <div class="line">    ...</div>
 <div class="line">};</div>
-<div class="line"> </div>
-<div class="line">} <span class="comment">// namespace message</span></div>
-<div class="line"> </div>
-<div class="line">} <span class="comment">// namespace my_protocol</span></div>
 </div><!-- fragment --><p>It is equivalent to having the following types and <b>NON-virtual</b> functions defined </p><div class="fragment"><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> TBase&gt;</div>
 <div class="line"><span class="keyword">class </span>Message1 : <span class="keyword">public</span> TBase</div>
 <div class="line">{</div>
@@ -458,13 +454,13 @@ Message Implementation Class</h1>
 <div class="line">    <span class="comment">// Access the stored std::tuple of fields</span></div>
 <div class="line">    AllFields&amp; <a class="code hl_function" href="classcomms_1_1MessageBase.html#a79f98d3a3c61bf11d34c022f50f639c2">fields</a>()</div>
 <div class="line">    {</div>
-<div class="line">        <span class="keywordflow">return</span> fields_;</div>
+<div class="line">        <span class="keywordflow">return</span> m_fields;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Access the stored std::tuple of fields</span></div>
 <div class="line">    <span class="keyword">const</span> AllFields&amp; <a class="code hl_function" href="classcomms_1_1MessageBase.html#a79f98d3a3c61bf11d34c022f50f639c2">fields</a>()<span class="keyword"> const</span></div>
 <div class="line"><span class="keyword">    </span>{</div>
-<div class="line">        <span class="keywordflow">return</span> fields_;</div>
+<div class="line">        <span class="keywordflow">return</span> m_fields;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Default implementation of read functionality</span></div>
@@ -505,7 +501,7 @@ Message Implementation Class</h1>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">private</span>:</div>
-<div class="line">    AllFields fields_; <span class="comment">// Fields stored as tuple.</span></div>
+<div class="line">    AllFields m_fields; <span class="comment">// Fields stored as tuple.</span></div>
 <div class="line">};</div>
 <div class="ttc" id="aclasscomms_1_1MessageBase_html_a2feb6d8948de99eef4213a234625d3ec"><div class="ttname"><a href="classcomms_1_1MessageBase.html#a2feb6d8948de99eef4213a234625d3ec">comms::MessageBase::doRefresh</a></div><div class="ttdeci">bool doRefresh() const</div><div class="ttdoc">Default implementation of refreshing functionality.</div></div>
 <div class="ttc" id="aclasscomms_1_1MessageBase_html_a45782845d1f24fc957efe1a41fdf32c4"><div class="ttname"><a href="classcomms_1_1MessageBase.html#a45782845d1f24fc957efe1a41fdf32c4">comms::MessageBase::doRead</a></div><div class="ttdeci">ErrorStatus doRead(TIter &amp;iter, std::size_t size)</div><div class="ttdoc">Default implementation of read functionality.</div></div>
@@ -998,7 +994,7 @@ Aliases to Field Names Inside Bundle Fields</h2>
 <div class="line">};</div>
 <div class="ttc" id="aField_8h_html_a7adc16bdcc59b3f0a646c106816c9cab"><div class="ttname"><a href="Field_8h.html#a7adc16bdcc59b3f0a646c106816c9cab">COMMS_FIELD_ALIAS</a></div><div class="ttdeci">#define COMMS_FIELD_ALIAS(f_,...)</div><div class="ttdoc">Generate convinience alias access member functions for other member fields.</div><div class="ttdef"><b>Definition</b> Field.h:397</div></div>
 <div class="ttc" id="aField_8h_html_af74198f06b52d3f58c92e795b2ff7129"><div class="ttname"><a href="Field_8h.html#af74198f06b52d3f58c92e795b2ff7129">COMMS_FIELD_MEMBERS_NAMES</a></div><div class="ttdeci">#define COMMS_FIELD_MEMBERS_NAMES(...)</div><div class="ttdoc">Provide names for member fields of composite fields, such as comms::field::Bundle or comms::field::Bi...</div><div class="ttdef"><b>Definition</b> Field.h:387</div></div>
-<div class="ttc" id="aclasscomms_1_1field_1_1Bundle_html"><div class="ttname"><a href="classcomms_1_1field_1_1Bundle.html">comms::field::Bundle</a></div><div class="ttdoc">Bundles multiple fields into a single field.</div><div class="ttdef"><b>Definition</b> Bundle.h:63</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1Bundle_html"><div class="ttname"><a href="classcomms_1_1field_1_1Bundle.html">comms::field::Bundle</a></div><div class="ttdoc">Bundles multiple fields into a single field.</div><div class="ttdef"><b>Definition</b> Bundle.h:64</div></div>
 </div><!-- fragment --><h2><a class="anchor" id="page_define_prot_field_aliases_interfaces"></a>
 Aliases to Extra Transport Field Names Inside Interface</h2>
 <p>The <a class="el" href="page_define_prot.html#page_define_prot_interface">Common Interface Class</a> class definition may have <a class="el" href="page_define_prot.html#page_define_prot_interface_extra_transport">Extra Transport Values</a>. Aliasing between the extra transport fields can be defined using COMMS_MSG_TRANSPORT_FIELD_ALIAS() macro. </p><div class="fragment"><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span>... TOptions&gt;</div>
@@ -1016,7 +1012,7 @@ Aliases to Extra Transport Field Names Inside Interface</h2>
 <div class="line">    <a class="code hl_define" href="classcomms_1_1Message.html#a00912bb201d47afbb0c3e51fff95b338">COMMS_MSG_TRANSPORT_FIELDS_NAMES</a>(version, flags);</div>
 <div class="line">    <a class="code hl_define" href="classcomms_1_1Message.html#adfa416afa2a8a77af9c46b42d3034f3e">COMMS_MSG_TRANSPORT_FIELD_ALIAS</a>(otherFlagsName, flags);    </div>
 <div class="line">};</div>
-<div class="ttc" id="aclasscomms_1_1Message_html_adfa416afa2a8a77af9c46b42d3034f3e"><div class="ttname"><a href="classcomms_1_1Message.html#adfa416afa2a8a77af9c46b42d3034f3e">comms::Message::COMMS_MSG_TRANSPORT_FIELD_ALIAS</a></div><div class="ttdeci">#define COMMS_MSG_TRANSPORT_FIELD_ALIAS(f_,...)</div><div class="ttdoc">Generate convinience alias access member functions for extra member transport fields.</div><div class="ttdef"><b>Definition</b> Message.h:845</div></div>
+<div class="ttc" id="aclasscomms_1_1Message_html_adfa416afa2a8a77af9c46b42d3034f3e"><div class="ttname"><a href="classcomms_1_1Message.html#adfa416afa2a8a77af9c46b42d3034f3e">comms::Message::COMMS_MSG_TRANSPORT_FIELD_ALIAS</a></div><div class="ttdeci">#define COMMS_MSG_TRANSPORT_FIELD_ALIAS(f_,...)</div><div class="ttdoc">Generate convinience alias access member functions for extra member transport fields.</div><div class="ttdef"><b>Definition</b> Message.h:844</div></div>
 </div><!-- fragment --><h1><a class="anchor" id="page_define_prot_lenth_verification"></a>
 Extra Compile Time Checks</h1>
 <p>Quite often it is obvious from the protocol specification what minimal length of the serialised message contents is expected to be, and if there are not variable length fields, such as <b>string</b> or <b>list</b>, then maximum serialisation length is also known. It would be wise to slip in compile time checks in message definition as well. There are several static constexpr member functions inherited from <b><a class="el" href="classcomms_1_1MessageBase.html" title="Base class for all the custom protocol messages.">comms::MessageBase</a></b> that can be used:</p>
@@ -1062,7 +1058,7 @@ Application Specific Customisation</h1>
 <div class="line">        };</div>
 <div class="line">    };</div>
 <div class="line">};</div>
-<div class="ttc" id="astructcomms_1_1option_1_1app_1_1EmptyOption_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a></div><div class="ttdoc">No-op option, doesn't have any effect.</div><div class="ttdef"><b>Definition</b> options.h:1259</div></div>
+<div class="ttc" id="astructcomms_1_1option_1_1app_1_1EmptyOption_html"><div class="ttname"><a href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a></div><div class="ttdoc">No-op option, doesn't have any effect.</div><div class="ttdef"><b>Definition</b> options.h:1271</div></div>
 </div><!-- fragment --><p> <b>NOTE</b>, that inner structure of <b>DefaultOptions</b> in not important, but it is recommended to resemble the full scope of fields, options for which are being prepared. Then the message definition need to be changed to receive and use extra options struct. </p><div class="fragment"><div class="line"><span class="preprocessor">#pragma once</span></div>
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="comms_8h.html">comms/comms.h</a>&quot;</span></div>
 <div class="line"> </div>
@@ -1111,7 +1107,7 @@ Application Specific Customisation</h1>
 <div class="line">} <span class="comment">// namespace message</span></div>
 <div class="line"> </div>
 <div class="line">} <span class="comment">// namespace my_protocol</span></div>
-<div class="ttc" id="aclasscomms_1_1field_1_1String_html"><div class="ttname"><a href="classcomms_1_1field_1_1String.html">comms::field::String</a></div><div class="ttdoc">Field that represents a string.</div><div class="ttdef"><b>Definition</b> String.h:161</div></div>
+<div class="ttc" id="aclasscomms_1_1field_1_1String_html"><div class="ttname"><a href="classcomms_1_1field_1_1String.html">comms::field::String</a></div><div class="ttdoc">Field that represents a string.</div><div class="ttdef"><b>Definition</b> String.h:160</div></div>
 </div><!-- fragment --><p> It gives opportunity to the application to define its own single structure of options for all the messages by extending the provided <b>DefaultOptions</b> and overriding selected number inner types with its own extension options.</p>
 <p><b>NOTE</b>, that allowing additional customisation for fields like <b>list</b> (<a class="el" href="classcomms_1_1field_1_1ArrayList.html">comms::field::ArrayList</a>) and <b>string</b> (<a class="el" href="classcomms_1_1field_1_1String.html">comms::field::String</a>) is a <b>must have</b> feature to allow usage of the same protocol definition in bare-metal applications. However, it would be wise to allow extra customisation for <b>all</b> the used fields, even for ones like <b>integral values</b> (<a class="el" href="classcomms_1_1field_1_1IntValue.html">comms::field::IntValue</a>) or <b>enum</b> (<a class="el" href="classcomms_1_1field_1_1IntValue.html">comms::field::IntValue</a>). The client application developer may want to change the default value of some field, maybe even add or change (override) provided ranges of valid values, force failing of read operation on invalid values, etc... <b>NOTE</b>, that when allowing such customisation of fields, make sure that passed options are listed before the default ones </p><div class="fragment"><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span>... TExtraOpts&gt;</div>
 <div class="line"><span class="keyword">using </span>MyField = </div>
@@ -1164,7 +1160,7 @@ Application Specific Customisation</h1>
 <div class="line">} <span class="comment">// namespace my_protocol</span></div>
 </div><!-- fragment --><h1><a class="anchor" id="page_define_prot_transport_framing"></a>
 Transport Framing Definition</h1>
-<p>In addition to definition of the messages and their contents, every communication protocol must ensure that the message is successfully delivered over the I/O link to the other side and recognised (based on its ID). The serialised message payload must be wrapped in some kind of transport framing prior to being sent and unwrapped on the other side when received. The <a class="el" href="page_prot_stack_tutorial.html">Protocol Stack Definition Tutorial</a> page contains detailed information on how define such a frame and make it usable to the client application. Note, that the same protocol may be used over multiple I/O link, every one of which may require different framing. There is no limit on amount of different frames that may be defined. </p>
+<p>In addition to definition of the messages and their contents, every communication protocol must ensure that the message is successfully delivered over the I/O link to the other side and recognised (based on its ID). The serialised message payload must be wrapped in some kind of transport framing prior to being sent and unwrapped on the other side when received. The <a class="el" href="page_frame_tutorial.html">Frame Definition Tutorial</a> page contains detailed information on how define such a frame and make it usable to the client application. Note, that the same protocol may be used over multiple I/O link, every one of which may require different framing. There is no limit on amount of different frames that may be defined. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->

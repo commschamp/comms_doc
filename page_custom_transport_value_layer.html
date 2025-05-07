@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>COMMS: Defining Custom Transport Value Protocol Stack Layer</title>
+<title>COMMS: Defining Custom Transport Value Frame Layer</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -70,11 +70,11 @@ $(function() {
 
 </div><!-- top -->
 <div><div class="header">
-  <div class="headertitle"><div class="title">Defining Custom Transport Value Protocol Stack Layer</div></div>
+  <div class="headertitle"><div class="title">Defining Custom Transport Value Frame Layer</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>The <b>COMMS</b> library provides default <a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html">comms::protocol::TransportValueLayer</a> protocol stack layer to handle extra value in transport framing and re-assigning it to the message object. However, it may be insufficient (or incorrect) for some particular use cases, such as using <b>bitfield</b> field to store both protocol version and some extra flags. The <a class="el" href="page_prot_stack_tutorial.html#page_prot_stack_tutorial_new_layers">Implementing New Layers</a> section of the <a class="el" href="page_prot_stack_tutorial.html">Protocol Stack Definition Tutorial</a> page explains how to define new (custom) protocol layer.</p>
-<p>However, since <b>v3.2</b> COMMS library provides an ability to extend the existing definition of <a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html">comms::protocol::TransportValueLayer</a> and customize some bits and pieces. Let's implement the mentioned example of sharing the same byte for message version and some flags.</p>
+<div class="textblock"><p>The <b>COMMS</b> library provides default <a class="el" href="classcomms_1_1frame_1_1TransportValueLayer.html">comms::frame::TransportValueLayer</a> frame layer to handle extra value in transport framing and re-assigning it to the message object. However, it may be insufficient (or incorrect) for some particular use cases, such as using <b>bitfield</b> field to store both protocol version and some extra flags. The <a class="el" href="page_frame_tutorial.html#page_frame_tutorial_new_layers">Implementing New Layers</a> section of the <a class="el" href="page_frame_tutorial.html">Frame Definition Tutorial</a> page explains how to define new (custom) protocol layer.</p>
+<p>However, since <b>v3.2</b> COMMS library provides an ability to extend the existing definition of <a class="el" href="classcomms_1_1frame_1_1TransportValueLayer.html">comms::frame::TransportValueLayer</a> and customize some bits and pieces. Let's implement the mentioned example of sharing the same byte for message version and some flags.</p>
 <p>For this example the protocol framing is defined to be </p><div class="fragment"><div class="line">SIZE | ID | VERSION (12 bits) + FLAGS (4 bits) | PAYLOAD</div>
 </div><!-- fragment --><p>First of all let's define the <a class="el" href="page_define_prot.html#page_define_prot_interface">Common Interface Class</a>, which holds the <b>version</b> and <b>flags</b> information as data member of every message object. </p><div class="fragment"><div class="line"><span class="keyword">namespace </span>my_prot</div>
 <div class="line">{</div>
@@ -140,7 +140,7 @@ $(function() {
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line">} <span class="comment">// namespace my_prot</span></div>
-<div class="ttc" id="aclasscomms_1_1Message_html"><div class="ttname"><a href="classcomms_1_1Message.html">comms::Message</a></div><div class="ttdoc">Main interface class for all the messages.</div><div class="ttdef"><b>Definition</b> Message.h:80</div></div>
+<div class="ttc" id="aclasscomms_1_1Message_html"><div class="ttname"><a href="classcomms_1_1Message.html">comms::Message</a></div><div class="ttdoc">Main interface class for all the messages.</div><div class="ttdef"><b>Definition</b> Message.h:79</div></div>
 <div class="ttc" id="aclasscomms_1_1field_1_1BitmaskValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1BitmaskValue.html">comms::field::BitmaskValue</a></div><div class="ttdoc">Bitmask value field.</div><div class="ttdef"><b>Definition</b> BitmaskValue.h:105</div></div>
 <div class="ttc" id="aclasscomms_1_1field_1_1IntValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1IntValue.html">comms::field::IntValue</a></div><div class="ttdoc">Field that represent integral value.</div><div class="ttdef"><b>Definition</b> IntValue.h:75</div></div>
 </div><!-- fragment --><p> Just to refresh the reader's memory: the usage of COMMS_MSG_TRANSPORT_FIELDS_NAMES() macro for the interface definition will generate <b>transportField_version()</b> and <b>transportField_flags()</b> convenience member functions to access the stored <b>version</b> and <b>flags</b> fields, while usage of COMMS_BITMASK_BITS_SEQ() in the flags field definition will genereate <b>getBitValue_X()</b> and <b>setBitValue_X()</b> convenience member functions to get / set values of the bits (where X is one of the defined names: <b>bit0</b>, <b>bit1</b>, <b>bit2</b>, and <b>bit3</b>).</p>
@@ -167,25 +167,25 @@ $(function() {
 <div class="ttc" id="aField_8h_html_af74198f06b52d3f58c92e795b2ff7129"><div class="ttname"><a href="Field_8h.html#af74198f06b52d3f58c92e795b2ff7129">COMMS_FIELD_MEMBERS_NAMES</a></div><div class="ttdeci">#define COMMS_FIELD_MEMBERS_NAMES(...)</div><div class="ttdoc">Provide names for member fields of composite fields, such as comms::field::Bundle or comms::field::Bi...</div><div class="ttdef"><b>Definition</b> Field.h:387</div></div>
 <div class="ttc" id="aclasscomms_1_1field_1_1Bitfield_html"><div class="ttname"><a href="classcomms_1_1field_1_1Bitfield.html">comms::field::Bitfield</a></div><div class="ttdoc">Bitfield field.</div><div class="ttdef"><b>Definition</b> Bitfield.h:101</div></div>
 </div><!-- fragment --><p> Again, just to refresh the reader's memory: the usage of <a class="el" href="Field_8h.html#af74198f06b52d3f58c92e795b2ff7129">COMMS_FIELD_MEMBERS_NAMES()</a> macro for the bitfield definition will generate <b>field_X()</b> convenience access member functions for the listed names.</p>
-<p>Now it's time to actually extend the provided definition of the <a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html">comms::protocol::TransportValueLayer</a> and support usage of the defined earlier <b>VersionAndFlagsField</b> field. </p><div class="fragment"><div class="line"><span class="keyword">namespace </span>my_prot</div>
+<p>Now it's time to actually extend the provided definition of the <a class="el" href="classcomms_1_1frame_1_1TransportValueLayer.html">comms::frame::TransportValueLayer</a> and support usage of the defined earlier <b>VersionAndFlagsField</b> field. </p><div class="fragment"><div class="line"><span class="keyword">namespace </span>my_prot</div>
 <div class="line">{</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> TNextLayer&gt;</div>
 <div class="line"><span class="keyword">class </span>VersionAndFlagsLayer : <span class="keyword">public</span></div>
-<div class="line">    <a class="code hl_class" href="classcomms_1_1protocol_1_1TransportValueLayer.html">comms::protocol::TransportValueLayer</a>&lt;</div>
+<div class="line">    <a class="code hl_class" href="classcomms_1_1frame_1_1TransportValueLayer.html">comms::frame::TransportValueLayer</a>&lt;</div>
 <div class="line">        VersionAndFlagsField,   <span class="comment">// Used field that contains version and flags</span></div>
 <div class="line">        std::numeric_limit&lt;std::size_t&gt;::max(), </div>
 <div class="line">                             <span class="comment">// Index inside the field inside message&#39;s transportFields(), </span></div>
 <div class="line">                             <span class="comment">// irrelevant for this situation, because the interface splits</span></div>
 <div class="line">                             <span class="comment">// the information into two separate fields.</span></div>
 <div class="line"> </div>
-<div class="line">        TNextLayer,          <span class="comment">// Next layer in the protocol stack</span></div>
+<div class="line">        TNextLayer,          <span class="comment">// Next layer in the frame</span></div>
 <div class="line">        comms::option::def::ExtendingClass&lt;VersionAndFlagsLayer&lt;TNextLayer&gt; &gt;</div>
-<div class="line">                             <span class="comment">// Make the comms::protocol::TransportValueLayer aware of it being extended</span></div>
+<div class="line">                             <span class="comment">// Make the comms::frame::TransportValueLayer aware of it being extended</span></div>
 <div class="line">    &gt;</div>
 <div class="line">{</div>
 <div class="line">    <span class="comment">// Repeat definition of the base class</span></div>
-<div class="line">    <span class="keyword">using </span>Base = <a class="code hl_class" href="classcomms_1_1protocol_1_1TransportValueLayer.html">comms::protocol::TransportValueLayer</a>&lt;...&gt;;</div>
+<div class="line">    <span class="keyword">using </span>Base = <a class="code hl_class" href="classcomms_1_1frame_1_1TransportValueLayer.html">comms::frame::TransportValueLayer</a>&lt;...&gt;;</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">public</span>:</div>
 <div class="line">    <span class="comment">// Repeat types defined in the base class (not visible by default)</span></div>
@@ -214,28 +214,28 @@ $(function() {
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line">} <span class="comment">// namespace my_prot</span></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1TransportValueLayer_html"><div class="ttname"><a href="classcomms_1_1protocol_1_1TransportValueLayer.html">comms::protocol::TransportValueLayer</a></div><div class="ttdoc">Protocol layer that reads a value from transport wrapping and reassigns it to appropriate &quot;extra tran...</div><div class="ttdef"><b>Definition</b> TransportValueLayer.h:79</div></div>
-</div><!-- fragment --><p> The <a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html">comms::protocol::TransportValueLayer</a> doesn't have any virtual functions and as the result not able to provide any polymorphic behavior. In order to be able to extend its default functionality there is a need to use <a href="https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern">Curiously Recurring Template Pattern</a>. It is done by passing <a class="el" href="structcomms_1_1option_1_1def_1_1ExtendingClass.html">comms::option::def::ExtendingClass</a> extension option with the type of the layer class being defined to the <a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html">comms::protocol::TransportValueLayer</a>.</p>
+<div class="ttc" id="aclasscomms_1_1frame_1_1TransportValueLayer_html"><div class="ttname"><a href="classcomms_1_1frame_1_1TransportValueLayer.html">comms::frame::TransportValueLayer</a></div><div class="ttdoc">Protocol layer that reads a value from transport wrapping and reassigns it to appropriate &quot;extra tran...</div><div class="ttdef"><b>Definition</b> TransportValueLayer.h:64</div></div>
+</div><!-- fragment --><p> The <a class="el" href="classcomms_1_1frame_1_1TransportValueLayer.html">comms::frame::TransportValueLayer</a> doesn't have any virtual functions and as the result not able to provide any polymorphic behavior. In order to be able to extend its default functionality there is a need to use <a href="https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern">Curiously Recurring Template Pattern</a>. It is done by passing <a class="el" href="structcomms_1_1option_1_1def_1_1ExtendingClass.html">comms::option::def::ExtendingClass</a> extension option with the type of the layer class being defined to the <a class="el" href="classcomms_1_1frame_1_1TransportValueLayer.html">comms::frame::TransportValueLayer</a>.</p>
 <p>The extending class can customize the default behavior by overriding the listed below functions. They do not necessarily need to be <b>static</b>, accessing inner private state of the layer object is also acceptable. </p><ul>
-<li><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a7050fb0df8e4efc8cc3e35214436fe55">doReadField()</a> - Member function that is invoked to read field's value. </li>
-<li><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a2a7d913a4c2d569ce9c0842b9e16a0cb">doWriteField()</a> - Member function that is invoked to write field's value. </li>
-<li><a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html#ad1cc62fa40dc04a68bd4605bbbef7801">doFieldLength()</a> - Member function that is invoked to calculate serialization length of the field. </li>
-<li><a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html#a712e70394c638d82c531668a56e080ec">reassignFieldValueToMsg()</a> - Member function that is invoked to re-assign the transport field value to the appropriate transport field(s) in the message object. </li>
-<li><a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html#aad96d476e11c30cf659b5ade51a8408e">prepareFieldForWrite()</a> - Member function that is invoked to prepare the field value before its write (serialization). After the function returns, the <a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html">comms::protocol::TransportValueLayer</a> will invoke <b>write</b> member function of the passed field in order to serialize it.</li>
+<li><a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html#ac4c4e7ddfbadca13b1fb358dfce0c25a">doReadField()</a> - Member function that is invoked to read field's value. </li>
+<li><a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html#a7022da54d93eb0dcaca71c525e899a3c">doWriteField()</a> - Member function that is invoked to write field's value. </li>
+<li><a class="el" href="classcomms_1_1frame_1_1TransportValueLayer.html#a4e015834866e0b49644b89500c76581b">doFieldLength()</a> - Member function that is invoked to calculate serialization length of the field. </li>
+<li><a class="el" href="classcomms_1_1frame_1_1TransportValueLayer.html#ab4cafa9ea4cddd024b6b6f777cbf614c">reassignFieldValueToMsg()</a> - Member function that is invoked to re-assign the transport field value to the appropriate transport field(s) in the message object. </li>
+<li><a class="el" href="classcomms_1_1frame_1_1TransportValueLayer.html#a9630f2772ed40df4e17a5b2f8dc83ad1">prepareFieldForWrite()</a> - Member function that is invoked to prepare the field value before its write (serialization). After the function returns, the <a class="el" href="classcomms_1_1frame_1_1TransportValueLayer.html">comms::frame::TransportValueLayer</a> will invoke <b>write</b> member function of the passed field in order to serialize it.</li>
 </ul>
-<p>The newly defined custom protocol stack layer can be used instead of <a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html">comms::protocol::TransportValueLayer</a> when defining <a class="el" href="page_prot_stack_tutorial.html">protocol stack</a> (framing) of the protocol. For example: </p><div class="fragment"><div class="line"><span class="keyword">namespace </span>my_prot</div>
+<p>The newly defined custom frame layer can be used instead of <a class="el" href="classcomms_1_1frame_1_1TransportValueLayer.html">comms::frame::TransportValueLayer</a> when defining <a class="el" href="page_frame_tutorial.html">framing</a> of the protocol. For example: </p><div class="fragment"><div class="line"><span class="keyword">namespace </span>my_prot</div>
 <div class="line">{</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMessage, <span class="keyword">typename</span> TAllMessages&gt;</div>
 <div class="line"><span class="keyword">struct </span>Frame1 : <span class="keyword">public</span> </div>
-<div class="line">    <a class="code hl_class" href="classcomms_1_1protocol_1_1MsgSizeLayer.html">comms::protocol::MsgSizeLayer</a>&lt;                   <span class="comment">// SIZE</span></div>
+<div class="line">    <a class="code hl_class" href="classcomms_1_1frame_1_1MsgSizeLayer.html">comms::frame::MsgSizeLayer</a>&lt;                   <span class="comment">// SIZE</span></div>
 <div class="line">        common::field::IntValue&lt;FieldBase, std::uint16_t&gt;,</div>
-<div class="line">        comms::protocol::MsgIdLayer&lt;                 <span class="comment">// ID</span></div>
+<div class="line">        comms::frame::MsgIdLayer&lt;                 <span class="comment">// ID</span></div>
 <div class="line">            comms::feild::EnumValue&lt;FieldBase, MsgId&gt;,</div>
 <div class="line">            TMessage,</div>
 <div class="line">            TAllMessages,</div>
 <div class="line">            VersionAndFlagsLayer&lt;                    <span class="comment">// VERSION + FLAGS</span></div>
-<div class="line">                comms::protocol::MsgDataLayer&lt;&gt;      <span class="comment">// PAYLOAD</span></div>
+<div class="line">                comms::frame::MsgDataLayer&lt;&gt;      <span class="comment">// PAYLOAD</span></div>
 <div class="line">            &gt;</div>
 <div class="line">        &gt;</div>
 <div class="line">    &gt;</div>
@@ -245,7 +245,7 @@ $(function() {
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line">} <span class="comment">// namespace my_prot</span></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1MsgSizeLayer_html"><div class="ttname"><a href="classcomms_1_1protocol_1_1MsgSizeLayer.html">comms::protocol::MsgSizeLayer</a></div><div class="ttdoc">Protocol layer that uses size field as a prefix to all the subsequent data written by other (next) la...</div><div class="ttdef"><b>Definition</b> MsgSizeLayer.h:75</div></div>
+<div class="ttc" id="aclasscomms_1_1frame_1_1MsgSizeLayer_html"><div class="ttname"><a href="classcomms_1_1frame_1_1MsgSizeLayer.html">comms::frame::MsgSizeLayer</a></div><div class="ttdoc">Protocol layer that uses size field as a prefix to all the subsequent data written by other (next) la...</div><div class="ttdef"><b>Definition</b> MsgSizeLayer.h:49</div></div>
 </div><!-- fragment --><p> <b>NOTE</b>, that the common <a class="el" href="page_define_prot.html#page_define_prot_interface">Common Interface Class</a> had to split the <b>version</b> + <b>flags</b> bitfield into two separate fields, because in order to properly support protocol versioning the <b>COMMS</b> library requires a version to reside in the separate extra transport field index to which is passed to the interface definition using <a class="el" href="namespacecomms_1_1option.html#acf92f65dd3a31ac8276e2d8a4140d02a">comms::option::VersionInExtraTransportFields</a> option. Otherwise automatic presence of the version dependent optional fields could not be detected. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

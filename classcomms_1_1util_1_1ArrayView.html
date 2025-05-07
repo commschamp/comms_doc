@@ -184,16 +184,16 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6ca6b080a6dfa622ed7689f9c4d43f33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a1a2abf4110eb1f4b0ca64b4e6d7eb0" id="r_a8a1a2abf4110eb1f4b0ca64b4e6d7eb0"><td class="memTemplParams" colspan="2"><a id="a8a1a2abf4110eb1f4b0ca64b4e6d7eb0" name="a8a1a2abf4110eb1f4b0ca64b4e6d7eb0"></a>
 template&lt;std::size_t TN&gt; </td></tr>
-<tr class="memitem:a8a1a2abf4110eb1f4b0ca64b4e6d7eb0"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ArrayView</b> (const T(&amp;data)[TN]) noexcept</td></tr>
+<tr class="memitem:a8a1a2abf4110eb1f4b0ca64b4e6d7eb0"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ArrayView</b> (const T(&amp;<a class="el" href="classcomms_1_1util_1_1ArrayView.html#ab3a3d34bb55f5143520f4b9d8d00866d">data</a>)[TN]) noexcept</td></tr>
 <tr class="memdesc:a8a1a2abf4110eb1f4b0ca64b4e6d7eb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct out of array of elements with known size. <br /></td></tr>
 <tr class="separator:a8a1a2abf4110eb1f4b0ca64b4e6d7eb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3cb49a3f8ef5051e0d370be4b21487fb" id="r_a3cb49a3f8ef5051e0d370be4b21487fb"><td class="memItemLeft" align="right" valign="top"><a id="a3cb49a3f8ef5051e0d370be4b21487fb" name="a3cb49a3f8ef5051e0d370be4b21487fb"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ArrayView</b> (<a class="el" href="classcomms_1_1util_1_1ArrayView.html#aee4d356aa8f4ff8df466543913c9595d">const_pointer</a> data, <a class="el" href="classcomms_1_1util_1_1ArrayView.html#a5337f637f51558cebd08f9ea4a688817">size_type</a> len) noexcept</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ArrayView</b> (<a class="el" href="classcomms_1_1util_1_1ArrayView.html#aee4d356aa8f4ff8df466543913c9595d">const_pointer</a> <a class="el" href="classcomms_1_1util_1_1ArrayView.html#ab3a3d34bb55f5143520f4b9d8d00866d">data</a>, <a class="el" href="classcomms_1_1util_1_1ArrayView.html#a5337f637f51558cebd08f9ea4a688817">size_type</a> len) noexcept</td></tr>
 <tr class="memdesc:a3cb49a3f8ef5051e0d370be4b21487fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br /></td></tr>
 <tr class="separator:a3cb49a3f8ef5051e0d370be4b21487fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1ec0e151c9f265503befe5c1ef5b263" id="r_ac1ec0e151c9f265503befe5c1ef5b263"><td class="memTemplParams" colspan="2"><a id="ac1ec0e151c9f265503befe5c1ef5b263" name="ac1ec0e151c9f265503befe5c1ef5b263"></a>
 template&lt;std::size_t TN&gt; </td></tr>
-<tr class="memitem:ac1ec0e151c9f265503befe5c1ef5b263"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ArrayView</b> (T(&amp;data)[TN]) noexcept</td></tr>
+<tr class="memitem:ac1ec0e151c9f265503befe5c1ef5b263"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ArrayView</b> (T(&amp;<a class="el" href="classcomms_1_1util_1_1ArrayView.html#ab3a3d34bb55f5143520f4b9d8d00866d">data</a>)[TN]) noexcept</td></tr>
 <tr class="memdesc:ac1ec0e151c9f265503befe5c1ef5b263"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct out of array of elements with known size. <br /></td></tr>
 <tr class="separator:ac1ec0e151c9f265503befe5c1ef5b263"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1125e187a33c27b54f9b1e2d6647c7c" id="r_ac1125e187a33c27b54f9b1e2d6647c7c"><td class="memTemplParams" colspan="2"><a id="ac1125e187a33c27b54f9b1e2d6647c7c" name="ac1125e187a33c27b54f9b1e2d6647c7c"></a>
@@ -236,6 +236,10 @@ constexpr <a class="el" href="classcomms_1_1util_1_1ArrayView.html#ab9ec113a63c7
 <a class="el" href="classcomms_1_1util_1_1ArrayView.html#a504c1722ec19cad94f2579418107c1e8">const_reverse_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>crend</b> () const noexcept</td></tr>
 <tr class="memdesc:a439a55599519961b2d82cbc94f6df01f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverse iterator to the beginning of the sequence. <br /></td></tr>
 <tr class="separator:a439a55599519961b2d82cbc94f6df01f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3a3d34bb55f5143520f4b9d8d00866d" id="r_ab3a3d34bb55f5143520f4b9d8d00866d"><td class="memItemLeft" align="right" valign="top"><a id="ab3a3d34bb55f5143520f4b9d8d00866d" name="ab3a3d34bb55f5143520f4b9d8d00866d"></a>
+<a class="el" href="classcomms_1_1util_1_1ArrayView.html#aee4d356aa8f4ff8df466543913c9595d">const_pointer</a>&#160;</td><td class="memItemRight" valign="bottom"><b>data</b> () const</td></tr>
+<tr class="memdesc:ab3a3d34bb55f5143520f4b9d8d00866d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer to the beginning of the underlying sequence. <br /></td></tr>
+<tr class="separator:ab3a3d34bb55f5143520f4b9d8d00866d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88f54b602226e5146bf1da649dfb4245" id="r_a88f54b602226e5146bf1da649dfb4245"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1util_1_1ArrayView.html#a88f54b602226e5146bf1da649dfb4245">empty</a> () const noexcept</td></tr>
 <tr class="memdesc:a88f54b602226e5146bf1da649dfb4245"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check the view is empty.  <br /></td></tr>
 <tr class="separator:a88f54b602226e5146bf1da649dfb4245"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -256,12 +260,12 @@ constexpr <a class="el" href="classcomms_1_1util_1_1ArrayView.html#a5337f637f515
 <tr class="separator:a0a3875ab40aca476205ef16e9ed41541"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04cc34815875e00e0d7d7bd83ebe6d96" id="r_a04cc34815875e00e0d7d7bd83ebe6d96"><td class="memTemplParams" colspan="2"><a id="a04cc34815875e00e0d7d7bd83ebe6d96" name="a04cc34815875e00e0d7d7bd83ebe6d96"></a>
 template&lt;std::size_t TN&gt; </td></tr>
-<tr class="memitem:a04cc34815875e00e0d7d7bd83ebe6d96"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classcomms_1_1util_1_1ArrayView.html">ArrayView</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator=</b> (const T(&amp;data)[TN])</td></tr>
+<tr class="memitem:a04cc34815875e00e0d7d7bd83ebe6d96"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classcomms_1_1util_1_1ArrayView.html">ArrayView</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator=</b> (const T(&amp;<a class="el" href="classcomms_1_1util_1_1ArrayView.html#ab3a3d34bb55f5143520f4b9d8d00866d">data</a>)[TN])</td></tr>
 <tr class="memdesc:a04cc34815875e00e0d7d7bd83ebe6d96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assign array of elements with known size. <br /></td></tr>
 <tr class="separator:a04cc34815875e00e0d7d7bd83ebe6d96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d45b212ffd2b0559f69a93b9aec44c5" id="r_a3d45b212ffd2b0559f69a93b9aec44c5"><td class="memTemplParams" colspan="2"><a id="a3d45b212ffd2b0559f69a93b9aec44c5" name="a3d45b212ffd2b0559f69a93b9aec44c5"></a>
 template&lt;std::size_t TN&gt; </td></tr>
-<tr class="memitem:a3d45b212ffd2b0559f69a93b9aec44c5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classcomms_1_1util_1_1ArrayView.html">ArrayView</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator=</b> (T(&amp;data)[TN])</td></tr>
+<tr class="memitem:a3d45b212ffd2b0559f69a93b9aec44c5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classcomms_1_1util_1_1ArrayView.html">ArrayView</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator=</b> (T(&amp;<a class="el" href="classcomms_1_1util_1_1ArrayView.html#ab3a3d34bb55f5143520f4b9d8d00866d">data</a>)[TN])</td></tr>
 <tr class="memdesc:a3d45b212ffd2b0559f69a93b9aec44c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assign array of elements with known size. <br /></td></tr>
 <tr class="separator:a3d45b212ffd2b0559f69a93b9aec44c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ebb740e2e51f8c0e96963d6573ab1fe" id="r_a6ebb740e2e51f8c0e96963d6573ab1fe"><td class="memItemLeft" align="right" valign="top"><a id="a6ebb740e2e51f8c0e96963d6573ab1fe" name="a6ebb740e2e51f8c0e96963d6573ab1fe"></a>

@@ -90,11 +90,14 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacecomms_1_1field" id="r_namespacecomms_1_1field"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1field.html">field</a></td></tr>
 <tr class="memdesc:namespacecomms_1_1field"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace that contains definitions of all message fields. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacecomms_1_1frame" id="r_namespacecomms_1_1frame"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1frame.html">frame</a></td></tr>
+<tr class="memdesc:namespacecomms_1_1frame"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace that contains definition of layers that can be used to wrap message data with transport data. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacecomms_1_1option" id="r_namespacecomms_1_1option"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1option.html">option</a></td></tr>
 <tr class="memdesc:namespacecomms_1_1option"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace that contains all the options used to define protocol as well as customize application specific configuration. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacecomms_1_1protocol" id="r_namespacecomms_1_1protocol"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1protocol.html">protocol</a></td></tr>
-<tr class="memdesc:namespacecomms_1_1protocol"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace that contains definition of layers that can be used to wrap message data with transport data. <br /></td></tr>
+<tr class="memdesc:namespacecomms_1_1protocol"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines aliases to classes in the <a class="el" href="namespacecomms_1_1frame.html">comms::frame</a>. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacecomms_1_1traits" id="r_namespacecomms_1_1traits"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1traits.html">traits</a></td></tr>
 <tr class="memdesc:namespacecomms_1_1traits"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for various traits tag classes. <br /></td></tr>
@@ -2158,7 +2161,7 @@ template&lt;typename TBufIter , typename TFrame , typename THandler , typename..
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">bufIter</td><td>Iterator to input buffer. Passed by value and is <b>NOT</b> updated when buffer is iterated over (unlike <a class="el" href="namespacecomms.html#a4df361b68b43438d84c63c70f5fce161">comms::processSingle()</a>, <a class="el" href="namespacecomms.html#a6192c4f27a8a642677487c3fd9c56768">comms::processSingleWithDispatch()</a>, <a class="el" href="namespacecomms.html#a7088de229a0103c1de50a2a1deebad45">comms::processSingleWithDispatchViaDispatcher()</a>). </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>Number of remaining bytes in input buffer. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">frame</td><td>Protocol frame / stack (see <a class="el" href="page_use_prot.html#page_use_prot_transport">Transport Framing</a>) that is used to process the raw input. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">frame</td><td>Protocol framek (see <a class="el" href="page_use_prot.html#page_use_prot_transport">Transport Framing</a>) that is used to process the raw input. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">handler</td><td>Handler to handle message object when dispatched. The dispatch is performed using <a class="el" href="namespacecomms.html#a2452362a2fe3788e868e4f40e54cf102">comms::dispatchMsg()</a> function. </td></tr>
   </table>
   </dd>
@@ -2228,7 +2231,7 @@ template&lt;typename TDispatcher , typename TBufIter , typename TFrame , typenam
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">bufIter</td><td>Iterator to input buffer. Passed by value and is <b>NOT</b> updated when buffer is iterated over (unlike <a class="el" href="namespacecomms.html#a4df361b68b43438d84c63c70f5fce161">comms::processSingle()</a>, <a class="el" href="namespacecomms.html#a6192c4f27a8a642677487c3fd9c56768">comms::processSingleWithDispatch()</a>, <a class="el" href="namespacecomms.html#a7088de229a0103c1de50a2a1deebad45">comms::processSingleWithDispatchViaDispatcher()</a>). </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>Number of remaining bytes in input buffer. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">frame</td><td>Protocol frame / stack (see <a class="el" href="page_use_prot.html#page_use_prot_transport">Transport Framing</a>) that is used to process the raw input. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">frame</td><td>Protocol frame (see <a class="el" href="page_use_prot.html#page_use_prot_transport">Transport Framing</a>) that is used to process the raw input. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">handler</td><td>Handler to handle message object when dispatched. The dispatch is performed via provded <b>TDispatcher</b> class (see <a class="el" href="classcomms_1_1MsgDispatcher.html">comms::MsgDispatcher</a>). </td></tr>
   </table>
   </dd>
@@ -2294,13 +2297,13 @@ template&lt;typename TBufIter , typename TFrame , typename TMsg , typename... TE
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">bufIter</td><td>Iterator to input buffer. Passed by reference and is updated when buffer is iterated over. Number of consumed bytes cat be determined by calculating the distance between originally passed value and the one after function returns. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>Number of remaining bytes in input buffer. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">frame</td><td>Protocol frame / stack (see <a class="el" href="page_use_prot.html#page_use_prot_transport">Transport Framing</a>) that is used to process the raw input. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">msg</td><td>Smart pointer (see <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a17b1b0d2a42427cb7c998a41c9aa3174">MsgPtr</a> defintion of the <a class="el" href="page_use_prot.html#page_use_prot_transport">Transport Framing</a>) to message object to be allocated, or reference to actual message object (extending <a class="el" href="classcomms_1_1MessageBase.html">comms::MessageBase</a>) when such is known. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">extraValues</td><td>Extra values that are passed as variadic parameters to <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a60d0ea06c68e5b885bf651d7a7b14d1a">read()</a> member function of the protocol frame / stack. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">frame</td><td>Protocol frame (see <a class="el" href="page_use_prot.html#page_use_prot_transport">Transport Framing</a>) that is used to process the raw input. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">msg</td><td>Smart pointer (see <a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html#a68ac463b9d9c21a2fac144bbc1c5ca8c">MsgPtr</a> defintion of the <a class="el" href="page_use_prot.html#page_use_prot_transport">Transport Framing</a>) to message object to be allocated, or reference to actual message object (extending <a class="el" href="classcomms_1_1Message.html">comms::Message</a>) when such is known. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">extraValues</td><td>Extra values that are passed as variadic parameters to <a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html#acba89d4affe6bec7637ee8c0b82b358d">read()</a> member function of the protocol frame. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>ErrorStatus of the protocol frame / stack <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a60d0ea06c68e5b885bf651d7a7b14d1a">read()</a> operation. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>ErrorStatus of the protocol frame <a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html#acba89d4affe6bec7637ee8c0b82b358d">read()</a> operation. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Defined in <a class="el" href="process_8h.html" title="Provides auxiliary functions for processing input and dispatching messages.">comms/process.h</a> </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="page_dispatch.html">Advanced Guide to Message Dispatching</a> </dd></dl>
 
@@ -2363,14 +2366,14 @@ template&lt;typename TBufIter , typename TFrame , typename TMsg , typename THand
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">bufIter</td><td>Iterator to input buffer. Passed by reference and is updated when buffer is iterated over. Number of consumed bytes cat be determined by calculating the distance between originally passed value and the one after function returns. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>Number of remaining bytes in input buffer. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">frame</td><td>Protocol frame / stack (see <a class="el" href="page_use_prot.html#page_use_prot_transport">Transport Framing</a>) that is used to process the raw input. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">msg</td><td>Smart pointer (see <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a17b1b0d2a42427cb7c998a41c9aa3174">MsgPtr</a> defintion of the <a class="el" href="page_use_prot.html#page_use_prot_transport">Transport Framing</a>) to message object to be allocated, or reference to actual message object (extending <a class="el" href="classcomms_1_1MessageBase.html">comms::MessageBase</a>) when such is known. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">frame</td><td>Protocol frame (see <a class="el" href="page_use_prot.html#page_use_prot_transport">Transport Framing</a>) that is used to process the raw input. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">msg</td><td>Smart pointer (see <a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html#a68ac463b9d9c21a2fac144bbc1c5ca8c">MsgPtr</a> defintion of the <a class="el" href="page_use_prot.html#page_use_prot_transport">Transport Framing</a>) to message object to be allocated, or reference to actual message object (extending <a class="el" href="classcomms_1_1Message.html">comms::Message</a>) when such is known. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">handler</td><td>Handler to handle message object when dispatched. The dispatch is performed using <a class="el" href="namespacecomms.html#a2452362a2fe3788e868e4f40e54cf102">comms::dispatchMsg()</a> function. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">extraValues</td><td>Extra values that are passed as variadic parameters to <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a60d0ea06c68e5b885bf651d7a7b14d1a">read()</a> member function of the protocol frame / stack. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">extraValues</td><td>Extra values that are passed as variadic parameters to <a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html#acba89d4affe6bec7637ee8c0b82b358d">read()</a> member function of the protocol frame. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>ErrorStatus of the protocol frame / stack <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a60d0ea06c68e5b885bf651d7a7b14d1a">read()</a> operation. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>ErrorStatus of the protocol frame <a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html#acba89d4affe6bec7637ee8c0b82b358d">read()</a> operation. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Defined in <a class="el" href="process_8h.html" title="Provides auxiliary functions for processing input and dispatching messages.">comms/process.h</a> </dd>
 <dd>
 If default dispatch behaviour of the <a class="el" href="namespacecomms.html#a2452362a2fe3788e868e4f40e54cf102">comms::dispatchMsg()</a> function doesn't suit the application needs, consider using <a class="el" href="namespacecomms.html#a7088de229a0103c1de50a2a1deebad45">comms::processSingleWithDispatchViaDispatcher()</a> instead. </dd></dl>
@@ -2441,14 +2444,14 @@ template&lt;typename TDispatcher , typename TBufIter , typename TFrame , typenam
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">bufIter</td><td>Iterator to input buffer. Passed by reference and is updated when buffer is iterated over. Number of consumed bytes cat be determined by calculating the distance between originally passed value and the one after function returns. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>Number of remaining bytes in input buffer. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">frame</td><td>Protocol frame / stack (see <a class="el" href="page_use_prot.html#page_use_prot_transport">Transport Framing</a>) that is used to process the raw input. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">msg</td><td>Smart pointer (see <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a17b1b0d2a42427cb7c998a41c9aa3174">MsgPtr</a> defintion of the <a class="el" href="page_use_prot.html#page_use_prot_transport">Transport Framing</a>) to message object to be allocated, or reference to actual message object (extending <a class="el" href="classcomms_1_1MessageBase.html">comms::MessageBase</a>) when such is known. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">frame</td><td>Protocol frame (see <a class="el" href="page_use_prot.html#page_use_prot_transport">Transport Framing</a>) that is used to process the raw input. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">msg</td><td>Smart pointer (see <a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html#a68ac463b9d9c21a2fac144bbc1c5ca8c">MsgPtr</a> defintion of the <a class="el" href="page_use_prot.html#page_use_prot_transport">Transport Framing</a>) to message object to be allocated, or reference to actual message object (extending <a class="el" href="classcomms_1_1Message.html">comms::Message</a>) when such is known. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">handler</td><td>Handler to handle message object when dispatched. The dispatch is performed via provded <b>TDispatcher</b> class (see <a class="el" href="classcomms_1_1MsgDispatcher.html">comms::MsgDispatcher</a>). </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">extraValues</td><td>Extra values that are passed as variadic parameters to <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a60d0ea06c68e5b885bf651d7a7b14d1a">read()</a> member function of the protocol frame / stack. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">extraValues</td><td>Extra values that are passed as variadic parameters to <a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html#acba89d4affe6bec7637ee8c0b82b358d">read()</a> member function of the protocol frame. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>ErrorStatus of the protocol frame / stack <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a60d0ea06c68e5b885bf651d7a7b14d1a">read()</a> operation. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>ErrorStatus of the protocol frame <a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html#acba89d4affe6bec7637ee8c0b82b358d">read()</a> operation. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Defined in <a class="el" href="process_8h.html" title="Provides auxiliary functions for processing input and dispatching messages.">comms/process.h</a> </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacecomms.html#a6192c4f27a8a642677487c3fd9c56768">comms::processSingleWithDispatch()</a>. </dd>
 <dd>

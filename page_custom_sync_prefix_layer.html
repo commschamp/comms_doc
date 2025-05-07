@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>COMMS: Defining Custom Sync Prefix Protocol Stack Layer</title>
+<title>COMMS: Defining Custom Sync Prefix Frame Layer</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -70,11 +70,11 @@ $(function() {
 
 </div><!-- top -->
 <div><div class="header">
-  <div class="headertitle"><div class="title">Defining Custom Sync Prefix Protocol Stack Layer</div></div>
+  <div class="headertitle"><div class="title">Defining Custom Sync Prefix Frame Layer</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>The <b>COMMS</b> library provides default <a class="el" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html">comms::protocol::SyncPrefixLayer</a> protocol stack layer to handle predefined protocol synchronization prefix. However, it may be insufficient (or incorrect) for some particular use cases, such as using alternating bytes. For example, every first message has <code>0xabcd</code> prefix while every second is expected to be <code>0xdead</code>. The <a class="el" href="page_prot_stack_tutorial.html#page_prot_stack_tutorial_new_layers">Implementing New Layers</a> section of the <a class="el" href="page_prot_stack_tutorial.html">Protocol Stack Definition Tutorial</a> page explains how to define new (custom) protocol layer.</p>
-<p>However, since <b>v3.2</b> COMMS library provides an ability to extend the existing definition of <a class="el" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html">comms::protocol::SyncPrefixLayer</a> and customize some bits and pieces. Let's implement the mentioned example of alternating synchronization prefix.</p>
+<div class="textblock"><p>The <b>COMMS</b> library provides default <a class="el" href="classcomms_1_1frame_1_1SyncPrefixLayer.html">comms::frame::SyncPrefixLayer</a> frame layer to handle predefined protocol synchronization prefix. However, it may be insufficient (or incorrect) for some particular use cases, such as using alternating bytes. For example, every first message has <code>0xabcd</code> prefix while every second is expected to be <code>0xdead</code>. The <a class="el" href="page_frame_tutorial.html#page_frame_tutorial_new_layers">Implementing New Layers</a> section of the <a class="el" href="page_frame_tutorial.html">Frame Definition Tutorial</a> page explains how to define new (custom) protocol layer.</p>
+<p>However, since <b>v3.2</b> COMMS library provides an ability to extend the existing definition of <a class="el" href="classcomms_1_1frame_1_1SyncPrefixLayer.html">comms::frame::SyncPrefixLayer</a> and customize some bits and pieces. Let's implement the mentioned example of alternating synchronization prefix.</p>
 <p>For this example the protocol framing is defined to be </p><div class="fragment"><div class="line">SYNC | SIZE | ID | PAYLOAD</div>
 </div><!-- fragment --><p>Such synchronization prefix handling layer may be defined in the following way. </p><div class="fragment"><div class="line"><span class="keyword">namespace </span>my_prot</div>
 <div class="line">{</div>
@@ -87,15 +87,15 @@ $(function() {
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> TNextLayer&gt;</div>
 <div class="line"><span class="keyword">class </span>AlternatingPrefixLayer : <span class="keyword">public</span></div>
-<div class="line">    <a class="code hl_class" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html">comms::protocol::SyncPrefixLayer</a>&lt;</div>
+<div class="line">    <a class="code hl_class" href="classcomms_1_1frame_1_1SyncPrefixLayer.html">comms::frame::SyncPrefixLayer</a>&lt;</div>
 <div class="line">        SyncField,   </div>
-<div class="line">        TNextLayer,          <span class="comment">// Next layer in the protocol stack</span></div>
+<div class="line">        TNextLayer,          <span class="comment">// Next layer in the frame</span></div>
 <div class="line">        comms::option::def::ExtendingClass&lt;AlternatingPrefixLayer&lt;TNextLayer&gt; &gt;</div>
-<div class="line">                             <span class="comment">// Make the comms::protocol::SyncPrefixLayer aware of it being extended</span></div>
+<div class="line">                             <span class="comment">// Make the comms::frame::SyncPrefixLayer aware of it being extended</span></div>
 <div class="line">    &gt;</div>
 <div class="line">{</div>
 <div class="line">    <span class="comment">// Repeat definition of the base class</span></div>
-<div class="line">    <span class="keyword">using </span>Base = <a class="code hl_class" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html">comms::protocol::SyncPrefixLayer</a>&lt;...&gt;;</div>
+<div class="line">    <span class="keyword">using </span>Base = <a class="code hl_class" href="classcomms_1_1frame_1_1SyncPrefixLayer.html">comms::frame::SyncPrefixLayer</a>&lt;...&gt;;</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">public</span>:</div>
 <div class="line">    <span class="comment">// Repeat types defined in the base class (not visible by default)</span></div>
@@ -136,28 +136,28 @@ $(function() {
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line">} <span class="comment">// namespace my_prot</span></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1SyncPrefixLayer_html"><div class="ttname"><a href="classcomms_1_1protocol_1_1SyncPrefixLayer.html">comms::protocol::SyncPrefixLayer</a></div><div class="ttdoc">Protocol layer that uses &quot;sync&quot; field as a prefix to all the subsequent data written by other (next) ...</div><div class="ttdef"><b>Definition</b> SyncPrefixLayer.h:54</div></div>
-</div><!-- fragment --><p> The <a class="el" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html">comms::protocol::SyncPrefixLayer</a> doesn't have any virtual functions and as the result not able to provide any polymorphic behavior. In order to be able to extend its default functionality there is a need to use <a href="https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern">Curiously Recurring Template Pattern</a>. It is done by passing <a class="el" href="structcomms_1_1option_1_1def_1_1ExtendingClass.html">comms::option::def::ExtendingClass</a> extension option with the type of the layer class being defined to the <a class="el" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html">comms::protocol::SyncPrefixLayer</a>.</p>
+<div class="ttc" id="aclasscomms_1_1frame_1_1SyncPrefixLayer_html"><div class="ttname"><a href="classcomms_1_1frame_1_1SyncPrefixLayer.html">comms::frame::SyncPrefixLayer</a></div><div class="ttdoc">Protocol layer that uses &quot;sync&quot; field as a prefix to all the subsequent data written by other (next) ...</div><div class="ttdef"><b>Definition</b> SyncPrefixLayer.h:46</div></div>
+</div><!-- fragment --><p> The <a class="el" href="classcomms_1_1frame_1_1SyncPrefixLayer.html">comms::frame::SyncPrefixLayer</a> doesn't have any virtual functions and as the result not able to provide any polymorphic behavior. In order to be able to extend its default functionality there is a need to use <a href="https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern">Curiously Recurring Template Pattern</a>. It is done by passing <a class="el" href="structcomms_1_1option_1_1def_1_1ExtendingClass.html">comms::option::def::ExtendingClass</a> extension option with the type of the layer class being defined to the <a class="el" href="classcomms_1_1frame_1_1SyncPrefixLayer.html">comms::frame::SyncPrefixLayer</a>.</p>
 <p>The extending class can customize the default behavior by overriding the listed below functions. They do not necessarily need to be <b>static</b>, accessing inner private state of the layer object is also acceptable. </p><ul>
-<li><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a7050fb0df8e4efc8cc3e35214436fe55">doReadField()</a> - Member function that is invoked to read field's value. </li>
-<li><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a2a7d913a4c2d569ce9c0842b9e16a0cb">doWriteField()</a> - Member function that is invoked to write field's value. </li>
-<li><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a8e86bd01b3f9a678e22ec65251d98d07">doFieldLength()</a> - Member function that is invoked to calculate serialization length of the field. </li>
-<li><a class="el" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#aa04171d007995ed8247b3629d9759185">verifyFieldValue()</a> - Member function that is invoked to check the validity of the read prefix. </li>
-<li><a class="el" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#aef2627542542fbc15229348a0b0396d9">prepareFieldForWrite()</a> - Member function that is invoked to prepare the field value before its write (serialization). The function is invoked from <a class="el" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#a989820b9d2478dd5a813c3ad4202ad1d">doWrite()</a>, which is const. That's the reason why <a class="el" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#aef2627542542fbc15229348a0b0396d9">prepareFieldForWrite()</a> also needs to be const. Any variables it updates must be declared as <code>mutable</code>.</li>
+<li><a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html#ac4c4e7ddfbadca13b1fb358dfce0c25a">doReadField()</a> - Member function that is invoked to read field's value. </li>
+<li><a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html#a7022da54d93eb0dcaca71c525e899a3c">doWriteField()</a> - Member function that is invoked to write field's value. </li>
+<li><a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html#a20fcccc4a966bdfb70110ba0007c6b15">doFieldLength()</a> - Member function that is invoked to calculate serialization length of the field. </li>
+<li><a class="el" href="classcomms_1_1frame_1_1SyncPrefixLayer.html#a05ae09345b5a745593c089c4d6fd8d1e">verifyFieldValue()</a> - Member function that is invoked to check the validity of the read prefix. </li>
+<li><a class="el" href="classcomms_1_1frame_1_1SyncPrefixLayer.html#a3cc08a5eeb169ffee00f074e3921d703">prepareFieldForWrite()</a> - Member function that is invoked to prepare the field value before its write (serialization). The function is invoked from <a class="el" href="classcomms_1_1frame_1_1SyncPrefixLayer.html#a62e09c7af21a9bf93606ffde63f269ae">doWrite()</a>, which is const. That's the reason why <a class="el" href="classcomms_1_1frame_1_1SyncPrefixLayer.html#a3cc08a5eeb169ffee00f074e3921d703">prepareFieldForWrite()</a> also needs to be const. Any variables it updates must be declared as <code>mutable</code>.</li>
 </ul>
-<p>The newly defined custom protocol stack layer can be used instead of <a class="el" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html">comms::protocol::SyncPrefixLayer</a> when defining <a class="el" href="page_prot_stack_tutorial.html">protocol stack</a> (framing) of the protocol. For example: </p><div class="fragment"><div class="line"><span class="keyword">namespace </span>my_prot</div>
+<p>The newly defined custom frame layer can be used instead of <a class="el" href="classcomms_1_1frame_1_1SyncPrefixLayer.html">comms::frame::SyncPrefixLayer</a> when defining <a class="el" href="page_frame_tutorial.html">framing</a> of the protocol. For example: </p><div class="fragment"><div class="line"><span class="keyword">namespace </span>my_prot</div>
 <div class="line">{</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMessage, <span class="keyword">typename</span> TAllMessages&gt;</div>
 <div class="line"><span class="keyword">struct </span>Frame1 : <span class="keyword">public</span> </div>
 <div class="line">    AlternatingPrefixLayer&lt;                              <span class="comment">// SYNC</span></div>
-<div class="line">        comms::protocol::MsgSizeLayer&lt;                   <span class="comment">// SIZE</span></div>
+<div class="line">        comms::frame::MsgSizeLayer&lt;                   <span class="comment">// SIZE</span></div>
 <div class="line">            common::field::IntValue&lt;FieldBase, std::uint16_t&gt;,</div>
-<div class="line">            comms::protocol::MsgIdLayer&lt;                 <span class="comment">// ID</span></div>
+<div class="line">            comms::frame::MsgIdLayer&lt;                 <span class="comment">// ID</span></div>
 <div class="line">                comms::feild::EnumValue&lt;FieldBase, MsgId&gt;,</div>
 <div class="line">                TMessage,</div>
 <div class="line">                TAllMessages,</div>
-<div class="line">                comms::protocol::MsgDataLayer&lt;&gt;          <span class="comment">// PAYLOAD</span></div>
+<div class="line">                comms::frame::MsgDataLayer&lt;&gt;          <span class="comment">// PAYLOAD</span></div>
 <div class="line">            &gt;</div>
 <div class="line">        &gt;</div>
 <div class="line">    &gt;</div>

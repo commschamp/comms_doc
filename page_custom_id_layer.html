@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>COMMS: Defining Custom Message ID Protocol Stack Layer</title>
+<title>COMMS: Defining Custom Message ID Frame Layer</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -70,12 +70,12 @@ $(function() {
 
 </div><!-- top -->
 <div><div class="header">
-  <div class="headertitle"><div class="title">Defining Custom Message ID Protocol Stack Layer</div></div>
+  <div class="headertitle"><div class="title">Defining Custom Message ID Frame Layer</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>The <b>COMMS</b> library provides default <a class="el" href="classcomms_1_1protocol_1_1MsgIdLayer.html">comms::protocol::MsgIdLayer</a> protocol stack layer to manage message ID information in the protocol framing. However, it may be insufficient (or incorrect) for some particular use cases, such as using <b>bitfield</b> field to store both numeric message ID and some extra flags (like <a href="http://mqtt.org">MQTT</a> protocol does). The <a class="el" href="page_prot_stack_tutorial.html#page_prot_stack_tutorial_new_layers">Implementing New Layers</a> section of the <a class="el" href="page_prot_stack_tutorial.html">Protocol Stack Definition Tutorial</a> page explains how to define new (custom) protocol layer.</p>
-<p><b>NOTE</b>, that <a class="el" href="classcomms_1_1protocol_1_1MsgIdLayer.html">comms::protocol::MsgIdLayer</a> class contains significant amount of compile time logic of choosing the best code based on provided options as well as available polymorphic interface messages being read and/or written. It is very impractical to try to implement something similar from scratch or copy-paste the existing definition and introduce required changes.</p>
-<p>Since <b>v1.2</b> COMMS library provides an ability to extend the existing definition of <a class="el" href="classcomms_1_1protocol_1_1MsgIdLayer.html">comms::protocol::MsgIdLayer</a> and customize some bits and pieces. Let's implement the mentioned example of sharing the same byte for numeric ID and some flags.</p>
+<div class="textblock"><p>The <b>COMMS</b> library provides default <a class="el" href="classcomms_1_1frame_1_1MsgIdLayer.html">comms::frame::MsgIdLayer</a> frame layer to manage message ID information in the protocol framing. However, it may be insufficient (or incorrect) for some particular use cases, such as using <b>bitfield</b> field to store both numeric message ID and some extra flags (like <a href="http://mqtt.org">MQTT</a> protocol does). The <a class="el" href="page_frame_tutorial.html#page_frame_tutorial_new_layers">Implementing New Layers</a> section of the <a class="el" href="page_frame_tutorial.html">Frame Definition Tutorial</a> page explains how to define new (custom) protocol layer.</p>
+<p><b>NOTE</b>, that <a class="el" href="classcomms_1_1frame_1_1MsgIdLayer.html">comms::frame::MsgIdLayer</a> class contains significant amount of compile time logic of choosing the best code based on provided options as well as available polymorphic interface messages being read and/or written. It is very impractical to try to implement something similar from scratch or copy-paste the existing definition and introduce required changes.</p>
+<p>Since <b>v1.2</b> COMMS library provides an ability to extend the existing definition of <a class="el" href="classcomms_1_1frame_1_1MsgIdLayer.html">comms::frame::MsgIdLayer</a> and customize some bits and pieces. Let's implement the mentioned example of sharing the same byte for numeric ID and some flags.</p>
 <p>First of all let's define the <a class="el" href="page_define_prot.html#page_define_prot_interface">Common Interface Class</a>, which holds the <b>flags</b> information as data member of every message object. </p><div class="fragment"><div class="line"><span class="keyword">namespace </span>my_prot</div>
 <div class="line">{</div>
 <div class="line"> </div>
@@ -120,7 +120,7 @@ $(function() {
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line">} <span class="comment">// namespace my_prot</span></div>
-<div class="ttc" id="aclasscomms_1_1Message_html"><div class="ttname"><a href="classcomms_1_1Message.html">comms::Message</a></div><div class="ttdoc">Main interface class for all the messages.</div><div class="ttdef"><b>Definition</b> Message.h:80</div></div>
+<div class="ttc" id="aclasscomms_1_1Message_html"><div class="ttname"><a href="classcomms_1_1Message.html">comms::Message</a></div><div class="ttdoc">Main interface class for all the messages.</div><div class="ttdef"><b>Definition</b> Message.h:79</div></div>
 <div class="ttc" id="aclasscomms_1_1field_1_1BitmaskValue_html"><div class="ttname"><a href="classcomms_1_1field_1_1BitmaskValue.html">comms::field::BitmaskValue</a></div><div class="ttdoc">Bitmask value field.</div><div class="ttdef"><b>Definition</b> BitmaskValue.h:105</div></div>
 </div><!-- fragment --><p> Just to refresh the reader's memory: the usage of COMMS_MSG_TRANSPORT_FIELDS_NAMES() macro for the interface definition will generate <b>transportField_flags()</b> convenience member function to access the stored <b>flags</b> field, while usage of COMMS_BITMASK_BITS_SEQ() in the flags field definition will genereate <b>getBitValue_X()</b> and <b>setBitValue_X()</b> convenience member functions to get / set values of the bits (where X is one of the defined names: <b>bit0</b>, <b>bit1</b>, <b>bit2</b>, and <b>bit3</b>).</p>
 <p>Now, let's define the <b>bitfield</b> field, that splits one byte in half to store numeric message ID (in lower 4 bits) as well as extra flags (in upper 4 bits) </p><div class="fragment"><div class="line"><span class="keyword">namespace </span>my_prot</div>
@@ -146,23 +146,23 @@ $(function() {
 <div class="ttc" id="aField_8h_html_af74198f06b52d3f58c92e795b2ff7129"><div class="ttname"><a href="Field_8h.html#af74198f06b52d3f58c92e795b2ff7129">COMMS_FIELD_MEMBERS_NAMES</a></div><div class="ttdeci">#define COMMS_FIELD_MEMBERS_NAMES(...)</div><div class="ttdoc">Provide names for member fields of composite fields, such as comms::field::Bundle or comms::field::Bi...</div><div class="ttdef"><b>Definition</b> Field.h:387</div></div>
 <div class="ttc" id="aclasscomms_1_1field_1_1Bitfield_html"><div class="ttname"><a href="classcomms_1_1field_1_1Bitfield.html">comms::field::Bitfield</a></div><div class="ttdoc">Bitfield field.</div><div class="ttdef"><b>Definition</b> Bitfield.h:101</div></div>
 </div><!-- fragment --><p> Again, just to refresh the reader's memory: the usage of <a class="el" href="Field_8h.html#af74198f06b52d3f58c92e795b2ff7129">COMMS_FIELD_MEMBERS_NAMES()</a> macro for the bitfield definition will generate <b>field_X()</b> convenience access member functions for the listed names.</p>
-<p>Now it's time to actually extend the provided definition of the <a class="el" href="classcomms_1_1protocol_1_1MsgIdLayer.html">comms::protocol::MsgIdLayer</a> and support usage of the defined earlier <b>IdAndFlagsField</b> field. </p><div class="fragment"><div class="line"><span class="keyword">namespace </span>my_prot</div>
+<p>Now it's time to actually extend the provided definition of the <a class="el" href="classcomms_1_1frame_1_1MsgIdLayer.html">comms::frame::MsgIdLayer</a> and support usage of the defined earlier <b>IdAndFlagsField</b> field. </p><div class="fragment"><div class="line"><span class="keyword">namespace </span>my_prot</div>
 <div class="line">{</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMessage, <span class="keyword">typename</span> TAllMessages, <span class="keyword">typename</span> TNextLayer, <span class="keyword">typename</span>... TOptions&gt;</div>
 <div class="line"><span class="keyword">class </span>MsgIdAndFlagsLayer : <span class="keyword">public</span></div>
-<div class="line">    <a class="code hl_class" href="classcomms_1_1protocol_1_1MsgIdLayer.html">comms::protocol::MsgIdLayer</a>&lt;</div>
+<div class="line">    <a class="code hl_class" href="classcomms_1_1frame_1_1MsgIdLayer.html">comms::frame::MsgIdLayer</a>&lt;</div>
 <div class="line">        IdAndFlagsField,   <span class="comment">// Used field that contains message ID</span></div>
 <div class="line">        TMessage,          <span class="comment">// Common interface class</span></div>
 <div class="line">        TAllMessages,      <span class="comment">// std::tuple of all the supported input messages</span></div>
-<div class="line">        TNextLayer,        <span class="comment">// Next layer in the protocol stack</span></div>
+<div class="line">        TNextLayer,        <span class="comment">// Next layer in the frame</span></div>
 <div class="line">        TOptions...,       <span class="comment">// Application specific extension options</span></div>
 <div class="line">        comms::option::def::ExtendingClass&lt;MsgIdAndFlagsLayer&lt;TMessage, TAllMessages, TNextLayer, TOptions...&gt; &gt;</div>
-<div class="line">                           <span class="comment">// Make the comms::protocol::MsgIdLayer aware of it being extended</span></div>
+<div class="line">                           <span class="comment">// Make the comms::frame::MsgIdLayer aware of it being extended</span></div>
 <div class="line">    &gt;</div>
 <div class="line">{</div>
 <div class="line">    <span class="comment">// Repeat definition of the base class</span></div>
-<div class="line">    <span class="keyword">using </span>Base = <a class="code hl_class" href="classcomms_1_1protocol_1_1MsgIdLayer.html">comms::protocol::MsgIdLayer</a>&lt;...&gt;;</div>
+<div class="line">    <span class="keyword">using </span>Base = <a class="code hl_class" href="classcomms_1_1frame_1_1MsgIdLayer.html">comms::frame::MsgIdLayer</a>&lt;...&gt;;</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">public</span>:</div>
 <div class="line">    <span class="comment">// Repeat types defined in the base class (not visible by default)</span></div>
@@ -195,17 +195,17 @@ $(function() {
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line">} <span class="comment">// namespace my_prot</span></div>
-<div class="ttc" id="aclasscomms_1_1protocol_1_1MsgIdLayer_html"><div class="ttname"><a href="classcomms_1_1protocol_1_1MsgIdLayer.html">comms::protocol::MsgIdLayer</a></div><div class="ttdoc">Protocol layer that uses uses message ID field as a prefix to all the subsequent data written by othe...</div><div class="ttdef"><b>Definition</b> MsgIdLayer.h:80</div></div>
-</div><!-- fragment --><p> The <a class="el" href="classcomms_1_1protocol_1_1MsgIdLayer.html">comms::protocol::MsgIdLayer</a> doesn't have any virtual functions and as the result not able to provide any polymorphic behavior. In order to be able to extend its default functionality there is a need to use <a href="https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern">Curiously Recurring Template Pattern</a>. It is done by passing <a class="el" href="structcomms_1_1option_1_1def_1_1ExtendingClass.html">comms::option::def::ExtendingClass</a> extension option with the type of the layer class being defined to the <a class="el" href="classcomms_1_1protocol_1_1MsgIdLayer.html">comms::protocol::MsgIdLayer</a>.</p>
+<div class="ttc" id="aclasscomms_1_1frame_1_1MsgIdLayer_html"><div class="ttname"><a href="classcomms_1_1frame_1_1MsgIdLayer.html">comms::frame::MsgIdLayer</a></div><div class="ttdoc">Protocol layer that uses uses message ID field as a prefix to all the subsequent data written by othe...</div><div class="ttdef"><b>Definition</b> MsgIdLayer.h:71</div></div>
+</div><!-- fragment --><p> The <a class="el" href="classcomms_1_1frame_1_1MsgIdLayer.html">comms::frame::MsgIdLayer</a> doesn't have any virtual functions and as the result not able to provide any polymorphic behavior. In order to be able to extend its default functionality there is a need to use <a href="https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern">Curiously Recurring Template Pattern</a>. It is done by passing <a class="el" href="structcomms_1_1option_1_1def_1_1ExtendingClass.html">comms::option::def::ExtendingClass</a> extension option with the type of the layer class being defined to the <a class="el" href="classcomms_1_1frame_1_1MsgIdLayer.html">comms::frame::MsgIdLayer</a>.</p>
 <p>The extending class can customize the default behavior by overriding the listed below functions. They do not necessarily need to be <b>static</b>, accessing inner private state of the layer object is also acceptable. </p><ul>
-<li><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a7050fb0df8e4efc8cc3e35214436fe55">doReadField()</a> - Member function that is invoked to read field's value. </li>
-<li><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a2a7d913a4c2d569ce9c0842b9e16a0cb">doWriteField()</a> - Member function that is invoked to write field's value. </li>
-<li><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a8e86bd01b3f9a678e22ec65251d98d07">doFieldLength()</a> - Member function that is invoked to calculate serialization length of the field. </li>
-<li><a class="el" href="classcomms_1_1protocol_1_1MsgIdLayer.html#a04ff4a01821751edbf49a568d6b56f47">getMsgIdFromField()</a> - Member function that is invoked to retrieve the numeric message ID out of the provided field object. </li>
-<li><a class="el" href="classcomms_1_1protocol_1_1MsgIdLayer.html#ab53d12505a533c7ad4d2741381beec06">beforeRead()</a> - Member function that is invoked after appropriate message object has been created but the read operation has <b>NOT</b> yet been forwarded to the next protocol layer. It gives the developer a chance to update some extra transport fields accessible via message interface class. </li>
-<li><a class="el" href="classcomms_1_1protocol_1_1MsgIdLayer.html#a0054511435ae10d307f05b458b3420a1">prepareFieldForWrite()</a> - Member function that is invoked to prepare the field value before its write (serialization). After the function returns, the <a class="el" href="classcomms_1_1protocol_1_1MsgIdLayer.html">comms::protocol::MsgIdLayer</a> will invoke <b>write</b> member function of the passed field in order to serialize it.</li>
+<li><a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html#ac4c4e7ddfbadca13b1fb358dfce0c25a">doReadField()</a> - Member function that is invoked to read field's value. </li>
+<li><a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html#a7022da54d93eb0dcaca71c525e899a3c">doWriteField()</a> - Member function that is invoked to write field's value. </li>
+<li><a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html#a20fcccc4a966bdfb70110ba0007c6b15">doFieldLength()</a> - Member function that is invoked to calculate serialization length of the field. </li>
+<li><a class="el" href="classcomms_1_1frame_1_1MsgIdLayer.html#a5e76f382c9c8d7913725f4a7d36474a8">getMsgIdFromField()</a> - Member function that is invoked to retrieve the numeric message ID out of the provided field object. </li>
+<li><a class="el" href="classcomms_1_1frame_1_1MsgIdLayer.html#aff801e96f3d92358d307fb1d95a35772">beforeRead()</a> - Member function that is invoked after appropriate message object has been created but the read operation has <b>NOT</b> yet been forwarded to the next protocol layer. It gives the developer a chance to update some extra transport fields accessible via message interface class. </li>
+<li><a class="el" href="classcomms_1_1frame_1_1MsgIdLayer.html#a4fad4f40042dfed832c171889118aae8">prepareFieldForWrite()</a> - Member function that is invoked to prepare the field value before its write (serialization). After the function returns, the <a class="el" href="classcomms_1_1frame_1_1MsgIdLayer.html">comms::frame::MsgIdLayer</a> will invoke <b>write</b> member function of the passed field in order to serialize it.</li>
 </ul>
-<p>The newly defined custom protocol stack layer can be used instead of <a class="el" href="classcomms_1_1protocol_1_1MsgIdLayer.html">comms::protocol::MsgIdLayer</a> when defining <a class="el" href="page_prot_stack_tutorial.html">protocol stack</a> (framing) of the protocol. </p>
+<p>The newly defined custom frame layer can be used instead of <a class="el" href="classcomms_1_1frame_1_1MsgIdLayer.html">comms::frame::MsgIdLayer</a> when defining <a class="el" href="page_frame_tutorial.html">framing</a> of the protocol. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->

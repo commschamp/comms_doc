@@ -86,18 +86,18 @@ $(function() {
 
 <p>Contains definition of Message object interface and various base classes for custom messages.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;cstdint&gt;</code><br />
-<code>#include &lt;memory&gt;</code><br />
-<code>#include &lt;type_traits&gt;</code><br />
-<code>#include &quot;<a class="el" href="ErrorStatus_8h_source.html">comms/ErrorStatus.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="Assert_8h_source.html">comms/Assert.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="Field_8h_source.html">comms/Field.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="type__traits_8h_source.html">comms/util/type_traits.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="Assert_8h_source.html">comms/Assert.h</a>&quot;</code><br />
+<code>#include &quot;comms/details/detect.h&quot;</code><br />
+<code>#include &quot;comms/details/field_alias.h&quot;</code><br />
+<code>#include &quot;comms/details/MessageIdTypeRetriever.h&quot;</code><br />
 <code>#include &quot;comms/details/MessageInterfaceBuilder.h&quot;</code><br />
 <code>#include &quot;comms/details/transport_fields_access.h&quot;</code><br />
-<code>#include &quot;comms/details/detect.h&quot;</code><br />
-<code>#include &quot;comms/details/MessageIdTypeRetriever.h&quot;</code><br />
-<code>#include &quot;comms/details/field_alias.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="ErrorStatus_8h_source.html">comms/ErrorStatus.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Field_8h_source.html">comms/Field.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="type__traits_8h_source.html">comms/util/type_traits.h</a>&quot;</code><br />
+<code>#include &lt;cstdint&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;type_traits&gt;</code><br />
 </div>
 <p><a href="Message_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -208,7 +208,7 @@ template&lt;typename... TOptions&gt; </td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">    COMMS_EXPAND(<a class="code hl_define" href="Message_8h.html#ad869d496cd7e59771fb13079970cd102">COMMS_MSG_TRANSPORT_FIELD_ALIAS_ACCESS_NOTEMPLATE</a>(f_, __VA_ARGS__)) \</div>
 <div class="line">    COMMS_EXPAND(COMMS_DO_ALIAS_TYPEDEF(TransportField_, f_, __VA_ARGS__))</div>
-<div class="ttc" id="aMessage_8h_html_ad869d496cd7e59771fb13079970cd102"><div class="ttname"><a href="Message_8h.html#ad869d496cd7e59771fb13079970cd102">COMMS_MSG_TRANSPORT_FIELD_ALIAS_ACCESS_NOTEMPLATE</a></div><div class="ttdeci">#define COMMS_MSG_TRANSPORT_FIELD_ALIAS_ACCESS_NOTEMPLATE(f_,...)</div><div class="ttdoc">Generate convinience alias access member functions for extra member transport fields in non template ...</div><div class="ttdef"><b>Definition</b> Message.h:742</div></div>
+<div class="ttc" id="aMessage_8h_html_ad869d496cd7e59771fb13079970cd102"><div class="ttname"><a href="Message_8h.html#ad869d496cd7e59771fb13079970cd102">COMMS_MSG_TRANSPORT_FIELD_ALIAS_ACCESS_NOTEMPLATE</a></div><div class="ttdeci">#define COMMS_MSG_TRANSPORT_FIELD_ALIAS_ACCESS_NOTEMPLATE(f_,...)</div><div class="ttdoc">Generate convinience alias access member functions for extra member transport fields in non template ...</div><div class="ttdef"><b>Definition</b> Message.h:741</div></div>
 </div><!-- fragment -->
 <p>Generate convinience alias access member functions and type for extra member transport fields in non template interface classes. </p>
 <p>Similar to COMMS_MSG_TRANSPORT_FIELD_ALIAS(), but needs to be used in <b>non-template</b> interface class to allow compilation with gcc-4.8 </p><dl class="section see"><dt>See also</dt><dd>COMMS_MSG_TRANSPORT_FIELD_ALIAS() </dd></dl>

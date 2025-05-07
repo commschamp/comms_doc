@@ -21,5 +21,5 @@ var searchData=
   ['string_18',['String',['../classcomms_1_1field_1_1String.html',1,'comms::field']]],
   ['stringview_19',['StringView',['../classcomms_1_1util_1_1StringView.html',1,'comms::util']]],
   ['supportgenericmessage_20',['SupportGenericMessage',['../structcomms_1_1option_1_1app_1_1SupportGenericMessage.html',1,'comms::option::app']]],
-  ['syncprefixlayer_21',['SyncPrefixLayer',['../classcomms_1_1protocol_1_1SyncPrefixLayer.html',1,'comms::protocol']]]
+  ['syncprefixlayer_21',['SyncPrefixLayer',['../classcomms_1_1frame_1_1SyncPrefixLayer.html',1,'comms::frame']]]
 ];

@@ -76,120 +76,262 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">comms::protocol Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Namespace that contains definition of layers that can be used to wrap message data with transport data.  
+<p>Defines aliases to classes in the <a class="el" href="namespacecomms_1_1frame.html">comms::frame</a>.  
 <a href="namespacecomms_1_1protocol.html#details">More...</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Namespace that contains definition of layers that can be used to wrap message data with transport data. </p>
+<div class="textblock"><p>Defines aliases to classes in the <a class="el" href="namespacecomms_1_1frame.html">comms::frame</a>. </p>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000001">Deprecated:</a></b></dt><dd>Use classes <a class="el" href="namespacecomms_1_1frame.html">comms::frame</a> namespace instead </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacecomms_1_1protocol_1_1checksum" id="r_namespacecomms_1_1protocol_1_1checksum"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1protocol_1_1checksum.html">checksum</a></td></tr>
-<tr class="memdesc:namespacecomms_1_1protocol_1_1checksum"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace that contains definition of checksum calculator classes which can be used with <a class="el" href="classcomms_1_1protocol_1_1ChecksumLayer.html" title="Protocol layer that is responsible to calculate checksum on the data written by all the wrapped inter...">comms::protocol::ChecksumLayer</a> transport layer class. <br /></td></tr>
+<tr class="memdesc:namespacecomms_1_1protocol_1_1checksum"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines aliases to classes in the <a class="el" href="namespacecomms_1_1frame_1_1checksum.html">comms::frame::checksum</a>. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ChecksumLayer.html">ChecksumLayer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Protocol layer that is responsible to calculate checksum on the data written by all the wrapped internal layers and append it to the end of the written data. When reading, this layer is responsible to verify the checksum reported at the end of the read data.  <a href="classcomms_1_1protocol_1_1ChecksumLayer.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html">ChecksumPrefixLayer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Protocol layer that is responsible to calculate checksum on the data written by all the wrapped internal layers and prepend it before the written data. When reading, this layer is responsible to verify the checksum reported at the beginning of the read data.  <a href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">MsgDataLayer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classcomms_1_1Message.html" title="Main interface class for all the messages.">Message</a> data layer.  <a href="classcomms_1_1protocol_1_1MsgDataLayer.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgIdLayer.html">MsgIdLayer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Protocol layer that uses uses message ID field as a prefix to all the subsequent data written by other (next) layers.  <a href="classcomms_1_1protocol_1_1MsgIdLayer.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1MsgSizeLayer.html">MsgSizeLayer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Protocol layer that uses size field as a prefix to all the subsequent data written by other (next) layers.  <a href="classcomms_1_1protocol_1_1MsgSizeLayer.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html">ProtocolLayerBase</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for all the middle (non <a class="el" href="classcomms_1_1protocol_1_1MsgDataLayer.html">MsgDataLayer</a>) protocol transport layers.  <a href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1SyncPrefixLayer.html">SyncPrefixLayer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Protocol layer that uses "sync" field as a prefix to all the subsequent data written by other (next) layers.  <a href="classcomms_1_1protocol_1_1SyncPrefixLayer.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html">TransportValueLayer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Protocol layer that reads a value from transport wrapping and reassigns it to appropriate "extra transport" data member of the created message object.  <a href="classcomms_1_1protocol_1_1TransportValueLayer.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a2b6666ed69dbdf282b5debb7ca8f2c3f" id="r_a2b6666ed69dbdf282b5debb7ca8f2c3f"><td class="memTemplParams" colspan="2">template&lt;typename TField , typename TCalc , typename TNextLayer , typename... TOptions&gt; </td></tr>
+<tr class="memitem:a2b6666ed69dbdf282b5debb7ca8f2c3f"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1protocol.html#a2b6666ed69dbdf282b5debb7ca8f2c3f">ChecksumLayer</a> = <a class="el" href="classcomms_1_1frame_1_1ChecksumLayer.html">comms::frame::ChecksumLayer</a>&lt; TField, TCalc, TNextLayer, TOptions... &gt;</td></tr>
+<tr class="memdesc:a2b6666ed69dbdf282b5debb7ca8f2c3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias to the <a class="el" href="classcomms_1_1frame_1_1ChecksumLayer.html">comms::frame::ChecksumLayer</a>.  <br /></td></tr>
+<tr class="separator:a2b6666ed69dbdf282b5debb7ca8f2c3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ea73ab03cdc4eb058b1c4ac16c48248" id="r_a2ea73ab03cdc4eb058b1c4ac16c48248"><td class="memTemplParams" colspan="2">template&lt;typename TField , typename TCalc , typename TNextLayer , typename... TOptions&gt; </td></tr>
+<tr class="memitem:a2ea73ab03cdc4eb058b1c4ac16c48248"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1protocol.html#a2ea73ab03cdc4eb058b1c4ac16c48248">ChecksumPrefixLayer</a> = <a class="el" href="classcomms_1_1frame_1_1ChecksumPrefixLayer.html">comms::frame::ChecksumPrefixLayer</a>&lt; TField, TCalc, TNextLayer, TOptions... &gt;</td></tr>
+<tr class="memdesc:a2ea73ab03cdc4eb058b1c4ac16c48248"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias to the <a class="el" href="classcomms_1_1frame_1_1ChecksumPrefixLayer.html">comms::frame::ChecksumPrefixLayer</a>.  <br /></td></tr>
+<tr class="separator:a2ea73ab03cdc4eb058b1c4ac16c48248"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7df17ea5b11095fce8bf33425be4a9a4" id="r_a7df17ea5b11095fce8bf33425be4a9a4"><td class="memTemplParams" colspan="2">template&lt;typename... TOptions&gt; </td></tr>
+<tr class="memitem:a7df17ea5b11095fce8bf33425be4a9a4"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1protocol.html#a7df17ea5b11095fce8bf33425be4a9a4">MsgDataLayer</a> = <a class="el" href="classcomms_1_1frame_1_1MsgDataLayer.html">comms::frame::MsgDataLayer</a>&lt; TOptions... &gt;</td></tr>
+<tr class="memdesc:a7df17ea5b11095fce8bf33425be4a9a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias to the <a class="el" href="classcomms_1_1frame_1_1MsgDataLayer.html">comms::frame::MsgDataLayer</a>.  <br /></td></tr>
+<tr class="separator:a7df17ea5b11095fce8bf33425be4a9a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35565305a2ea668467c1cb4e97c1d501" id="r_a35565305a2ea668467c1cb4e97c1d501"><td class="memTemplParams" colspan="2">template&lt;typename TField , typename TMessage , typename TAllMessages , typename TNextLayer , typename... TOptions&gt; </td></tr>
+<tr class="memitem:a35565305a2ea668467c1cb4e97c1d501"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1protocol.html#a35565305a2ea668467c1cb4e97c1d501">MsgIdLayer</a> = <a class="el" href="classcomms_1_1frame_1_1MsgIdLayer.html">comms::frame::MsgIdLayer</a>&lt; TField, TMessage, TAllMessages, TNextLayer, TOptions... &gt;</td></tr>
+<tr class="memdesc:a35565305a2ea668467c1cb4e97c1d501"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias to the <a class="el" href="classcomms_1_1frame_1_1MsgIdLayer.html">comms::frame::MsgIdLayer</a>.  <br /></td></tr>
+<tr class="separator:a35565305a2ea668467c1cb4e97c1d501"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44206fd046b4799363ab9d9d048191c4" id="r_a44206fd046b4799363ab9d9d048191c4"><td class="memTemplParams" colspan="2">template&lt;typename TField , typename TNextLayer , typename... TOptions&gt; </td></tr>
+<tr class="memitem:a44206fd046b4799363ab9d9d048191c4"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1protocol.html#a44206fd046b4799363ab9d9d048191c4">MsgSizeLayer</a> = <a class="el" href="classcomms_1_1frame_1_1MsgSizeLayer.html">comms::frame::MsgSizeLayer</a>&lt; TField, TNextLayer, TOptions... &gt;</td></tr>
+<tr class="memdesc:a44206fd046b4799363ab9d9d048191c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias to the <a class="el" href="classcomms_1_1frame_1_1MsgSizeLayer.html">comms::frame::MsgSizeLayer</a>.  <br /></td></tr>
+<tr class="separator:a44206fd046b4799363ab9d9d048191c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38622ac8a0c862024a2d05094a066a6c" id="r_a38622ac8a0c862024a2d05094a066a6c"><td class="memTemplParams" colspan="2">template&lt;typename TField , typename TNextLayer , typename TDerived , typename... TOptions&gt; </td></tr>
+<tr class="memitem:a38622ac8a0c862024a2d05094a066a6c"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1protocol.html#a38622ac8a0c862024a2d05094a066a6c">ProtocolLayerBase</a> = <a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html">comms::frame::FrameLayerBase</a>&lt; TField, TNextLayer, TDerived, TOptions... &gt;</td></tr>
+<tr class="memdesc:a38622ac8a0c862024a2d05094a066a6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias to the <a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html">comms::frame::FrameLayerBase</a>.  <br /></td></tr>
+<tr class="separator:a38622ac8a0c862024a2d05094a066a6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6962a5b695448b796e01d7cdde851ae8" id="r_a6962a5b695448b796e01d7cdde851ae8"><td class="memTemplParams" colspan="2">template&lt;typename TField , typename TNextLayer , typename... TOptions&gt; </td></tr>
+<tr class="memitem:a6962a5b695448b796e01d7cdde851ae8"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1protocol.html#a6962a5b695448b796e01d7cdde851ae8">SyncPrefixLayer</a> = <a class="el" href="classcomms_1_1frame_1_1SyncPrefixLayer.html">comms::frame::SyncPrefixLayer</a>&lt; TField, TNextLayer, TOptions... &gt;</td></tr>
+<tr class="memdesc:a6962a5b695448b796e01d7cdde851ae8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias to the <a class="el" href="classcomms_1_1frame_1_1SyncPrefixLayer.html">comms::frame::SyncPrefixLayer</a>.  <br /></td></tr>
+<tr class="separator:a6962a5b695448b796e01d7cdde851ae8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaece12903295af0928a9b763cd156bab" id="r_aaece12903295af0928a9b763cd156bab"><td class="memTemplParams" colspan="2">template&lt;typename TField , std::size_t TIdx, typename TNextLayer , typename... TOptions&gt; </td></tr>
+<tr class="memitem:aaece12903295af0928a9b763cd156bab"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1protocol.html#aaece12903295af0928a9b763cd156bab">TransportValueLayer</a> = <a class="el" href="classcomms_1_1frame_1_1TransportValueLayer.html">comms::frame::TransportValueLayer</a>&lt; TField, TIdx, TNextLayer, TOptions... &gt;</td></tr>
+<tr class="memdesc:aaece12903295af0928a9b763cd156bab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias to the <a class="el" href="classcomms_1_1frame_1_1TransportValueLayer.html">comms::frame::TransportValueLayer</a>.  <br /></td></tr>
+<tr class="separator:aaece12903295af0928a9b763cd156bab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac267c873369aacc9a16b9b205d85246b" id="r_ac267c873369aacc9a16b9b205d85246b"><td class="memItemLeft" align="right" valign="top">details::MissingSizeRetriever&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1protocol.html#ac267c873369aacc9a16b9b205d85246b">missingSize</a> (std::size_t &amp;val)</td></tr>
-<tr class="memdesc:ac267c873369aacc9a16b9b205d85246b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add "missing size" output parameter to protocol stack's (frame's) "read" operation.  <br /></td></tr>
-<tr class="separator:ac267c873369aacc9a16b9b205d85246b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d438d680a6554bdfd0acce5624f867d" id="r_a7d438d680a6554bdfd0acce5624f867d"><td class="memTemplParams" colspan="2">template&lt;typename TId &gt; </td></tr>
-<tr class="memitem:a7d438d680a6554bdfd0acce5624f867d"><td class="memTemplItemLeft" align="right" valign="top">details::MsgIdRetriever&lt; TId &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1protocol.html#a7d438d680a6554bdfd0acce5624f867d">msgId</a> (TId &amp;val)</td></tr>
-<tr class="memdesc:a7d438d680a6554bdfd0acce5624f867d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add "message ID" output parameter to protocol stack's (frame's) "read" operation.  <br /></td></tr>
-<tr class="separator:a7d438d680a6554bdfd0acce5624f867d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b5ef8b32dcb4f47fb149397c14897ae" id="r_a8b5ef8b32dcb4f47fb149397c14897ae"><td class="memItemLeft" align="right" valign="top">details::MsgIndexRetriever&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1protocol.html#a8b5ef8b32dcb4f47fb149397c14897ae">msgIndex</a> (std::size_t &amp;val)</td></tr>
-<tr class="memdesc:a8b5ef8b32dcb4f47fb149397c14897ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add "message index" output parameter to protocol stack's (frame's) "read" operation.  <br /></td></tr>
-<tr class="separator:a8b5ef8b32dcb4f47fb149397c14897ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05ca17bbf32e909d635a9fd8f53e9127" id="r_a05ca17bbf32e909d635a9fd8f53e9127"><td class="memTemplParams" colspan="2">template&lt;typename TIter &gt; </td></tr>
-<tr class="memitem:a05ca17bbf32e909d635a9fd8f53e9127"><td class="memTemplItemLeft" align="right" valign="top">details::MsgPayloadRetriever&lt; TIter &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1protocol.html#a05ca17bbf32e909d635a9fd8f53e9127">msgPayload</a> (TIter &amp;iter, std::size_t &amp;len)</td></tr>
-<tr class="memdesc:a05ca17bbf32e909d635a9fd8f53e9127"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add "payload start" and "payload size" output parameters to protocol stack's (frame's) "read" operation.  <br /></td></tr>
-<tr class="separator:a05ca17bbf32e909d635a9fd8f53e9127"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a349c2800995dbc2c4697f20fe61fbbb6" id="r_a349c2800995dbc2c4697f20fe61fbbb6"><td class="memTemplParams" colspan="2"><a id="a349c2800995dbc2c4697f20fe61fbbb6" name="a349c2800995dbc2c4697f20fe61fbbb6"></a>
-template&lt;typename TField , typename TNextLayer , typename TDerived , typename... TOptions&gt; </td></tr>
-<tr class="memitem:a349c2800995dbc2c4697f20fe61fbbb6"><td class="memTemplItemLeft" align="right" valign="top">constexpr const <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html">ProtocolLayerBase</a>&lt; TField, TNextLayer, TDerived, TOptions... &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>toProtocolLayerBase</b> (const <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html">ProtocolLayerBase</a>&lt; TField, TNextLayer, TDerived, TOptions... &gt; &amp;layer)</td></tr>
-<tr class="memdesc:a349c2800995dbc2c4697f20fe61fbbb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Upcast protocol layer in order to have access to its internal types. <br /></td></tr>
-<tr class="separator:a349c2800995dbc2c4697f20fe61fbbb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3e83c70307a18f6afb93d3a95d93593" id="r_ac3e83c70307a18f6afb93d3a95d93593"><td class="memTemplParams" colspan="2"><a id="ac3e83c70307a18f6afb93d3a95d93593" name="ac3e83c70307a18f6afb93d3a95d93593"></a>
-template&lt;typename TField , typename TNextLayer , typename TDerived , typename... TOptions&gt; </td></tr>
-<tr class="memitem:ac3e83c70307a18f6afb93d3a95d93593"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html">ProtocolLayerBase</a>&lt; TField, TNextLayer, TDerived, TOptions... &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>toProtocolLayerBase</b> (<a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html">ProtocolLayerBase</a>&lt; TField, TNextLayer, TDerived, TOptions... &gt; &amp;layer)</td></tr>
-<tr class="memdesc:ac3e83c70307a18f6afb93d3a95d93593"><td class="mdescLeft">&#160;</td><td class="mdescRight">Upcast protocol layer in order to have access to its internal types. <br /></td></tr>
-<tr class="separator:ac3e83c70307a18f6afb93d3a95d93593"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3246749329a179e8330a47f71f7b9761" id="r_a3246749329a179e8330a47f71f7b9761"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1protocol.html#a3246749329a179e8330a47f71f7b9761">missingSize</a> (std::size_t &amp;val) -&gt; decltype(comms::frame::missingSize(val))</td></tr>
+<tr class="memdesc:a3246749329a179e8330a47f71f7b9761"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="namespacecomms_1_1frame.html#a3566abf140404b6aeef674168678f23c">comms::frame::missingSize()</a>  <br /></td></tr>
+<tr class="separator:a3246749329a179e8330a47f71f7b9761"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45871debbf254191a2050217a52b355e" id="r_a45871debbf254191a2050217a52b355e"><td class="memTemplParams" colspan="2">template&lt;typename TId &gt; </td></tr>
+<tr class="memitem:a45871debbf254191a2050217a52b355e"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1protocol.html#a45871debbf254191a2050217a52b355e">msgId</a> (TId &amp;val) -&gt; decltype(comms::frame::msgId(val))</td></tr>
+<tr class="memdesc:a45871debbf254191a2050217a52b355e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="namespacecomms_1_1frame.html#ad680afe33e9358d91a8d849b7d47ea40">comms::frame::msgId()</a>  <br /></td></tr>
+<tr class="separator:a45871debbf254191a2050217a52b355e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0eb77cb55f2285cf8bbad09b372a4a4" id="r_ad0eb77cb55f2285cf8bbad09b372a4a4"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1protocol.html#ad0eb77cb55f2285cf8bbad09b372a4a4">msgIndex</a> (std::size_t &amp;val) -&gt; decltype(comms::frame::msgIndex(val))</td></tr>
+<tr class="memdesc:ad0eb77cb55f2285cf8bbad09b372a4a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="namespacecomms_1_1frame.html#a9294d6c9288266eec8f3c3fe51e43269">comms::frame::msgIndex()</a>  <br /></td></tr>
+<tr class="separator:ad0eb77cb55f2285cf8bbad09b372a4a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66d08037256cd9997aac858dd28b74e8" id="r_a66d08037256cd9997aac858dd28b74e8"><td class="memTemplParams" colspan="2">template&lt;typename TIter &gt; </td></tr>
+<tr class="memitem:a66d08037256cd9997aac858dd28b74e8"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1protocol.html#a66d08037256cd9997aac858dd28b74e8">msgPayload</a> (TIter &amp;iter, std::size_t &amp;len) -&gt; decltype(comms::frame::msgPayload(iter, len))</td></tr>
+<tr class="memdesc:a66d08037256cd9997aac858dd28b74e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="namespacecomms_1_1frame.html#a3a240f101b35f8499d7b28cc9ee9f297">comms::frame::msgPayload()</a>  <br /></td></tr>
+<tr class="separator:a66d08037256cd9997aac858dd28b74e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36a5affb9cbdc65e0d5369f639d9c8d3" id="r_a36a5affb9cbdc65e0d5369f639d9c8d3"><td class="memTemplParams" colspan="2">template&lt;typename TField , typename TNextLayer , typename TDerived , typename... TOptions&gt; </td></tr>
+<tr class="memitem:a36a5affb9cbdc65e0d5369f639d9c8d3"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1protocol.html#a36a5affb9cbdc65e0d5369f639d9c8d3">toFrameLayerBase</a> (const <a class="el" href="namespacecomms_1_1protocol.html#a38622ac8a0c862024a2d05094a066a6c">ProtocolLayerBase</a>&lt; TField, TNextLayer, TDerived, TOptions... &gt; &amp;layer) -&gt; decltype(comms::frame::toFrameLayerBase(layer))</td></tr>
+<tr class="memdesc:a36a5affb9cbdc65e0d5369f639d9c8d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="namespacecomms_1_1frame.html#aafe08121b276abbfa4530c7b1c896053">comms::frame::toFrameLayerBase()</a>  <br /></td></tr>
+<tr class="separator:a36a5affb9cbdc65e0d5369f639d9c8d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81cbdf2dc92fb79082fd583315c8c8b2" id="r_a81cbdf2dc92fb79082fd583315c8c8b2"><td class="memTemplParams" colspan="2">template&lt;typename TField , typename TNextLayer , typename TDerived , typename... TOptions&gt; </td></tr>
+<tr class="memitem:a81cbdf2dc92fb79082fd583315c8c8b2"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacecomms_1_1protocol.html#a81cbdf2dc92fb79082fd583315c8c8b2">toProtocolLayerBase</a> (<a class="el" href="namespacecomms_1_1protocol.html#a38622ac8a0c862024a2d05094a066a6c">ProtocolLayerBase</a>&lt; TField, TNextLayer, TDerived, TOptions... &gt; &amp;layer) -&gt; decltype(<a class="el" href="namespacecomms_1_1frame.html#aafe08121b276abbfa4530c7b1c896053">comms::frame::toFrameLayerBase</a>(layer))</td></tr>
+<tr class="memdesc:a81cbdf2dc92fb79082fd583315c8c8b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="namespacecomms_1_1frame.html#aafe08121b276abbfa4530c7b1c896053">comms::frame::toFrameLayerBase()</a>  <br /></td></tr>
+<tr class="separator:a81cbdf2dc92fb79082fd583315c8c8b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="a2b6666ed69dbdf282b5debb7ca8f2c3f" name="a2b6666ed69dbdf282b5debb7ca8f2c3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b6666ed69dbdf282b5debb7ca8f2c3f">&#9670;&#160;</a></span>ChecksumLayer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TField , typename TCalc , typename TNextLayer , typename... TOptions&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacecomms_1_1protocol.html#a2b6666ed69dbdf282b5debb7ca8f2c3f">comms::protocol::ChecksumLayer</a> = typedef <a class="el" href="classcomms_1_1frame_1_1ChecksumLayer.html">comms::frame::ChecksumLayer</a>&lt;TField, TCalc, TNextLayer, TOptions...&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alias to the <a class="el" href="classcomms_1_1frame_1_1ChecksumLayer.html">comms::frame::ChecksumLayer</a>. </p>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000014">Deprecated:</a></b></dt><dd>Use <a class="el" href="classcomms_1_1frame_1_1ChecksumLayer.html">comms::frame::ChecksumLayer</a> class instead </dd></dl>
+
+</div>
+</div>
+<a id="a2ea73ab03cdc4eb058b1c4ac16c48248" name="a2ea73ab03cdc4eb058b1c4ac16c48248"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ea73ab03cdc4eb058b1c4ac16c48248">&#9670;&#160;</a></span>ChecksumPrefixLayer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TField , typename TCalc , typename TNextLayer , typename... TOptions&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacecomms_1_1protocol.html#a2ea73ab03cdc4eb058b1c4ac16c48248">comms::protocol::ChecksumPrefixLayer</a> = typedef <a class="el" href="classcomms_1_1frame_1_1ChecksumPrefixLayer.html">comms::frame::ChecksumPrefixLayer</a>&lt;TField, TCalc, TNextLayer, TOptions...&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alias to the <a class="el" href="classcomms_1_1frame_1_1ChecksumPrefixLayer.html">comms::frame::ChecksumPrefixLayer</a>. </p>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000015">Deprecated:</a></b></dt><dd>Use <a class="el" href="classcomms_1_1frame_1_1ChecksumPrefixLayer.html">comms::frame::ChecksumPrefixLayer</a> class instead </dd></dl>
+
+</div>
+</div>
+<a id="a7df17ea5b11095fce8bf33425be4a9a4" name="a7df17ea5b11095fce8bf33425be4a9a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7df17ea5b11095fce8bf33425be4a9a4">&#9670;&#160;</a></span>MsgDataLayer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... TOptions&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacecomms_1_1protocol.html#a7df17ea5b11095fce8bf33425be4a9a4">comms::protocol::MsgDataLayer</a> = typedef <a class="el" href="classcomms_1_1frame_1_1MsgDataLayer.html">comms::frame::MsgDataLayer</a>&lt;TOptions...&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alias to the <a class="el" href="classcomms_1_1frame_1_1MsgDataLayer.html">comms::frame::MsgDataLayer</a>. </p>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000016">Deprecated:</a></b></dt><dd>Use <a class="el" href="classcomms_1_1frame_1_1MsgDataLayer.html">comms::frame::MsgDataLayer</a> class instead </dd></dl>
+
+</div>
+</div>
+<a id="a35565305a2ea668467c1cb4e97c1d501" name="a35565305a2ea668467c1cb4e97c1d501"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35565305a2ea668467c1cb4e97c1d501">&#9670;&#160;</a></span>MsgIdLayer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TField , typename TMessage , typename TAllMessages , typename TNextLayer , typename... TOptions&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacecomms_1_1protocol.html#a35565305a2ea668467c1cb4e97c1d501">comms::protocol::MsgIdLayer</a> = typedef <a class="el" href="classcomms_1_1frame_1_1MsgIdLayer.html">comms::frame::MsgIdLayer</a>&lt;TField, TMessage, TAllMessages, TNextLayer, TOptions...&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alias to the <a class="el" href="classcomms_1_1frame_1_1MsgIdLayer.html">comms::frame::MsgIdLayer</a>. </p>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000017">Deprecated:</a></b></dt><dd>Use <a class="el" href="classcomms_1_1frame_1_1MsgIdLayer.html">comms::frame::MsgIdLayer</a> class instead </dd></dl>
+
+</div>
+</div>
+<a id="a44206fd046b4799363ab9d9d048191c4" name="a44206fd046b4799363ab9d9d048191c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44206fd046b4799363ab9d9d048191c4">&#9670;&#160;</a></span>MsgSizeLayer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TField , typename TNextLayer , typename... TOptions&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacecomms_1_1protocol.html#a44206fd046b4799363ab9d9d048191c4">comms::protocol::MsgSizeLayer</a> = typedef <a class="el" href="classcomms_1_1frame_1_1MsgSizeLayer.html">comms::frame::MsgSizeLayer</a>&lt;TField, TNextLayer, TOptions...&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alias to the <a class="el" href="classcomms_1_1frame_1_1MsgSizeLayer.html">comms::frame::MsgSizeLayer</a>. </p>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000018">Deprecated:</a></b></dt><dd>Use <a class="el" href="classcomms_1_1frame_1_1MsgSizeLayer.html">comms::frame::MsgSizeLayer</a> class instead </dd></dl>
+
+</div>
+</div>
+<a id="a38622ac8a0c862024a2d05094a066a6c" name="a38622ac8a0c862024a2d05094a066a6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38622ac8a0c862024a2d05094a066a6c">&#9670;&#160;</a></span>ProtocolLayerBase</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TField , typename TNextLayer , typename TDerived , typename... TOptions&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacecomms_1_1protocol.html#a38622ac8a0c862024a2d05094a066a6c">comms::protocol::ProtocolLayerBase</a> = typedef <a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html">comms::frame::FrameLayerBase</a>&lt;TField, TNextLayer, TDerived, TOptions...&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alias to the <a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html">comms::frame::FrameLayerBase</a>. </p>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000021">Deprecated:</a></b></dt><dd>Use <a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html">comms::frame::FrameLayerBase</a> class instead </dd></dl>
+
+</div>
+</div>
+<a id="a6962a5b695448b796e01d7cdde851ae8" name="a6962a5b695448b796e01d7cdde851ae8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6962a5b695448b796e01d7cdde851ae8">&#9670;&#160;</a></span>SyncPrefixLayer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TField , typename TNextLayer , typename... TOptions&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacecomms_1_1protocol.html#a6962a5b695448b796e01d7cdde851ae8">comms::protocol::SyncPrefixLayer</a> = typedef <a class="el" href="classcomms_1_1frame_1_1SyncPrefixLayer.html">comms::frame::SyncPrefixLayer</a>&lt;TField, TNextLayer, TOptions...&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alias to the <a class="el" href="classcomms_1_1frame_1_1SyncPrefixLayer.html">comms::frame::SyncPrefixLayer</a>. </p>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000019">Deprecated:</a></b></dt><dd>Use <a class="el" href="classcomms_1_1frame_1_1SyncPrefixLayer.html">comms::frame::SyncPrefixLayer</a> class instead </dd></dl>
+
+</div>
+</div>
+<a id="aaece12903295af0928a9b763cd156bab" name="aaece12903295af0928a9b763cd156bab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaece12903295af0928a9b763cd156bab">&#9670;&#160;</a></span>TransportValueLayer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TField , std::size_t TIdx, typename TNextLayer , typename... TOptions&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacecomms_1_1protocol.html#aaece12903295af0928a9b763cd156bab">comms::protocol::TransportValueLayer</a> = typedef <a class="el" href="classcomms_1_1frame_1_1TransportValueLayer.html">comms::frame::TransportValueLayer</a>&lt;TField, TIdx, TNextLayer, TOptions...&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alias to the <a class="el" href="classcomms_1_1frame_1_1TransportValueLayer.html">comms::frame::TransportValueLayer</a>. </p>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000020">Deprecated:</a></b></dt><dd>Use <a class="el" href="classcomms_1_1frame_1_1TransportValueLayer.html">comms::frame::TransportValueLayer</a> class instead </dd></dl>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ac267c873369aacc9a16b9b205d85246b" name="ac267c873369aacc9a16b9b205d85246b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac267c873369aacc9a16b9b205d85246b">&#9670;&#160;</a></span>missingSize()</h2>
+<a id="a3246749329a179e8330a47f71f7b9761" name="a3246749329a179e8330a47f71f7b9761"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3246749329a179e8330a47f71f7b9761">&#9670;&#160;</a></span>missingSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">details::MissingSizeRetriever comms::protocol::missingSize </td>
+          <td class="memname">auto comms::protocol::missingSize </td>
           <td>(</td>
           <td class="paramtype">std::size_t &amp;&#160;</td>
           <td class="paramname"><em>val</em></td><td>)</td>
-          <td></td>
+          <td> -&gt; decltype(comms::frame::missingSize(val))
+</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Add "missing size" output parameter to protocol stack's (frame's) "read" operation. </p>
-<p>Can be passed as variadic parameters to "read" functions of protocol stack (see <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a60d0ea06c68e5b885bf651d7a7b14d1a">comms::protocol::ProtocolLayerBase::read()</a> and <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#ad22a30d6baba8a074f419fe710b809d5">comms::protocol::ProtocolLayerBase::readFieldsCached()</a>). It can be used to retrieve missing length information in case "read" of protocol stack operation returns <a class="el" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1ab6e495eeaee7cdf1bac313472e4681ac">comms::ErrorStatus::NotEnoughData</a>. </p><div class="fragment"><div class="line"><span class="keyword">using </span>ProtocolStack = ...</div>
-<div class="line">ProtocolStack stack;</div>
-<div class="line">ProtocolStack::MsgPtr msg;</div>
-<div class="line">std::size_t <a class="code hl_function" href="namespacecomms_1_1protocol.html#ac267c873369aacc9a16b9b205d85246b">missingSize</a> = 0U;</div>
-<div class="line"><span class="keyword">auto</span> es = stack.read(msg, readIter, size, <a class="code hl_function" href="namespacecomms_1_1protocol.html#ac267c873369aacc9a16b9b205d85246b">comms::protocol::missingSize</a>(<a class="code hl_function" href="namespacecomms_1_1protocol.html#ac267c873369aacc9a16b9b205d85246b">missingSize</a>));</div>
-<div class="line"><span class="keywordflow">if</span> (es == <a class="code hl_enumvalue" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1ab6e495eeaee7cdf1bac313472e4681ac">comms::ErrorStatus::NotEnoughData</a>) {</div>
-<div class="line">    ... <span class="comment">// missingSize will hold a minimal number of bytes that are required to be yet read</span></div>
-<div class="line">}</div>
-<div class="ttc" id="anamespacecomms_1_1protocol_html_ac267c873369aacc9a16b9b205d85246b"><div class="ttname"><a href="namespacecomms_1_1protocol.html#ac267c873369aacc9a16b9b205d85246b">comms::protocol::missingSize</a></div><div class="ttdeci">details::MissingSizeRetriever missingSize(std::size_t &amp;val)</div><div class="ttdoc">Add &quot;missing size&quot; output parameter to protocol stack's (frame's) &quot;read&quot; operation.</div><div class="ttdef"><b>Definition</b> ProtocolLayerBase.h:1561</div></div>
-<div class="ttc" id="anamespacecomms_html_a0a259a03d68bce98b4a129fb34aaa2e1ab6e495eeaee7cdf1bac313472e4681ac"><div class="ttname"><a href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1ab6e495eeaee7cdf1bac313472e4681ac">comms::ErrorStatus::NotEnoughData</a></div><div class="ttdeci">@ NotEnoughData</div></div>
-</div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">val</td><td>Missing size value to be returned. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Implementation dependent object accepted by "read" functions. </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a60d0ea06c68e5b885bf651d7a7b14d1a">comms::protocol::ProtocolLayerBase::read()</a> </dd>
-<dd>
-<a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#ad22a30d6baba8a074f419fe710b809d5">comms::protocol::ProtocolLayerBase::readFieldsCached()</a> </dd></dl>
+<p>Same as <a class="el" href="namespacecomms_1_1frame.html#a3566abf140404b6aeef674168678f23c">comms::frame::missingSize()</a> </p>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000024">Deprecated:</a></b></dt><dd>Use <a class="el" href="namespacecomms_1_1frame.html#a3566abf140404b6aeef674168678f23c">comms::frame::missingSize()</a> instead </dd></dl>
 
 </div>
 </div>
-<a id="a7d438d680a6554bdfd0acce5624f867d" name="a7d438d680a6554bdfd0acce5624f867d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d438d680a6554bdfd0acce5624f867d">&#9670;&#160;</a></span>msgId()</h2>
+<a id="a45871debbf254191a2050217a52b355e" name="a45871debbf254191a2050217a52b355e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45871debbf254191a2050217a52b355e">&#9670;&#160;</a></span>msgId()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -197,89 +339,45 @@ template&lt;typename TField , typename TNextLayer , typename TDerived , typename
 template&lt;typename TId &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">details::MsgIdRetriever&lt; TId &gt; comms::protocol::msgId </td>
+          <td class="memname">auto comms::protocol::msgId </td>
           <td>(</td>
           <td class="paramtype">TId &amp;&#160;</td>
           <td class="paramname"><em>val</em></td><td>)</td>
-          <td></td>
+          <td> -&gt; decltype(comms::frame::msgId(val))
+</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Add "message ID" output parameter to protocol stack's (frame's) "read" operation. </p>
-<p>Can be passed as variadic parameters to "read" functions of protocol stack (see <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a60d0ea06c68e5b885bf651d7a7b14d1a">comms::protocol::ProtocolLayerBase::read()</a> and <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#ad22a30d6baba8a074f419fe710b809d5">comms::protocol::ProtocolLayerBase::readFieldsCached()</a>). It can be used to retrieve numeric message ID value. </p><div class="fragment"><div class="line"><span class="keyword">using </span>ProtocolStack = ...</div>
-<div class="line">ProtocolStack stack;</div>
-<div class="line">ProtocolStack::MsgPtr msg;</div>
-<div class="line">my_prot::MsgId <a class="code hl_function" href="namespacecomms_1_1protocol.html#a7d438d680a6554bdfd0acce5624f867d">msgId</a> = my_prot::MsgId();</div>
-<div class="line"><span class="keyword">auto</span> es = stack.read(msg, readIter, size, <a class="code hl_function" href="namespacecomms_1_1protocol.html#a7d438d680a6554bdfd0acce5624f867d">comms::protocol::msgId</a>(<a class="code hl_function" href="namespacecomms_1_1protocol.html#a7d438d680a6554bdfd0acce5624f867d">msgId</a>));</div>
-<div class="line"><span class="keywordflow">if</span> (es == <a class="code hl_enumvalue" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">comms::ErrorStatus::Success</a>) {</div>
-<div class="line">    assert(msg); <span class="comment">// Message object must be created</span></div>
-<div class="line">    ... <span class="comment">// use msgId value</span></div>
-<div class="line">}</div>
-<div class="ttc" id="anamespacecomms_1_1protocol_html_a7d438d680a6554bdfd0acce5624f867d"><div class="ttname"><a href="namespacecomms_1_1protocol.html#a7d438d680a6554bdfd0acce5624f867d">comms::protocol::msgId</a></div><div class="ttdeci">details::MsgIdRetriever&lt; TId &gt; msgId(TId &amp;val)</div><div class="ttdoc">Add &quot;message ID&quot; output parameter to protocol stack's (frame's) &quot;read&quot; operation.</div><div class="ttdef"><b>Definition</b> ProtocolLayerBase.h:1588</div></div>
-<div class="ttc" id="anamespacecomms_html_a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38"><div class="ttname"><a href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">comms::ErrorStatus::Success</a></div><div class="ttdeci">@ Success</div><div class="ttdoc">Used to indicate successful outcome of the operation.</div></div>
-</div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">val</td><td>Numeric message ID value to be returned. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Implementation dependent object accepted by "read" functions. </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a60d0ea06c68e5b885bf651d7a7b14d1a">comms::protocol::ProtocolLayerBase::read()</a> </dd>
-<dd>
-<a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#ad22a30d6baba8a074f419fe710b809d5">comms::protocol::ProtocolLayerBase::readFieldsCached()</a> </dd></dl>
+<p>Same as <a class="el" href="namespacecomms_1_1frame.html#ad680afe33e9358d91a8d849b7d47ea40">comms::frame::msgId()</a> </p>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000025">Deprecated:</a></b></dt><dd>Use <a class="el" href="namespacecomms_1_1frame.html#ad680afe33e9358d91a8d849b7d47ea40">comms::frame::msgId()</a> instead </dd></dl>
 
 </div>
 </div>
-<a id="a8b5ef8b32dcb4f47fb149397c14897ae" name="a8b5ef8b32dcb4f47fb149397c14897ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8b5ef8b32dcb4f47fb149397c14897ae">&#9670;&#160;</a></span>msgIndex()</h2>
+<a id="ad0eb77cb55f2285cf8bbad09b372a4a4" name="ad0eb77cb55f2285cf8bbad09b372a4a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0eb77cb55f2285cf8bbad09b372a4a4">&#9670;&#160;</a></span>msgIndex()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">details::MsgIndexRetriever comms::protocol::msgIndex </td>
+          <td class="memname">auto comms::protocol::msgIndex </td>
           <td>(</td>
           <td class="paramtype">std::size_t &amp;&#160;</td>
           <td class="paramname"><em>val</em></td><td>)</td>
-          <td></td>
+          <td> -&gt; decltype(comms::frame::msgIndex(val))
+</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Add "message index" output parameter to protocol stack's (frame's) "read" operation. </p>
-<p>In case the expected input message types tuple contains multiple <b>different</b> message classes but having the <b>same</b> numeric ID, it may be beneficial to know the reletive index (starting from the first message type having the same ID) of the detected message. This function can be used to retrieve such information. Can be passed as variadic parameters to "read" functions of protocol stack (see <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a60d0ea06c68e5b885bf651d7a7b14d1a">comms::protocol::ProtocolLayerBase::read()</a> and <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#ad22a30d6baba8a074f419fe710b809d5">comms::protocol::ProtocolLayerBase::readFieldsCached()</a>). </p><div class="fragment"><div class="line"><span class="keyword">using </span>ProtocolStack = ...</div>
-<div class="line">ProtocolStack stack;</div>
-<div class="line">ProtocolStack::MsgPtr msg;</div>
-<div class="line">my_prot::MsgId <a class="code hl_function" href="namespacecomms_1_1protocol.html#a7d438d680a6554bdfd0acce5624f867d">msgId</a> = my_prot::MsgId();</div>
-<div class="line">std::size_t <a class="code hl_function" href="namespacecomms_1_1protocol.html#a8b5ef8b32dcb4f47fb149397c14897ae">msgIndex</a> = 0U;</div>
-<div class="line"><span class="keyword">auto</span> es =</div>
-<div class="line">   stack.read(</div>
-<div class="line">       msg,</div>
-<div class="line">       readIter,</div>
-<div class="line">       size,</div>
-<div class="line">       <a class="code hl_function" href="namespacecomms_1_1protocol.html#a7d438d680a6554bdfd0acce5624f867d">comms::protocol::msgId</a>(<a class="code hl_function" href="namespacecomms_1_1protocol.html#a7d438d680a6554bdfd0acce5624f867d">msgId</a>),</div>
-<div class="line">       <a class="code hl_function" href="namespacecomms_1_1protocol.html#a8b5ef8b32dcb4f47fb149397c14897ae">comms::protocol::msgIndex</a>(<a class="code hl_function" href="namespacecomms_1_1protocol.html#a8b5ef8b32dcb4f47fb149397c14897ae">msgIndex</a>));</div>
-<div class="line"><span class="keywordflow">if</span> (es == <a class="code hl_enumvalue" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a505a83f220c02df2f85c3810cd9ceb38">comms::ErrorStatus::Success</a>) {</div>
-<div class="line">    assert(msg); <span class="comment">// Message object must be created</span></div>
-<div class="line">    ... <span class="comment">// use msgId and msgIndex values</span></div>
-<div class="line">}</div>
-<div class="ttc" id="anamespacecomms_1_1protocol_html_a8b5ef8b32dcb4f47fb149397c14897ae"><div class="ttname"><a href="namespacecomms_1_1protocol.html#a8b5ef8b32dcb4f47fb149397c14897ae">comms::protocol::msgIndex</a></div><div class="ttdeci">details::MsgIndexRetriever msgIndex(std::size_t &amp;val)</div><div class="ttdoc">Add &quot;message index&quot; output parameter to protocol stack's (frame's) &quot;read&quot; operation.</div><div class="ttdef"><b>Definition</b> ProtocolLayerBase.h:1626</div></div>
-</div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">val</td><td><a class="el" href="classcomms_1_1Message.html" title="Main interface class for all the messages.">Message</a> index value to be returned. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Implementation dependent object accepted by "read" functions. </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a60d0ea06c68e5b885bf651d7a7b14d1a">comms::protocol::ProtocolLayerBase::read()</a> </dd>
-<dd>
-<a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#ad22a30d6baba8a074f419fe710b809d5">comms::protocol::ProtocolLayerBase::readFieldsCached()</a> </dd></dl>
+<p>Same as <a class="el" href="namespacecomms_1_1frame.html#a9294d6c9288266eec8f3c3fe51e43269">comms::frame::msgIndex()</a> </p>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000026">Deprecated:</a></b></dt><dd>Use <a class="el" href="namespacecomms_1_1frame.html#a9294d6c9288266eec8f3c3fe51e43269">comms::frame::msgIndex()</a> instead </dd></dl>
 
 </div>
 </div>
-<a id="a05ca17bbf32e909d635a9fd8f53e9127" name="a05ca17bbf32e909d635a9fd8f53e9127"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05ca17bbf32e909d635a9fd8f53e9127">&#9670;&#160;</a></span>msgPayload()</h2>
+<a id="a66d08037256cd9997aac858dd28b74e8" name="a66d08037256cd9997aac858dd28b74e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66d08037256cd9997aac858dd28b74e8">&#9670;&#160;</a></span>msgPayload()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -287,7 +385,7 @@ template&lt;typename TId &gt; </div>
 template&lt;typename TIter &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">details::MsgPayloadRetriever&lt; TIter &gt; comms::protocol::msgPayload </td>
+          <td class="memname">auto comms::protocol::msgPayload </td>
           <td>(</td>
           <td class="paramtype">TIter &amp;&#160;</td>
           <td class="paramname"><em>iter</em>, </td>
@@ -301,31 +399,70 @@ template&lt;typename TIter &gt; </div>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td> -&gt; decltype(comms::frame::msgPayload(iter, len))
+</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Add "payload start" and "payload size" output parameters to protocol stack's (frame's) "read" operation. </p>
-<p>Can be passed as variadic parameters to "read" functions of protocol stack (see <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a60d0ea06c68e5b885bf651d7a7b14d1a">comms::protocol::ProtocolLayerBase::read()</a> and <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#ad22a30d6baba8a074f419fe710b809d5">comms::protocol::ProtocolLayerBase::readFieldsCached()</a>). It can be used to retrieve information on payload start location as well as its size. </p><div class="fragment"><div class="line"><span class="keyword">using </span>ProtocolStack = ...</div>
-<div class="line">ProtocolStack stack;</div>
-<div class="line">ProtocolStack::MsgPtr msg;</div>
-<div class="line"><span class="keyword">decltype</span>(readIter) payloadIter;</div>
-<div class="line">std::size_t payloadSize = 0U;</div>
-<div class="line"><span class="keyword">auto</span> es = stack.read(msg, readIter, size, <a class="code hl_function" href="namespacecomms_1_1protocol.html#a05ca17bbf32e909d635a9fd8f53e9127">comms::protocol::msgPayload</a>(payloadIter, payloadSize));</div>
-<div class="line">... <span class="comment">// use payload location and size information</span></div>
-<div class="ttc" id="anamespacecomms_1_1protocol_html_a05ca17bbf32e909d635a9fd8f53e9127"><div class="ttname"><a href="namespacecomms_1_1protocol.html#a05ca17bbf32e909d635a9fd8f53e9127">comms::protocol::msgPayload</a></div><div class="ttdeci">details::MsgPayloadRetriever&lt; TIter &gt; msgPayload(TIter &amp;iter, std::size_t &amp;len)</div><div class="ttdoc">Add &quot;payload start&quot; and &quot;payload size&quot; output parameters to protocol stack's (frame's) &quot;read&quot; operati...</div><div class="ttdef"><b>Definition</b> ProtocolLayerBase.h:1654</div></div>
-</div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">iter</td><td>Iterator pointing to the begining of the message payload in the input buffer. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">len</td><td>Number of bytes in the detected payload. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Implementation dependent object accepted by "read" functions. </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a60d0ea06c68e5b885bf651d7a7b14d1a">comms::protocol::ProtocolLayerBase::read()</a> </dd>
-<dd>
-<a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#ad22a30d6baba8a074f419fe710b809d5">comms::protocol::ProtocolLayerBase::readFieldsCached()</a> </dd></dl>
+<p>Same as <a class="el" href="namespacecomms_1_1frame.html#a3a240f101b35f8499d7b28cc9ee9f297">comms::frame::msgPayload()</a> </p>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000027">Deprecated:</a></b></dt><dd>Use <a class="el" href="namespacecomms_1_1frame.html#a3a240f101b35f8499d7b28cc9ee9f297">comms::frame::msgPayload()</a> instead </dd></dl>
+
+</div>
+</div>
+<a id="a36a5affb9cbdc65e0d5369f639d9c8d3" name="a36a5affb9cbdc65e0d5369f639d9c8d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36a5affb9cbdc65e0d5369f639d9c8d3">&#9670;&#160;</a></span>toFrameLayerBase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TField , typename TNextLayer , typename TDerived , typename... TOptions&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto comms::protocol::toFrameLayerBase </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacecomms_1_1protocol.html#a38622ac8a0c862024a2d05094a066a6c">ProtocolLayerBase</a>&lt; TField, TNextLayer, TDerived, TOptions... &gt; &amp;&#160;</td>
+          <td class="paramname"><em>layer</em></td><td>)</td>
+          <td> -&gt; decltype(comms::frame::toFrameLayerBase(layer))
+</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Same as <a class="el" href="namespacecomms_1_1frame.html#aafe08121b276abbfa4530c7b1c896053">comms::frame::toFrameLayerBase()</a> </p>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000023">Deprecated:</a></b></dt><dd>Use <a class="el" href="namespacecomms_1_1frame.html#aafe08121b276abbfa4530c7b1c896053">comms::frame::toFrameLayerBase()</a> instead </dd></dl>
+
+</div>
+</div>
+<a id="a81cbdf2dc92fb79082fd583315c8c8b2" name="a81cbdf2dc92fb79082fd583315c8c8b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81cbdf2dc92fb79082fd583315c8c8b2">&#9670;&#160;</a></span>toProtocolLayerBase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TField , typename TNextLayer , typename TDerived , typename... TOptions&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto comms::protocol::toProtocolLayerBase </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacecomms_1_1protocol.html#a38622ac8a0c862024a2d05094a066a6c">ProtocolLayerBase</a>&lt; TField, TNextLayer, TDerived, TOptions... &gt; &amp;&#160;</td>
+          <td class="paramname"><em>layer</em></td><td>)</td>
+          <td> -&gt; decltype(<a class="el" href="namespacecomms_1_1frame.html#aafe08121b276abbfa4530c7b1c896053">comms::frame::toFrameLayerBase</a>(layer))
+</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Same as <a class="el" href="namespacecomms_1_1frame.html#aafe08121b276abbfa4530c7b1c896053">comms::frame::toFrameLayerBase()</a> </p>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000022">Deprecated:</a></b></dt><dd>Use <a class="el" href="namespacecomms_1_1frame.html#aafe08121b276abbfa4530c7b1c896053">comms::frame::toFrameLayerBase()</a> instead </dd></dl>
 
 </div>
 </div>

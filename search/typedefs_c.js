@@ -6,7 +6,7 @@ var searchData=
   ['nanometersratio_3',['NanometersRatio',['../namespacecomms_1_1traits_1_1units.html#a1c7af339607409a9453533ea2a9d3798',1,'comms::traits::units']]],
   ['nanosecondsratio_4',['NanosecondsRatio',['../namespacecomms_1_1traits_1_1units.html#a0f04c1dfcad57980bcea0ae390b91b57',1,'comms::traits::units']]],
   ['nanovoltsratio_5',['NanovoltsRatio',['../namespacecomms_1_1traits_1_1units.html#ac77fd7026becfbaa5b1610110088b2da',1,'comms::traits::units']]],
-  ['nextlayer_6',['NextLayer',['../classcomms_1_1protocol_1_1ProtocolLayerBase.html#ac0f9a7163ba2a95f8246fcd8a6b71476',1,'comms::protocol::ProtocolLayerBase']]],
+  ['nextlayer_6',['NextLayer',['../classcomms_1_1frame_1_1FrameLayerBase.html#ae5e7cf7de9dc3d68ab6680376b5984fd',1,'comms::frame::FrameLayerBase']]],
   ['nodispatchimpl_7',['NoDispatchImpl',['../namespacecomms_1_1option.html#ad993f874d1f1ec532740dcddf2754166',1,'comms::option']]],
   ['noidimpl_8',['NoIdImpl',['../namespacecomms_1_1option.html#a2754659df97dd63f2cf541cb343983ed',1,'comms::option']]],
   ['nolengthimpl_9',['NoLengthImpl',['../namespacecomms_1_1option.html#ac8942689ae5a5d530ad3eec8ee159735',1,'comms::option']]],

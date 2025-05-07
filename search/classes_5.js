@@ -11,5 +11,9 @@ var searchData=
   ['fixedvalue_8',['FixedValue',['../structcomms_1_1option_1_1def_1_1FixedValue.html',1,'comms::option::def']]],
   ['floatvalue_9',['FloatValue',['../classcomms_1_1field_1_1FloatValue.html',1,'comms::field']]],
   ['forcedispatch_10',['ForceDispatch',['../structcomms_1_1option_1_1app_1_1ForceDispatch.html',1,'comms::option::app']]],
-  ['frequency_11',['Frequency',['../structcomms_1_1traits_1_1units_1_1Frequency.html',1,'comms::traits::units']]]
+  ['framelayerbase_11',['FrameLayerBase',['../classcomms_1_1frame_1_1FrameLayerBase.html',1,'comms::frame']]],
+  ['framelayerdisallowreaduntildatasplit_12',['FrameLayerDisallowReadUntilDataSplit',['../structcomms_1_1option_1_1def_1_1FrameLayerDisallowReadUntilDataSplit.html',1,'comms::option::def']]],
+  ['framelayerforcereaduntildatasplit_13',['FrameLayerForceReadUntilDataSplit',['../structcomms_1_1option_1_1def_1_1FrameLayerForceReadUntilDataSplit.html',1,'comms::option::def']]],
+  ['framelayersuppressreaduntildatasplitforcing_14',['FrameLayerSuppressReadUntilDataSplitForcing',['../structcomms_1_1option_1_1def_1_1FrameLayerSuppressReadUntilDataSplitForcing.html',1,'comms::option::def']]],
+  ['frequency_15',['Frequency',['../structcomms_1_1traits_1_1units_1_1Frequency.html',1,'comms::traits::units']]]
 ];

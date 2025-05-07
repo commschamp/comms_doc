@@ -84,12 +84,12 @@ $(function() {
 
 <p>Contains definition of <a class="el" href="classcomms_1_1Field.html">comms::Field</a> class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;type_traits&gt;</code><br />
-<code>#include &quot;<a class="el" href="access_8h_source.html">comms/util/access.h</a>&quot;</code><br />
-<code>#include &quot;comms/details/FieldBase.h&quot;</code><br />
-<code>#include &quot;comms/details/macro_common.h&quot;</code><br />
-<code>#include &quot;comms/details/fields_access.h&quot;</code><br />
+<div class="textblock"><code>#include &quot;comms/details/FieldBase.h&quot;</code><br />
 <code>#include &quot;comms/details/field_alias.h&quot;</code><br />
+<code>#include &quot;comms/details/fields_access.h&quot;</code><br />
+<code>#include &quot;comms/details/macro_common.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="access_8h_source.html">comms/util/access.h</a>&quot;</code><br />
+<code>#include &lt;type_traits&gt;</code><br />
 </div>
 <p><a href="Field_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -185,7 +185,7 @@ Macros</h2></td></tr>
 <div class="line">        <span class="keywordflow">return</span> val; \</div>
 <div class="line">    } \</div>
 <div class="line">    COMMS_EXPAND(COMMS_DO_FIELD_ACC_FUNC(ValueType, value(), __VA_ARGS__))</div>
-<div class="ttc" id="anamespacecomms_1_1field_html_ad6236b8f47bc5940ad8417869468a9ab"><div class="ttname"><a href="namespacecomms_1_1field.html#ad6236b8f47bc5940ad8417869468a9ab">comms::field::toFieldBase</a></div><div class="ttdeci">Bundle&lt; TFieldBase, TMembers, TOptions... &gt; &amp; toFieldBase(Bundle&lt; TFieldBase, TMembers, TOptions... &gt; &amp;field)</div><div class="ttdoc">Upcast type of the field definition to its parent comms::field::Bundle type in order to have access t...</div><div class="ttdef"><b>Definition</b> Bundle.h:821</div></div>
+<div class="ttc" id="anamespacecomms_1_1field_html_ad6236b8f47bc5940ad8417869468a9ab"><div class="ttname"><a href="namespacecomms_1_1field.html#ad6236b8f47bc5940ad8417869468a9ab">comms::field::toFieldBase</a></div><div class="ttdeci">Bundle&lt; TFieldBase, TMembers, TOptions... &gt; &amp; toFieldBase(Bundle&lt; TFieldBase, TMembers, TOptions... &gt; &amp;field)</div><div class="ttdoc">Upcast type of the field definition to its parent comms::field::Bundle type in order to have access t...</div><div class="ttdef"><b>Definition</b> Bundle.h:822</div></div>
 </div><!-- fragment -->
 <p>Add convenience access enum and functions to the members of composite fields, such as <a class="el" href="classcomms_1_1field_1_1Bundle.html">comms::field::Bundle</a> or <a class="el" href="classcomms_1_1field_1_1Bitfield.html">comms::field::Bitfield</a>. </p>
 <p>Very similar to <a class="el" href="Field_8h.html#af74198f06b52d3f58c92e795b2ff7129">COMMS_FIELD_MEMBERS_NAMES()</a>, but does <b>NOT</b> require definition of <b>Base</b> inner member type (for some compilers) and does <b>NOT</b> define inner <b>Field_*</b> types for used member fields. </p><dl class="params"><dt>Parameters</dt><dd>

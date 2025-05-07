@@ -91,24 +91,24 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;type_traits&gt;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;limits&gt;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;numeric&gt;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="CompileControl_8h.html">comms/CompileControl.h</a>&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="Assert_8h.html">comms/Assert.h</a>&quot;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="ErrorStatus_8h.html">comms/ErrorStatus.h</a>&quot;</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="access_8h.html">comms/util/access.h</a>&quot;</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="assign_8h.html">comms/util/assign.h</a>&quot;</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;comms/util/MaxSizeOf.h&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="Assert_8h.html">comms/Assert.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="CompileControl_8h.html">comms/CompileControl.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;comms/details/tag.h&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="ErrorStatus_8h.html">comms/ErrorStatus.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;comms/field/basic/CommonFuncs.h&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="field_2tag_8h.html">comms/field/tag.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="access_8h.html">comms/util/access.h</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="assign_8h.html">comms/util/assign.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="util_2detect_8h.html">comms/util/detect.h</a>&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;comms/util/MaxSizeOf.h&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;<a class="code" href="StaticString_8h.html">comms/util/StaticString.h</a>&quot;</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;<a class="code" href="StaticVector_8h.html">comms/util/StaticVector.h</a>&quot;</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;<a class="code" href="StaticString_8h.html">comms/util/StaticString.h</a>&quot;</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;<a class="code" href="util_2detect_8h.html">comms/util/detect.h</a>&quot;</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="type__traits_8h.html">comms/util/type_traits.h</a>&quot;</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;comms/details/tag.h&quot;</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;<a class="code" href="field_2tag_8h.html">comms/field/tag.h</a>&quot;</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;CommonFuncs.h&quot;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;<a class="code" href="type__traits_8h.html">comms/util/type_traits.h</a>&quot;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;limits&gt;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;numeric&gt;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;type_traits&gt;</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>COMMS_MSVC_WARNING_PUSH</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>COMMS_MSVC_WARNING_DISABLE(4100)</div>
@@ -156,12 +156,12 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    String() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keyword">explicit</span> String(<span class="keyword">const</span> ValueType&amp; val)</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>      : value_(val)</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>      : m_value(val)</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    {</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    }</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keyword">explicit</span> String(ValueType&amp;&amp; val)</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>      : value_(<a class="code hl_namespace" href="namespacestd.html">std</a>::move(val))</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>      : m_value(<a class="code hl_namespace" href="namespacestd.html">std</a>::move(val))</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    {</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    }</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
@@ -173,12 +173,12 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    const ValueType&amp; value()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <span class="keywordflow">return</span> value_;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <span class="keywordflow">return</span> m_value;</div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    }</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    ValueType&amp; value()</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    {</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="keywordflow">return</span> value_;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="keywordflow">return</span> m_value;</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    }</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keyword">const</span> ValueType&amp; getValue()<span class="keyword"> const</span></div>
@@ -194,20 +194,20 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    ValueType&amp; createBack()</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    {</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        value_.push_back(ValueType());</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <span class="keywordflow">return</span> value_.back();</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        m_value.push_back(ValueType());</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <span class="keywordflow">return</span> m_value.back();</div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    }</div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordtype">void</span> clear()</div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    {</div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        <span class="keyword">static_assert</span>(comms::util::detect::hasClearFunc&lt;ValueType&gt;(),</div>
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>                <span class="stringliteral">&quot;The string type must have clear() member function&quot;</span>);</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        value_.clear();</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        m_value.clear();</div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    }</div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="keyword">constexpr</span> std::size_t length()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        <span class="keywordflow">return</span> value_.size() * <span class="keyword">sizeof</span>(ElementType);</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        <span class="keywordflow">return</span> m_value.size() * <span class="keyword">sizeof</span>(ElementType);</div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    }</div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> std::size_t minLength()</div>
@@ -272,8 +272,8 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        <span class="keyword">using </span>ConstPointer = <span class="keyword">typename</span> ValueType::const_pointer;</div>
 <div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        <span class="keyword">auto</span>* str = <span class="keyword">reinterpret_cast&lt;</span>ConstPointer<span class="keyword">&gt;</span>(&amp;(*iter));</div>
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        <span class="keyword">auto</span> endStr = str;</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>        std::advance(endStr, std::min(len, comms::util::maxSizeOf(value_)));</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>        <a class="code hl_function" href="namespacecomms_1_1util.html#a8b2699905fdbe18d691e4cf30619c7cc">comms::util::assign</a>(value_, str, endStr);</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>        std::advance(endStr, std::min(len, comms::util::maxSizeOf(m_value)));</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>        <a class="code hl_function" href="namespacecomms_1_1util.html#a8b2699905fdbe18d691e4cf30619c7cc">comms::util::assign</a>(m_value, str, endStr);</div>
 <div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        std::advance(iter, len);</div>
 <div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>        <span class="keywordflow">return</span> ErrorStatus::Success;</div>
 <div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    }</div>
@@ -334,14 +334,14 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TIter&gt;</div>
 <div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    <span class="keywordtype">void</span> writeNoStatus(TIter&amp; iter)<span class="keyword"> const</span></div>
 <div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>        std::copy_n(value_.begin(), value_.size(), iter);</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>        doAdvance(iter, value_.size());</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>        std::copy_n(m_value.begin(), m_value.size(), iter);</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>        doAdvance(iter, m_value.size());</div>
 <div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    }</div>
 <div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span> </div>
 <div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TIter&gt;</div>
 <div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    <a class="code hl_enumeration" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1">ErrorStatus</a> writeN(std::size_t count, TIter&amp; iter, std::size_t&amp; len)<span class="keyword"> const</span></div>
 <div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        count = std::min(count, value_.size());</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        count = std::min(count, m_value.size());</div>
 <div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
 <div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>        <span class="keywordflow">if</span> (len &lt; count) {</div>
 <div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>            <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="namespacecomms.html#a0a259a03d68bce98b4a129fb34aaa2e1a68ec6e62c5fcbbb68b5ce093bdd60717">comms::ErrorStatus::BufferOverflow</a>;</div>
@@ -354,8 +354,8 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TIter&gt;</div>
 <div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    <span class="keywordtype">void</span> writeNoStatusN(std::size_t count, TIter&amp; iter)<span class="keyword"> const</span></div>
 <div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>        count = std::min(count, value_.size());</div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>        std::copy_n(value_.begin(), count, iter);</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>        count = std::min(count, m_value.size());</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>        std::copy_n(m_value.begin(), count, iter);</div>
 <div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>        doAdvance(iter, count);</div>
 <div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>    }</div>
 <div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span> </div>
@@ -394,7 +394,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>    {</div>
 <div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>    }</div>
 <div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span> </div>
-<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>    ValueType value_;</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>    ValueType m_value;</div>
 <div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>};</div>
 <div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span> </div>
 <div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>}  <span class="comment">// namespace basic</span></div>
@@ -412,7 +412,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="aaccess_8h_html"><div class="ttname"><a href="access_8h.html">access.h</a></div><div class="ttdoc">Contains functions for raw data access / (de)serialization.</div></div>
 <div class="ttc" id="aassign_8h_html"><div class="ttname"><a href="assign_8h.html">assign.h</a></div><div class="ttdoc">Provides helper assign() function to allow easy assignment of values to collections or views.</div></div>
 <div class="ttc" id="afield_2tag_8h_html"><div class="ttname"><a href="field_2tag_8h.html">tag.h</a></div><div class="ttdoc">Contains definition of various tag classes.</div></div>
-<div class="ttc" id="anamespacecomms_1_1option_html_ad7cd945648e013a1fac10cb3b971cf4f"><div class="ttname"><a href="namespacecomms_1_1option.html#ad7cd945648e013a1fac10cb3b971cf4f">comms::option::Endian</a></div><div class="ttdeci">comms::option::def::Endian&lt; TEndian &gt; Endian</div><div class="ttdoc">Same as comms::option::def::Endian.</div><div class="ttdef"><b>Definition</b> options.h:1447</div></div>
+<div class="ttc" id="anamespacecomms_1_1option_html_ad7cd945648e013a1fac10cb3b971cf4f"><div class="ttname"><a href="namespacecomms_1_1option.html#ad7cd945648e013a1fac10cb3b971cf4f">comms::option::Endian</a></div><div class="ttdeci">comms::option::def::Endian&lt; TEndian &gt; Endian</div><div class="ttdoc">Same as comms::option::def::Endian.</div><div class="ttdef"><b>Definition</b> options.h:1460</div></div>
 <div class="ttc" id="anamespacecomms_1_1util_html_a56f162522d64a3b1a48a2511b19b97c7"><div class="ttname"><a href="namespacecomms_1_1util.html#a56f162522d64a3b1a48a2511b19b97c7">comms::util::writeData</a></div><div class="ttdeci">void writeData(T value, TIter &amp;iter, const traits::endian::Big &amp;endian)</div><div class="ttdoc">Same as writeBig&lt;T, TIter&gt;()</div><div class="ttdef"><b>Definition</b> access.h:706</div></div>
 <div class="ttc" id="anamespacecomms_1_1util_html_a8b2699905fdbe18d691e4cf30619c7cc"><div class="ttname"><a href="namespacecomms_1_1util.html#a8b2699905fdbe18d691e4cf30619c7cc">comms::util::assign</a></div><div class="ttdeci">void assign(T &amp;obj, TIter from, TIter to)</div><div class="ttdoc">Assigns a new value to provided object.</div><div class="ttdef"><b>Definition</b> assign.h:39</div></div>
 <div class="ttc" id="anamespacecomms_html"><div class="ttname"><a href="namespacecomms.html">comms</a></div><div class="ttdoc">Main namespace for all classes / functions of COMMS library.</div></div>

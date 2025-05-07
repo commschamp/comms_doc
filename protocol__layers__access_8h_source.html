@@ -201,17 +201,17 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="preprocessor">    const COMMS_DO_LAYER_TYPE_INTERNAL(c_, Base)&amp; COMMS_CONCATENATE(layer_, n_)() const</span></div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="preprocessor">#else </span><span class="comment">// #ifdef COMMS_MUST_DEFINE_BASE</span></div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="preprocessor">#define COMMS_ACCESS_LAYER_FUNC(c_, n_) FUNC_AUTO_REF_RETURN(COMMS_CONCATENATE(layer_, n_), decltype(COMMS_DO_LAYER_CALL_INTERNAL(c_, COMMS_EXPAND(comms::protocol::toProtocolLayerBase(*this)))))</span></div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="preprocessor">#define COMMS_ACCESS_LAYER_CONST_FUNC(c_, n_) FUNC_AUTO_REF_RETURN_CONST(COMMS_CONCATENATE(layer_, n_), decltype(COMMS_DO_LAYER_CALL_INTERNAL(c_, COMMS_EXPAND(comms::protocol::toProtocolLayerBase(*this)))))</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="preprocessor">#define COMMS_ACCESS_LAYER_FUNC(c_, n_) FUNC_AUTO_REF_RETURN(COMMS_CONCATENATE(layer_, n_), decltype(COMMS_DO_LAYER_CALL_INTERNAL(c_, COMMS_EXPAND(comms::frame::toFrameLayerBase(*this)))))</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="preprocessor">#define COMMS_ACCESS_LAYER_CONST_FUNC(c_, n_) FUNC_AUTO_REF_RETURN_CONST(COMMS_CONCATENATE(layer_, n_), decltype(COMMS_DO_LAYER_CALL_INTERNAL(c_, COMMS_EXPAND(comms::frame::toFrameLayerBase(*this)))))</span></div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    </div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="preprocessor">#endif </span><span class="comment">// #ifdef COMMS_MUST_DEFINE_BASE</span></div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="preprocessor">#define COMMS_ACCESS_LAYER_ACC_FUNC(c_, n_) \</span></div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="preprocessor">    COMMS_ACCESS_LAYER_FUNC(c_, n_) {\</span></div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="preprocessor">        return COMMS_DO_LAYER_CALL_INTERNAL(c_, comms::protocol::toProtocolLayerBase(*this)); \</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="preprocessor">        return COMMS_DO_LAYER_CALL_INTERNAL(c_, comms::frame::toFrameLayerBase(*this)); \</span></div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="preprocessor">    } \</span></div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="preprocessor">    COMMS_ACCESS_LAYER_CONST_FUNC(c_, n_) {\</span></div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="preprocessor">        return COMMS_DO_LAYER_CALL_INTERNAL(c_, comms::protocol::toProtocolLayerBase(*this)); \</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="preprocessor">        return COMMS_DO_LAYER_CALL_INTERNAL(c_, comms::frame::toFrameLayerBase(*this)); \</span></div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="preprocessor">    }</span></div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="preprocessor">#define COMMS_ACCESS_LAYER_ACC_FUNC_1(n_) COMMS_ACCESS_LAYER_ACC_FUNC(1, n_)</span></div>

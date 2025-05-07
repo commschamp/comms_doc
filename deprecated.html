@@ -74,40 +74,356 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><dl class="reflist">
+<dt>Member <a class="el" href="classcomms_1_1frame_1_1ChecksumLayer.html#a97d4499a4ec736ab34eba83a1958bbd5">comms::frame::ChecksumLayer&lt; TField, TCalc, TNextLayer, TOptions &gt;::readField</a>  (const TMsg *msgPtr, <a class="el" href="classcomms_1_1Field.html" title="Base class to all the field classes.">Field</a> &amp;field, TIter &amp;iter, std::size_t len)</dt>
+<dd><a class="anchor" id="_deprecated000003"></a>Override <a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html#ac4c4e7ddfbadca13b1fb358dfce0c25a">doReadField()</a> instead  </dd>
+<dt>Member <a class="el" href="classcomms_1_1frame_1_1ChecksumLayer.html#a82b443b7d2c41bddf39e1a15cca53c5a">comms::frame::ChecksumLayer&lt; TField, TCalc, TNextLayer, TOptions &gt;::writeField</a>  (const TMsg *msgPtr, const <a class="el" href="classcomms_1_1Field.html" title="Base class to all the field classes.">Field</a> &amp;field, TIter &amp;iter, std::size_t len) const</dt>
+<dd><a class="anchor" id="_deprecated000004"></a>Override <a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html#a7022da54d93eb0dcaca71c525e899a3c">doWriteField()</a> instead <br  />
+  </dd>
+<dt>Member <a class="el" href="classcomms_1_1frame_1_1ChecksumPrefixLayer.html#a7682a89b072ba6262ccaa6e4f7193fff">comms::frame::ChecksumPrefixLayer&lt; TField, TCalc, TNextLayer, TOptions &gt;::readField</a>  (const TMsg *msgPtr, <a class="el" href="classcomms_1_1Field.html" title="Base class to all the field classes.">Field</a> &amp;field, TIter &amp;iter, std::size_t len)</dt>
+<dd><a class="anchor" id="_deprecated000005"></a>Override <a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html#ac4c4e7ddfbadca13b1fb358dfce0c25a">doReadField()</a> instead  </dd>
+<dt>Member <a class="el" href="classcomms_1_1frame_1_1ChecksumPrefixLayer.html#aea088e4e13f11f1640d690351fce3cbd">comms::frame::ChecksumPrefixLayer&lt; TField, TCalc, TNextLayer, TOptions &gt;::writeField</a>  (const TMsg *msgPtr, const <a class="el" href="classcomms_1_1Field.html" title="Base class to all the field classes.">Field</a> &amp;field, TIter &amp;iter, std::size_t len) const</dt>
+<dd><a class="anchor" id="_deprecated000006"></a>Override <a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html#a7022da54d93eb0dcaca71c525e899a3c">doWriteField()</a> instead <br  />
+  </dd>
+<dt>Member <a class="el" href="classcomms_1_1frame_1_1TransportValueLayer.html#a4e8e35332a9756e6db716f0829ad16e6">comms::frame::TransportValueLayer&lt; TField, TIdx, TNextLayer, TOptions &gt;::reassignFieldValue</a>  (TMsg &amp;msg, const <a class="el" href="classcomms_1_1Field.html" title="Base class to all the field classes.">Field</a> &amp;field)</dt>
+<dd><a class="anchor" id="_deprecated000007"></a>Use <a class="el" href="classcomms_1_1frame_1_1TransportValueLayer.html#ab4cafa9ea4cddd024b6b6f777cbf614c">reassignFieldValueToMsg()</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a136e55fc823fc05410f0febd2e330b87">comms::option::AssumeFieldsExistence</a>  </dt>
+<dd><a class="anchor" id="_deprecated000041"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1AssumeFieldsExistence.html">comms::option::def::AssumeFieldsExistence</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a72475497c973093b3639a4e8e624fc16">comms::option::BigEndian</a>  </dt>
+<dd><a class="anchor" id="_deprecated000029"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a606d8afcd788b9c39088709e9be2f546">comms::option::def::BigEndian</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#ae8856ea0c82cda2bf0ff1f024c524093">comms::option::BitmaskReservedBits</a>  </dt>
+<dd><a class="anchor" id="_deprecated000114"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#ab250f5104df4cfe83741d63e6db70505">comms::option::def::BitmaskReservedBits</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a737cf992804e15b7b72de3ba7b8755e5">comms::option::ChecksumLayerVerifyBeforeRead</a>  </dt>
+<dd><a class="anchor" id="_deprecated000121"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1ChecksumLayerVerifyBeforeRead.html">comms::option::def::ChecksumLayerVerifyBeforeRead</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#ad5985379c19124ac48082850c891b73e">comms::option::CustomStorageType</a>  </dt>
+<dd><a class="anchor" id="_deprecated000158"></a>Use <a class="el" href="structcomms_1_1option_1_1app_1_1CustomStorageType.html">comms::option::app::CustomStorageType</a> instead.  </dd>
 <dt>Member <a class="el" href="namespacecomms_1_1option_1_1def.html#a75cee42a909aca04d1f153a126eae695">comms::option::def::HasDoRefresh</a>  </dt>
-<dd><p class="startdd"><a class="anchor" id="_deprecated000015"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1HasCustomRefresh.html">HasCustomRefresh</a> instead.</p>
+<dd><p class="startdd"><a class="anchor" id="_deprecated000173"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1HasCustomRefresh.html">HasCustomRefresh</a> instead.</p>
 <p class="enddd"></p>
 </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option_1_1def.html#a08540e99e2382f44597664fce8ff853c">comms::option::def::ProtocolLayerDisallowReadUntilDataSplit</a>  </dt>
+<dd><a class="anchor" id="_deprecated000172"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1FrameLayerDisallowReadUntilDataSplit.html">comms::option::def::FrameLayerDisallowReadUntilDataSplit</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option_1_1def.html#a6ff20ac4c4c96451bce75c89dc9537b4">comms::option::def::ProtocolLayerForceReadUntilDataSplit</a>  </dt>
+<dd><a class="anchor" id="_deprecated000170"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1FrameLayerForceReadUntilDataSplit.html">comms::option::def::FrameLayerForceReadUntilDataSplit</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option_1_1def.html#adb8eff69574e08e164f9ea01301c261b">comms::option::def::ProtocolLayerSuppressReadUntilDataSplitForcing</a>  </dt>
+<dd><a class="anchor" id="_deprecated000171"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1FrameLayerSuppressReadUntilDataSplitForcing.html">comms::option::def::FrameLayerSuppressReadUntilDataSplitForcing</a> instead.  </dd>
 <dt>Member <a class="el" href="namespacecomms_1_1option_1_1def.html#aedf1cfc6f1113482b6bdc98cfaf53a0b">comms::option::def::ValidBigUnsignedNumValueOverride</a>  </dt>
-<dd><a class="anchor" id="_deprecated000014"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1ValidRangesClear.html">ValidRangesClear</a> instead.  </dd>
+<dd><a class="anchor" id="_deprecated000169"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1ValidRangesClear.html">ValidRangesClear</a> instead.  </dd>
 <dt>Member <a class="el" href="namespacecomms_1_1option_1_1def.html#a0616202b4169c7deb2bea18643247002">comms::option::def::ValidBigUnsignedNumValueRangeOverride</a>  </dt>
-<dd><a class="anchor" id="_deprecated000013"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1ValidRangesClear.html">ValidRangesClear</a> instead.  </dd>
+<dd><a class="anchor" id="_deprecated000168"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1ValidRangesClear.html">ValidRangesClear</a> instead.  </dd>
 <dt>Member <a class="el" href="namespacecomms_1_1option_1_1def.html#a72d7ed15d8cb17cc0d9da2a0a3e3ecd7">comms::option::def::ValidNumValueOverride</a>  </dt>
-<dd><a class="anchor" id="_deprecated000012"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1ValidRangesClear.html">ValidRangesClear</a> instead.  </dd>
+<dd><a class="anchor" id="_deprecated000167"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1ValidRangesClear.html">ValidRangesClear</a> instead.  </dd>
 <dt>Member <a class="el" href="namespacecomms_1_1option_1_1def.html#a3eb5570f61040f4a18288fb1cad25eed">comms::option::def::ValidNumValueRangeOverride</a>  </dt>
-<dd><a class="anchor" id="_deprecated000011"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1ValidRangesClear.html">ValidRangesClear</a> instead.  </dd>
+<dd><a class="anchor" id="_deprecated000166"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1ValidRangesClear.html">ValidRangesClear</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#aeb3c01e3062862d5bd883efe04741bea">comms::option::DefaultBigUnsignedNumValue</a>  </dt>
+<dd><a class="anchor" id="_deprecated000104"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#ab2ce85f633b82bbd32e144ee1c9df5de">comms::option::def::DefaultBigUnsignedNumValue</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a1e895414ca4df5d13383278e3625a161">comms::option::DefaultNumValue</a>  </dt>
+<dd><a class="anchor" id="_deprecated000103"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#ae716383045f6638aca961d2d4a1d0605">comms::option::def::DefaultNumValue</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a8afb8b557d67accde27b3a5e74fc60a7">comms::option::DefaultOptionalMode</a>  </dt>
+<dd><a class="anchor" id="_deprecated000115"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#ad1cfde1700238bbeb3f0ba8fcb08fcb6">comms::option::def::DefaultOptionalMode</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a90e331978a2beef6b1e4ae2dc29b3c46">comms::option::DefaultValueInitialiser</a>  </dt>
+<dd><a class="anchor" id="_deprecated000057"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1DefaultValueInitialiser.html">comms::option::def::DefaultValueInitialiser</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#aedd5d32f47b6212d0de99b699f256b8e">comms::option::DefaultVariantIndex</a>  </dt>
+<dd><a class="anchor" id="_deprecated000120"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a367246a4a2fa2fb908b760644e699c71">comms::option::def::DefaultVariantIndex</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a7cab23e160841f8b640b5afeccd8b664">comms::option::EmptyOption</a>  </dt>
+<dd><a class="anchor" id="_deprecated000140"></a>Use <a class="el" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#ade7ef210ea7b9b790da0b7464fdb575e">comms::option::EmptySerialisation</a>  </dt>
+<dd><a class="anchor" id="_deprecated000123"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#aa543c05f35a94714da5fe879a1c11e58">comms::option::def::EmptySerialisation</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a757cee24a42b0d2bd7b2f5608c1a440e">comms::option::EmptySerialization</a>  </dt>
+<dd><a class="anchor" id="_deprecated000122"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1EmptySerialization.html">comms::option::def::EmptySerialization</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#ad7cd945648e013a1fac10cb3b971cf4f">comms::option::Endian</a>  </dt>
+<dd><a class="anchor" id="_deprecated000028"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1Endian.html">comms::option::def::Endian</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#ac5a9acd5de578344c80c804f12fc5e02">comms::option::ExistsBetweenVersions</a>  </dt>
+<dd><a class="anchor" id="_deprecated000133"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1ExistsBetweenVersions.html">comms::option::def::ExistsBetweenVersions</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a733159768b42a5c8d50df4cde7060fec">comms::option::ExistsByDefault</a>  </dt>
+<dd><a class="anchor" id="_deprecated000117"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a42d0ec5e94c9505be074fb6c80c0f9c0">comms::option::def::OptionalExistsByDefault</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a36201234cbd8da78e090e7cd635e2a0f">comms::option::ExistsSinceVersion</a>  </dt>
+<dd><a class="anchor" id="_deprecated000134"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a3e3576aceaec1b01a812d906afc451f6">comms::option::def::ExistsSinceVersion</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#ac2f393515918030c0a2696710c32b37e">comms::option::ExistsUntilVersion</a>  </dt>
+<dd><a class="anchor" id="_deprecated000135"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#abc6b55c287bfb992073b1e5cbbe8337b">comms::option::def::ExistsUntilVersion</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a36cef7e87cf2288100d2a497f7960ac9">comms::option::ExtendingClass</a>  </dt>
+<dd><a class="anchor" id="_deprecated000138"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1ExtendingClass.html">comms::option::def::ExtendingClass</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a6cd28e300c87ce827f733d20d7f2fe07">comms::option::ExtraTransportFields</a>  </dt>
+<dd><a class="anchor" id="_deprecated000036"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1ExtraTransportFields.html">comms::option::def::ExtraTransportFields</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a98982b53812bec2b5fa32928a0c8a23b">comms::option::FailOnInvalid</a>  </dt>
+<dd><a class="anchor" id="_deprecated000058"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1FailOnInvalid.html">comms::option::def::FailOnInvalid</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#ab49bf0f3a0d73092c640071e4e7932c9">comms::option::FieldsImpl</a>  </dt>
+<dd><a class="anchor" id="_deprecated000038"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1FieldsImpl.html">comms::option::def::FieldsImpl</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#acb0ccfec5b21034551340b3a663497c9">comms::option::FieldType</a>  </dt>
+<dd><a class="anchor" id="_deprecated000035"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1FieldType.html">comms::option::def::FieldType</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#ae1583f6ea23c50151da4e19f2e084548">comms::option::FixedBitLength</a>  </dt>
+<dd><a class="anchor" id="_deprecated000043"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1FixedBitLength.html">comms::option::def::FixedBitLength</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a99ac6ffdcff23e2992d43cb0e5ccda4e">comms::option::FixedLength</a>  </dt>
+<dd><a class="anchor" id="_deprecated000042"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1FixedLength.html">comms::option::def::FixedLength</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#ad4e3c3a82b1d31d1dd1aa0cae2447e09">comms::option::FixedSizeStorage</a>  </dt>
+<dd><a class="anchor" id="_deprecated000157"></a>Use <a class="el" href="structcomms_1_1option_1_1app_1_1FixedSizeStorage.html">comms::option::app::FixedSizeStorage</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a1f497e6c79f74481cb3e34a7baa765c6">comms::option::ForceDispatch</a>  </dt>
+<dd><a class="anchor" id="_deprecated000162"></a>Use <a class="el" href="structcomms_1_1option_1_1app_1_1ForceDispatch.html">comms::option::app::ForceDispatch</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#ae32dfa378b71a1b2465f5ea2ffcbcc2e">comms::option::ForceDispatchLinearSwitch</a>  </dt>
+<dd><a class="anchor" id="_deprecated000165"></a>Use <a class="el" href="namespacecomms_1_1option_1_1app.html#a9d319ff4279bc91c590741551898e744">comms::option::app::ForceDispatchLinearSwitch</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a2c8eb7bbc74fde4332bd5ccaae3f0747">comms::option::ForceDispatchPolymorphic</a>  </dt>
+<dd><a class="anchor" id="_deprecated000163"></a>Use <a class="el" href="namespacecomms_1_1option_1_1app.html#acef1e5bc54eacc4fd744cde7bcb7f615">comms::option::app::ForceDispatchPolymorphic</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a2f6935c62495baf896731b8e9a819986">comms::option::ForceDispatchStaticBinSearch</a>  </dt>
+<dd><a class="anchor" id="_deprecated000164"></a>Use <a class="el" href="namespacecomms_1_1option_1_1app.html#ab065559cdb35c6a86bbb2224d3239d13">comms::option::app::ForceDispatchStaticBinSearch</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#ac0f3ca6e17131a708be82826c1d6426d">comms::option::FrameLayerDisallowReadUntilDataSplit</a>  </dt>
+<dd><a class="anchor" id="_deprecated000125"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1FrameLayerDisallowReadUntilDataSplit.html">comms::option::def::FrameLayerDisallowReadUntilDataSplit</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#adf9ba502ee0fa394ec7c543f86b61521">comms::option::FrameLayerForceReadUntilDataSplit</a>  </dt>
+<dd><a class="anchor" id="_deprecated000124"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1FrameLayerForceReadUntilDataSplit.html">comms::option::def::FrameLayerForceReadUntilDataSplit</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a62c855d5dce0a0ef977238ea051d288a">comms::option::Handler</a>  </dt>
+<dd><a class="anchor" id="_deprecated000148"></a>Use <a class="el" href="structcomms_1_1option_1_1app_1_1Handler.html">comms::option::app::Handler</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#aa770c4e8b78ff462044222e406adf38c">comms::option::HasCustomRead</a>  </dt>
+<dd><a class="anchor" id="_deprecated000126"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1HasCustomRead.html">comms::option::def::HasCustomRead</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#ae0935a2fbef42553e5c4fab433b0c114">comms::option::HasCustomRefresh</a>  </dt>
+<dd><a class="anchor" id="_deprecated000127"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1HasCustomRefresh.html">comms::option::def::HasCustomRefresh</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#aa1b1c45dd0ae2daf839eda6edc84bc39">comms::option::HasCustomVersionUpdate</a>  </dt>
+<dd><a class="anchor" id="_deprecated000132"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1HasCustomVersionUpdate.html">comms::option::def::HasCustomVersionUpdate</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#ab040b6caa594a3837dd196a6181bd6f9">comms::option::HasDoGetId</a>  </dt>
+<dd><a class="anchor" id="_deprecated000040"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1HasDoGetId.html">comms::option::def::HasDoGetId</a> instead.  </dd>
 <dt>Member <a class="el" href="namespacecomms_1_1option.html#a71347c6ee649e1d670d94066493a5cad">comms::option::HasDoRefresh</a>  </dt>
-<dd><a class="anchor" id="_deprecated000009"></a>Use <a class="el" href="namespacecomms_1_1option.html#ae0935a2fbef42553e5c4fab433b0c114">HasCustomRefresh</a> instead.  </dd>
+<dd><a class="anchor" id="_deprecated000129"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a75cee42a909aca04d1f153a126eae695">comms::option::def::HasDoRefresh</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a08ce3a20537675fa7f38c43ae59e5374">comms::option::HasName</a>  </dt>
+<dd><a class="anchor" id="_deprecated000128"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1HasName.html">comms::option::def::HasName</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a03117ed117740f000541038e3670bf0e">comms::option::IdInfoInterface</a>  </dt>
+<dd><a class="anchor" id="_deprecated000143"></a>Use <a class="el" href="structcomms_1_1option_1_1app_1_1IdInfoInterface.html">comms::option::app::IdInfoInterface</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#add0d0bd1ec34b6259e96ff504c8d8e70">comms::option::IgnoreInvalid</a>  </dt>
+<dd><a class="anchor" id="_deprecated000059"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1IgnoreInvalid.html">comms::option::def::IgnoreInvalid</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a8ab0ed0f97a929a87d0a4a136b6e8cef">comms::option::InPlaceAllocation</a>  </dt>
+<dd><a class="anchor" id="_deprecated000155"></a>Use <a class="el" href="structcomms_1_1option_1_1app_1_1InPlaceAllocation.html">comms::option::app::InPlaceAllocation</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a559e751dd68cb9aaf2c450c5e946ca4a">comms::option::InvalidByDefault</a>  </dt>
+<dd><a class="anchor" id="_deprecated000136"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1InvalidByDefault.html">comms::option::def::InvalidByDefault</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#adf3a68ac5e1b3c10e4cd92ea8cd3b7b0">comms::option::LengthInfoInterface</a>  </dt>
+<dd><a class="anchor" id="_deprecated000145"></a>Use <a class="el" href="structcomms_1_1option_1_1app_1_1LengthInfoInterface.html">comms::option::app::LengthInfoInterface</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#ae04afab7275960c5449de36dbb2542a6">comms::option::LittleEndian</a>  </dt>
+<dd><a class="anchor" id="_deprecated000030"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#af84304efc306dc824db55e16a92f016d">comms::option::def::LittleEndian</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#ae24ba13a54081bb037fd98d8b705fcc9">comms::option::MissingByDefault</a>  </dt>
+<dd><a class="anchor" id="_deprecated000116"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a6ec725d747184d01b7afe266f53740de">comms::option::def::MissingByDefault</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#ae116d8be9449c27165351b3f07151284">comms::option::MsgIdType</a>  </dt>
+<dd><a class="anchor" id="_deprecated000031"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1MsgIdType.html">comms::option::def::MsgIdType</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a8aa44dd95c714cfcb604ea4e8c446cef">comms::option::MsgType</a>  </dt>
+<dd><a class="anchor" id="_deprecated000034"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1MsgType.html">comms::option::def::MsgType</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a741507dd462ca95f3aaea65bf7f2fb24">comms::option::NameInterface</a>  </dt>
+<dd><a class="anchor" id="_deprecated000147"></a>Use <a class="el" href="structcomms_1_1option_1_1app_1_1NameInterface.html">comms::option::app::NameInterface</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#ad993f874d1f1ec532740dcddf2754166">comms::option::NoDispatchImpl</a>  </dt>
+<dd><a class="anchor" id="_deprecated000149"></a>Use <a class="el" href="structcomms_1_1option_1_1app_1_1NoDispatchImpl.html">comms::option::app::NoDispatchImpl</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a2754659df97dd63f2cf541cb343983ed">comms::option::NoIdImpl</a>  </dt>
+<dd><a class="anchor" id="_deprecated000033"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1NoIdImpl.html">comms::option::def::NoIdImpl</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#ac8942689ae5a5d530ad3eec8ee159735">comms::option::NoLengthImpl</a>  </dt>
+<dd><a class="anchor" id="_deprecated000153"></a>Use <a class="el" href="structcomms_1_1option_1_1app_1_1NoLengthImpl.html">comms::option::app::NoLengthImpl</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a2c4f4dc2770b81385f922d49cf2949c6">comms::option::NoReadImpl</a>  </dt>
+<dd><a class="anchor" id="_deprecated000150"></a>Use <a class="el" href="structcomms_1_1option_1_1app_1_1NoReadImpl.html">comms::option::app::NoReadImpl</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a51eb393269d722fecd242d7c160d3191">comms::option::NoRefreshImpl</a>  </dt>
+<dd><a class="anchor" id="_deprecated000154"></a>Use <a class="el" href="structcomms_1_1option_1_1app_1_1NoRefreshImpl.html">comms::option::app::NoRefreshImpl</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#aec4a1fb43b9b8c1929e0b1a18ded1ded">comms::option::NoValidImpl</a>  </dt>
+<dd><a class="anchor" id="_deprecated000152"></a>Use <a class="el" href="structcomms_1_1option_1_1app_1_1NoValidImpl.html">comms::option::app::NoValidImpl</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a0b7b2a3aedb22d025e2cd88a028f98fe">comms::option::NoVirtualDestructor</a>  </dt>
+<dd><a class="anchor" id="_deprecated000160"></a>Use <a class="el" href="structcomms_1_1option_1_1app_1_1NoVirtualDestructor.html">comms::option::app::NoVirtualDestructor</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#aef37f12c38decbef4ef6c4b6fe108219">comms::option::NoWriteImpl</a>  </dt>
+<dd><a class="anchor" id="_deprecated000151"></a>Use <a class="el" href="structcomms_1_1option_1_1app_1_1NoWriteImpl.html">comms::option::app::NoWriteImpl</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#ac1e1eac484177430cdf85b4c965e0522">comms::option::NumValueSerOffset</a>  </dt>
+<dd><a class="anchor" id="_deprecated000045"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1NumValueSerOffset.html">comms::option::def::NumValueSerOffset</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a11109ded35cdb996120d634ef49051e7">comms::option::OptionalExistsByDefault</a>  </dt>
+<dd><a class="anchor" id="_deprecated000119"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a42d0ec5e94c9505be074fb6c80c0f9c0">comms::option::def::OptionalExistsByDefault</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#ac17cf061a250a1463ffda52b1d4b8082">comms::option::OptionalMissingByDefault</a>  </dt>
+<dd><a class="anchor" id="_deprecated000118"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#aaf119633392577f474999574ab220015">comms::option::def::OptionalMissingByDefault</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#aa3d3bba58428f4b08e3ab29a751954e3">comms::option::OrigDataView</a>  </dt>
+<dd><a class="anchor" id="_deprecated000161"></a>Use <a class="el" href="structcomms_1_1option_1_1app_1_1OrigDataView.html">comms::option::app::OrigDataView</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#ace343f694f18f986296fbdf5c03ab401">comms::option::PseudoValue</a>  </dt>
+<dd><a class="anchor" id="_deprecated000130"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1PseudoValue.html">comms::option::def::PseudoValue</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a6bfb15414c84bb8644f05ffa20198515">comms::option::ReadIterator</a>  </dt>
+<dd><a class="anchor" id="_deprecated000141"></a>Use <a class="el" href="structcomms_1_1option_1_1app_1_1ReadIterator.html">comms::option::app::ReadIterator</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a9c4b999f046f218fe5b0d27bf3196681">comms::option::RefreshInterface</a>  </dt>
+<dd><a class="anchor" id="_deprecated000146"></a>Use <a class="el" href="structcomms_1_1option_1_1app_1_1RefreshInterface.html">comms::option::app::RefreshInterface</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a263cc6b340e093216c3288d5d8f64fa6">comms::option::RemLengthMemberField</a>  </dt>
+<dd><a class="anchor" id="_deprecated000139"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1RemLengthMemberField.html">comms::option::def::RemLengthMemberField</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#af8fd76238d43170fe2e2dfe514750feb">comms::option::ScalingRatio</a>  </dt>
+<dd><a class="anchor" id="_deprecated000046"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1ScalingRatio.html">comms::option::def::ScalingRatio</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a449607d7b8ede229621cb6a505854cdd">comms::option::SequenceElemFixedSerLengthFieldPrefix</a>  </dt>
+<dd><a class="anchor" id="_deprecated000050"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1SequenceElemFixedSerLengthFieldPrefix.html">comms::option::def::SequenceElemFixedSerLengthFieldPrefix</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a6888822917ab4f9fe859a96ce1900966">comms::option::SequenceElemLengthForcingEnabled</a>  </dt>
+<dd><a class="anchor" id="_deprecated000055"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1SequenceElemLengthForcingEnabled.html">comms::option::def::SequenceElemLengthForcingEnabled</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#ad2fd0337ffdeda78c1b9b4e9a519ab7a">comms::option::SequenceElemSerLengthFieldPrefix</a>  </dt>
+<dd><a class="anchor" id="_deprecated000049"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1SequenceElemSerLengthFieldPrefix.html">comms::option::def::SequenceElemSerLengthFieldPrefix</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a9b5d2b32b464b0ff97c1b7cfc8e32b36">comms::option::SequenceFixedSize</a>  </dt>
+<dd><a class="anchor" id="_deprecated000056"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1SequenceFixedSize.html">comms::option::def::SequenceFixedSize</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a0e57a8a1b46b97eb88eedce95c78aee9">comms::option::SequenceFixedSizeUseFixedSizeStorage</a>  </dt>
+<dd><a class="anchor" id="_deprecated000159"></a>Use <a class="el" href="structcomms_1_1option_1_1app_1_1SequenceFixedSizeUseFixedSizeStorage.html">comms::option::app::SequenceFixedSizeUseFixedSizeStorage</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a84ebe1db25d4fc65d32dc4b0b767ceef">comms::option::SequenceLengthForcingEnabled</a>  </dt>
+<dd><a class="anchor" id="_deprecated000054"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1SequenceLengthForcingEnabled.html">comms::option::def::SequenceLengthForcingEnabled</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a8c357fa241bcb7686e2c6321afa8a35e">comms::option::SequenceSerLengthFieldPrefix</a>  </dt>
+<dd><a class="anchor" id="_deprecated000048"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1SequenceSerLengthFieldPrefix.html">comms::option::def::SequenceSerLengthFieldPrefix</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#ae1c1ee94fbd91a668656f1d654031000">comms::option::SequenceSizeFieldPrefix</a>  </dt>
+<dd><a class="anchor" id="_deprecated000047"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1SequenceSizeFieldPrefix.html">comms::option::def::SequenceSizeFieldPrefix</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a32f08f1fefd35092cbcac61f41fe5b34">comms::option::SequenceSizeForcingEnabled</a>  </dt>
+<dd><a class="anchor" id="_deprecated000053"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1SequenceSizeForcingEnabled.html">comms::option::def::SequenceSizeForcingEnabled</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a84c3ff6f470fc216f5ca84e2fa5a4062">comms::option::SequenceTerminationFieldSuffix</a>  </dt>
+<dd><a class="anchor" id="_deprecated000051"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1SequenceTerminationFieldSuffix.html">comms::option::def::SequenceTerminationFieldSuffix</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a01a04b39a419f4cb5f30f1a5680744a5">comms::option::SequenceTrailingFieldSuffix</a>  </dt>
+<dd><a class="anchor" id="_deprecated000052"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1SequenceTrailingFieldSuffix.html">comms::option::def::SequenceTrailingFieldSuffix</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a0e19955969651bddc7f15fccca6bb0ee">comms::option::StaticNumIdImpl</a>  </dt>
+<dd><a class="anchor" id="_deprecated000032"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1StaticNumIdImpl.html">comms::option::def::StaticNumIdImpl</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a0e4955bf8c2932a47cfd4dedd0c6a3f8">comms::option::SupportGenericMessage</a>  </dt>
+<dd><a class="anchor" id="_deprecated000156"></a>Use <a class="el" href="structcomms_1_1option_1_1app_1_1SupportGenericMessage.html">comms::option::app::SupportGenericMessage</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#ad357e21bea164bdea26d924a763feeea">comms::option::Units</a>  </dt>
+<dd><a class="anchor" id="_deprecated000060"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1Units.html">comms::option::def::Units</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a846ecf82bee27b711a888cda2e1167c3">comms::option::UnitsAmps</a>  </dt>
+<dd><a class="anchor" id="_deprecated000091"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a771aac26b959ab08046472f80d03749b">comms::option::def::UnitsAmps</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a6508af5132ff07bf1562170ca05f0566">comms::option::UnitsBytes</a>  </dt>
+<dd><a class="anchor" id="_deprecated000098"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a2ce3d177f5e7c610a0582d3eec64e172">comms::option::def::UnitsBytes</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#afde9a9d95b0dc876a4f747039a7dfbd5">comms::option::UnitsCentimeters</a>  </dt>
+<dd><a class="anchor" id="_deprecated000072"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#ad1cefa1d4f171efe322ce10ffac47949">comms::option::def::UnitsCentimeters</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a0255947b24e9b8b2c8f7bd9a6ce99013">comms::option::UnitsCentimetersPerSecond</a>  </dt>
+<dd><a class="anchor" id="_deprecated000078"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a56ae9cca2d2a6fed99feb9350fff30e1">comms::option::def::UnitsCentimetersPerSecond</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a6475cb0169391663ccd18ef54ef0d82f">comms::option::UnitsDays</a>  </dt>
+<dd><a class="anchor" id="_deprecated000067"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a31cd2d418453381edca4503d79d87390">comms::option::def::UnitsDays</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#abb85b9fd2577c8d28e990421d18142ad">comms::option::UnitsDegrees</a>  </dt>
+<dd><a class="anchor" id="_deprecated000086"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a583961628c07ad1584b618c60d6c3f7c">comms::option::def::UnitsDegrees</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a0b0825faa15ac5464b7e84fd776f4457">comms::option::UnitsGigabytes</a>  </dt>
+<dd><a class="anchor" id="_deprecated000101"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#aff839aae1aeab5d0370b26b50899d2c5">comms::option::def::UnitsGigabytes</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a421a9e7b703399c19c732dae6a0cc77e">comms::option::UnitsGigahertz</a>  </dt>
+<dd><a class="anchor" id="_deprecated000085"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a2f4cb9d0376919e5041bc915d24e9d8e">comms::option::def::UnitsGigahertz</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a0521aaae3397c6bba1723af5c788020b">comms::option::UnitsHertz</a>  </dt>
+<dd><a class="anchor" id="_deprecated000082"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a8c3324fa9146916a8933b372ce1b695b">comms::option::def::UnitsHertz</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#ab24022cfd35c162b6c627c7023bd9240">comms::option::UnitsHours</a>  </dt>
+<dd><a class="anchor" id="_deprecated000066"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a07761ade34bf61be31c322dabfa0958a">comms::option::def::UnitsHours</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a31fb0fca15b7864befe276ad68355a51">comms::option::UnitsKiloamps</a>  </dt>
+<dd><a class="anchor" id="_deprecated000092"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#ab5bb78675a5449103627dd59dcfff69f">comms::option::def::UnitsKiloamps</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a8165cc6319b5323f92b736c9745821f1">comms::option::UnitsKilobytes</a>  </dt>
+<dd><a class="anchor" id="_deprecated000099"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#ab2782d2c140083e5251a9c2a8339108c">comms::option::def::UnitsKilobytes</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#ae108162d7721f820bce99bbabf1ee9f6">comms::option::UnitsKilohertz</a>  </dt>
+<dd><a class="anchor" id="_deprecated000083"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a6466057870b0f1aaa74042d5dbf6b233">comms::option::def::UnitsKilohertz</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#aabde394e55e100b15ca653007f039b9c">comms::option::UnitsKilometers</a>  </dt>
+<dd><a class="anchor" id="_deprecated000074"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a38fcc7a943b3e409b03079ee22bc7361">comms::option::def::UnitsKilometers</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a2992bb923628e0f8f8c8d4e088cf4d7a">comms::option::UnitsKilometersPerHour</a>  </dt>
+<dd><a class="anchor" id="_deprecated000081"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a1dcc8cf6e446be26da524f12ee137a12">comms::option::def::UnitsKilometersPerHour</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a31a606d68996d3c37648dcfaf6cdeb96">comms::option::UnitsKilometersPerSecond</a>  </dt>
+<dd><a class="anchor" id="_deprecated000080"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a03caf060495e5d0e63479bb86ad3aa49">comms::option::def::UnitsKilometersPerSecond</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a25a931e507ec7fa3646d5fcd731f91f9">comms::option::UnitsKilovolts</a>  </dt>
+<dd><a class="anchor" id="_deprecated000097"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a582ca674f67c67574faff6d222e50df9">comms::option::def::UnitsKilovolts</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#abb1c987b7d1b0dd4d5924c32f747b343">comms::option::UnitsMegabytes</a>  </dt>
+<dd><a class="anchor" id="_deprecated000100"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#ab9972be3d1064b4ab61d83457b077da7">comms::option::def::UnitsMegabytes</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a73eb3589a530adba6263a6eabfc02c5d">comms::option::UnitsMegahertz</a>  </dt>
+<dd><a class="anchor" id="_deprecated000084"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a087dc79137d49fad3b46d6b2169d29c6">comms::option::def::UnitsMegahertz</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a657d640652b3142f8c6dfb3c455623c9">comms::option::UnitsMeters</a>  </dt>
+<dd><a class="anchor" id="_deprecated000073"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#ab14a41478bb6b3b2cd074872c54c7db2">comms::option::def::UnitsMeters</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a2c1fa62cb99058026aa1f721158164a1">comms::option::UnitsMetersPerSecond</a>  </dt>
+<dd><a class="anchor" id="_deprecated000079"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#af0e3f1477a133ae480d13a0bfc5ce3cd">comms::option::def::UnitsMetersPerSecond</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a569e5fe9d56b4ed5c171caf97d609c28">comms::option::UnitsMicroamps</a>  </dt>
+<dd><a class="anchor" id="_deprecated000089"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#aa8dd179941546fc63aebe24fa38647f7">comms::option::def::UnitsMicroamps</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a419c04d4beafbb585262bc83116090c3">comms::option::UnitsMicrometers</a>  </dt>
+<dd><a class="anchor" id="_deprecated000070"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a06f751e0d713d383b9f5c74202434087">comms::option::def::UnitsMicrometers</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#ac96a6bf661aa2d0796f214161b17bb09">comms::option::UnitsMicrometersPerSecond</a>  </dt>
+<dd><a class="anchor" id="_deprecated000076"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a435797fea7e3f714bf4f54458d5f92e1">comms::option::def::UnitsMicrometersPerSecond</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#aad3765d1f462ad315f1efe6af5b45f11">comms::option::UnitsMicroseconds</a>  </dt>
+<dd><a class="anchor" id="_deprecated000062"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#ace3d11ccc8806c6ad6698fae4eebef49">comms::option::def::UnitsMicroseconds</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a98766196b74295a72f805851637a8b16">comms::option::UnitsMicrovolts</a>  </dt>
+<dd><a class="anchor" id="_deprecated000094"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#ab8c964bf0eceb09ada45c6c0f04628dd">comms::option::def::UnitsMicrovolts</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a578beb39a1906195269f9219c9b337ca">comms::option::UnitsMilliamps</a>  </dt>
+<dd><a class="anchor" id="_deprecated000090"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#addec33169db95fef54e24bf184f1f460">comms::option::def::UnitsMilliamps</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a9fcdd34b4e5de6f74759ec6e9ba04f90">comms::option::UnitsMillimeters</a>  </dt>
+<dd><a class="anchor" id="_deprecated000071"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a2f7505443427630657678e7a762122f4">comms::option::def::UnitsMillimeters</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a58328ce18c24daead615baf7403ba149">comms::option::UnitsMillimetersPerSecond</a>  </dt>
+<dd><a class="anchor" id="_deprecated000077"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a317eb26407c4b9fc3d5e10acac8ff99c">comms::option::def::UnitsMillimetersPerSecond</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a769f13c6980cfe38f68ec08678c80d9b">comms::option::UnitsMilliseconds</a>  </dt>
+<dd><a class="anchor" id="_deprecated000063"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a300573e54806a71d34dee5a4f86d470e">comms::option::def::UnitsMilliseconds</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a9f3b9262d89a8896c225b146a390a085">comms::option::UnitsMillivolts</a>  </dt>
+<dd><a class="anchor" id="_deprecated000095"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#aa28e7151853cb38f80992c6acc0d1233">comms::option::def::UnitsMillivolts</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a7ac055835a7b5bb20ba07e0cd704819f">comms::option::UnitsMinutes</a>  </dt>
+<dd><a class="anchor" id="_deprecated000065"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a0d8b37c8d9de44ef75c247a623e5b74d">comms::option::def::UnitsMinutes</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a269f4daea03f380aaf62c54564b27903">comms::option::UnitsNanoamps</a>  </dt>
+<dd><a class="anchor" id="_deprecated000088"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a26c1a7f05b82cae1e589f961074eb6ba">comms::option::def::UnitsNanoamps</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#aa2c0646356d349d0b3517b9a094dcb57">comms::option::UnitsNanometers</a>  </dt>
+<dd><a class="anchor" id="_deprecated000069"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a6952cbd3a486dc94c3092026abfd00f4">comms::option::def::UnitsNanometers</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a26f9723f9632a58b8fbc9af97bbdedac">comms::option::UnitsNanometersPerSecond</a>  </dt>
+<dd><a class="anchor" id="_deprecated000075"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a6a021521486fa26bee6d261164ee864a">comms::option::def::UnitsNanometersPerSecond</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a08b02894dc9ce7ba17e705b6b8fcc4e0">comms::option::UnitsNanoseconds</a>  </dt>
+<dd><a class="anchor" id="_deprecated000061"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#ad04b14a19f21bf5fd04806d40651d8cf">comms::option::def::UnitsNanoseconds</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a353280b22fa45aa33e090c567f4e2d45">comms::option::UnitsNanovolts</a>  </dt>
+<dd><a class="anchor" id="_deprecated000093"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a582bc738e45917f1024442db9223f3d9">comms::option::def::UnitsNanovolts</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#af276aa02567b35ed1b7570ed006521b7">comms::option::UnitsRadians</a>  </dt>
+<dd><a class="anchor" id="_deprecated000087"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a8869e9215a042c2aa4c121f758a9ba31">comms::option::def::UnitsRadians</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#ab0766e954353e949b7bde35cf259029e">comms::option::UnitsSeconds</a>  </dt>
+<dd><a class="anchor" id="_deprecated000064"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#afd07bdbc61c817cc37079601c240ca3b">comms::option::def::UnitsSeconds</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a46f0b85bc2abff2d73ad6d665cf99f48">comms::option::UnitsTerabytes</a>  </dt>
+<dd><a class="anchor" id="_deprecated000102"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a2a927d62b7712f8fe89155084c6a2c24">comms::option::def::UnitsTerabytes</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#ae0128266641b69ebe41911e54bc7fa54">comms::option::UnitsVolts</a>  </dt>
+<dd><a class="anchor" id="_deprecated000096"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a754e907ff8553b6715d1183b53c337d1">comms::option::def::UnitsVolts</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a2fc87a846df1c0a069447a30831afbe1">comms::option::UnitsWeeks</a>  </dt>
+<dd><a class="anchor" id="_deprecated000068"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a2905e3b93c65b4cb1acc8b909ce9ccea">comms::option::def::UnitsWeeks</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a8b4b3860f3eefdcb35baeeae286037e7">comms::option::ValidBigUnsignedNumValue</a>  </dt>
+<dd><a class="anchor" id="_deprecated000112"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a8ac4bdfbfb155ebe1cbe3abcbc2990ac">comms::option::def::ValidBigUnsignedNumValue</a> instead.  </dd>
 <dt>Member <a class="el" href="namespacecomms_1_1option.html#a2674c7b60ca71f22692a2d3df57339f6">comms::option::ValidBigUnsignedNumValueOverride</a>  </dt>
-<dd><a class="anchor" id="_deprecated000008"></a>Use <a class="el" href="namespacecomms_1_1option.html#a66292140ec63265376f4c88003b904ca">ValidRangesClear</a> instead.  </dd>
+<dd><a class="anchor" id="_deprecated000113"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#aedf1cfc6f1113482b6bdc98cfaf53a0b">comms::option::def::ValidBigUnsignedNumValueOverride</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a1af7c154d72f74eb0f91de0f634dc9f7">comms::option::ValidBigUnsignedNumValueRange</a>  </dt>
+<dd><a class="anchor" id="_deprecated000110"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1ValidBigUnsignedNumValueRange.html">comms::option::def::ValidBigUnsignedNumValueRange</a> instead.  </dd>
 <dt>Member <a class="el" href="namespacecomms_1_1option.html#a4fec2b55a91d380c9661e7714d7f8ccf">comms::option::ValidBigUnsignedNumValueRangeOverride</a>  </dt>
-<dd><a class="anchor" id="_deprecated000007"></a>Use <a class="el" href="namespacecomms_1_1option.html#a66292140ec63265376f4c88003b904ca">ValidRangesClear</a> instead.  </dd>
+<dd><a class="anchor" id="_deprecated000111"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a0616202b4169c7deb2bea18643247002">comms::option::def::ValidBigUnsignedNumValueRangeOverride</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a5049cec0c01322150d3d68cb4220468d">comms::option::ValidCheckInterface</a>  </dt>
+<dd><a class="anchor" id="_deprecated000144"></a>Use <a class="el" href="structcomms_1_1option_1_1app_1_1ValidCheckInterface.html">comms::option::app::ValidCheckInterface</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#aee76fe601f1471e4e9c0192c6d0c3bf3">comms::option::ValidNumValue</a>  </dt>
+<dd><a class="anchor" id="_deprecated000108"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a8ca4dd158c2eb6e8b58a2640b1e4d04d">comms::option::def::ValidNumValue</a> instead.  </dd>
 <dt>Member <a class="el" href="namespacecomms_1_1option.html#a2412c757d135380eb7320d2d657c2df7">comms::option::ValidNumValueOverride</a>  </dt>
-<dd><a class="anchor" id="_deprecated000006"></a>Use <a class="el" href="namespacecomms_1_1option.html#a66292140ec63265376f4c88003b904ca">ValidRangesClear</a> instead.  </dd>
+<dd><a class="anchor" id="_deprecated000109"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a72d7ed15d8cb17cc0d9da2a0a3e3ecd7">comms::option::def::ValidNumValueOverride</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a024849dc197c9f9df8d2b399d09908a2">comms::option::ValidNumValueRange</a>  </dt>
+<dd><a class="anchor" id="_deprecated000105"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1ValidNumValueRange.html">comms::option::def::ValidNumValueRange</a> instead.  </dd>
 <dt>Member <a class="el" href="namespacecomms_1_1option.html#af532ee43b4229214635e758eb88c727c">comms::option::ValidNumValueRangeOverride</a>  </dt>
-<dd><a class="anchor" id="_deprecated000005"></a>Use <a class="el" href="namespacecomms_1_1option.html#a66292140ec63265376f4c88003b904ca">ValidRangesClear</a> instead.  </dd>
-<dt>Member <a class="el" href="classcomms_1_1protocol_1_1ChecksumLayer.html#a5d2709b6e378a649f3d79b826096e175">comms::protocol::ChecksumLayer&lt; TField, TCalc, TNextLayer, TOptions &gt;::readField</a>  (const TMsg *msgPtr, <a class="el" href="classcomms_1_1Field.html" title="Base class to all the field classes.">Field</a> &amp;field, TIter &amp;iter, std::size_t len)</dt>
-<dd><a class="anchor" id="_deprecated000001"></a>Override <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a7050fb0df8e4efc8cc3e35214436fe55">doReadField()</a> instead  </dd>
-<dt>Member <a class="el" href="classcomms_1_1protocol_1_1ChecksumLayer.html#ac66ead85cf90866971d3c9f9362930cb">comms::protocol::ChecksumLayer&lt; TField, TCalc, TNextLayer, TOptions &gt;::writeField</a>  (const TMsg *msgPtr, const <a class="el" href="classcomms_1_1Field.html" title="Base class to all the field classes.">Field</a> &amp;field, TIter &amp;iter, std::size_t len) const</dt>
-<dd><a class="anchor" id="_deprecated000002"></a>Override <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a2a7d913a4c2d569ce9c0842b9e16a0cb">doWriteField()</a> instead <br  />
-  </dd>
-<dt>Member <a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#a7d63c9abc2309c63c90aab2bfb881573">comms::protocol::ChecksumPrefixLayer&lt; TField, TCalc, TNextLayer, TOptions &gt;::readField</a>  (const TMsg *msgPtr, <a class="el" href="classcomms_1_1Field.html" title="Base class to all the field classes.">Field</a> &amp;field, TIter &amp;iter, std::size_t len)</dt>
-<dd><a class="anchor" id="_deprecated000003"></a>Override <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a7050fb0df8e4efc8cc3e35214436fe55">doReadField()</a> instead  </dd>
-<dt>Member <a class="el" href="classcomms_1_1protocol_1_1ChecksumPrefixLayer.html#a1c251fcf7e13c27323cf64b27d7158fa">comms::protocol::ChecksumPrefixLayer&lt; TField, TCalc, TNextLayer, TOptions &gt;::writeField</a>  (const TMsg *msgPtr, const <a class="el" href="classcomms_1_1Field.html" title="Base class to all the field classes.">Field</a> &amp;field, TIter &amp;iter, std::size_t len) const</dt>
-<dd><a class="anchor" id="_deprecated000004"></a>Override <a class="el" href="classcomms_1_1protocol_1_1ProtocolLayerBase.html#a2a7d913a4c2d569ce9c0842b9e16a0cb">doWriteField()</a> instead <br  />
-  </dd>
-<dt>Member <a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html#af8f3ab09bab3b4b574302f0b7aa2f600">comms::protocol::TransportValueLayer&lt; TField, TIdx, TNextLayer, TOptions &gt;::reassignFieldValue</a>  (TMsg &amp;msg, const <a class="el" href="classcomms_1_1Field.html" title="Base class to all the field classes.">Field</a> &amp;field)</dt>
-<dd><a class="anchor" id="_deprecated000010"></a>Use <a class="el" href="classcomms_1_1protocol_1_1TransportValueLayer.html#a712e70394c638d82c531668a56e080ec">reassignFieldValueToMsg()</a> instead. </dd>
+<dd><a class="anchor" id="_deprecated000107"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#a3eb5570f61040f4a18288fb1cad25eed">comms::option::def::ValidNumValueRangeOverride</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a66292140ec63265376f4c88003b904ca">comms::option::ValidRangesClear</a>  </dt>
+<dd><a class="anchor" id="_deprecated000106"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1ValidRangesClear.html">comms::option::def::ValidRangesClear</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a18049143634e66bcac9d991619e0679b">comms::option::VarLength</a>  </dt>
+<dd><a class="anchor" id="_deprecated000044"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1VarLength.html">comms::option::def::VarLength</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#acf92f65dd3a31ac8276e2d8a4140d02a">comms::option::VersionInExtraTransportFields</a>  </dt>
+<dd><a class="anchor" id="_deprecated000037"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1VersionInExtraTransportFields.html">comms::option::def::VersionInExtraTransportFields</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#af63be00440abe4a0fb1aa6b6bbb62def">comms::option::VersionStorage</a>  </dt>
+<dd><a class="anchor" id="_deprecated000137"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1VersionStorage.html">comms::option::def::VersionStorage</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#aa2401dbc73075e26591fa9459745678f">comms::option::VersionType</a>  </dt>
+<dd><a class="anchor" id="_deprecated000131"></a>Use <a class="el" href="structcomms_1_1option_1_1def_1_1VersionType.html">comms::option::def::VersionType</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#a407c3ebeac360f26e51899312568ebb8">comms::option::WriteIterator</a>  </dt>
+<dd><a class="anchor" id="_deprecated000142"></a>Use <a class="el" href="structcomms_1_1option_1_1app_1_1WriteIterator.html">comms::option::app::WriteIterator</a> instead.  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1option.html#af5139c79cfb327f20e2d5c38077cba25">comms::option::ZeroFieldsImpl</a>  </dt>
+<dd><a class="anchor" id="_deprecated000039"></a>Use <a class="el" href="namespacecomms_1_1option_1_1def.html#af25731a01dd89c246a019d24c8f964d5">comms::option::def::ZeroFieldsImpl</a> instead.  </dd>
+<dt>Namespace <a class="el" href="namespacecomms_1_1protocol.html">comms::protocol</a>  </dt>
+<dd><a class="anchor" id="_deprecated000001"></a>Use classes <a class="el" href="namespacecomms_1_1frame.html">comms::frame</a> namespace instead  </dd>
+<dt>Namespace <a class="el" href="namespacecomms_1_1protocol_1_1checksum.html">comms::protocol::checksum</a>  </dt>
+<dd><a class="anchor" id="_deprecated000002"></a>Use classes <a class="el" href="namespacecomms_1_1frame_1_1checksum.html">comms::frame::checksum</a> namespace instead  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1protocol_1_1checksum.html#ac58ca1a9082534f7b7ac0894e4cef019">comms::protocol::checksum::BasicSum</a>  </dt>
+<dd><a class="anchor" id="_deprecated000008"></a>Use <a class="el" href="classcomms_1_1frame_1_1checksum_1_1BasicSum.html">comms::frame::checksum::BasicSum</a> class instead  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1protocol_1_1checksum.html#ab458539138ed007d4107dd0633616af0">comms::protocol::checksum::BasicXor</a>  </dt>
+<dd><a class="anchor" id="_deprecated000009"></a>Use <a class="el" href="classcomms_1_1frame_1_1checksum_1_1BasicXor.html">comms::frame::checksum::BasicXor</a> class instead  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1protocol_1_1checksum.html#a002635d4d0715a779587ea3a870d7fae">comms::protocol::checksum::Crc</a>  </dt>
+<dd><a class="anchor" id="_deprecated000010"></a>Use <a class="el" href="classcomms_1_1frame_1_1checksum_1_1Crc.html">comms::frame::checksum::Crc</a> class instead  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1protocol_1_1checksum.html#ac73eab67f780036b91e095fdf4c722b1">comms::protocol::checksum::Crc_16</a>  </dt>
+<dd><a class="anchor" id="_deprecated000012"></a>Use <a class="el" href="namespacecomms_1_1frame_1_1checksum.html#ae8e68695bc0a4cf2cde46cca4520ab91">comms::frame::checksum::Crc_16</a> class instead  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1protocol_1_1checksum.html#afe845d1db89e2a9d0216be00db4d5b9c">comms::protocol::checksum::Crc_32</a>  </dt>
+<dd><a class="anchor" id="_deprecated000013"></a>Use <a class="el" href="namespacecomms_1_1frame_1_1checksum.html#af25193336557bede76b349e3adf0cebb">comms::frame::checksum::Crc_32</a> class instead  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1protocol_1_1checksum.html#ae8178ed59dbe104ccdd049c348205670">comms::protocol::checksum::Crc_CCITT</a>  </dt>
+<dd><a class="anchor" id="_deprecated000011"></a>Use <a class="el" href="namespacecomms_1_1frame_1_1checksum.html#a0caebf8c043cbd37b99d2f291333f57d">comms::frame::checksum::Crc_CCITT</a> class instead  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1protocol.html#a2b6666ed69dbdf282b5debb7ca8f2c3f">comms::protocol::ChecksumLayer</a>  </dt>
+<dd><a class="anchor" id="_deprecated000014"></a>Use <a class="el" href="classcomms_1_1frame_1_1ChecksumLayer.html">comms::frame::ChecksumLayer</a> class instead  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1protocol.html#a2ea73ab03cdc4eb058b1c4ac16c48248">comms::protocol::ChecksumPrefixLayer</a>  </dt>
+<dd><a class="anchor" id="_deprecated000015"></a>Use <a class="el" href="classcomms_1_1frame_1_1ChecksumPrefixLayer.html">comms::frame::ChecksumPrefixLayer</a> class instead  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1protocol.html#a3246749329a179e8330a47f71f7b9761">comms::protocol::missingSize</a>  (std::size_t &amp;val) -&gt; decltype(comms::frame::missingSize(val))</dt>
+<dd><a class="anchor" id="_deprecated000024"></a>Use <a class="el" href="namespacecomms_1_1frame.html#a3566abf140404b6aeef674168678f23c">comms::frame::missingSize()</a> instead  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1protocol.html#a7df17ea5b11095fce8bf33425be4a9a4">comms::protocol::MsgDataLayer</a>  </dt>
+<dd><a class="anchor" id="_deprecated000016"></a>Use <a class="el" href="classcomms_1_1frame_1_1MsgDataLayer.html">comms::frame::MsgDataLayer</a> class instead  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1protocol.html#a45871debbf254191a2050217a52b355e">comms::protocol::msgId</a>  (TId &amp;val) -&gt; decltype(comms::frame::msgId(val))</dt>
+<dd><a class="anchor" id="_deprecated000025"></a>Use <a class="el" href="namespacecomms_1_1frame.html#ad680afe33e9358d91a8d849b7d47ea40">comms::frame::msgId()</a> instead  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1protocol.html#a35565305a2ea668467c1cb4e97c1d501">comms::protocol::MsgIdLayer</a>  </dt>
+<dd><a class="anchor" id="_deprecated000017"></a>Use <a class="el" href="classcomms_1_1frame_1_1MsgIdLayer.html">comms::frame::MsgIdLayer</a> class instead  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1protocol.html#ad0eb77cb55f2285cf8bbad09b372a4a4">comms::protocol::msgIndex</a>  (std::size_t &amp;val) -&gt; decltype(comms::frame::msgIndex(val))</dt>
+<dd><a class="anchor" id="_deprecated000026"></a>Use <a class="el" href="namespacecomms_1_1frame.html#a9294d6c9288266eec8f3c3fe51e43269">comms::frame::msgIndex()</a> instead  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1protocol.html#a66d08037256cd9997aac858dd28b74e8">comms::protocol::msgPayload</a>  (TIter &amp;iter, std::size_t &amp;len) -&gt; decltype(comms::frame::msgPayload(iter, len))</dt>
+<dd><a class="anchor" id="_deprecated000027"></a>Use <a class="el" href="namespacecomms_1_1frame.html#a3a240f101b35f8499d7b28cc9ee9f297">comms::frame::msgPayload()</a> instead  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1protocol.html#a44206fd046b4799363ab9d9d048191c4">comms::protocol::MsgSizeLayer</a>  </dt>
+<dd><a class="anchor" id="_deprecated000018"></a>Use <a class="el" href="classcomms_1_1frame_1_1MsgSizeLayer.html">comms::frame::MsgSizeLayer</a> class instead  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1protocol.html#a38622ac8a0c862024a2d05094a066a6c">comms::protocol::ProtocolLayerBase</a>  </dt>
+<dd><a class="anchor" id="_deprecated000021"></a>Use <a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html">comms::frame::FrameLayerBase</a> class instead  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1protocol.html#a6962a5b695448b796e01d7cdde851ae8">comms::protocol::SyncPrefixLayer</a>  </dt>
+<dd><a class="anchor" id="_deprecated000019"></a>Use <a class="el" href="classcomms_1_1frame_1_1SyncPrefixLayer.html">comms::frame::SyncPrefixLayer</a> class instead  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1protocol.html#a36a5affb9cbdc65e0d5369f639d9c8d3">comms::protocol::toFrameLayerBase</a>  (const ProtocolLayerBase&lt; TField, TNextLayer, TDerived, TOptions... &gt; &amp;layer) -&gt; decltype(comms::frame::toFrameLayerBase(layer))</dt>
+<dd><a class="anchor" id="_deprecated000023"></a>Use <a class="el" href="namespacecomms_1_1frame.html#aafe08121b276abbfa4530c7b1c896053">comms::frame::toFrameLayerBase()</a> instead  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1protocol.html#a81cbdf2dc92fb79082fd583315c8c8b2">comms::protocol::toProtocolLayerBase</a>  (ProtocolLayerBase&lt; TField, TNextLayer, TDerived, TOptions... &gt; &amp;layer) -&gt; decltype(comms::frame::toFrameLayerBase(layer))</dt>
+<dd><a class="anchor" id="_deprecated000022"></a>Use <a class="el" href="namespacecomms_1_1frame.html#aafe08121b276abbfa4530c7b1c896053">comms::frame::toFrameLayerBase()</a> instead  </dd>
+<dt>Member <a class="el" href="namespacecomms_1_1protocol.html#aaece12903295af0928a9b763cd156bab">comms::protocol::TransportValueLayer</a>  </dt>
+<dd><a class="anchor" id="_deprecated000020"></a>Use <a class="el" href="classcomms_1_1frame_1_1TransportValueLayer.html">comms::frame::TransportValueLayer</a> class instead </dd>
 </dl>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

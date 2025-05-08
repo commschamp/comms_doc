@@ -1650,7 +1650,7 @@ Transport Framing</h1>
 <div class="line"><span class="keyword">struct </span>Frame : <span class="keyword">public</span> </div>
 <div class="line">    MySyncPrefix&lt;TMessage, TInputMessages, TAllocationOptions&gt; </div>
 <div class="line">{</div>
-<div class="line">    COMMS_PROTOCOL_LAYERS_ACCESS(...);</div>
+<div class="line">    COMMS_FRAME_LAYERS_ACCESS(...);</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line">} <span class="comment">// namespace my_protocol</span></div>
@@ -1688,7 +1688,7 @@ Transport Framing</h1>
 <div class="line"><span class="keyword">struct </span>Frame : <span class="keyword">public</span> </div>
 <div class="line">    MySyncPrefix&lt;TMessage, TInputMessages, TOpt&gt; </div>
 <div class="line">{</div>
-<div class="line">    COMMS_PROTOCOL_LAYERS_ACCESS(...);</div>
+<div class="line">    COMMS_FRAME_LAYERS_ACCESS(...);</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line">} <span class="comment">// namespace my_protocol</span></div>
@@ -1813,7 +1813,7 @@ Access to Processed Frame Fields</h2>
 Also, the <b>Frame</b> defines <a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html#ae9fdcbc3382f10452a6d8d0edfd5a41b">readFieldsCached()</a> and <a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html#a2b4866367d16932a2a0a6632c7e2c3fd">writeFieldsCached()</a> member functions which are substitutes to normal <a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html#acba89d4affe6bec7637ee8c0b82b358d">read()</a> and <a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html#a13f74156f9545929fb01967ff9e10da2">write()</a>. The first parameter to these functions is reference to the <a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html#a8ad1f0f0aa396ce943b4ec390b3ed7f2">AllFields</a> bundle object. </p><div class="fragment"><div class="line">MyFrame::AllFields fields;</div>
 <div class="line"><span class="keyword">auto</span> es = frame.readFieldsCached(fields, msgPtr, readIter, bufSize);</div>
 </div><!-- fragment --><p> The layer class that is responsible to read/write payload data (see <a class="el" href="classcomms_1_1frame_1_1MsgDataLayer.html">comms::frame::MsgDataLayer</a>) uses <a class="el" href="classcomms_1_1field_1_1ArrayList.html">comms::field::ArrayList</a> to define a field that will store the payload when "caching" operations are performed. In case the the input / output buffer outlives the <b>AllFields</b> object, consider passing <a class="el" href="structcomms_1_1option_1_1app_1_1OrigDataView.html">comms::option::app::OrigDataView</a> option as the fourth template parameter to <b>Frame</b> definition, which will pass it to to the field containing the message payload raw data. Otherwise, the payload part from the read / written buffer will also be copied to storage area of the cached payload field.</p>
-<p>As was mentioned earlier, the frame is defined using so called <b>layer</b> classes (defined in <a class="el" href="namespacecomms_1_1frame.html">comms::frame</a> namespace) by wrapping one another. Access to the appropriate layer may be obtained using a sequence of calls to <b>nextLayer()</b> member functions (see <a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html#a520a1d3b2f062fe9674df67001631c5b">comms::frame::FrameLayerBase::nextLayer()</a>). Alternatively, the frame definition is also expected to use COMMS_PROTOCOL_LAYERS_ACCESS() macro to generate a convenience access functions. For example </p><div class="fragment"><div class="line"><span class="keyword">namespace </span>my_protocol</div>
+<p>As was mentioned earlier, the frame is defined using so called <b>layer</b> classes (defined in <a class="el" href="namespacecomms_1_1frame.html">comms::frame</a> namespace) by wrapping one another. Access to the appropriate layer may be obtained using a sequence of calls to <b>nextLayer()</b> member functions (see <a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html#a520a1d3b2f062fe9674df67001631c5b">comms::frame::FrameLayerBase::nextLayer()</a>). Alternatively, the frame definition is also expected to use COMMS_FRAME_LAYERS_ACCESS() macro to generate a convenience access functions. For example </p><div class="fragment"><div class="line"><span class="keyword">namespace </span>my_protocol</div>
 <div class="line">{</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt;</div>
@@ -1824,7 +1824,7 @@ Also, the <b>Frame</b> defines <a class="el" href="classcomms_1_1frame_1_1FrameL
 <div class="line"><span class="keyword">struct </span>Frame : <span class="keyword">public</span> </div>
 <div class="line">    MySyncPrefix&lt;TMessage, TInputMessages, TAllocationOptions&gt; </div>
 <div class="line">{</div>
-<div class="line">    COMMS_PROTOCOL_LAYERS_ACCESS(payload, <span class="keywordtype">id</span>, size, checksum, sync);</div>
+<div class="line">    COMMS_FRAME_LAYERS_ACCESS(payload, <span class="keywordtype">id</span>, size, checksum, sync);</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line">} <span class="comment">// namespace my_protocol</span></div>
@@ -2182,7 +2182,7 @@ Pseudo Transport Values</h1>
 <div class="line"><span class="keyword">struct </span>Frame : <span class="keyword">public</span> </div>
 <div class="line">    MySizePrefix&lt;TMessage, TInputMessages, TAllocationOptions&gt; </div>
 <div class="line">{</div>
-<div class="line">    COMMS_PROTOCOL_LAYERS_ACCESS(payload, version, <span class="keywordtype">id</span>, size);</div>
+<div class="line">    COMMS_FRAME_LAYERS_ACCESS(payload, version, <span class="keywordtype">id</span>, size);</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line">} <span class="comment">// namespace my_protocol</span></div>

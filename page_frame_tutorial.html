@@ -371,7 +371,7 @@ Layers Summary</h1>
 <div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for MsgIdLayer</span></div>
 <div class="line">&gt;</div>
 <div class="line"><span class="keyword">using </span>Frame = MySyncPrefix&lt;TMessage, TInputMessages, TAllocationOptions&gt; ;</div>
-</div><!-- fragment --><p> Every protocol layer provides an ability to access the next one using <a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html#a520a1d3b2f062fe9674df67001631c5b">nextLayer()</a> member function. It is strongly recommended to generate convenience access functions using COMMS_PROTOCOL_LAYERS_ACCESS() macro. </p><div class="fragment"><div class="line"><span class="keyword">template</span> &lt;</div>
+</div><!-- fragment --><p> Every protocol layer provides an ability to access the next one using <a class="el" href="classcomms_1_1frame_1_1FrameLayerBase.html#a520a1d3b2f062fe9674df67001631c5b">nextLayer()</a> member function. It is strongly recommended to generate convenience access functions using COMMS_FRAME_LAYERS_ACCESS() macro. </p><div class="fragment"><div class="line"><span class="keyword">template</span> &lt;</div>
 <div class="line">    <span class="keyword">typename</span> TMessage, <span class="comment">// common interface class defined by the application</span></div>
 <div class="line">    <span class="keyword">typename</span> TInputMessages = AllMessages&lt;TMessage&gt;, <span class="comment">// Input messages that need to be recognised</span></div>
 <div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for MsgIdLayer</span></div>
@@ -379,7 +379,7 @@ Layers Summary</h1>
 <div class="line"><span class="keyword">struct </span>Frame : <span class="keyword">public</span> </div>
 <div class="line">    MySyncPrefix&lt;TMessage, TInputMessages, TAllocationOptions&gt; </div>
 <div class="line">{</div>
-<div class="line">    COMMS_PROTOCOL_LAYERS_ACCESS(payload, <span class="keywordtype">id</span>, size, checksum, sync);</div>
+<div class="line">    COMMS_FRAME_LAYERS_ACCESS(payload, <span class="keywordtype">id</span>, size, checksum, sync);</div>
 <div class="line">};</div>
 </div><!-- fragment --><p> It is equivalent to having the following member function being defined: </p><div class="fragment"><div class="line"><span class="keyword">template</span> &lt;</div>
 <div class="line">    <span class="keyword">typename</span> TMessage, <span class="comment">// common interface class defined by the application</span></div>
@@ -421,9 +421,9 @@ Layers Summary</h1>
 <div class="line">};</div>
 </div><!-- fragment --><p> Please note the following: </p><ul>
 <li>Every provided name is prefixed with <b>layer_</b>. </li>
-<li>The names inside the COMMS_PROTOCOL_LAYERS_ACCESS() macro specify innermost layer first and outermost one last. There is a convenience wrapper macro COMMS_PROTOCOL_LAYERS_ACCESS_OUTER() which allows listing in the opposite order (outermost first and innermost last).</li>
+<li>The names inside the COMMS_FRAME_LAYERS_ACCESS() macro specify innermost layer first and outermost one last. There is a convenience wrapper macro COMMS_FRAME_LAYERS_ACCESS_OUTER() which allows listing in the opposite order (outermost first and innermost last).</li>
 </ul>
-<p><b style="color:red">WARNING:</b> Some compilers, such as <b>clang</b> or earlier versions of <b>gcc</b> (v4.9 and earlier) may have problems compiling the COMMS_PROTOCOL_LAYERS_ACCESS() macro even though it contains valid C++11 code. If the compilation failure happens there is a need to define inner <b>Base</b> type which specifies exact type of the frame base class. </p><div class="fragment"><div class="line"><span class="keyword">template</span> &lt;</div>
+<p><b style="color:red">WARNING:</b> Some compilers, such as <b>clang</b> or earlier versions of <b>gcc</b> (v4.9 and earlier) may have problems compiling the COMMS_FRAME_LAYERS_ACCESS() macro even though it contains valid C++11 code. If the compilation failure happens there is a need to define inner <b>Base</b> type which specifies exact type of the frame base class. </p><div class="fragment"><div class="line"><span class="keyword">template</span> &lt;</div>
 <div class="line">    <span class="keyword">typename</span> TMessage, <span class="comment">// common interface class defined by the application</span></div>
 <div class="line">    <span class="keyword">typename</span> TInputMessages = AllMessages&lt;TMessage&gt;, <span class="comment">// Input messages that need to be recognised</span></div>
 <div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for MsgIdLayer</span></div>
@@ -433,7 +433,7 @@ Layers Summary</h1>
 <div class="line">{</div>
 <div class="line">    <span class="keyword">using </span>Base = MySyncPrefix&lt;TMessage, TInputMessages, TAllocationOptions&gt;;</div>
 <div class="line"><span class="keyword">public</span>:</div>
-<div class="line">    COMMS_PROTOCOL_LAYERS_ACCESS(payload, <span class="keywordtype">id</span>, size, checksum, sync);</div>
+<div class="line">    COMMS_FRAME_LAYERS_ACCESS(payload, <span class="keywordtype">id</span>, size, checksum, sync);</div>
 <div class="line">};</div>
 </div><!-- fragment --><p> <b>NOTE</b>, that <b>COMMS</b> library also defines <b>COMMS_MUST_DEFINE_BASE</b> in case the base class definition is needed (going to be used). If the developed application is going to be multi-platform and compiled with various compilers (some of which may warn about unused private type) it is possible to use the defined symbol to add / remove the definition of the <b>Base</b> member type. </p><div class="fragment"><div class="line"><span class="keyword">template</span> &lt;</div>
 <div class="line">    <span class="keyword">typename</span> TMessage, <span class="comment">// common interface class defined by the application</span></div>
@@ -447,9 +447,9 @@ Layers Summary</h1>
 <div class="line">    <span class="keyword">using </span>Base = ...</div>
 <div class="line">#endif</div>
 <div class="line"><span class="keyword">public</span>:</div>
-<div class="line">    COMMS_PROTOCOL_LAYERS_ACCESS(payload, <span class="keywordtype">id</span>, size, checksum, sync);</div>
+<div class="line">    COMMS_FRAME_LAYERS_ACCESS(payload, <span class="keywordtype">id</span>, size, checksum, sync);</div>
 <div class="line">};</div>
-</div><!-- fragment --><p> Since <b>v5.2</b> the COMMS library defines COMMS_PROTOCOL_LAYERS_NAMES() and COMMS_PROTOCOL_LAYERS_NAMES_OUTER() macros they are similar to the COMMS_PROTOCOL_LAYERS_NAMES() and COMMS_PROTOCOL_LAYERS_NAMES_OUTER() respectively, but also provide aliases to the layer types. However usage of these macros requires inner <b>Base</b> type definition of the base class: </p><div class="fragment"><div class="line"><span class="keyword">template</span> &lt;</div>
+</div><!-- fragment --><p> Since <b>v5.2</b> the COMMS library defines COMMS_FRAME_LAYERS_NAMES() and COMMS_FRAME_LAYERS_NAMES_OUTER() macros they are similar to the COMMS_FRAME_LAYERS_NAMES() and COMMS_FRAME_LAYERS_NAMES_OUTER() respectively, but also provide aliases to the layer types. However usage of these macros requires inner <b>Base</b> type definition of the base class: </p><div class="fragment"><div class="line"><span class="keyword">template</span> &lt;</div>
 <div class="line">    <span class="keyword">typename</span> TMessage, <span class="comment">// common interface class defined by the application</span></div>
 <div class="line">    <span class="keyword">typename</span> TInputMessages = AllMessages&lt;TMessage&gt;, <span class="comment">// Input messages that need to be recognised</span></div>
 <div class="line">    <span class="keyword">typename</span> TAllocationOptions = <a class="code hl_struct" href="structcomms_1_1option_1_1app_1_1EmptyOption.html">comms::option::app::EmptyOption</a> <span class="comment">// Extra options for MsgIdLayer</span></div>
@@ -460,7 +460,7 @@ Layers Summary</h1>
 <div class="line">    <span class="comment">// Base type definition is a requirement</span></div>
 <div class="line">    <span class="keyword">using </span>Base = MySyncPrefix&lt;TMessage, TInputMessages, TAllocationOptions&gt;</div>
 <div class="line"><span class="keyword">public</span>:</div>
-<div class="line">    COMMS_PROTOCOL_LAYERS_NAMES(payload, <span class="keywordtype">id</span>, size, checksum, sync);</div>
+<div class="line">    COMMS_FRAME_LAYERS_NAMES(payload, <span class="keywordtype">id</span>, size, checksum, sync);</div>
 <div class="line">};</div>
 </div><!-- fragment --><p> It is equivalent to having the following types and member function being defined: </p><div class="fragment"><div class="line"><span class="keyword">template</span> &lt;</div>
 <div class="line">    <span class="keyword">typename</span> TMessage, <span class="comment">// common interface class defined by the application</span></div>

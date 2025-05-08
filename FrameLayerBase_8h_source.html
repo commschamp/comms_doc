@@ -1240,35 +1240,35 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l01657" name="l01657"></a><span class="lineno"> 1657</span>}  <span class="comment">// namespace comms</span></div>
 <div class="line"><a id="l01658" name="l01658"></a><span class="lineno"> 1658</span> </div>
 <div class="foldopen" id="foldopen01665" data-start="" data-end="">
-<div class="line"><a id="l01665" name="l01665"></a><span class="lineno"><a class="line" href="classcomms_1_1frame_1_1FrameLayerBase.html#a7fb36c91416d5bbfd3434c164cc01692"> 1665</a></span><span class="preprocessor">#define COMMS_PROTOCOL_LAYERS_ACCESS(...) \</span></div>
+<div class="line"><a id="l01665" name="l01665"></a><span class="lineno"><a class="line" href="classcomms_1_1frame_1_1FrameLayerBase.html#a45909af8482a03654e5dcc4ec0ffdf4c"> 1665</a></span><span class="preprocessor">#define COMMS_FRAME_LAYERS_ACCESS(...) \</span></div>
 <div class="line"><a id="l01666" name="l01666"></a><span class="lineno"> 1666</span><span class="preprocessor">    COMMS_DO_ACCESS_LAYER_ACC_FUNC(__VA_ARGS__)</span></div>
 </div>
 <div class="line"><a id="l01667" name="l01667"></a><span class="lineno"> 1667</span> </div>
 <div class="foldopen" id="foldopen01674" data-start="" data-end="">
-<div class="line"><a id="l01674" name="l01674"></a><span class="lineno"><a class="line" href="classcomms_1_1frame_1_1FrameLayerBase.html#a1ad7d81e8c974a2e774db1c5c126c7fa"> 1674</a></span><span class="preprocessor">#define COMMS_PROTOCOL_LAYERS_NAMES(...) \</span></div>
+<div class="line"><a id="l01674" name="l01674"></a><span class="lineno"><a class="line" href="classcomms_1_1frame_1_1FrameLayerBase.html#a0c913a2a9a079b15e3fbfeada67d30d7"> 1674</a></span><span class="preprocessor">#define COMMS_FRAME_LAYERS_NAMES(...) \</span></div>
 <div class="line"><a id="l01675" name="l01675"></a><span class="lineno"> 1675</span><span class="preprocessor">    COMMS_DO_LAYER_TYPE_ALIAS(Base, __VA_ARGS__) \</span></div>
 <div class="line"><a id="l01676" name="l01676"></a><span class="lineno"> 1676</span><span class="preprocessor">    COMMS_DO_ACCESS_LAYER_ACC_FUNC(__VA_ARGS__)</span></div>
 </div>
 <div class="line"><a id="l01677" name="l01677"></a><span class="lineno"> 1677</span> </div>
 <div class="line"><a id="l01678" name="l01678"></a><span class="lineno"> 1678</span> </div>
 <div class="foldopen" id="foldopen01681" data-start="" data-end="">
-<div class="line"><a id="l01681" name="l01681"></a><span class="lineno"><a class="line" href="classcomms_1_1frame_1_1FrameLayerBase.html#ad8fd385995c888a08f3c5c8647a3230f"> 1681</a></span><span class="preprocessor">#define COMMS_PROTOCOL_LAYERS_ACCESS_INNER(...) \</span></div>
-<div class="line"><a id="l01682" name="l01682"></a><span class="lineno"> 1682</span><span class="preprocessor">    COMMS_PROTOCOL_LAYERS_ACCESS(__VA_ARGS__)</span></div>
+<div class="line"><a id="l01681" name="l01681"></a><span class="lineno"><a class="line" href="classcomms_1_1frame_1_1FrameLayerBase.html#a319023e7ba5755efed4c67fd9f9bb3d3"> 1681</a></span><span class="preprocessor">#define COMMS_FRAME_LAYERS_ACCESS_INNER(...) \</span></div>
+<div class="line"><a id="l01682" name="l01682"></a><span class="lineno"> 1682</span><span class="preprocessor">    COMMS_FRAME_LAYERS_ACCESS(__VA_ARGS__)</span></div>
 </div>
 <div class="line"><a id="l01683" name="l01683"></a><span class="lineno"> 1683</span> </div>
 <div class="foldopen" id="foldopen01686" data-start="" data-end="">
-<div class="line"><a id="l01686" name="l01686"></a><span class="lineno"><a class="line" href="classcomms_1_1frame_1_1FrameLayerBase.html#abf636c5d3c3b9ff161413c5d043cec99"> 1686</a></span><span class="preprocessor">#define COMMS_PROTOCOL_LAYERS_NAMES_INNER(...) \</span></div>
-<div class="line"><a id="l01687" name="l01687"></a><span class="lineno"> 1687</span><span class="preprocessor">    COMMS_PROTOCOL_LAYERS_NAMES(__VA_ARGS__)    </span></div>
+<div class="line"><a id="l01686" name="l01686"></a><span class="lineno"><a class="line" href="classcomms_1_1frame_1_1FrameLayerBase.html#a43ac8e9e751f98efa089c980644710f3"> 1686</a></span><span class="preprocessor">#define COMMS_FRAME_LAYERS_NAMES_INNER(...) \</span></div>
+<div class="line"><a id="l01687" name="l01687"></a><span class="lineno"> 1687</span><span class="preprocessor">    COMMS_FRAME_LAYERS_NAMES(__VA_ARGS__)    </span></div>
 </div>
 <div class="line"><a id="l01688" name="l01688"></a><span class="lineno"> 1688</span> </div>
 <div class="foldopen" id="foldopen01697" data-start="" data-end="">
-<div class="line"><a id="l01697" name="l01697"></a><span class="lineno"><a class="line" href="classcomms_1_1frame_1_1FrameLayerBase.html#a394d12f1394bc4c207a4734d75605c87"> 1697</a></span><span class="preprocessor">#define COMMS_PROTOCOL_LAYERS_ACCESS_OUTER(...) \</span></div>
-<div class="line"><a id="l01698" name="l01698"></a><span class="lineno"> 1698</span><span class="preprocessor">    COMMS_PROTOCOL_LAYERS_ACCESS(COMMS_EXPAND(COMMS_REVERSE_MACRO_ARGS(__VA_ARGS__)))</span></div>
+<div class="line"><a id="l01697" name="l01697"></a><span class="lineno"><a class="line" href="classcomms_1_1frame_1_1FrameLayerBase.html#a80111e86836c752b860f6ed1aa112d25"> 1697</a></span><span class="preprocessor">#define COMMS_FRAME_LAYERS_ACCESS_OUTER(...) \</span></div>
+<div class="line"><a id="l01698" name="l01698"></a><span class="lineno"> 1698</span><span class="preprocessor">    COMMS_FRAME_LAYERS_ACCESS(COMMS_EXPAND(COMMS_REVERSE_MACRO_ARGS(__VA_ARGS__)))</span></div>
 </div>
 <div class="line"><a id="l01699" name="l01699"></a><span class="lineno"> 1699</span> </div>
 <div class="foldopen" id="foldopen01706" data-start="" data-end="">
-<div class="line"><a id="l01706" name="l01706"></a><span class="lineno"><a class="line" href="classcomms_1_1frame_1_1FrameLayerBase.html#a7d4451775274adbd829227dd0f459f70"> 1706</a></span><span class="preprocessor">#define COMMS_PROTOCOL_LAYERS_NAMES_OUTER(...) \</span></div>
-<div class="line"><a id="l01707" name="l01707"></a><span class="lineno"> 1707</span><span class="preprocessor">    COMMS_PROTOCOL_LAYERS_NAMES(COMMS_EXPAND(COMMS_REVERSE_MACRO_ARGS(__VA_ARGS__)))</span></div>
+<div class="line"><a id="l01706" name="l01706"></a><span class="lineno"><a class="line" href="classcomms_1_1frame_1_1FrameLayerBase.html#a0e8a9056542039e69d95b8af99d3bbaf"> 1706</a></span><span class="preprocessor">#define COMMS_FRAME_LAYERS_NAMES_OUTER(...) \</span></div>
+<div class="line"><a id="l01707" name="l01707"></a><span class="lineno"> 1707</span><span class="preprocessor">    COMMS_FRAME_LAYERS_NAMES(COMMS_EXPAND(COMMS_REVERSE_MACRO_ARGS(__VA_ARGS__)))</span></div>
 </div>
 <div class="line"><a id="l01708" name="l01708"></a><span class="lineno"> 1708</span> </div>
 <div class="line"><a id="l01709" name="l01709"></a><span class="lineno"> 1709</span>COMMS_MSVC_WARNING_POP</div>
